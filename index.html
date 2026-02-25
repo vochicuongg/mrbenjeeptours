@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Mr. Ben Jeep Tours – Premium luxury jeep tours through the breathtaking White &amp; Red Sand Dunes of Mũi Né – Phan Thiết, Vietnam." />
+    <title>Mr. Ben Jeep Tours | Luxury Jeep Tours – Mũi Né, Phan Thiết</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-logo-img" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <!-- Logo shown only in mobile overlay -->
+                <li class="nav-mobile-logo-item">
+                    <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-mobile-logo" />
+                </li>
+                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#tours" class="nav-link" data-i18n="nav.tours">Tours</a></li>
+                <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <!-- ── Language Switcher ── -->
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+                    <img src="assets/images/languages/vietnam.webp" alt="VI" class="lang-flag" id="langFlagActive" />
+                    <span class="lang-code" id="langCodeActive">VI</span>
+                    <i class="fas fa-chevron-down lang-arrow" id="langArrow"></i>
+                </button>
+                <ul class="lang-dropdown" id="langDropdown" role="listbox">
+                    <li class="lang-option active" data-lang="vi" data-flag="assets/images/languages/vietnam.webp"
+                        data-label="VI" role="option">
+                        <img src="assets/images/languages/vietnam.webp" alt="Vietnam" class="lang-flag" />
+                        <span>Tiếng Việt</span>
+                    </li>
+                    <li class="lang-option" data-lang="en" data-flag="assets/images/languages/usa.webp" data-label="EN"
+                        role="option">
+                        <img src="assets/images/languages/usa.webp" alt="English" class="lang-flag" />
+                        <span>English</span>
+                    </li>
+                    <li class="lang-option" data-lang="ru" data-flag="assets/images/languages/russia.webp"
+                        data-label="RU" role="option">
+                        <img src="assets/images/languages/russia.webp" alt="Русский" class="lang-flag" />
+                        <span>Русский</span>
+                    </li>
+                    <li class="lang-option" data-lang="zh" data-flag="assets/images/languages/china.webp"
+                        data-label="ZH" role="option">
+                        <img src="assets/images/languages/china.webp" alt="中文" class="lang-flag" />
+                        <span>中文</span>
+                    </li>
+                    <li class="lang-option" data-lang="ko" data-flag="assets/images/languages/south-korea.webp"
+                        data-label="KO" role="option">
+                        <img src="assets/images/languages/south-korea.webp" alt="한국어" class="lang-flag" />
+                        <span>한국어</span>
+                    </li>
+                    <li class="lang-option" data-lang="de" data-flag="assets/images/languages/germany.webp"
+                        data-label="DE" role="option">
+                        <img src="assets/images/languages/germany.webp" alt="Deutsch" class="lang-flag" />
+                        <span>Deutsch</span>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#tours" class="btn btn-gold nav-cta" data-i18n="nav.bookNow">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow" data-i18n="hero.eyebrow"><i class="fas fa-star"></i> Luxury Jeep Tours · Mũi Né ·
+                Phan Thiết</p>
+            <h1 class="hero-title">
+                <span data-i18n="hero.title1" class="hero-title-line1">Khám Phá Mũi Né</span>
+                <span class="hero-brand-lockup">
+                    <span class="hero-title-with" data-i18n="hero.titleWith">Cùng</span>
+                    <span class="hero-brand-name">
+                        <span class="hero-brand-mr">MR. BEN</span>
+                        <span class="hero-brand-jeep">JEEP TOURS</span>
+                    </span>
+                </span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Premium Jeep Tours through the breathtaking White &amp;
+                Red Sand Dunes of Phan
+                Thiết — sunrise, sunset, and beyond.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-outline-gold" data-i18n="hero.viewTours">Contact Us</a>
+                <a href="#tours" class="btn btn-gold" data-i18n="hero.bookAdv">Book Your Adventure</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT / WHY CHOOSE US ===================== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow" data-i18n="about.eyebrow">Why Choose Us</p>
+                <h2 class="section-title"><span data-i18n="about.title1">The</span> <span class="gold-text"
+                        data-i18n="about.titleGold">Mr. Ben Experience</span></h2>
+                <p class="section-subtitle" data-i18n="about.subtitle">We combine local expertise with premium comfort,
+                    making every dune and
+                    coastline an unforgettable memory.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3 data-i18n="feat.driversTitle">Professional Drivers</h3>
+                    <p data-i18n="feat.driversDesc">Certified, experienced local drivers who know every trail, dune, and
+                        hidden gem of Mũi Né.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-truck-monster"></i></div>
+                    <h3 data-i18n="feat.jeepsTitle">Premium Jeeps</h3>
+                    <p data-i18n="feat.jeepsDesc">Ride in style with our fleet of classic, well-maintained Jeeps built
+                        for both comfort and adventure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <h3 data-i18n="feat.localTitle">Local Expertise</h3>
+                    <p data-i18n="feat.localDesc">Born and raised in Phan Thiết — we share the culture, stories, and
+                        secret spots only locals know.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-camera-retro"></i></div>
+                    <h3 data-i18n="feat.photoTitle">Photo Opportunities</h3>
+                    <p data-i18n="feat.photoDesc">Every stop is curated for the most stunning shots — your Instagram
+                        will never look this good.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FEATURED TOURS ===================== -->
+    <section class="section tours" id="tours">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow" data-i18n="tours.eyebrow">Our Signature Experiences</p>
+                <h2 class="section-title"><span data-i18n="tours.title1">Featured</span> <span class="gold-text"
+                        data-i18n="tours.titleGold">Tours</span></h2>
+                <p class="section-subtitle" data-i18n="tours.subtitle">Handcrafted itineraries that showcase the very
+                    best of Mũi Né and Phan
+                    Thiết.</p>
+            </div>
+            <div class="tours-slider-wrapper">
+                <button class="tours-arrow tours-arrow-prev" aria-label="Trước">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="tours-arrow tours-arrow-next" aria-label="Tiếp theo">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="tours-grid" id="toursGrid">
+
+                    <!-- Xe Jeep Đỏ -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-do.webp" alt="Xe Jeep Đỏ" loading="lazy" />
+                            <span class="tour-badge">Best Seller</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Đỏ</h3>
+                            <p class="tour-desc">Chiếc Jeep đỏ rực nổi bật giữa những đồi cát — lựa chọn hoàn hảo cho
+                                chuyến
+                                khám phá bình minh và hoàng hôn tuyệt đẹp.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xe Jeep Cam -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-cam.webp" alt="Xe Jeep Cam" loading="lazy" />
+                            <span class="tour-badge sunset-badge">Popular</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Cam</h3>
+                            <p class="tour-desc">Màu cam rực rỡ như ánh hoàng hôn — cùng chiếc Jeep cam chinh phục cồn
+                                cát
+                                đỏ và khung cảnh ven biển hùng vĩ.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xe Jeep Hồng -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-hong.webp" alt="Xe Jeep Hồng" loading="lazy" />
+                            <span class="tour-badge sunset-badge">Popular</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Hồng</h3>
+                            <p class="tour-desc">Phong cách, cá tính và đầy màu sắc — chuyến hành trình trên Jeep hồng
+                                sẽ
+                                cho bạn những bức ảnh cực chất.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xe Jeep Trắng -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-trang.webp" alt="Xe Jeep Trắng" loading="lazy" />
+                            <span class="tour-badge">Premium</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Trắng</h3>
+                            <p class="tour-desc">Thanh lịch và tinh tế — chiếc Jeep trắng cao cấp đưa bạn qua tất cả
+                                điểm
+                                đến nổi bật: Đồi Cát Trắng, Suối Tiên, Hải Đăng.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xe Jeep Vàng -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-vang.webp" alt="Xe Jeep Vàng" loading="lazy" />
+                            <span class="tour-badge sunset-badge">Popular</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Vàng</h3>
+                            <p class="tour-desc">Màu vàng rực rỡ tượng trưng cho ánh nắng Mũi Né — trải nghiệm biểu
+                                tượng
+                                không thể bỏ qua khi đến Phan Thiết.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xe Jeep Xanh Dương -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-xanh-duong.webp" alt="Xe Jeep Xanh Dương"
+                                loading="lazy" />
+                            <span class="tour-badge sunset-badge">Popular</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Xanh Dương</h3>
+                            <p class="tour-desc">Màu xanh biển mát mắt — cùng Jeep xanh dương khám phá làng chài, bãi
+                                biển
+                                và những con đường ven đồi cát thơ mộng.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xe Jeep Xanh Lục -->
+                    <div class="tour-card">
+                        <div class="tour-img-wrap">
+                            <img src="assets/images/produtcs/xe-jeep-xanh-luc.webp" alt="Xe Jeep Xanh Lục"
+                                loading="lazy" />
+                            <span class="tour-badge">Premium</span>
+                        </div>
+                        <div class="tour-body">
+                            <div class="tour-meta">
+                                <span><i class="fas fa-clock"></i> 4 Giờ</span>
+                                <span><i class="fas fa-users"></i> Tối đa 4 Người</span>
+                                <span><i class="fas fa-sun"></i> Bình minh/Hoàng hôn</span>
+                                <span><i class="fas fa-user-group"></i> Riêng tư/Ghép</span>
+                            </div>
+                            <h3 class="tour-title">Xe Jeep Xanh Lục</h3>
+                            <p class="tour-desc">Hoà mình vào thiên nhiên cùng Jeep xanh lục — vượt qua địa hình đồi
+                                cát,
+                                rừng dương và những cung đường hoang dã.</p>
+                            <div class="tour-footer">
+                                <div class="tour-price">
+                                    <div class="price-tier">
+                                        <span class="price-type">Riêng tư</span>
+                                        <strong class="price-amount">450,000₫</strong>
+                                    </div>
+                                    <div class="price-divider"></div>
+                                    <div class="price-tier">
+                                        <span class="price-type">Tour ghép</span>
+                                        <strong class="price-amount">120,000₫<span
+                                                class="price-per">/người</span></strong>
+                                    </div>
+                                </div>
+                                <a href="#contact" class="btn btn-gold btn-sm" data-i18n="nav.bookNow">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.tours-grid -->
+
+                <!-- Mobile dots indicator -->
+                <div class="tours-dots" id="toursDots" role="tablist" aria-label="Tour navigation"></div>
+
+            </div><!-- /.tours-slider-wrapper -->
+        </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow" data-i18n="gallery.eyebrow">Moments Captured</p>
+                <h2 class="section-title"><span data-i18n="gallery.title1">Tour</span> <span class="gold-text"
+                        data-i18n="gallery.titleGold">Gallery</span></h2>
+                <p class="section-subtitle" data-i18n="gallery.subtitle">A glimpse of the adventures that await you in
+                    Mũi Né.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item tall">
+                    <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=600&q=80"
+                        alt="White Sand Dunes" loading="lazy" />
+                    <div class="gallery-overlay"><span>White Sand Dunes</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80"
+                        alt="Jeep Adventure" loading="lazy" />
+                    <div class="gallery-overlay"><span>Jeep Adventure</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80"
+                        alt="Coastal Views" loading="lazy" />
+                    <div class="gallery-overlay"><span>Coastal Views</span></div>
+                </div>
+                <div class="gallery-item wide">
+                    <img src="https://images.unsplash.com/photo-1473496169904-658ba7574b0d?auto=format&fit=crop&w=900&q=80"
+                        alt="Red Sand Dunes" loading="lazy" />
+                    <div class="gallery-overlay"><span>Red Sand Dunes</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80"
+                        alt="Sunset Golden Hour" loading="lazy" />
+                    <div class="gallery-overlay"><span>Sunset Golden Hour</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80"
+                        alt="Lighthouse Visit" loading="lazy" />
+                    <div class="gallery-overlay"><span>Mũi Né Lighthouse</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BOOKING / CTA BANNER ===================== -->
+    <section class="cta-banner" id="contact">
+        <div class="cta-overlay"></div>
+        <div class="cta-content container">
+            <h2 class="cta-title"><span data-i18n="cta.title1">Ready for Your</span> <span class="gold-text"
+                    data-i18n="cta.titleGold">Adventure?</span></h2>
+            <p class="cta-sub" data-i18n="cta.sub">Contact us now and our team will craft the perfect itinerary for you.
+            </p>
+            <div class="contact-cards">
+                <a href="tel:+84913140196" class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <span class="cc-label">Call Us</span>
+                        <span class="cc-value">+84 913 140 196</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/84913140196" target="_blank" class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span class="cc-label">WhatsApp</span>
+                        <span class="cc-value">+84 913 140 196</span>
+                    </div>
+                </a>
+                <a href="mailto:info@mrbenjeeptours.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span class="cc-label">Email Us</span>
+                        <span class="cc-value">info@mrbenjeeptours.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-mr">MR. BEN</span>
+                    <span class="logo-sub">JEEP TOURS</span>
+                </div>
+                <p>Your premier partner for luxury off-road adventures across the stunning landscapes of Mũi Né and Phan
+                    Thiết, Vietnam.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#tours">Our Tours</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Tours</h4>
+                <ul>
+                    <li><a href="#tours">Sunrise Sand Dunes</a></li>
+                    <li><a href="#tours">Sunset Coastal Tour</a></li>
+                    <li><a href="#tours">Red Dunes Expedition</a></li>
+                    <li><a href="#tours">Full Day Explorer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 57 Nguyễn Đình Chiểu, Mũi Né, Phan Thiết, Bình Thuận</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+84901234567">+84 90 123 4567</a></li>
+                    <li><i class="fas fa-envelope"></i> <a
+                            href="mailto:info@mrbenjeeptours.com">info@mrbenjeeptours.com</a></li>
+                    <li><i class="fas fa-clock"></i> Open Daily: 4:00 AM – 8:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Mr. Ben Jeep Tours. All Rights Reserved. | Luxury Jeep Tours – Mũi Né, Phan Thiết, Vietnam.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
