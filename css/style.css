@@ -1657,17 +1657,16 @@ button {
 
 @media (max-width: 599px) {
     .booking-overlay {
-        padding: 0;
-        align-items: flex-end;
+        padding: 20px 16px;
+        align-items: center;
     }
 
     .booking-modal {
         width: 100%;
         max-width: 100%;
-        max-height: calc(100vh - 52px);
-        height: calc(100vh - 52px);
-        border-radius: 20px 20px 0 0;
-        transform: translateY(40px) scale(1);
+        max-height: 85vh;
+        border-radius: 15px;
+        transform: translateY(20px) scale(0.98);
     }
 
     .booking-overlay.open .booking-modal {
@@ -2767,8 +2766,8 @@ button {
 }
 
 .bf-btn-zalo {
-    background: #0068FF;
-    color: #fff;
+    background: #fff;
+    color: #0068FF;
     box-shadow: 0 6px 24px rgba(0, 104, 255, 0.3);
 }
 
