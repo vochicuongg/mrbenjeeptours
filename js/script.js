@@ -1427,8 +1427,44 @@
     return encodeURIComponent(msg);
   }
 
+  function sendToTelegram() {
+    var rawMsg = buildWAMessage();
+    var msg = decodeURIComponent(rawMsg);
+
+    // ĐIỀN ĐỊA CHỈ CLOUDFLARE WORKER CỦA BẠN VÀO ĐÂY
+    // Ví dụ: 'https://mrben-telegram-bot.ten-cua-ban.workers.dev'
+    var workerUrl = 'https://mrbenjeeptours.vochicuong-bin04.workers.dev';
+
+    if (workerUrl === 'YOUR_CLOUDFLARE_WORKER_URL_HERE') {
+      console.warn('Bạn chưa cập nhật link Cloudflare Worker. Tin nhắn Telegram sẽ không được gửi.');
+      return;
+    }
+
+    fetch(workerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          console.log('Đã gửi thông tin đến Telegram Group thành công thông qua Worker.');
+        } else {
+          console.error('Lỗi khi gửi qua Worker:', data);
+        }
+      })
+      .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
+  }
+
   function refreshWALink() {
     waBtn.href = 'https://wa.me/84913140196?text=' + buildWAMessage();
+  }
+
+  // Intercept clicks to send to Telegram silently
+  waBtn.addEventListener('click', sendToTelegram);
+  var zaloBtn = document.getElementById('bfZalo');
+  if (zaloBtn) {
+    zaloBtn.addEventListener('click', sendToTelegram);
   }
 
 })();
