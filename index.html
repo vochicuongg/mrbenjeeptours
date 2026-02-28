@@ -444,10 +444,13 @@
 
 
 
-                    <!-- Mobile dots indicator -->
-                    <div class="tours-dots" id="toursDots" role="tablist" aria-label="Tour navigation"></div>
+
 
                 </div><!-- /.tours-slider-wrapper -->
+
+                <!-- Dots indicator -->
+                <div class="tours-dots" id="toursDots" role="tablist" aria-label="Tour navigation"></div>
+
             </div>
     </section>
 
@@ -717,6 +720,20 @@
                     </div>
                 </div>
 
+                <!-- Optional addon: Sand dune -->
+                <div class="bf-group">
+                    <label class="bf-label">
+                        <span data-i18n="booking.labelAddon">Dịch vụ thêm</span>
+                        <span class="bf-opt" data-i18n="booking.optionalBadge">Tuỳ chọn</span>
+                    </label>
+                    <button class="bf-addon-toggle" id="bfAddonSandDune" type="button">
+                        <span class="bf-addon-check"><i class="fas fa-check"></i></span>
+                        <span class="bf-addon-icon">🏜️</span>
+                        <span class="bf-addon-text" data-i18n="booking.addonSandDune">Leo đồi cát trắng bằng xe
+                            Jeep</span>
+                    </button>
+                </div>
+
                 <!-- Date & Time -->
                 <div class="bf-group">
                     <label class="bf-label"><span data-i18n="booking.labelDatetime">Ngày &amp; Giờ Khởi Hành</span>
@@ -776,6 +793,50 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Itinerary (shown after time slot selected) -->
+                <div class="bf-group bf-itinerary-group" id="bfItineraryGroup" style="display:none">
+                    <label class="bf-label">
+                        <span data-i18n="booking.labelItinerary">Lộ Trình</span>
+                        <span class="bf-opt" data-i18n="booking.optionalBadge">Tuỳ chọn</span>
+                    </label>
+
+                    <!-- Default route pills -->
+                    <div class="bf-route-default" id="bfRouteDefault">
+                        <span class="bf-route-pill" id="bfStop1Label">Đồi cát trắng</span>
+                        <span class="bf-route-arrow">→</span>
+                        <span class="bf-route-pill" id="bfStop2Label">Đồi cát đỏ</span>
+                        <span class="bf-route-arrow">→</span>
+                        <span class="bf-route-pill" id="bfStop3Label">Làng chài</span>
+                        <span class="bf-route-arrow">→</span>
+                        <span class="bf-route-pill" id="bfStop4Label">Suối tiên</span>
+                    </div>
+
+                    <!-- Custom dropdowns (toggle) -->
+                    <button class="bf-route-customize-btn" id="bfRouteCustomizeBtn" type="button">
+                        <i class="fas fa-sliders-h"></i>
+                        <span data-i18n="booking.customizeRoute">Tùy chỉnh lộ trình</span>
+                    </button>
+
+                    <div class="bf-route-dropdowns" id="bfRouteDropdowns" style="display:none">
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">1</span>
+                            <select class="bf-input bf-route-select" id="bfRouteStop1"></select>
+                        </div>
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">2</span>
+                            <select class="bf-input bf-route-select" id="bfRouteStop2"></select>
+                        </div>
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">3</span>
+                            <select class="bf-input bf-route-select" id="bfRouteStop3"></select>
+                        </div>
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">4</span>
+                            <select class="bf-input bf-route-select" id="bfRouteStop4" disabled></select>
                         </div>
                     </div>
                 </div>

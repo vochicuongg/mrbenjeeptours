@@ -58,6 +58,25 @@
     padding: 0;
 }
 
+/* Remove browser default blue focus outline on click */
+button:focus,
+button:focus-visible,
+button:active,
+a:focus,
+a:active,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove tap highlight on ALL elements for mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -577,50 +596,66 @@ button {
     background: var(--color-bg);
 }
 
+/* ── Tours grid: horizontal scroll slider (all screen sizes) ── */
 .tours-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    justify-items: stretch;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
 }
 
-/* Center the lone last card when 7 items show 3+3+1 */
-.tours-grid .tour-card:last-child:nth-child(3n - 2) {
-    grid-column: 2;
+.tours-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Each card: fixed width = 1/3 of container on desktop */
+.tour-card {
+    flex: 0 0 calc(33.333% - 16px);
+    scroll-snap-align: start;
 }
 
 /* Tours slider wrapper – base */
 .tours-slider-wrapper {
     position: relative;
+    padding: 0 52px;
+    overflow: hidden;
 }
 
-/* Arrow buttons – hidden on desktop by default */
+/* Arrow buttons – visible on all screen sizes */
 .tours-arrow {
-    display: none;
+    display: flex;
     position: absolute;
-    top: 40%;
+    top: 350px;
+    /* vertically centered over the image (260px / 2) */
     transform: translateY(-50%);
     z-index: 10;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     border: 1.5px solid var(--color-gold);
-    background: rgba(26, 15, 10, 0.85);
+    background: rgba(26, 15, 10, 0.88);
     color: var(--color-gold);
-    font-size: 0.9rem;
+    font-size: 1rem;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background var(--dur) var(--ease);
+    transition: background var(--dur) var(--ease), box-shadow var(--dur);
     backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .tours-arrow-prev {
-    left: 4px;
+    left: -17px;
+
 }
 
 .tours-arrow-next {
-    right: 4px;
+    right: -17px;
+
 }
 
 .tours-arrow:hover {
@@ -633,58 +668,103 @@ button {
     pointer-events: none;
 }
 
-/* Dots indicator – hidden on desktop */
+/* Dots indicator – visible on all screen sizes */
 .tours-dots {
-    display: none;
+    display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
 .tours-dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
+    border-radius: 10px;
     background: var(--color-border);
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+    transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), width var(--dur) var(--ease);
 }
 
 .tours-dot.active {
     background: var(--color-gold);
-    transform: scale(1.3);
+    width: 24px;
 }
 
 .tour-card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 16px;
+    overflow: clip;
+    /* clip = no scroll container (unlike hidden) */
     display: flex;
     flex-direction: column;
-    transition: transform var(--dur) var(--ease),
-        border-color var(--dur) var(--ease),
-        box-shadow var(--dur) var(--ease);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    isolation: isolate;
+    /* inactive state: dim + shrink */
+    opacity: 0.55;
+    transform: scale(0.94);
+    transition:
+        opacity 0.45s var(--ease),
+        transform 0.45s var(--ease),
+        border-color 0.35s var(--ease),
+        box-shadow 0.35s var(--ease);
 }
 
-.tour-card:hover {
-    transform: translateY(-10px) scale(1.01);
+/* Active card: full brightness + full size */
+.tour-card.is-active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.15), 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Slide-in animations (direction applied via JS) ── */
+@keyframes tourCardInNext {
+    from {
+        opacity: 0.3;
+        transform: scale(0.93) translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes tourCardInPrev {
+    from {
+        opacity: 0.3;
+        transform: scale(0.93) translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Hover lift only on active card on desktop */
+.tour-card.is-active:hover {
+    transform: translateY(-8px) scale(1.01);
     border-color: var(--color-gold);
-    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.22), 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .tour-img-wrap {
     position: relative;
     overflow: hidden;
-    height: 220px;
+    height: 260px;
+    flex-shrink: 0;
 }
 
 .tour-img-wrap img {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.6s var(--ease);
 }
 
@@ -750,56 +830,74 @@ button {
 
 .tour-footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding-top: 18px;
-    border-top: 1px solid var(--color-border);
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 20px 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 0%, transparent 100%);
+    border-radius: 0 0 16px 16px;
+    margin: 0 -24px -26px;
 }
 
 .tour-price {
     display: flex;
     align-items: center;
     gap: 0;
+    flex: 1;
+    width: 100%;
+}
+
+/* Full-width book button */
+.tour-footer .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 13px;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
 }
 
 .price-tier {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     flex: 1;
     text-align: center;
 }
 
 .price-type {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    opacity: 0.75;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .price-amount {
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 800;
     color: var(--color-gold);
     white-space: nowrap;
+    letter-spacing: -0.01em;
 }
 
 .price-per {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     color: var(--color-text-muted);
     font-weight: 400;
 }
 
 .price-divider {
     width: 1px;
-    height: 32px;
-    background: var(--color-border);
+    height: 36px;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
     flex-shrink: 0;
-    margin: 0 6px;
+    margin: 0 8px;
 }
 
 /* ============================================================
@@ -1423,8 +1521,12 @@ button {
     /* Make Book Now button full-width on mobile */
     .tour-footer {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
         align-items: stretch;
+        padding: 14px 0 0;
+        margin: 0;
+        background: none;
+        border-radius: 0;
     }
 
     .tour-footer .btn-gold {
@@ -1440,31 +1542,26 @@ button {
         justify-content: center;
     }
 
-    /* Reset orphan centering + desktop grid override */
-    .tours-grid .tour-card:last-child:nth-child(3n - 2) {
-        grid-column: auto;
+    /* Tours: mobile card = 100% so exactly 1 card shows, no peeking */
+    .tour-card {
+        flex: 0 0 100%;
     }
 
-    /* Arrow buttons */
+    /* Remove desktop side padding; keep overflow clipping */
+    .tours-slider-wrapper {
+        padding: 0;
+    }
+
+    /* Smaller image on mobile */
+    .tour-img-wrap {
+        height: 200px;
+    }
+
+    /* Arrow centered over mobile image */
     .tours-arrow {
-        display: flex;
+        top: 300px;
     }
 
-    .tours-arrow-prev {
-        left: 4px;
-    }
-
-    .tours-arrow-next {
-        right: 4px;
-    }
-
-    /* Dots */
-    .tours-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 16px;
-    }
 
     /* Gallery */
     .gallery-grid {
@@ -2659,6 +2756,186 @@ button {
     font-weight: 600;
 }
 
+/* Optional badge next to label */
+.bf-opt {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* Addon toggle button */
+.bf-addon-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 11px 14px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px dashed rgba(212, 175, 55, 0.25);
+    border-radius: 10px;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.bf-addon-toggle:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    color: var(--color-text);
+}
+
+.bf-addon-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    color: transparent;
+    transition: all 0.3s var(--ease);
+}
+
+.bf-addon-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.bf-addon-text {
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* Selected state */
+.bf-addon-toggle.selected {
+    border-color: var(--color-gold);
+    border-style: solid;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.05));
+    color: var(--color-gold);
+}
+
+.bf-addon-toggle.selected .bf-addon-check {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    color: #1A0F0A;
+}
+
+/* ── Itinerary section ─────────────────────────────── */
+.bf-itinerary-group {
+    animation: bfFadeIn 0.35s ease;
+}
+
+@keyframes bfFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bf-route-default {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 0 4px;
+}
+
+.bf-route-pill {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.06));
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--color-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.bf-route-arrow {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.bf-route-customize-btn {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    background: transparent;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.bf-route-customize-btn:hover,
+.bf-route-customize-btn.open {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+.bf-route-dropdowns {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bf-route-drop-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bf-route-drop-label {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bf-route-select {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 0.85rem;
+}
+
+.bf-route-select:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
 /* Guest counter */
 .bf-counter-row {
     display: flex;
@@ -2766,9 +3043,10 @@ button {
 }
 
 .bf-btn-zalo {
-    background: #fff;
-    color: #0068FF;
+    background: #0068FF;
+    color: #fff;
     box-shadow: 0 6px 24px rgba(0, 104, 255, 0.3);
+
 }
 
 .bf-btn-call {

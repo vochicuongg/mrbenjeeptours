@@ -123,6 +123,11 @@
       'booking.placeholderCustomHotel': 'Nhập tên khách sạn/resort...',
       'booking.labelHotelAddress': 'Địa Chỉ Khách Sạn/Resort',
       'booking.placeholderHotelAddress': 'Địa chỉ khách sạn/resort của bạn',
+      'booking.labelAddon': 'Dịch vụ thêm',
+      'booking.optionalBadge': 'Tuỳ chọn',
+      'booking.addonSandDune': 'Leo đồi cát trắng bằng xe Jeep',
+      'booking.labelItinerary': 'Lộ Trình',
+      'booking.customizeRoute': 'Tùy chỉnh lộ trình',
     },
     en: {
       'nav.home': 'Home',
@@ -224,6 +229,11 @@
       'booking.placeholderHotelAddress': 'Your hotel/resort address...',
       'booking.labelCustomHotel': 'Your Hotel/Resort Name',
       'booking.placeholderCustomHotel': 'Enter hotel/resort name...',
+      'booking.labelAddon': 'Add-on Service',
+      'booking.optionalBadge': 'Optional',
+      'booking.addonSandDune': 'White Sand Dune Climbing by Jeep',
+      'booking.labelItinerary': 'Itinerary',
+      'booking.customizeRoute': 'Customize itinerary',
     },
     ru: {
       'nav.home': 'Главная',
@@ -325,6 +335,9 @@
       'booking.placeholderHotelAddress': 'Адрес отеля/курорта...',
       'booking.labelCustomHotel': 'Название Вашего Отеля/Курорта',
       'booking.placeholderCustomHotel': 'Введите название отеля/курорта...',
+      'booking.labelAddon': 'Дополнительная услуга',
+      'booking.optionalBadge': 'Необязательно',
+      'booking.addonSandDune': 'Подъём на Белые песчаные дюны на джипе',
     },
     zh: {
       'nav.home': '首页',
@@ -426,6 +439,9 @@
       'booking.placeholderHotelAddress': '酒店/度假村地址...',
       'booking.labelCustomHotel': '您的酒店/度假村名称',
       'booking.placeholderCustomHotel': '请输入酒店/度假村名称...',
+      'booking.labelAddon': '附加服务',
+      'booking.optionalBadge': '可选',
+      'booking.addonSandDune': '吉普车白沙丘探险',
     },
     ko: {
       'nav.home': '홈',
@@ -527,6 +543,9 @@
       'booking.placeholderHotelAddress': '호텔/리조트 주소...',
       'booking.labelCustomHotel': '호텔/리조트 이름 입력',
       'booking.placeholderCustomHotel': '호텔/리조트 이름을 입력하세요...',
+      'booking.labelAddon': '추가 서비스',
+      'booking.optionalBadge': '선택사항',
+      'booking.addonSandDune': '직프로 화이트 산드듀년 오르기',
     },
     de: {
       'nav.home': 'Start',
@@ -628,6 +647,9 @@
       'booking.placeholderHotelAddress': 'Hotel/Resort Adresse...',
       'booking.labelCustomHotel': 'Ihr Hotel/Resort Name',
       'booking.placeholderCustomHotel': 'Hotel/Resortnamen eingeben...',
+      'booking.labelAddon': 'Zusatzservice',
+      'booking.optionalBadge': 'Optional',
+      'booking.addonSandDune': 'Weiße Sanddüne mit dem Jeep erkunden',
     }
 
   };
@@ -838,7 +860,6 @@
 
   let cards = [];
   let currentIdx = 0;
-  let isMobile = false;
   let loopTimeout = null;
 
   /* ─── Build dots ─────────────────────────────────────────── */
@@ -853,19 +874,45 @@
     });
   }
 
-  /* ─── Update active dot ──────────────────────────────────── */
+  /* ─── Cards per view (desktop = 3, mobile = 1) ───────────── */
+  function cardsPerView() {
+    return window.innerWidth >= MOBILE_BP ? 3 : 1;
+  }
+
+  /* ─── Update active dot + active card ───────────────────── */
   function updateUI(idx) {
     currentIdx = idx;
+    var perView = cardsPerView();
+
+    /* dots: highlight perView consecutive dots */
     dotsEl.querySelectorAll('.tours-dot').forEach(function (d, i) {
-      d.classList.toggle('active', i === idx);
+      d.classList.toggle('active', i >= idx && i < idx + perView);
     });
-    // Buttons never disabled — they loop
+
+    /* cards: all visible cards get is-active (no dimming on desktop) */
+    cards.forEach(function (card, i) {
+      card.classList.toggle('is-active', i >= idx && i < idx + perView);
+    });
+
     btnPrev.disabled = false;
     btnNext.disabled = false;
   }
 
+  /* ─── Animate incoming active cards ─────────────────────── */
+  function animateActiveCards(idx, dir) {
+    var perView = cardsPerView();
+    var animName = dir === 'prev' ? 'tourCardInPrev' : 'tourCardInNext';
+    for (var i = idx; i < idx + perView; i++) {
+      var card = cards[i];
+      if (!card) continue;
+      card.style.animation = '';          // clear first
+      void card.offsetWidth;             // force reflow → ensures restart
+      card.style.animation = animName + ' 0.42s cubic-bezier(0.25,0.46,0.45,0.94) both';
+    }
+  }
+
   /* ─── Scroll to card by index ────────────────────────────── */
-  function goTo(idx, instant) {
+  function goTo(idx, instant, dir) {
     clearTimeout(loopTimeout);
     const card = cards[idx];
     if (!card) return;
@@ -874,17 +921,22 @@
       behavior: instant ? 'instant' : 'smooth'
     });
     updateUI(idx);
+    if (!instant) animateActiveCards(idx, dir || 'next');
   }
 
-  /* ─── Arrow clicks with loop ─────────────────────────────── */
+  /* ─── Arrow clicks – group-aware loop ───────────────────── */
   btnPrev.addEventListener('click', function () {
-    const prev = (currentIdx - 1 + cards.length) % cards.length;
-    goTo(prev);
+    var perView = cardsPerView();
+    var maxIdx = cards.length - perView;          // last valid start index
+    var prev = currentIdx <= 0 ? maxIdx : currentIdx - 1;
+    goTo(prev, false, 'prev');
   });
 
   btnNext.addEventListener('click', function () {
-    const next = (currentIdx + 1) % cards.length;
-    goTo(next);
+    var perView = cardsPerView();
+    var maxIdx = cards.length - perView;          // desktop: 7-3=4, mobile: 7-1=6
+    var next = currentIdx >= maxIdx ? 0 : currentIdx + 1;
+    goTo(next, false, 'next');
   });
 
   /* ─── Touch intercept: exactly 1 card per swipe ─────────── */
@@ -915,23 +967,22 @@
     if (touchDir !== 'h') return;
     var dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 30) {
+      var perView = cardsPerView();
+      var maxIdx = cards.length - perView;
       if (dx < 0) {
         // swipe left → next
-        var next = (currentIdx + 1) % cards.length;
-        goTo(next);
-        // auto-loop: if just went to last card, queue return
-        if (next === cards.length - 1) {
-          loopTimeout = setTimeout(function () { goTo(0); }, LOOP_DELAY);
-        }
+        var next = currentIdx >= maxIdx ? 0 : currentIdx + 1;
+        goTo(next, false, 'next');
       } else {
         // swipe right → prev
-        goTo((currentIdx - 1 + cards.length) % cards.length);
+        var prev = currentIdx <= 0 ? maxIdx : currentIdx - 1;
+        goTo(prev, false, 'prev');
       }
     }
     touchDir = null;
   }
 
-  /* ─── Init / Destroy ─────────────────────────────────────── */
+  /* ─── Init ───────────────────────────────────────────────── */
   function init() {
     cards = Array.from(grid.querySelectorAll('.tour-card'));
     buildDots();
@@ -939,26 +990,19 @@
     grid.addEventListener('touchstart', onTouchStart, { passive: true });
     grid.addEventListener('touchmove', onTouchMove, { passive: false });
     grid.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    /* Block horizontal trackpad/wheel scroll on desktop;
+       let vertical scroll pass through to the page */
+    grid.addEventListener('wheel', function (e) {
+      var isHorizontal = Math.abs(e.deltaX) >= Math.abs(e.deltaY);
+      if (isHorizontal) {
+        e.preventDefault(); // stop card from drifting sideways
+      }
+      // vertical deltaY — do NOT prevent default so page scrolls normally
+    }, { passive: false });
   }
 
-  function destroy() {
-    dotsEl.innerHTML = '';
-    grid.removeEventListener('touchstart', onTouchStart);
-    grid.removeEventListener('touchmove', onTouchMove);
-    grid.removeEventListener('touchend', onTouchEnd);
-    clearTimeout(loopTimeout);
-    currentIdx = 0;
-  }
-
-  /* ─── Responsive toggle ──────────────────────────────────── */
-  function check() {
-    const mobile = window.innerWidth <= MOBILE_BP;
-    if (mobile && !isMobile) { isMobile = true; init(); }
-    else if (!mobile && isMobile) { isMobile = false; destroy(); }
-  }
-
-  check();
-  window.addEventListener('resize', check, { passive: true });
+  init();
 
 })();
 
@@ -987,6 +1031,19 @@
   var bpbGroup = document.getElementById('bpbGroup');
   var btnPrivate = document.getElementById('bfTypePrivate');
   var btnGroup = document.getElementById('bfTypeGroup');
+  var addonSandDune = document.getElementById('bfAddonSandDune');
+  var addonSandDuneSelected = false;
+
+  /* Addon toggle */
+  if (addonSandDune) {
+    addonSandDune.addEventListener('click', function () {
+      addonSandDuneSelected = !addonSandDuneSelected;
+      addonSandDune.classList.toggle('selected', addonSandDuneSelected);
+      updatePrice();
+      refreshWALink();
+    });
+  }
+
   var guestGroup = document.getElementById('bfGuestGroup');
   var guestVal = document.getElementById('bfGuestVal');
   var minusBtn = document.getElementById('bfMinus');
@@ -1011,11 +1068,18 @@
     dtInput.value = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
   }
 
+  var ADDON_PRICE = 900000; /* flat fee regardless of type/guests */
+
   function updatePrice() {
-    var unit = tourType === 'private' ? pricePrivate : priceGroup;
-    var count = tourType === 'group' ? guests : 1;
-    unitPriceEl.textContent = fmt(unit);
-    totalEl.textContent = fmt(unit * count);
+    if (addonSandDuneSelected) {
+      unitPriceEl.textContent = '—';
+      totalEl.textContent = fmt(ADDON_PRICE);
+    } else {
+      var unit = tourType === 'private' ? pricePrivate : priceGroup;
+      var count = tourType === 'group' ? guests : 1;
+      unitPriceEl.textContent = fmt(unit);
+      totalEl.textContent = fmt(unit * count);
+    }
   }
 
   function setTourType(type) {
@@ -1038,7 +1102,7 @@
     var dt = dtInput.value ? dtInput.value.replace('T', ' ') : '—';
     var notes = document.getElementById('bfNotes').value.trim();
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
-    var total = tourType === 'private' ? fmt(pricePrivate) : fmt(priceGroup * guests);
+    var total = addonSandDuneSelected ? fmt(ADDON_PRICE) : (tourType === 'private' ? fmt(pricePrivate) : fmt(priceGroup * guests));
 
     var msg = '🏕️ *ĐẶT TOUR MR. BEN JEEP TOURS*\n'
       + '━━━━━━━━━━━━━━━━━━━━━\n'
@@ -1232,6 +1296,7 @@
       + '📅 Ngày & Giờ: ' + dt + '\n'
       + '💵 Tổng tiền: ' + total + '\n'
       + (notes ? '📝 Ghi chú: ' + notes + '\n' : '')
+      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: Leo đồi cát trắng bằng xe Jeep\n' : '')
       + '━━━━━━━━━━━━━━━━━━━━━';
     return encodeURIComponent(msg);
   }
@@ -1410,6 +1475,114 @@
   setDefault();
   // Re-default when booking modal reopens
   document.addEventListener('mrben-booking-open', setDefault);
+
+})();
+
+/* ============================================================
+   ITINERARY SELECTOR
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var SUNRISE_ORDER = ['Đồi cát trắng', 'Đồi cát đỏ (Ngắm bình minh)', 'Làng chài', 'Suối tiên'];
+  var SUNSET_ORDER = ['Suối tiên', 'Làng chài', 'Đồi cát trắng', 'Đồi cát đỏ (Ngắm hoàng hôn)'];
+
+  var group = document.getElementById('bfItineraryGroup');
+  var pillEls = [1, 2, 3, 4].map(function (n) { return document.getElementById('bfStop' + n + 'Label'); });
+  var customizeBtn = document.getElementById('bfRouteCustomizeBtn');
+  var dropWrap = document.getElementById('bfRouteDropdowns');
+  var selects = [1, 2, 3, 4].map(function (n) { return document.getElementById('bfRouteStop' + n); });
+  var dtHidden = document.getElementById('bfDatetime');
+
+  if (!group || !dtHidden) return;
+
+  var currentOrder = SUNRISE_ORDER.slice();
+
+  /* ── Set default pill labels ────────────────────── */
+  function applyOrder(order) {
+    currentOrder = order.slice();
+    order.forEach(function (stop, i) { if (pillEls[i]) pillEls[i].textContent = stop; });
+    window.__bfCurrentRoute = order.join(' → ');
+  }
+
+  /* ── Cascading dropdowns ──────────────────────── */
+  function populateFrom(idx) {
+    var chosen = selects.slice(0, idx).map(function (s) { return s.value; });
+    var avail = currentOrder.filter(function (s) { return chosen.indexOf(s) === -1; });
+    var sel = selects[idx];
+    if (!sel) return;
+
+    if (idx === 3) {                            // last: auto-fill
+      sel.innerHTML = '<option>' + avail[0] + '</option>';
+      sel.disabled = true;
+      if (pillEls[3]) pillEls[3].textContent = avail[0];
+      broadcastRoute();
+      return;
+    }
+
+    var prevVal = sel.value;
+    sel.disabled = false;
+    sel.innerHTML = '';
+    avail.forEach(function (stop) {
+      var opt = document.createElement('option');
+      opt.value = opt.textContent = stop;
+      sel.appendChild(opt);
+    });
+    sel.value = (avail.indexOf(prevVal) !== -1) ? prevVal : avail[0];
+    if (pillEls[idx]) pillEls[idx].textContent = sel.value;
+  }
+
+  function rebuildAll() {
+    for (var i = 0; i < 4; i++) populateFrom(i);
+    broadcastRoute();
+  }
+
+  function broadcastRoute() {
+    window.__bfCurrentRoute = selects.map(function (s) { return s.value || '?'; }).join(' → ');
+  }
+
+  selects.forEach(function (sel, idx) {
+    if (!sel || idx === 3) return;
+    sel.addEventListener('change', function () {
+      if (pillEls[idx]) pillEls[idx].textContent = sel.value;
+      for (var j = idx + 1; j < 4; j++) populateFrom(j);
+      broadcastRoute();
+    });
+  });
+
+  /* ── Customize toggle ──────────────────────────── */
+  if (customizeBtn) {
+    customizeBtn.addEventListener('click', function () {
+      var opening = dropWrap.style.display === 'none';
+      dropWrap.style.display = opening ? '' : 'none';
+      customizeBtn.classList.toggle('open', opening);
+      if (opening) rebuildAll();
+    });
+  }
+
+  /* ── Listen for time slot selection ───────────────── */
+  dtHidden.addEventListener('input', function () {
+    var val = dtHidden.value;
+    if (!val) { group.style.display = 'none'; return; }
+    var hour = parseInt((val.split('T')[1] || '').split(':')[0], 10);
+    if (hour === 4) {
+      group.style.display = '';
+      applyOrder(SUNRISE_ORDER);
+      // Reset customize panel
+      dropWrap.style.display = 'none';
+      if (customizeBtn) customizeBtn.classList.remove('open');
+    } else if (hour === 13) {
+      group.style.display = '';
+      applyOrder(SUNSET_ORDER);
+      dropWrap.style.display = 'none';
+      if (customizeBtn) customizeBtn.classList.remove('open');
+    } else {
+      group.style.display = 'none';
+    }
+  });
+
+  /* Start hidden */
+  group.style.display = 'none';
 
 })();
 
