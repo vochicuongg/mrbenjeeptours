@@ -597,7 +597,7 @@
 
             <!-- Header -->
             <div class="booking-header">
-                <h2 class="booking-title">🏕️ Đặt Tour</h2>
+                <h2 class="booking-title"><span data-i18n="booking.formTitle">Đặt Tour</span></h2>
                 <p class="booking-tour-name" id="bookingTourName">Xe Jeep Mr. Ben</p>
             </div>
 
@@ -635,7 +635,8 @@
                             <button class="bf-phone-code" id="bfPhoneCodeBtn" type="button" aria-haspopup="listbox">
                                 <img src="assets/images/languages/vietnam.webp" alt="VN" class="bf-flag"
                                     id="bfPhoneFlag" />
-                                <span id="bfPhoneCodeText">+84</span>
+                                <input type="text" class="bf-phone-code-input" id="bfPhoneCodeText" value="+84"
+                                    readonly />
                                 <i class="fas fa-chevron-down bf-code-arrow"></i>
                             </button>
                             <ul class="bf-phone-dropdown" id="bfPhoneDropdown" role="listbox">
@@ -668,6 +669,10 @@
                                     data-flag="assets/images/languages/germany.webp">
                                     <img src="assets/images/languages/germany.webp" class="bf-flag" alt="DE" />
                                     Deutschland <span>+49</span>
+                                </li>
+                                <li class="bf-phone-opt bf-opt-custom" data-lang="custom" data-code="">
+                                    <i class="fas fa-globe bf-flag-icon"></i>
+                                    <span data-i18n="booking.phoneOther">Khác</span> <span>...</span>
                                 </li>
                             </ul>
                         </div>
@@ -702,15 +707,21 @@
                 <!-- Hotel Address -->
                 <div class="bf-group" id="bfHotelAddressGroup">
                     <label class="bf-label" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn</label>
-                    <input class="bf-input" id="bfHotelAddress" type="text" placeholder="Địa chỉ sẽ tự động điền..."
-                        data-i18n-placeholder="booking.placeholderHotelAddress" autocomplete="off" />
+                    <div class="bf-hotel-wrap" id="bfHotelWrap">
+                        <div class="bf-hotel-input-row">
+                            <i class="fas fa-map-marker-alt bf-hotel-icon"></i>
+                            <input class="bf-input bf-hotel-input" id="bfHotelAddress" type="text"
+                                placeholder="Địa chỉ sẽ tự động điền..."
+                                data-i18n-placeholder="booking.placeholderHotelAddress" autocomplete="off" />
+                        </div>
+                    </div>
                 </div>
 
 
                 <div class="bf-group">
                     <label class="bf-label" data-i18n="booking.labelTourType">Loại Tour</label>
                     <div class="bf-toggle-row">
-                        <button class="bf-toggle active" id="bfTypePrivate" data-type="private">
+                        <button class="bf-toggle" id="bfTypePrivate" data-type="private">
                             <i class="fas fa-user-shield"></i> <span data-i18n="booking.typePrivate">Tour Riêng
                                 Tư</span>
                         </button>
@@ -824,19 +835,43 @@
                     <div class="bf-route-dropdowns" id="bfRouteDropdowns" style="display:none">
                         <div class="bf-route-drop-row">
                             <span class="bf-route-drop-label">1</span>
-                            <select class="bf-input bf-route-select" id="bfRouteStop1"></select>
+                            <div class="bf-custom-select" id="bfRouteStop1">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
                         </div>
                         <div class="bf-route-drop-row">
                             <span class="bf-route-drop-label">2</span>
-                            <select class="bf-input bf-route-select" id="bfRouteStop2"></select>
+                            <div class="bf-custom-select" id="bfRouteStop2">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
                         </div>
                         <div class="bf-route-drop-row">
                             <span class="bf-route-drop-label">3</span>
-                            <select class="bf-input bf-route-select" id="bfRouteStop3"></select>
+                            <div class="bf-custom-select" id="bfRouteStop3">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
                         </div>
                         <div class="bf-route-drop-row">
                             <span class="bf-route-drop-label">4</span>
-                            <select class="bf-input bf-route-select" id="bfRouteStop4" disabled></select>
+                            <div class="bf-custom-select" id="bfRouteStop4">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
                         </div>
                     </div>
                 </div>

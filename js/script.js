@@ -97,9 +97,12 @@
       'booking.pricePrivate': 'Tour Riêng Tư',
       'booking.priceGroup': 'Tour Ghép',
       'booking.labelName': 'Họ và Tên',
+      'booking.formTitle': 'Đặt Tour',
       'booking.placeholderName': 'Nhập tên của bạn',
       'booking.labelPhone': 'Số Điện Thoại',
       'booking.placeholderPhone': 'Nhập số điện thoại',
+      'booking.phoneOther': 'Khác',
+      'booking.addonPack': 'Gói Đồi Cát',
       'booking.labelTourType': 'Loại Tour',
       'booking.typePrivate': 'Tour Riêng Tư',
       'booking.typeGroup': 'Tour Ghép',
@@ -128,6 +131,11 @@
       'booking.addonSandDune': 'Leo đồi cát trắng bằng xe Jeep',
       'booking.labelItinerary': 'Lộ Trình',
       'booking.customizeRoute': 'Tùy chỉnh lộ trình',
+      'cal.months': 'Tháng 1,Tháng 2,Tháng 3,Tháng 4,Tháng 5,Tháng 6,Tháng 7,Tháng 8,Tháng 9,Tháng 10,Tháng 11,Tháng 12',
+      'stop.whiteDune': 'Đồi Cát Trắng',
+      'stop.redDune': 'Đồi Cát Đỏ',
+      'stop.fishVillage': 'Làng Chài Mũi Né',
+      'stop.fairyStream': 'Suối Tiên',
     },
     en: {
       'nav.home': 'Home',
@@ -203,9 +211,12 @@
       'booking.pricePrivate': 'Private Tour',
       'booking.priceGroup': 'Group Tour',
       'booking.labelName': 'Full Name',
+      'booking.formTitle': 'Book Tour',
       'booking.placeholderName': 'Enter your name',
       'booking.labelPhone': 'Phone Number',
       'booking.placeholderPhone': 'Enter phone number',
+      'booking.phoneOther': 'Other',
+      'booking.addonPack': 'Sand Dune Package',
       'booking.labelTourType': 'Tour Type',
       'booking.typePrivate': 'Private Tour',
       'booking.typeGroup': 'Group Tour',
@@ -234,6 +245,11 @@
       'booking.addonSandDune': 'White Sand Dune Climbing by Jeep',
       'booking.labelItinerary': 'Itinerary',
       'booking.customizeRoute': 'Customize itinerary',
+      'cal.months': 'January,February,March,April,May,June,July,August,September,October,November,December',
+      'stop.whiteDune': 'White Sand Dune',
+      'stop.redDune': 'Red Sand Dune',
+      'stop.fishVillage': 'Mũi Né Fishing Village',
+      'stop.fairyStream': 'Fairy Stream',
     },
     ru: {
       'nav.home': 'Главная',
@@ -309,9 +325,12 @@
       'booking.pricePrivate': 'Частный Тур',
       'booking.priceGroup': 'Групповой Тур',
       'booking.labelName': 'Полное Имя',
+      'booking.formTitle': 'Забронировать',
       'booking.placeholderName': 'Введите ваше имя',
       'booking.labelPhone': 'Номер Телефона',
       'booking.placeholderPhone': 'Введите номер телефона',
+      'booking.phoneOther': 'Другое',
+      'booking.addonPack': 'Пакет Дюны',
       'booking.labelTourType': 'Тип Тура',
       'booking.typePrivate': 'Частный Тур',
       'booking.typeGroup': 'Групповой Тур',
@@ -338,6 +357,14 @@
       'booking.labelAddon': 'Дополнительная услуга',
       'booking.optionalBadge': 'Необязательно',
       'booking.addonSandDune': 'Подъём на Белые песчаные дюны на джипе',
+      'booking.labelItinerary': 'Маршрут',
+      'booking.customizeRoute': 'Настроить маршрут',
+      'cal.sun': 'Вс', 'cal.mon': 'Пн', 'cal.tue': 'Вт', 'cal.wed': 'Ср', 'cal.thu': 'Чт', 'cal.fri': 'Пт', 'cal.sat': 'Сб',
+      'cal.months': 'Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь',
+      'stop.whiteDune': 'Белые Песчаные Дюны',
+      'stop.redDune': 'Красные Песчаные Дюны',
+      'stop.fishVillage': 'Рыбацкая Деревня Муй Не',
+      'stop.fairyStream': 'Ручей Фей',
     },
     zh: {
       'nav.home': '首页',
@@ -413,9 +440,12 @@
       'booking.pricePrivate': '私家游',
       'booking.priceGroup': '拼团游',
       'booking.labelName': '姓名',
+      'booking.formTitle': '预订行程',
       'booking.placeholderName': '请输入您的姓名',
       'booking.labelPhone': '电话号码',
       'booking.placeholderPhone': '请输入电话号码',
+      'booking.phoneOther': '其他',
+      'booking.addonPack': '沙丘套餐',
       'booking.labelTourType': '游览类型',
       'booking.typePrivate': '私家游',
       'booking.typeGroup': '拼团游',
@@ -442,6 +472,14 @@
       'booking.labelAddon': '附加服务',
       'booking.optionalBadge': '可选',
       'booking.addonSandDune': '吉普车白沙丘探险',
+      'booking.labelItinerary': '行程路线',
+      'booking.customizeRoute': '自定义路线',
+      'cal.sun': '日', 'cal.mon': '一', 'cal.tue': '二', 'cal.wed': '三', 'cal.thu': '四', 'cal.fri': '五', 'cal.sat': '六',
+      'cal.months': '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月',
+      'stop.whiteDune': '白沙丘',
+      'stop.redDune': '红沙丘',
+      'stop.fishVillage': '美奈渔村',
+      'stop.fairyStream': '仙女溪',
     },
     ko: {
       'nav.home': '홈',
@@ -517,9 +555,12 @@
       'booking.pricePrivate': '단독 투어',
       'booking.priceGroup': '합승 투어',
       'booking.labelName': '성명',
+      'booking.formTitle': '투어 예약',
       'booking.placeholderName': '이름을 입력하세요',
       'booking.labelPhone': '전화번호',
       'booking.placeholderPhone': '전화번호를 입력하세요',
+      'booking.phoneOther': '기타',
+      'booking.addonPack': '샌드듄 패키지',
       'booking.labelTourType': '투어 유형',
       'booking.typePrivate': '단독 투어',
       'booking.typeGroup': '합승 투어',
@@ -545,7 +586,15 @@
       'booking.placeholderCustomHotel': '호텔/리조트 이름을 입력하세요...',
       'booking.labelAddon': '추가 서비스',
       'booking.optionalBadge': '선택사항',
-      'booking.addonSandDune': '직프로 화이트 산드듀년 오르기',
+      'booking.addonSandDune': '지프로 화이트 샌드듄 오르기',
+      'booking.labelItinerary': '여행 경로',
+      'booking.customizeRoute': '경로 맞춤 설정',
+      'cal.sun': '일', 'cal.mon': '월', 'cal.tue': '화', 'cal.wed': '수', 'cal.thu': '목', 'cal.fri': '금', 'cal.sat': '토',
+      'cal.months': '1월,2월,3월,4월,5월,6월,7월,8월,9월,10월,11월,12월',
+      'stop.whiteDune': '화이트 샌드듄',
+      'stop.redDune': '레드 샌드듄',
+      'stop.fishVillage': '무이네 어촌 마을',
+      'stop.fairyStream': '요정 개울',
     },
     de: {
       'nav.home': 'Start',
@@ -621,9 +670,12 @@
       'booking.pricePrivate': 'Private Tour',
       'booking.priceGroup': 'Gruppenreise',
       'booking.labelName': 'Vollständiger Name',
+      'booking.formTitle': 'Tour Buchen',
       'booking.placeholderName': 'Geben Sie Ihren Namen ein',
       'booking.labelPhone': 'Telefonnummer',
       'booking.placeholderPhone': 'Telefonnummer eingeben',
+      'booking.phoneOther': 'Andere',
+      'booking.addonPack': 'Sanddünen-Paket',
       'booking.labelTourType': 'Tourart',
       'booking.typePrivate': 'Private Tour',
       'booking.typeGroup': 'Gruppenreise',
@@ -650,6 +702,14 @@
       'booking.labelAddon': 'Zusatzservice',
       'booking.optionalBadge': 'Optional',
       'booking.addonSandDune': 'Weiße Sanddüne mit dem Jeep erkunden',
+      'booking.labelItinerary': 'Reiseroute',
+      'booking.customizeRoute': 'Route anpassen',
+      'cal.sun': 'So', 'cal.mon': 'Mo', 'cal.tue': 'Di', 'cal.wed': 'Mi', 'cal.thu': 'Do', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
+      'cal.months': 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember',
+      'stop.whiteDune': 'Weiße Sanddüne',
+      'stop.redDune': 'Rote Sanddüne',
+      'stop.fishVillage': 'Fischerdorf Mũi Né',
+      'stop.fairyStream': 'Feenbach',
     }
 
   };
@@ -752,6 +812,8 @@
       currentLang = saved;
     }
     applyTranslations(currentLang);
+    /* Notify components to sync with initial language (e.g. phone code dropdown) */
+    document.dispatchEvent(new CustomEvent('mrben-langchange', { detail: { lang: currentLang } }));
   })();
 
   /* ─── Navbar: Solid on scroll ──────────────────────────────── */
@@ -1071,15 +1133,37 @@
   var ADDON_PRICE = 900000; /* flat fee regardless of type/guests */
 
   function updatePrice() {
-    if (addonSandDuneSelected) {
-      unitPriceEl.textContent = '—';
-      totalEl.textContent = fmt(ADDON_PRICE);
-    } else {
-      var unit = tourType === 'private' ? pricePrivate : priceGroup;
-      var count = tourType === 'group' ? guests : 1;
-      unitPriceEl.textContent = fmt(unit);
-      totalEl.textContent = fmt(unit * count);
+    var unit = 0;
+    if (tourType === 'private') {
+      unit = pricePrivate;
+    } else if (tourType === 'group') {
+      unit = priceGroup;
     }
+
+    var count = (tourType === 'group') ? guests : 1;
+    var baseTotal = unit * count;
+
+    // As requested: The sand dune add-on replaces the total price with a flat 900k
+    var finalTotal = addonSandDuneSelected ? ADDON_PRICE : baseTotal;
+
+    var unitText = '—';
+    if (tourType) {
+      unitText = fmt(unit);
+      if (addonSandDuneSelected) {
+        // Show that the total became the flat addon price using translation
+        var lang = localStorage.getItem('mrben-lang') || 'vi';
+        var t = (window.__MRB_TRANS || {})[lang] || {};
+        var packText = t['booking.addonPack'] || 'Gói Đồi Cát';
+        unitText += ' + ' + packText;
+      }
+    } else if (addonSandDuneSelected) {
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      var t = (window.__MRB_TRANS || {})[lang] || {};
+      unitText = t['booking.addonPack'] || 'Gói Đồi Cát';
+    }
+
+    unitPriceEl.textContent = unitText;
+    totalEl.textContent = finalTotal > 0 ? fmt(finalTotal) : '—';
   }
 
   function setTourType(type) {
@@ -1108,6 +1192,7 @@
       + '━━━━━━━━━━━━━━━━━━━━━\n'
       + '🚙 Tour: ' + tourName + '\n'
       + '📋 Loại: ' + typeStr + '\n'
+      + (window.__bfCurrentRoute ? '🗺️ Lộ trình: ' + window.__bfCurrentRoute + '\n' : '')
       + '👤 Họ tên: ' + (name || '—') + '\n'
       + '📞 SĐT: +84' + (phone.replace(/^0/, '') || '—') + '\n'
       + '📅 Ngày & Giờ: ' + dt + '\n'
@@ -1138,7 +1223,12 @@
     guests = 1;
     guestVal.textContent = '1';
     setDefaultDatetime();
-    setTourType('private');
+    /* Reset tour type — no pre-selection */
+    tourType = 'private';           /* keep internal default for price calc */
+    btnPrivate.classList.remove('active');
+    btnGroup.classList.remove('active');
+    guestGroup.style.display = 'none';
+    updatePrice();
     refreshWALink();
 
     overlay.classList.add('open');
@@ -1215,6 +1305,22 @@
   };
 
   function setPhoneCode(langOrCode) {
+    if (langOrCode === 'custom') {
+      selectedPhoneCode = '';
+      if (codeFlag) codeFlag.style.display = 'none';
+      if (codeText) {
+        codeText.readOnly = false;
+        codeText.value = '+';
+        codeText.focus();
+        codeText.classList.add('custom-active');
+      }
+      codeOpts.forEach(function (opt) {
+        opt.classList.toggle('active', opt.getAttribute('data-lang') === 'custom');
+      });
+      refreshWALink();
+      return;
+    }
+
     var entry = LANG_CODE_MAP[langOrCode];
     if (!entry) {
       // maybe it's a raw code like '+7'
@@ -1224,8 +1330,15 @@
     }
     if (!entry) return;
     selectedPhoneCode = entry.code;
-    if (codeFlag) { codeFlag.src = entry.flag; }
-    if (codeText) { codeText.textContent = entry.code; }
+    if (codeFlag) {
+      codeFlag.style.display = '';
+      codeFlag.src = entry.flag;
+    }
+    if (codeText) {
+      codeText.readOnly = true;
+      codeText.value = entry.code;
+      codeText.classList.remove('custom-active');
+    }
     // Mark active option
     codeOpts.forEach(function (opt) {
       opt.classList.toggle('active', opt.getAttribute('data-code') === entry.code);
@@ -1270,6 +1383,8 @@
   document.addEventListener('mrben-langchange', function (e) {
     setPhoneCode(e.detail.lang);
   });
+  // Also sync on initial load
+  setPhoneCode(localStorage.getItem('mrben-lang') || 'vi');
 
   /* ── Refresh WA link on any input change ── */
   ['bfName', 'bfPhone', 'bfDatetime', 'bfNotes'].forEach(function (id) {
@@ -1284,19 +1399,30 @@
     var dt = dtInput.value ? dtInput.value.replace('T', ' ') : '—';
     var notes = document.getElementById('bfNotes').value.trim();
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
-    var total = tourType === 'private' ? fmt(pricePrivate) : fmt(priceGroup * guests);
+    var unit = 0;
+    if (tourType === 'private') unit = pricePrivate;
+    else if (tourType === 'group') unit = priceGroup;
+    var count = (tourType === 'group') ? guests : 1;
+    var baseTotal = unit * count;
+    var totalNum = addonSandDuneSelected ? ADDON_PRICE : baseTotal;
+    var totalText = totalNum > 0 ? fmt(totalNum) : '—';
+
     var fullPhone = selectedPhoneCode + (phone ? ' ' + phone : '—');
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var t = (window.__MRB_TRANS || {})[lang] || {};
+    var addonStr = t['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep';
 
     var msg = '🏕️ *ĐẶT TOUR MR. BEN JEEP TOURS*\n'
       + '━━━━━━━━━━━━━━━━━━━━━\n'
       + '🚙 Tour: ' + tourName + '\n'
       + '📋 Loại: ' + typeStr + '\n'
+      + (window.__bfCurrentRoute ? '🗺️ Lộ trình: ' + window.__bfCurrentRoute + '\n' : '')
       + '👤 Họ tên: ' + (name || '—') + '\n'
       + '📞 SĐT: ' + fullPhone + '\n'
       + '📅 Ngày & Giờ: ' + dt + '\n'
-      + '💵 Tổng tiền: ' + total + '\n'
+      + '💵 Tổng tiền: ' + totalText + '\n'
       + (notes ? '📝 Ghi chú: ' + notes + '\n' : '')
-      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: Leo đồi cát trắng bằng xe Jeep\n' : '')
+      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: ' + addonStr + '\n' : '')
       + '━━━━━━━━━━━━━━━━━━━━━';
     return encodeURIComponent(msg);
   }
@@ -1346,18 +1472,33 @@
   var selHour = 5;
   var selMin = 0;
   var MINS = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
-  var VN_MONTHS = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
-    'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
+
+  /* Returns month names array for current language */
+  function getMonths() {
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var TRANS = window.__MRB_TRANS || {};
+    var key = TRANS[lang] && TRANS[lang]['cal.months'];
+    return key ? key.split(',') : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  }
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
   /* ── Calendar ── */
+  /* Returns minutes since midnight for the current local time */
+  function nowMinutes() {
+    var now = new Date();
+    return now.getHours() * 60 + now.getMinutes();
+  }
+  var SUNRISE_MINS = 4 * 60 + 30;   // 04:30
+  var SUNSET_MINS = 13 * 60 + 30;  // 13:30
+
   function renderCalendar() {
-    calTitle.textContent = VN_MONTHS[curMonth] + ' ' + curYear;
+    calTitle.textContent = getMonths()[curMonth] + ' ' + curYear;
     calDays.innerHTML = '';
     var firstDay = new Date(curYear, curMonth, 1).getDay();
     var daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
     var daysInPrev = new Date(curYear, curMonth, 0).getDate();
+    var nm = nowMinutes();
 
     for (var i = 0; i < firstDay; i++) {
       var el = document.createElement('div');
@@ -1370,8 +1511,14 @@
       var el = document.createElement('div');
       el.className = 'bf-cal-day';
       el.textContent = day;
-      if (dt < todayDate) el.classList.add('disabled');
-      if (dt.getTime() === todayDate.getTime()) el.classList.add('today');
+
+      var isPast = dt < todayDate;                    // before today
+      var isToday = dt.getTime() === todayDate.getTime();
+      /* Today disabled only when BOTH slots (13:30) have passed */
+      var todayFullyPassed = isToday && nm >= SUNSET_MINS;
+
+      if (isPast || todayFullyPassed) el.classList.add('disabled');
+      if (isToday) el.classList.add('today');
       if (selDate && dt.getTime() === selDate.getTime()) el.classList.add('selected');
       if (!el.classList.contains('disabled')) {
         (function (date) { el.addEventListener('click', function () { pickDate(date); }); })(dt);
@@ -1392,12 +1539,18 @@
     selDate = date;
     calView.style.display = 'none';
     tpView.style.display = '';
-    tpDate.textContent = date.getDate() + ' ' + VN_MONTHS[date.getMonth()];
+    tpDate.textContent = date.getDate() + ' ' + getMonths()[date.getMonth()];
     // Reset slot selection UI
     [sunriseBtn, sunsetBtn].forEach(function (b) { b && b.classList.remove('selected'); });
     // Re-highlight the previously selected slot
     if (selHour === 4 && selMin === 30) { sunriseBtn && sunriseBtn.classList.add('selected'); }
     if (selHour === 13 && selMin === 30) { sunsetBtn && sunsetBtn.classList.add('selected'); }
+
+    /* If today is selected, disable slots whose time has already passed */
+    var isToday = date.getTime() === todayDate.getTime();
+    var nm = isToday ? nowMinutes() : -1;
+    if (sunriseBtn) sunriseBtn.disabled = isToday && nm >= SUNRISE_MINS;
+    if (sunsetBtn) sunsetBtn.disabled = isToday && nm >= SUNSET_MINS;
   }
 
   calPrev.addEventListener('click', function () {
@@ -1421,7 +1574,11 @@
     var y = selDate.getFullYear(), mo = selDate.getMonth() + 1, d = selDate.getDate();
     var iso = y + '-' + pad(mo) + '-' + pad(d) + 'T' + pad(hour) + ':' + pad(min);
     dtHidden.value = iso;
-    var label = (hour === 4 ? 'Bình Minh' : 'Hoàng Hôn');
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    var label = hour === 4
+      ? (T['booking.sunrise'] || 'Bình Minh')
+      : (T['booking.sunset'] || 'Hoàng Hôn');
     dtDisplay.textContent = d + '/' + pad(mo) + '/' + y + ' | ' + label + ' (' + pad(hour) + ':' + pad(min) + ')';
     dtTrigger.classList.add('has-value');
     closePicker();
@@ -1460,10 +1617,12 @@
   /* ── Reset: show placeholder (no pre-filled date) ── */
   function setDefault() {
     selDate = null;
-    selHour = 4; selMin = 30;
+    selHour = null; selMin = null;   /* no slot pre-selected */
     curYear = todayDate.getFullYear(); curMonth = todayDate.getMonth();
     dtHidden.value = '';
     dtTrigger.classList.remove('has-value');
+    /* Clear any lingering slot highlights */
+    [sunriseBtn, sunsetBtn].forEach(function (b) { b && b.classList.remove('selected'); });
     /* Restore i18n placeholder text */
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var TRANS = window.__MRB_TRANS || {};
@@ -1484,73 +1643,121 @@
 (function () {
   'use strict';
 
-  var SUNRISE_ORDER = ['Đồi cát trắng', 'Đồi cát đỏ (Ngắm bình minh)', 'Làng chài', 'Suối tiên'];
-  var SUNSET_ORDER = ['Suối tiên', 'Làng chài', 'Đồi cát trắng', 'Đồi cát đỏ (Ngắm hoàng hôn)'];
+  /* Returns the 4 stop names in the current UI language */
+  function getStops() {
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    return {
+      white: T['stop.whiteDune'] || 'Đồi Cát Trắng',
+      red: T['stop.redDune'] || 'Đồi Cát Đỏ',
+      fish: T['stop.fishVillage'] || 'Làng Chài Mũi Né',
+      fairy: T['stop.fairyStream'] || 'Suối Tiên'
+    };
+  }
+
+  function getSunriseOrder() { var s = getStops(); return [s.white, s.red, s.fish, s.fairy]; }
+  function getSunsetOrder() { var s = getStops(); return [s.fairy, s.fish, s.white, s.red]; }
 
   var group = document.getElementById('bfItineraryGroup');
   var pillEls = [1, 2, 3, 4].map(function (n) { return document.getElementById('bfStop' + n + 'Label'); });
   var customizeBtn = document.getElementById('bfRouteCustomizeBtn');
   var dropWrap = document.getElementById('bfRouteDropdowns');
-  var selects = [1, 2, 3, 4].map(function (n) { return document.getElementById('bfRouteStop' + n); });
+  var wrappers = [1, 2, 3, 4].map(function (n) { return document.getElementById('bfRouteStop' + n); });
   var dtHidden = document.getElementById('bfDatetime');
 
   if (!group || !dtHidden) return;
 
-  var currentOrder = SUNRISE_ORDER.slice();
+  var currentOrder = getSunriseOrder();
+  /* Current selected values [stop1, stop2, stop3, stop4] */
+  var values = currentOrder.slice();
 
-  /* ── Set default pill labels ────────────────────── */
-  function applyOrder(order) {
-    currentOrder = order.slice();
-    order.forEach(function (stop, i) { if (pillEls[i]) pillEls[i].textContent = stop; });
-    window.__bfCurrentRoute = order.join(' → ');
+  /* ── Custom select helpers ──────────────────────────── */
+  function getVal(idx) { return values[idx]; }
+
+  function closeAll() {
+    wrappers.forEach(function (w) { if (w) w.classList.remove('open'); });
   }
 
-  /* ── Cascading dropdowns ──────────────────────── */
-  function populateFrom(idx) {
-    var chosen = selects.slice(0, idx).map(function (s) { return s.value; });
-    var avail = currentOrder.filter(function (s) { return chosen.indexOf(s) === -1; });
-    var sel = selects[idx];
-    if (!sel) return;
+  function buildList(idx) {
+    var wrap = wrappers[idx];
+    if (!wrap) return;
+    var list = wrap.querySelector('.bf-custom-select-list');
+    var valEl = wrap.querySelector('.bf-custom-select-val');
 
-    if (idx === 3) {                            // last: auto-fill
-      sel.innerHTML = '<option>' + avail[0] + '</option>';
-      sel.disabled = true;
-      if (pillEls[3]) pillEls[3].textContent = avail[0];
-      broadcastRoute();
-      return;
-    }
-
-    var prevVal = sel.value;
-    sel.disabled = false;
-    sel.innerHTML = '';
-    avail.forEach(function (stop) {
-      var opt = document.createElement('option');
-      opt.value = opt.textContent = stop;
-      sel.appendChild(opt);
+    list.innerHTML = '';
+    /* Show ALL stops — use swap logic on selection */
+    currentOrder.forEach(function (stop) {
+      var li = document.createElement('li');
+      li.textContent = stop;
+      if (stop === values[idx]) li.classList.add('is-active');
+      li.addEventListener('click', function () {
+        /* If stop already used elsewhere, swap */
+        var otherIdx = values.indexOf(stop);
+        if (otherIdx !== -1 && otherIdx !== idx) {
+          values[otherIdx] = values[idx];          // put current value into the other slot
+          var otherWrap = wrappers[otherIdx];
+          if (otherWrap) {
+            otherWrap.querySelector('.bf-custom-select-val').textContent = values[otherIdx];
+            if (pillEls[otherIdx]) pillEls[otherIdx].textContent = values[otherIdx];
+          }
+        }
+        values[idx] = stop;
+        valEl.textContent = stop;
+        if (pillEls[idx]) pillEls[idx].textContent = stop;
+        wrap.classList.remove('open');
+        /* Refresh active state on all lists that are currently built */
+        refreshActiveStates();
+        broadcastRoute();
+      });
+      list.appendChild(li);
     });
-    sel.value = (avail.indexOf(prevVal) !== -1) ? prevVal : avail[0];
-    if (pillEls[idx]) pillEls[idx].textContent = sel.value;
+
+    valEl.textContent = values[idx];
+    if (pillEls[idx]) pillEls[idx].textContent = values[idx];
+  }
+
+  /* Update is-active classes on all already-rendered lists */
+  function refreshActiveStates() {
+    wrappers.forEach(function (wrap, i) {
+      if (!wrap) return;
+      var items = wrap.querySelectorAll('.bf-custom-select-list li');
+      items.forEach(function (li) {
+        li.classList.toggle('is-active', li.textContent === values[i]);
+      });
+    });
   }
 
   function rebuildAll() {
-    for (var i = 0; i < 4; i++) populateFrom(i);
+    /* Reset values to default order */
+    values = currentOrder.slice();
+    for (var i = 0; i < 4; i++) buildList(i);
     broadcastRoute();
   }
 
   function broadcastRoute() {
-    window.__bfCurrentRoute = selects.map(function (s) { return s.value || '?'; }).join(' → ');
+    window.__bfCurrentRoute = values.join(' → ');
   }
 
-  selects.forEach(function (sel, idx) {
-    if (!sel || idx === 3) return;
-    sel.addEventListener('change', function () {
-      if (pillEls[idx]) pillEls[idx].textContent = sel.value;
-      for (var j = idx + 1; j < 4; j++) populateFrom(j);
-      broadcastRoute();
+  /* ── Wire trigger buttons ───────────────────────────── */
+  wrappers.forEach(function (wrap, idx) {
+    if (!wrap) return;
+    var trigger = wrap.querySelector('.bf-custom-select-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var wasOpen = wrap.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        buildList(idx);           // refresh list before opening
+        wrap.classList.add('open');
+      }
     });
   });
 
-  /* ── Customize toggle ──────────────────────────── */
+  /* Close on outside click */
+  document.addEventListener('click', closeAll);
+
+  /* ── Customize toggle ───────────────────────────────── */
   if (customizeBtn) {
     customizeBtn.addEventListener('click', function () {
       var opening = dropWrap.style.display === 'none';
@@ -1560,20 +1767,24 @@
     });
   }
 
-  /* ── Listen for time slot selection ───────────────── */
+  /* ── Apply route order ──────────────────────────────── */
+  function applyOrder(order) {
+    currentOrder = order.slice();
+    values = order.slice();
+    order.forEach(function (stop, i) { if (pillEls[i]) pillEls[i].textContent = stop; });
+    broadcastRoute();
+    /* Refresh open dropdowns if any */
+    if (dropWrap.style.display !== 'none') rebuildAll();
+  }
+
+  /* ── Listen for time slot selection ────────────────── */
   dtHidden.addEventListener('input', function () {
     var val = dtHidden.value;
     if (!val) { group.style.display = 'none'; return; }
     var hour = parseInt((val.split('T')[1] || '').split(':')[0], 10);
-    if (hour === 4) {
+    if (hour === 4 || hour === 13) {
       group.style.display = '';
-      applyOrder(SUNRISE_ORDER);
-      // Reset customize panel
-      dropWrap.style.display = 'none';
-      if (customizeBtn) customizeBtn.classList.remove('open');
-    } else if (hour === 13) {
-      group.style.display = '';
-      applyOrder(SUNSET_ORDER);
+      applyOrder(hour === 4 ? getSunriseOrder() : getSunsetOrder());
       dropWrap.style.display = 'none';
       if (customizeBtn) customizeBtn.classList.remove('open');
     } else {
@@ -1581,7 +1792,6 @@
     }
   });
 
-  /* Start hidden */
   group.style.display = 'none';
 
 })();

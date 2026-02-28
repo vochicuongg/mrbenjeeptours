@@ -2054,7 +2054,7 @@ button {
 }
 
 .bf-hotel-arrow {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-gold);
     font-size: 0.75rem;
     transition: transform 0.25s;
     flex-shrink: 0;
@@ -2070,15 +2070,16 @@ button {
     top: calc(100% + 6px);
     left: 0;
     right: 0;
-    background: #1a1a2e;
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: #1e0e06;
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 10px;
     max-height: 240px;
     overflow-y: auto;
-    z-index: 200;
+    z-index: 9999;
     padding: 6px 0;
     list-style: none;
     margin: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
     scrollbar-width: thin;
     scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
 }
@@ -2104,8 +2105,8 @@ button {
 .bf-hotel-opt {
     padding: 9px 16px;
     cursor: pointer;
-    transition: background 0.15s;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.15s, color 0.15s;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.07);
 }
 
 .bf-hotel-opt:last-child {
@@ -2115,6 +2116,11 @@ button {
 .bf-hotel-opt:hover,
 .bf-hotel-opt.focused {
     background: rgba(212, 175, 55, 0.1);
+}
+
+.bf-hotel-opt:hover .bf-hotel-opt-name,
+.bf-hotel-opt.focused .bf-hotel-opt-name {
+    color: var(--color-gold);
 }
 
 .bf-hotel-opt-name {
@@ -2140,7 +2146,7 @@ button {
     padding: 8px 10px 4px;
     position: sticky;
     top: 0;
-    background: #1a1a2e;
+    background: #1e0e06;
     border-bottom: 1px solid rgba(212, 175, 55, 0.12);
 }
 
@@ -2477,11 +2483,29 @@ button {
     border: 1.5px solid rgba(212, 175, 55, 0.2);
     cursor: pointer;
     transition: all 0.22s;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.bf-ts-card:focus,
+.bf-ts-card:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
 .bf-ts-card:hover {
     border-color: rgba(212, 175, 55, 0.5);
     background: rgba(212, 175, 55, 0.06);
+}
+
+/* Disabled / past slot — same grey look as past calendar days */
+.bf-ts-card:disabled,
+.bf-ts-card[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(1);
 }
 
 .bf-ts-card.selected {
@@ -2637,6 +2661,23 @@ button {
     cursor: pointer;
     transition: border-color var(--dur), background var(--dur);
     font-family: var(--font-sans);
+}
+
+.bf-phone-code-input {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    width: 38px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-align: center;
+}
+
+.bf-phone-code-input.custom-active {
+    color: var(--color-text);
 }
 
 .bf-phone-code:hover {
@@ -2886,6 +2927,7 @@ button {
     border-radius: 8px;
     color: var(--color-text-muted);
     font-size: 0.8rem;
+    font-weight: 600;
     font-family: var(--font-sans);
     cursor: pointer;
     transition: border-color 0.3s, color 0.3s;
@@ -2925,15 +2967,94 @@ button {
     flex-shrink: 0;
 }
 
-.bf-route-select {
+/* Custom styled route dropdown */
+.bf-custom-select {
+    position: relative;
     flex: 1;
-    padding: 9px 12px;
-    font-size: 0.85rem;
 }
 
-.bf-route-select:disabled {
-    opacity: 0.5;
-    cursor: default;
+.bf-custom-select-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.bf-custom-select-trigger:hover,
+.bf-custom-select.open .bf-custom-select-trigger {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.06);
+}
+
+.bf-custom-select-val {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bf-custom-select-arrow {
+    font-size: 0.7rem;
+    color: var(--color-gold);
+    flex-shrink: 0;
+    transition: transform 0.25s;
+}
+
+.bf-custom-select.open .bf-custom-select-arrow {
+    transform: rotate(180deg);
+}
+
+.bf-custom-select-list {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #1e0e06;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+.bf-custom-select.open .bf-custom-select-list {
+    display: block;
+    animation: bfFadeIn 0.18s ease;
+}
+
+.bf-custom-select-list li {
+    padding: 9px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.bf-custom-select-list li:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold);
+}
+
+.bf-custom-select-list li.is-active {
+    background: rgba(212, 175, 55, 0.18);
+    color: var(--color-gold);
 }
 
 /* Guest counter */
