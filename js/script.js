@@ -112,7 +112,9 @@
       'booking.sunset': 'HOÀNG HÔN',
       'booking.labelGuests': 'Số Người',
       'booking.labelNotes': 'Ghi Chú',
-      'booking.placeholderNotes': 'Điểm đón, yêu cầu đặc biệt...',
+      'booking.placeholderNotes': 'Yêu cầu đặc biệt...',
+      'booking.labelPickupAddress': 'Địa Chỉ Đón',
+      'booking.placeholderPickupAddress': 'Nhập địa chỉ đón',
       'booking.unitPrice': 'Đơn giá:',
       'booking.totalPrice': 'Tổng Tiền:',
       'booking.bookWhatsapp': 'Đặt qua WhatsApp',
@@ -226,7 +228,9 @@
       'booking.sunset': 'SUNSET',
       'booking.labelGuests': 'Number of People',
       'booking.labelNotes': 'Notes',
-      'booking.placeholderNotes': 'Pickup point, special requests...',
+      'booking.placeholderNotes': 'Special requests...',
+      'booking.labelPickupAddress': 'Pickup Address',
+      'booking.placeholderPickupAddress': 'Enter pickup address...',
       'booking.unitPrice': 'Unit price:',
       'booking.totalPrice': 'Total:',
       'booking.bookWhatsapp': 'Book via WhatsApp',
@@ -340,7 +344,9 @@
       'booking.sunset': 'ЗАКАТ',
       'booking.labelGuests': 'Количество Людей',
       'booking.labelNotes': 'Примечания',
-      'booking.placeholderNotes': 'Место посадки, особые пожелания...',
+      'booking.placeholderNotes': 'Особые пожелания...',
+      'booking.labelPickupAddress': 'Адрес отправления',
+      'booking.placeholderPickupAddress': 'Введите адрес отправления...',
       'booking.unitPrice': 'Цена:',
       'booking.totalPrice': 'Итого:',
       'booking.bookWhatsapp': 'Забронировать WhatsApp',
@@ -455,7 +461,9 @@
       'booking.sunset': '日落',
       'booking.labelGuests': '人数',
       'booking.labelNotes': '备注',
-      'booking.placeholderNotes': '上车地点，特殊需求...',
+      'booking.placeholderNotes': '特殊需求...',
+      'booking.labelPickupAddress': '接送地址',
+      'booking.placeholderPickupAddress': '请输入接送地址...',
       'booking.unitPrice': '单价：',
       'booking.totalPrice': '总价：',
       'booking.bookWhatsapp': '通过WhatsApp预订',
@@ -570,7 +578,9 @@
       'booking.sunset': '일몰',
       'booking.labelGuests': '인원수',
       'booking.labelNotes': '메모',
-      'booking.placeholderNotes': '픽업 장소, 특별 요청...',
+      'booking.placeholderNotes': '특별 요청...',
+      'booking.labelPickupAddress': '픽업 주소',
+      'booking.placeholderPickupAddress': '픽업 주소를 입력하세요...',
       'booking.unitPrice': '단가:',
       'booking.totalPrice': '합계:',
       'booking.bookWhatsapp': 'WhatsApp으로 예약',
@@ -685,7 +695,9 @@
       'booking.sunset': 'SONNENUNTERGANG',
       'booking.labelGuests': 'Personenanzahl',
       'booking.labelNotes': 'Anmerkungen',
-      'booking.placeholderNotes': 'Abholort, besondere Wünsche...',
+      'booking.placeholderNotes': 'Besondere Wünsche...',
+      'booking.labelPickupAddress': 'Abholadresse',
+      'booking.placeholderPickupAddress': 'Abholadresse eingeben...',
       'booking.unitPrice': 'Preis:',
       'booking.totalPrice': 'Gesamt:',
       'booking.bookWhatsapp': 'Via WhatsApp buchen',
@@ -1082,6 +1094,7 @@
   var tourType = 'private'; // 'private' | 'group'
   var guests = 1;
   var tourName = 'Xe Jeep Mr. Ben';
+  var tourNameVi = 'Xe Jeep Mr. Ben'; // luôn là tiếng Việt, dùng cho chatbot
   var pricePrivate = PRICE_PRIVATE;
   var priceGroup = PRICE_GROUP;
 
@@ -1188,17 +1201,17 @@
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
     var total = addonSandDuneSelected ? fmt(ADDON_PRICE) : (tourType === 'private' ? fmt(pricePrivate) : fmt(priceGroup * guests));
 
-    var msg = '🏕️ *ĐẶT TOUR MR. BEN JEEP TOURS*\n'
-      + '━━━━━━━━━━━━━━━━━━━━━\n'
-      + '🚙 Tour: ' + tourName + '\n'
-      + '📋 Loại: ' + typeStr + '\n'
-      + (window.__bfCurrentRoute ? '🗺️ Lộ trình: ' + window.__bfCurrentRoute + '\n' : '')
-      + '👤 Họ tên: ' + (name || '—') + '\n'
-      + '📞 SĐT: +84' + (phone.replace(/^0/, '') || '—') + '\n'
-      + '📅 Ngày & Giờ: ' + dt + '\n'
-      + '💵 Tổng tiền: ' + total + '\n'
-      + (notes ? '📝 Ghi chú: ' + notes + '\n' : '')
-      + '━━━━━━━━━━━━━━━━━━━━━';
+    var msg = '🏕️ <b>ĐẶT TOUR MR. BEN JEEP TOURS</b>\n'
+      + '━━━━━━━━━━━━━━━\n'
+      + '👤 <b>Họ tên:</b> ' + (name || '—') + '\n'
+      + '📞 <b>SĐT:</b> +84' + (phone.replace(/^0/, '') || '—') + '\n'
+      + '🚙 <b>Tên xe:</b> ' + tourName + '\n'
+      + '📋 <b>Loại Tour:</b> ' + typeStr + '\n'
+      + (window.__bfCurrentRoute ? '🗺️ <b>Lộ trình:</b> ' + window.__bfCurrentRoute + '\n' : '')
+      + '📅 <b>Ngày & Giờ:</b> ' + dt + '\n'
+      + '💵 <b>Tổng tiền:</b> ' + total + '\n'
+      + (notes ? '📝 <b>Ghi chú:</b> ' + notes + '\n' : '')
+      + '━━━━━━━━━━━━━━━';
     return encodeURIComponent(msg);
   }
 
@@ -1209,6 +1222,7 @@
   /* ── Open modal ── */
   function openBooking(data) {
     tourName = data.name || 'Xe Jeep Mr. Ben';
+    tourNameVi = data.nameVi || tourName; // dùng tên Việt, fallback về tourName nếu không có
     pricePrivate = data.private || PRICE_PRIVATE;
     priceGroup = data.group || PRICE_GROUP;
 
@@ -1253,7 +1267,9 @@
         pvt = parseInt(tiers[0].textContent.replace(/[^0-9]/g, '')) || PRICE_PRIVATE;
         grp = parseInt(tiers[1].textContent.replace(/[^0-9]/g, '')) || PRICE_GROUP;
       }
-      openBooking({ name: nameStr, private: pvt, group: grp });
+      var i18nKey = card.querySelector('.tour-title[data-i18n]') ? card.querySelector('.tour-title[data-i18n]').getAttribute('data-i18n') : null;
+      var nameVi = i18nKey ? ((window.__MRB_TRANS || {})['vi'] || {})[i18nKey] || nameStr : nameStr;
+      openBooking({ name: nameStr, nameVi: nameVi, private: pvt, group: grp });
     });
   });
 
@@ -1392,13 +1408,51 @@
     if (el) el.addEventListener('input', refreshWALink);
   });
 
-  // Override buildWAMessage to use selectedPhoneCode
-  function buildWAMessage() {
+  function buildMessage(isHtml) {
+    var bStart = isHtml ? '<b>' : '';
+    var bEnd = isHtml ? '</b>' : '';
+
+    // Xử lý thông tin Khách sạn
+    var hotelObj = document.getElementById('bfHotelName');
+    var isCustom = (hotelObj && hotelObj.value === 'Khách sạn khác');
+    var hotelName = '';
+    if (isCustom) {
+      hotelName = document.getElementById('bfHotelCustomName') ? document.getElementById('bfHotelCustomName').value.trim() : '';
+    } else {
+      hotelName = hotelObj ? hotelObj.value.trim() : '';
+    }
+    var hotelAddr = document.getElementById('bfHotelAddress') ? document.getElementById('bfHotelAddress').value.trim() : '';
+
+    // Xử lý Điểm đón
+    var pickupObj = document.getElementById('bfPickupAddress');
+    var pickup = pickupObj ? pickupObj.value.trim() : '';
+
     var name = document.getElementById('bfName').value.trim();
+    // HTML in telegram breaks if users type < or >
+    if (isHtml) name = name.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
     var phone = document.getElementById('bfPhone').value.trim();
-    var dt = dtInput.value ? dtInput.value.replace('T', ' ') : '—';
+    var cleanPhone = phone.replace(/^0/, ''); // remove leading 0
+    // Reformat date: 2026-03-02 13:30 → 02-03-2026 | 13:30
+    var dtRaw = dtInput.value ? dtInput.value.replace('T', ' ') : '';
+    var dt = '—';
+    if (dtRaw) {
+      var dtParts = dtRaw.split(' ');
+      if (dtParts.length === 2) {
+        var dateParts = dtParts[0].split('-'); // [2026, 03, 02]
+        dt = dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0] + ' | ' + dtParts[1];
+      } else {
+        dt = dtRaw;
+      }
+    }
+    // Extract just the time part for the Tour row (e.g. 04:30)
+    var timeOnly = dtRaw ? (dtRaw.split(' ')[1] || '') : '';
     var notes = document.getElementById('bfNotes').value.trim();
+    if (isHtml) notes = notes.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    // Luôn dùng tiếng Việt cho loại tour
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
+    var tourLine = (timeOnly ? timeOnly + ' - ' : '') + typeStr;
     var unit = 0;
     if (tourType === 'private') unit = pricePrivate;
     else if (tourType === 'group') unit = priceGroup;
@@ -1407,30 +1461,38 @@
     var totalNum = addonSandDuneSelected ? ADDON_PRICE : baseTotal;
     var totalText = totalNum > 0 ? fmt(totalNum) : '—';
 
-    var fullPhone = selectedPhoneCode + (phone ? ' ' + phone : '—');
-    var lang = localStorage.getItem('mrben-lang') || 'vi';
-    var t = (window.__MRB_TRANS || {})[lang] || {};
-    var addonStr = t['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep';
+    // Xóa dấu khoảng trắng giữa mã vùng và số điện thoại
+    var fullPhone = selectedPhoneCode + (cleanPhone || '—');
+    // Luôn dùng tiếng Việt cho tin nhắn chatbot dù website đang ở ngôn ngữ nào
+    var tVi = (window.__MRB_TRANS || {})['vi'] || {};
+    var addonStr = tVi['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep';
 
-    var msg = '🏕️ *ĐẶT TOUR MR. BEN JEEP TOURS*\n'
+    var msg = '🏕️ ' + bStart + 'CÓ TOUR MỚI' + bEnd + '\n'
       + '━━━━━━━━━━━━━━━━━━━━━\n'
-      + '🚙 Tour: ' + tourName + '\n'
-      + '📋 Loại: ' + typeStr + '\n'
-      + (window.__bfCurrentRoute ? '🗺️ Lộ trình: ' + window.__bfCurrentRoute + '\n' : '')
-      + '👤 Họ tên: ' + (name || '—') + '\n'
-      + '📞 SĐT: ' + fullPhone + '\n'
-      + '📅 Ngày & Giờ: ' + dt + '\n'
-      + '💵 Tổng tiền: ' + totalText + '\n'
-      + (notes ? '📝 Ghi chú: ' + notes + '\n' : '')
-      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: ' + addonStr + '\n' : '')
+      + '👤 Họ tên: ' + bStart + (name || '—') + bEnd + '\n'
+      + '📞 SĐT: ' + bStart + fullPhone + bEnd + '\n'
+      + '🚙 Tour: ' + bStart + tourLine + bEnd + '\n'
+      + '📋 Loại xe: ' + bStart + tourNameVi + bEnd + '\n'
+      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: ' + bStart + addonStr + bEnd + '\n' : '')
+      + (window.__bfCurrentRoute ? '🗺️ Lộ trình: ' + bStart + (window.__bfCurrentRouteVi || window.__bfCurrentRoute) + bEnd + '\n' : '')
+      + (pickup ? '📍 Điểm đón: ' + bStart + pickup + bEnd + '\n' : '')
+      + (hotelName ? '🏨 Khách sạn: ' + bStart + hotelName + bEnd + '\n' : '')
+      + (hotelAddr ? '📌 Địa chỉ: ' + bStart + hotelAddr + bEnd + '\n' : '')
+      + '📅 Ngày & Giờ đón: ' + bStart + dt + bEnd + '\n'
+      + '💵 Tổng tiền: ' + bStart + totalText + bEnd + '\n'
+      + (notes ? '📝 Ghi chú: ' + bStart + notes + bEnd + '\n' : '')
       + '━━━━━━━━━━━━━━━━━━━━━';
-    return encodeURIComponent(msg);
+
+    return msg;
+  }
+
+  // Override buildWAMessage to use text formatting for WA
+  function buildWAMessage() {
+    return encodeURIComponent(buildMessage(false));
   }
 
   function sendToTelegram() {
-    var rawMsg = buildWAMessage();
-    var msg = decodeURIComponent(rawMsg);
-
+    var rawMsg = buildMessage(true); // HTML array elements
     // ĐIỀN ĐỊA CHỈ CLOUDFLARE WORKER CỦA BẠN VÀO ĐÂY
     // Ví dụ: 'https://mrben-telegram-bot.ten-cua-ban.workers.dev'
     var workerUrl = 'https://mrbenjeeptours.vochicuong-bin04.workers.dev';
@@ -1443,7 +1505,10 @@
     fetch(workerUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: msg })
+      body: JSON.stringify({
+        message: rawMsg,
+        parse_mode: 'HTML' // Yêu cầu telegram render mã HTML
+      })
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -1691,6 +1756,17 @@
     };
   }
 
+  /* Luôn trả về tên điểm dừng bằng tiếng Việt */
+  function getStopsVi() {
+    var T = (window.__MRB_TRANS || {})['vi'] || {};
+    return {
+      white: T['stop.whiteDune'] || 'Đồi Cát Trắng',
+      red: T['stop.redDune'] || 'Đồi Cát Đỏ',
+      fish: T['stop.fishVillage'] || 'Làng Chài Mũi Né',
+      fairy: T['stop.fairyStream'] || 'Suối Tiên'
+    };
+  }
+
   function getSunriseOrder() { var s = getStops(); return [s.white, s.red, s.fish, s.fairy]; }
   function getSunsetOrder() { var s = getStops(); return [s.fairy, s.fish, s.white, s.red]; }
 
@@ -1772,6 +1848,17 @@
 
   function broadcastRoute() {
     window.__bfCurrentRoute = values.join(' → ');
+
+    // Luôn lưu thêm bản tiếng Việt để có dùng cho chatbot
+    var sVi = getStopsVi();
+    var stopsVi = [sVi.white, sVi.red, sVi.fish, sVi.fairy];
+    var stopsAll = getStops();
+    var stopsAllArr = [stopsAll.white, stopsAll.red, stopsAll.fish, stopsAll.fairy];
+    var viValues = values.map(function (v) {
+      var idx = stopsAllArr.indexOf(v);
+      return idx !== -1 ? stopsVi[idx] : v;
+    });
+    window.__bfCurrentRouteVi = viValues.join(' → ');
   }
 
   /* ── Wire trigger buttons ───────────────────────────── */
