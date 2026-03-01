@@ -138,6 +138,19 @@
       'stop.redDune': 'Đồi Cát Đỏ',
       'stop.fishVillage': 'Làng Chài Mũi Né',
       'stop.fairyStream': 'Suối Tiên',
+      'wa.greeting': 'Xin chào Mr. Ben, tôi muốn đặt xe Jeep của bạn, và đây là thông tin đặt xe Jeep của tôi:\n',
+      'wa.name': '- Họ tên: ',
+      'wa.phone': '- SĐT: ',
+      'wa.tour': '- Tour: ',
+      'wa.car': '- Loại xe: ',
+      'wa.addon': '- Dịch vụ thêm: ',
+      'wa.route': '- Lộ trình: ',
+      'wa.hotel': '- Khách sạn: ',
+      'wa.address': '- Địa chỉ: ',
+      'wa.time': '- Ngày & Giờ đón: ',
+      'wa.total': '- Tổng tiền: ',
+      'wa.notes': '- Ghi chú: ',
+      'wa.footer': 'Mong bạn hãy liên lạc sớm cho tôi nhé.',
     },
     en: {
       'nav.home': 'Home',
@@ -254,6 +267,19 @@
       'stop.redDune': 'Red Sand Dune',
       'stop.fishVillage': 'Mũi Né Fishing Village',
       'stop.fairyStream': 'Fairy Stream',
+      'wa.greeting': 'Hello Mr. Ben, I would like to book your Jeep. Here is my booking information:\n',
+      'wa.name': '- Name: ',
+      'wa.phone': '- Phone: ',
+      'wa.tour': '- Tour: ',
+      'wa.car': '- Jeep: ',
+      'wa.addon': '- Add-on: ',
+      'wa.route': '- Itinerary: ',
+      'wa.hotel': '- Hotel: ',
+      'wa.address': '- Address: ',
+      'wa.time': '- Pickup Time: ',
+      'wa.total': '- Total: ',
+      'wa.notes': '- Notes: ',
+      'wa.footer': 'Please contact me soon.',
     },
     ru: {
       'nav.home': 'Главная',
@@ -371,6 +397,19 @@
       'stop.redDune': 'Красные Песчаные Дюны',
       'stop.fishVillage': 'Рыбацкая Деревня Муй Не',
       'stop.fairyStream': 'Ручей Фей',
+      'wa.greeting': 'Здравствуйте, мистер Бен! Я хотел бы забронировать джип. Вот информация о моем бронировании:\n',
+      'wa.name': '- Имя: ',
+      'wa.phone': '- Телефон: ',
+      'wa.tour': '- Тур: ',
+      'wa.car': '- Авто: ',
+      'wa.addon': '- Доп. услуги: ',
+      'wa.route': '- Маршрут: ',
+      'wa.hotel': '- Отель: ',
+      'wa.address': '- Адрес: ',
+      'wa.time': '- Время посадки: ',
+      'wa.total': '- Итого: ',
+      'wa.notes': '- Примечания: ',
+      'wa.footer': 'Пожалуйста, свяжитесь со мной в ближайшее время.',
     },
     zh: {
       'nav.home': '首页',
@@ -488,6 +527,19 @@
       'stop.redDune': '红沙丘',
       'stop.fishVillage': '美奈渔村',
       'stop.fairyStream': '仙女溪',
+      'wa.greeting': '您好，Ben先生，我想预订您的吉普车。这是我的预订信息：\n',
+      'wa.name': '- 姓名：',
+      'wa.phone': '- 电话：',
+      'wa.tour': '- 游览：',
+      'wa.car': '- 吉普：',
+      'wa.addon': '- 附加服务：',
+      'wa.route': '- 行程：',
+      'wa.hotel': '- 酒店：',
+      'wa.address': '- 地址：',
+      'wa.time': '- 接送时间：',
+      'wa.total': '- 总计：',
+      'wa.notes': '- 备注：',
+      'wa.footer': '请尽快与我联系。',
     },
     ko: {
       'nav.home': '홈',
@@ -605,6 +657,19 @@
       'stop.redDune': '레드 샌드듄',
       'stop.fishVillage': '무이네 어촌 마을',
       'stop.fairyStream': '요정 개울',
+      'wa.greeting': '안녕하세요 벤 씨, 지프 투어를 예약하고 싶습니다. 제 예약 정보는 다음과 같습니다:\n',
+      'wa.name': '- 이름: ',
+      'wa.phone': '- 전화: ',
+      'wa.tour': '- 투어: ',
+      'wa.car': '- 차량: ',
+      'wa.addon': '- 추가 서비스: ',
+      'wa.route': '- 경로: ',
+      'wa.hotel': '- 호텔: ',
+      'wa.address': '- 주소: ',
+      'wa.time': '- 픽업 시간: ',
+      'wa.total': '- 합계: ',
+      'wa.notes': '- 메모: ',
+      'wa.footer': '빠른 연락 부탁드립니다.',
     },
     de: {
       'nav.home': 'Start',
@@ -722,6 +787,19 @@
       'stop.redDune': 'Rote Sanddüne',
       'stop.fishVillage': 'Fischerdorf Mũi Né',
       'stop.fairyStream': 'Feenbach',
+      'wa.greeting': 'Hallo Mr. Ben, ich möchte einen Jeep buchen. Hier sind meine Buchungsinformationen:\n',
+      'wa.name': '- Name: ',
+      'wa.phone': '- Telefon: ',
+      'wa.tour': '- Tour: ',
+      'wa.car': '- Jeep: ',
+      'wa.addon': '- Zusatzleistung: ',
+      'wa.route': '- Reiseroute: ',
+      'wa.hotel': '- Hotel: ',
+      'wa.address': '- Adresse: ',
+      'wa.time': '- Abholzeit: ',
+      'wa.total': '- Gesamt: ',
+      'wa.notes': '- Notizen: ',
+      'wa.footer': 'Bitte kontaktieren Sie mich bald.',
     }
 
   };
@@ -868,7 +946,7 @@
 
   /* ─── Scroll Reveal ────────────────────────────────────────── */
   const revealTargets = document.querySelectorAll(
-    '.feature-card, .tour-card, .gallery-item, .contact-card'
+    '.feature-card, .gallery-item, .contact-card'
   );
 
   if ('IntersectionObserver' in window) {
@@ -1001,15 +1079,27 @@
   /* ─── Arrow clicks – group-aware loop ───────────────────── */
   btnPrev.addEventListener('click', function () {
     var perView = cardsPerView();
-    var maxIdx = cards.length - perView;          // last valid start index
-    var prev = currentIdx <= 0 ? maxIdx : currentIdx - 1;
+    var maxIdx = cards.length - perView;
+    var step = perView; // Desktop jumps by 3, mobile by 1
+
+    var prev = currentIdx - step;
+    if (prev < 0) {
+      // If we are at the beginning, loop to the end
+      prev = currentIdx === 0 ? maxIdx : 0;
+    }
     goTo(prev, false, 'prev');
   });
 
   btnNext.addEventListener('click', function () {
     var perView = cardsPerView();
-    var maxIdx = cards.length - perView;          // desktop: 7-3=4, mobile: 7-1=6
-    var next = currentIdx >= maxIdx ? 0 : currentIdx + 1;
+    var maxIdx = cards.length - perView;
+    var step = perView; // Desktop jumps by 3, mobile by 1
+
+    var next = currentIdx + step;
+    if (next > maxIdx) {
+      // If we exceed maxIdx, loop to start or snap to maxIdx
+      next = currentIdx === maxIdx ? 0 : maxIdx;
+    }
     goTo(next, false, 'next');
   });
 
@@ -1440,7 +1530,8 @@
       var dtParts = dtRaw.split(' ');
       if (dtParts.length === 2) {
         var dateParts = dtParts[0].split('-'); // [2026, 03, 02]
-        dt = dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0] + ' | ' + dtParts[1];
+        var paddedDay = dateParts[2].length === 1 ? '0' + dateParts[2] : dateParts[2];
+        dt = paddedDay + '-' + dateParts[1] + '-' + dateParts[0] + ' | ' + dtParts[1];
       } else {
         dt = dtRaw;
       }
@@ -1461,27 +1552,77 @@
     var totalNum = addonSandDuneSelected ? ADDON_PRICE : baseTotal;
     var totalText = totalNum > 0 ? fmt(totalNum) : '—';
 
-    // Xóa dấu khoảng trắng giữa mã vùng và số điện thoại
-    var fullPhone = selectedPhoneCode + (cleanPhone || '—');
+    // Lấy mã vùng: dùng mã có sẵn hoặc lấy giá trị khách nhập nếu chọn 'Khác'
+    var codeTextEl = document.getElementById('bfPhoneCodeText');
+    var activeCode = selectedPhoneCode || (codeTextEl ? codeTextEl.value.trim() : '');
+    var fullPhone = activeCode + (cleanPhone || '—');
     // Luôn dùng tiếng Việt cho tin nhắn chatbot dù website đang ở ngôn ngữ nào
     var tVi = (window.__MRB_TRANS || {})['vi'] || {};
     var addonStr = tVi['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep';
 
-    var msg = '🏕️ ' + bStart + 'CÓ TOUR MỚI' + bEnd + '\n'
-      + '━━━━━━━━━━━━━━━━━━━━━\n'
-      + '👤 Họ tên: ' + bStart + (name || '—') + bEnd + '\n'
-      + '📞 SĐT: ' + bStart + fullPhone + bEnd + '\n'
-      + '🚙 Tour: ' + bStart + tourLine + bEnd + '\n'
-      + '📋 Loại xe: ' + bStart + tourNameVi + bEnd + '\n'
-      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: ' + bStart + addonStr + bEnd + '\n' : '')
-      + (window.__bfCurrentRoute ? '🗺️ Lộ trình: ' + bStart + (window.__bfCurrentRouteVi || window.__bfCurrentRoute) + bEnd + '\n' : '')
-      + (pickup ? '📍 Điểm đón: ' + bStart + pickup + bEnd + '\n' : '')
-      + (hotelName ? '🏨 Khách sạn: ' + bStart + hotelName + bEnd + '\n' : '')
-      + (hotelAddr ? '📌 Địa chỉ: ' + bStart + hotelAddr + bEnd + '\n' : '')
-      + '📅 Ngày & Giờ đón: ' + bStart + dt + bEnd + '\n'
-      + '💵 Tổng tiền: ' + bStart + totalText + bEnd + '\n'
-      + (notes ? '📝 Ghi chú: ' + bStart + notes + bEnd + '\n' : '')
-      + '━━━━━━━━━━━━━━━━━━━━━';
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var t = (window.__MRB_TRANS || {})[lang] || {};
+
+    // Create fallback route if user hasn't clicked anything yet
+    var fallbackRoute = '';
+    var fallbackRouteVi = '';
+
+    // Grab translations for stops
+    var stopsT = t;
+    var w = stopsT['stop.whiteDune'] || 'White Sand Dune';
+    var r = stopsT['stop.redDune'] || 'Red Sand Dune';
+    var f = stopsT['stop.fishVillage'] || 'Mũi Né Fishing Village';
+    var fs = stopsT['stop.fairyStream'] || 'Fairy Stream';
+    fallbackRoute = [w, r, f, fs].join(' → ');
+
+    var wVi = tVi['stop.whiteDune'] || 'Đồi Cát Trắng';
+    var rVi = tVi['stop.redDune'] || 'Đồi Cát Đỏ';
+    var fVi = tVi['stop.fishVillage'] || 'Làng Chài Mũi Né';
+    var fsVi = tVi['stop.fairyStream'] || 'Suối Tiên';
+    fallbackRouteVi = [wVi, rVi, fVi, fsVi].join(' → ');
+
+    var finalRoute = window.__bfCurrentRoute || fallbackRoute;
+    var finalRouteVi = window.__bfCurrentRouteVi || fallbackRouteVi;
+
+    if (!isHtml) {
+      // Dùng bản dịch tương ứng với ngôn ngữ đang xét
+      var T = t;
+      var addonLangStr = addonSandDuneSelected ? (T['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep') : '—';
+      var plainMsg = (T['wa.greeting'] || 'Xin chào Mr. Ben, tôi muốn đặt xe Jeep của bạn, và đây là thông tin đặt xe Jeep của tôi:\n')
+        + (T['wa.name'] || '- Họ tên: ') + (name || '—') + '\n'
+        + (T['wa.phone'] || '- SĐT: ') + fullPhone + '\n'
+        + (T['wa.tour'] || '- Tour: ') + tourLine + '\n'
+        + (T['wa.car'] || '- Loại xe: ') + tourName + '\n'
+        + (addonSandDuneSelected ? (T['wa.addon'] || '- Dịch vụ thêm: ') + addonLangStr + '\n' : '')
+        + (T['wa.route'] || '- Lộ trình: ') + finalRoute + '\n'
+        + (T['wa.hotel'] || '- Khách sạn: ') + (hotelName || '—') + '\n'
+        + (T['wa.address'] || '- Địa chỉ: ') + (hotelAddr || '—') + '\n'
+        + (T['wa.time'] || '- Ngày & Giờ đón: ') + dt + '\n'
+        + (T['wa.total'] || '- Tổng tiền: ') + totalText + '\n'
+        + (notes ? (T['wa.notes'] || '- Ghi chú: ') + notes + '\n' : '')
+        + (T['wa.footer'] || 'Mong bạn hãy liên lạc sớm cho tôi nhé.');
+      return plainMsg;
+    }
+
+    var now = new Date();
+    var nowDt = ('0' + now.getDate()).slice(-2) + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + now.getFullYear() + ' | ' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+
+    var msg = '‼️📢 <b>CÓ TOUR MỚI</b>\n'
+      + '━━━━━━━━━━━━━━━\n'
+      + '👤 Họ tên: <b>' + (name || '—') + '</b>\n'
+      + '📞 SĐT: <b>' + fullPhone + '</b>\n'
+      + '🚙 Tour: <b>' + tourLine + '</b>\n'
+      + '📋 Loại xe: <b>' + tourNameVi + '</b>\n'
+      + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: <b>' + addonStr + '</b>\n' : '')
+      + (finalRouteVi ? '🗺️ Lộ trình: <b>' + finalRouteVi + '</b>\n' : '')
+      + (pickup ? '📍 Điểm đón: <b>' + pickup + '</b>\n' : '')
+      + (hotelName ? '🏨 Khách sạn: <b>' + hotelName + '</b>\n' : '')
+      + (hotelAddr ? '📌 Địa chỉ: <b>' + hotelAddr + '</b>\n' : '')
+      + '📅 Ngày & Giờ đón: <b>' + dt + '</b>\n'
+      + '💵 Tổng tiền: <b>' + totalText + '</b>\n'
+      + (notes ? '📝 Ghi chú: <b>' + notes + '</b>\n' : '')
+      + '━━━━━━━━━━━━━━━\n'
+      + '⏱️ Thời gian tạo đơn: <b>' + nowDt + '</b>';
 
     return msg;
   }
@@ -1529,7 +1670,20 @@
   waBtn.addEventListener('click', sendToTelegram);
   var zaloBtn = document.getElementById('bfZalo');
   if (zaloBtn) {
-    zaloBtn.addEventListener('click', sendToTelegram);
+    zaloBtn.addEventListener('click', function () {
+      sendToTelegram();
+      // Sao chép tin nhắn vào clipboard cho khách dán vào Zalo
+      var msgText = buildMessage(false);
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(msgText).then(function () {
+          var alertMsg = lang === 'vi' ? 'Đã sao chép nội dung đặt xe! Vui lòng dán vào app Zalo để gửi cho Mr. Ben.' : 'Booking details copied! Please paste them into the Zalo app to send to Mr. Ben.';
+          alert(alertMsg);
+        }).catch(function (e) {
+          console.error("Lỗi khi copy text: ", e);
+        });
+      }
+    });
   }
 
 })();
@@ -1680,7 +1834,7 @@
     var label = hour === 4
       ? (T['booking.sunrise'] || 'Bình Minh')
       : (T['booking.sunset'] || 'Hoàng Hôn');
-    dtDisplay.textContent = d + '/' + pad(mo) + '/' + y + ' | ' + label + ' (' + pad(hour) + ':' + pad(min) + ')';
+    dtDisplay.textContent = pad(d) + '/' + pad(mo) + '/' + y + ' | ' + label + ' (' + pad(hour) + ':' + pad(min) + ')';
     dtTrigger.classList.add('has-value');
     closePicker();
     dtHidden.dispatchEvent(new Event('input'));
