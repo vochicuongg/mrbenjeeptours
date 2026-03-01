@@ -1598,7 +1598,6 @@
         + (T['wa.hotel'] || '- Khách sạn: ') + (hotelName || '—') + '\n'
         + (T['wa.address'] || '- Địa chỉ: ') + (hotelAddr || '—') + '\n'
         + (T['wa.time'] || '- Ngày & Giờ đón: ') + dt + '\n'
-        + (T['wa.total'] || '- Tổng tiền: ') + totalText + '\n'
         + (notes ? (T['wa.notes'] || '- Ghi chú: ') + notes + '\n' : '')
         + (T['wa.footer'] || 'Mong bạn hãy liên lạc sớm cho tôi nhé.');
       return plainMsg;
