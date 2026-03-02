@@ -49,7 +49,7 @@
       'gallery.titleGold': 'Ảnh',
       'gallery.subtitle': 'Một cái nhìn thoáng qua về những cuộc phiêu lưu chờ đón bạn ở Mũi Né.',
       'cta.title1': 'Sẵn Sàng Cho',
-      'cta.titleGold': 'Phiêu Lưu?',
+      'cta.titleGold': 'Chuyến Phiêu Lưu?',
       'cta.sub': 'Liên hệ ngay và đội ngũ của chúng tôi sẽ tạo ra hành trình hoàn hảo cho bạn.',
       'feat.driversTitle': 'Tài Xế Chuyên Nghiệp',
       'feat.driversDesc': 'Tài xế địa phương có chứng chỉ, giàu kinh nghiệm, am hiểu từng con đường, đồi cát và khu khuất của Mũi Né.',
@@ -94,6 +94,8 @@
       'tour.blue.desc': 'Màu xanh biển mát mắt — cùng Jeep xanh dương khám phá làng chài, bãi biển và những con đường ven đồi cát thơ mộng.',
       'tour.green.title': 'Xe Jeep Xanh Lục',
       'tour.green.desc': 'Hoà mình vào thiên nhiên cùng Jeep xanh lục — vượt qua địa hình đồi cát, rừng dương và những cung đường hoang dã.',
+      'tour.any.title': 'Xe Bất Kỳ',
+      'tour.any.desc': 'Bạn không quan tâm đến màu sắc xe? Hãy chọn mục này, chúng tôi sẽ sắp xếp chiếc xe tốt nhất hiện có cho chuyến đi của bạn.',
       'booking.pricePrivate': 'Tour Riêng Tư',
       'booking.priceGroup': 'Tour Ghép',
       'booking.labelName': 'Họ và Tên',
@@ -223,6 +225,8 @@
       'tour.blue.desc': 'Cool ocean blue — explore fishing villages, beaches and the scenic dune roads with the blue Jeep.',
       'tour.green.title': 'Green Jeep',
       'tour.green.desc': 'Blend into nature with the green Jeep — traverse sand dune terrain, pine forests and wild off-road trails.',
+      'tour.any.title': 'Any Jeep',
+      'tour.any.desc': 'Don\'t have a color preference? Choose this option and we will arrange the best available Jeep for your journey.',
       'booking.pricePrivate': 'Private Tour',
       'booking.priceGroup': 'Group Tour',
       'booking.labelName': 'Full Name',
@@ -350,9 +354,11 @@
       'tour.gold.desc': 'Золотой цвет символизирует солнце Муй Не — незабываемый опыт, который нельзя пропустить во Фан Тхиете.',
       'tour.blue.title': 'Синий Джип',
       'tour.blue.desc': 'Прохладный морской синий — исследуйте рыбацкие деревни, пляжи и живописные дюнные дороги на синем Джипе.',
-      'tour.green.title': 'Зелёный Джип',
-      'tour.green.desc': 'Слейтесь с природой на зелёном Джипе — преодолейте рельеф дюн, сосновые леса и дикие бездорожные трассы.',
-      'booking.pricePrivate': 'Частный Тур',
+      'tour.green.title': 'Зеленый джип',
+      'tour.green.desc': 'Слейтесь с природой на зеленом джипе — преодолевайте песчаные дюны, сосновые леса и дикие тропы.',
+      'tour.any.title': 'Любой джип',
+      'tour.any.desc': 'Нет предпочтений по цвету? Выберите этот вариант, и мы подберем лучший доступный джип для вашего путешествия.',
+      'booking.pricePrivate': 'Индивидуальный тур',
       'booking.priceGroup': 'Групповой Тур',
       'booking.labelName': 'Полное Имя',
       'booking.formTitle': 'Забронировать',
@@ -480,8 +486,10 @@
       'tour.gold.desc': '金黄色象征着美奈的阳光——来藩切必体验的标志性之旅。',
       'tour.blue.title': '蓝色吉普',
       'tour.blue.desc': '清凉的海洋蓝——乘蓝色吉普探索渔村、海滩和诗情画意的沙丘小路。',
-      'tour.green.title': '绿色吉普',
-      'tour.green.desc': '乘绿色吉普融入自然——穿越沙丘地形、松树林和狂野越野小道。',
+      'tour.green.title': '绿色吉普车',
+      'tour.green.desc': '与大自然融为一体的绿色吉普车 — 穿越沙丘地形、松树林和野生越野小径。',
+      'tour.any.title': '任何吉普车',
+      'tour.any.desc': '没有颜色偏好？选择此选项，我们将为您安排最佳可用吉普车。',
       'booking.pricePrivate': '私家游',
       'booking.priceGroup': '拼团游',
       'booking.labelName': '姓名',
@@ -612,6 +620,8 @@
       'tour.blue.desc': '시원한 바다 블루 — 파란 지프로 어촌마을, 해변, 아름다운 모래 언덕 길을 탐험하세요.',
       'tour.green.title': '그린 지프',
       'tour.green.desc': '녹색 지프와 함께 자연 속으로 — 모래 언덕 지형, 소나무 숲, 야생 비포장 도로를 달려보세요.',
+      'tour.any.title': '아무 지프나',
+      'tour.any.desc': '선호하는 색상이 없으신가요? 이 옵션을 선택하시면 귀하의 여행을 위해 가장 좋은 상태의 지프를 배정해 드립니다.',
       'booking.pricePrivate': '단독 투어',
       'booking.priceGroup': '합승 투어',
       'booking.labelName': '성명',
@@ -742,6 +752,8 @@
       'tour.blue.desc': 'Kühles Meeresblau — erkunden Sie Fischerdörfer, Strände und malerische Dünenstraßen mit dem blauen Jeep.',
       'tour.green.title': 'Grüner Jeep',
       'tour.green.desc': 'Verschmelzen Sie mit der Natur im grünen Jeep — durchqueren Sie Dünengelände, Pinienwald und wilde Offroad-Pfade.',
+      'tour.any.title': 'Beliebiger Jeep',
+      'tour.any.desc': 'Keine Farbpräferenz? Wählen Sie diese Option und wir arrangieren den besten verfügbaren Jeep für Ihre Reise.',
       'booking.pricePrivate': 'Private Tour',
       'booking.priceGroup': 'Gruppenreise',
       'booking.labelName': 'Vollständiger Name',
@@ -1103,57 +1115,45 @@
     goTo(next, false, 'next');
   });
 
-  /* ─── Touch intercept: exactly 1 card per swipe ─────────── */
-  var touchStartX = 0;
-  var touchStartY = 0;
-  var touchDir = null; // 'h' | 'v' | null
+  /* ─── Track active card natively using IntersectionObserver ─────────── */
+  function setupObserver() {
+    if (!('IntersectionObserver' in window)) return;
 
-  function onTouchStart(e) {
-    clearTimeout(loopTimeout);
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    touchDir = null;
-  }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          /* Add is-active to the intersecting card */
+          entry.target.classList.add('is-active');
+          const idx = cards.indexOf(entry.target);
+          if (idx !== -1) {
+            currentIdx = idx;
+            /* update dots purely visually, don't trigger gotos */
+            dotsEl.querySelectorAll('.tours-dot').forEach(function (d, i) {
+              d.classList.toggle('active', i === idx);
+            });
+          }
+        } else {
+          entry.target.classList.remove('is-active');
+        }
+      });
+    }, {
+      root: grid,
+      threshold: 0.6 /* Card is considered active when 60% is visible */
+    });
 
-  function onTouchMove(e) {
-    var dx = e.touches[0].clientX - touchStartX;
-    var dy = e.touches[0].clientY - touchStartY;
-    if (!touchDir) {
-      touchDir = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
-    }
-    // Block native horizontal scroll so we control it completely
-    if (touchDir === 'h') {
-      e.preventDefault();
-    }
-  }
-
-  function onTouchEnd(e) {
-    if (touchDir !== 'h') return;
-    var dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 30) {
-      var perView = cardsPerView();
-      var maxIdx = cards.length - perView;
-      if (dx < 0) {
-        // swipe left → next
-        var next = currentIdx >= maxIdx ? 0 : currentIdx + 1;
-        goTo(next, false, 'next');
-      } else {
-        // swipe right → prev
-        var prev = currentIdx <= 0 ? maxIdx : currentIdx - 1;
-        goTo(prev, false, 'prev');
-      }
-    }
-    touchDir = null;
+    cards.forEach(card => observer.observe(card));
   }
 
   /* ─── Init ───────────────────────────────────────────────── */
   function init() {
     cards = Array.from(grid.querySelectorAll('.tour-card'));
     buildDots();
-    updateUI(0);
-    grid.addEventListener('touchstart', onTouchStart, { passive: true });
-    grid.addEventListener('touchmove', onTouchMove, { passive: false });
-    grid.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    if (cardsPerView() === 1) {
+      setupObserver();
+    } else {
+      updateUI(0);
+    }
 
     /* Block horizontal trackpad/wheel scroll on desktop;
        let vertical scroll pass through to the page */
@@ -1363,13 +1363,7 @@
     });
   });
 
-  /* Bind nav "Book Now" (header CTA) — generic open */
-  document.querySelectorAll('.nav-cta').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      openBooking({ name: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
-    });
-  });
+
 
   /* ── Close ── */
   closeBtn.addEventListener('click', closeBooking);
@@ -1581,17 +1575,35 @@
     var fsVi = tVi['stop.fairyStream'] || 'Suối Tiên';
     fallbackRouteVi = [wVi, rVi, fVi, fsVi].join(' → ');
 
-    var finalRoute = window.__bfCurrentRoute || fallbackRoute;
     var finalRouteVi = window.__bfCurrentRouteVi || fallbackRouteVi;
+
+    var finalRoute = fallbackRoute;
+    if (window.__bfCurrentRouteVi) {
+      var viParts = window.__bfCurrentRouteVi.split(' → ');
+      var langParts = viParts.map(function (vp) {
+        if (vp === wVi) return w;
+        if (vp === rVi) return r;
+        if (vp === fVi) return f;
+        if (vp === fsVi) return fs;
+        return vp;
+      });
+      finalRoute = langParts.join(' → ');
+    }
 
     if (!isHtml) {
       // Dùng bản dịch tương ứng với ngôn ngữ đang xét
       var T = t;
       var addonLangStr = addonSandDuneSelected ? (T['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep') : '—';
+
+      var typeLangStr = tourType === 'private'
+        ? (T['booking.typePrivate'] || 'Tour Riêng Tư')
+        : (T['booking.typeGroup'] || 'Tour Ghép') + ' (' + guests + ')';
+      var tourLineLang = (timeOnly ? timeOnly + ' - ' : '') + typeLangStr;
+
       var plainMsg = (T['wa.greeting'] || 'Xin chào Mr. Ben, tôi muốn đặt xe Jeep của bạn, và đây là thông tin đặt xe Jeep của tôi:\n')
         + (T['wa.name'] || '- Họ tên: ') + (name || '—') + '\n'
         + (T['wa.phone'] || '- SĐT: ') + fullPhone + '\n'
-        + (T['wa.tour'] || '- Tour: ') + tourLine + '\n'
+        + (T['wa.tour'] || '- Tour: ') + tourLineLang + '\n'
         + (T['wa.car'] || '- Loại xe: ') + tourName + '\n'
         + (addonSandDuneSelected ? (T['wa.addon'] || '- Dịch vụ thêm: ') + addonLangStr + '\n' : '')
         + (T['wa.route'] || '- Lộ trình: ') + finalRoute + '\n'
