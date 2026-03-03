@@ -862,11 +862,11 @@
                     <!-- Default route pills -->
                     <div class="bf-route-default" id="bfRouteDefault">
                         <span class="bf-route-pill" id="bfStop1Label">Đồi cát trắng</span>
-                        <span class="bf-route-arrow">→</span>
+                        <span class="bf-route-arrow">↓</span>
                         <span class="bf-route-pill" id="bfStop2Label">Đồi cát đỏ</span>
-                        <span class="bf-route-arrow">→</span>
+                        <span class="bf-route-arrow">↓</span>
                         <span class="bf-route-pill" id="bfStop3Label">Làng chài</span>
-                        <span class="bf-route-arrow">→</span>
+                        <span class="bf-route-arrow">↓</span>
                         <span class="bf-route-pill" id="bfStop4Label">Suối tiên</span>
                     </div>
 
@@ -968,9 +968,29 @@
 
             </div><!-- /.booking-body -->
         </div><!-- /.booking-modal -->
-    </div><!-- /.booking-overlay -->
+        <!-- Booking Confirm Modal -->
+        <div class="bf-confirm-wrap" id="bfConfirmModal">
+            <div class="bf-confirm-card">
+                <div class="bf-confirm-header">
+                    <h3 data-i18n="booking.confirmTitle">Xác nhận đặt xe</h3>
+                    <button class="booking-close" id="bfConfirmClose">×</button>
+                </div>
+                <div class="bf-confirm-body">
+                    <ul class="bf-confirm-list" id="bfConfirmList">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+                <div class="bf-confirm-footer">
+                    <button class="bf-btn-outline" id="bfConfirmEdit" data-i18n="booking.confirmEdit">Chỉnh sửa</button>
+                    <button class="goldx" id="bfConfirmSendNow">
+                        <span data-i18n="booking.confirmSendNow">Gửi luôn</span>&nbsp;(<span
+                            id="bfCountdownNum">30</span>s)
+                    </button>
+                </div>
+            </div>
+        </div>
 
-    <script src="js/script.js"></script>
+        <script src="js/script.js"></script>
 </body>
 
 </html>

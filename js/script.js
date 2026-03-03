@@ -123,6 +123,10 @@
       'booking.bookZalo': 'Đặt qua Zalo',
       'booking.or': 'hoặc',
       'booking.callPhone': 'Gọi Điện Thoại',
+      'booking.confirmTitle': 'Xác Nhận Thông Tin',
+      'booking.confirmDesc': 'Đơn hàng của bạn sẽ được gửi sau:',
+      'booking.confirmEdit': 'Chỉnh Sửa',
+      'booking.confirmSendNow': 'Gửi Ngay',
       'cal.sun': 'CN', 'cal.mon': 'T2', 'cal.tue': 'T3', 'cal.wed': 'T4', 'cal.thu': 'T5', 'cal.fri': 'T6', 'cal.sat': 'T7',
       'booking.labelHotel': 'Tên Khách Sạn/Resort',
       'booking.placeholderHotel': 'Tìm tên khách sạn/resort...',
@@ -254,6 +258,10 @@
       'booking.bookZalo': 'Book via Zalo',
       'booking.or': 'or',
       'booking.callPhone': 'Call Us',
+      'booking.confirmTitle': 'Confirm Booking',
+      'booking.confirmDesc': 'Your message will be sent in:',
+      'booking.confirmEdit': 'Edit',
+      'booking.confirmSendNow': 'Send Now',
       'cal.sun': 'Su', 'cal.mon': 'Mo', 'cal.tue': 'Tu', 'cal.wed': 'We', 'cal.thu': 'Th', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
       'booking.labelHotel': 'Hotel/Resort Name',
       'booking.placeholderHotel': 'Search hotel/resort name...',
@@ -385,6 +393,10 @@
       'booking.bookZalo': 'Забронировать через Zalo',
       'booking.or': 'или',
       'booking.callPhone': 'Позвонить',
+      'booking.confirmTitle': 'Подтвердить бронирование',
+      'booking.confirmDesc': 'Ваше сообщение будет отправлено через:',
+      'booking.confirmEdit': 'Изменить',
+      'booking.confirmSendNow': 'Отправить',
       'cal.sun': 'Вс', 'cal.mon': 'Пн', 'cal.tue': 'Вт', 'cal.wed': 'Ср', 'cal.thu': 'Чт', 'cal.fri': 'Пт', 'cal.sat': 'Сб',
       'booking.labelHotel': 'Название Отеля/Курорта',
       'booking.placeholderHotel': 'Поиск отеля/курорта...',
@@ -517,6 +529,10 @@
       'booking.bookZalo': '通过Zalo预订',
       'booking.or': '或',
       'booking.callPhone': '致电我们',
+      'booking.confirmTitle': '确认预订',
+      'booking.confirmDesc': '您的消息将在以下时间发送：',
+      'booking.confirmEdit': '编辑',
+      'booking.confirmSendNow': '立即发送',
       'cal.sun': '日', 'cal.mon': '一', 'cal.tue': '二', 'cal.wed': '三', 'cal.thu': '四', 'cal.fri': '五', 'cal.sat': '六',
       'booking.labelHotel': '酒店/度假村名称',
       'booking.placeholderHotel': '搜索酒店/度假村名称...',
@@ -649,6 +665,10 @@
       'booking.bookZalo': 'Zalo로 예약',
       'booking.or': '또는',
       'booking.callPhone': '전화 문의',
+      'booking.confirmTitle': '예약 확인',
+      'booking.confirmDesc': '메시지가 다음 시간 후 전송됩니다:',
+      'booking.confirmEdit': '수정',
+      'booking.confirmSendNow': '지금 전송',
       'cal.sun': '일', 'cal.mon': '월', 'cal.tue': '화', 'cal.wed': '수', 'cal.thu': '목', 'cal.fri': '금', 'cal.sat': '토',
       'booking.labelHotel': '호텔/리조트 이름',
       'booking.placeholderHotel': '호텔/리조트 이름 검색...',
@@ -711,7 +731,7 @@
       'cta.sub': 'Kontaktieren Sie uns jetzt und unser Team erstellt die perfekte Route für Sie.',
       'feat.driversTitle': 'Professionelle Fahrer',
       'feat.driversDesc': 'Zertifizierte, erfahrene einheimische Fahrer, die jeden Pfad, jede Düne und jeden verborgenen Geheimtipp in Mũi Né kennen.',
-      'feat.jeepsTitle': 'Premium Jeeps',
+      'feat.jeepsTitle': 'Prämien Jeeps',
       'feat.jeepsDesc': 'Reisen Sie stilvoll in unserer Flotte klassischer, gepflegter Jeeps — für Komfort und Abenteuer.',
       'feat.localTitle': 'Lokale Expertise',
       'feat.localDesc': 'In Mui Ne geboren und aufgewachsen, wir teilen Kultur, Geschichten und Geheimplätze, die nur Einheimische kennen.',
@@ -781,6 +801,10 @@
       'booking.bookZalo': 'Via Zalo buchen',
       'booking.or': 'oder',
       'booking.callPhone': 'Anrufen',
+      'booking.confirmTitle': 'Buchung bestätigen',
+      'booking.confirmDesc': 'Ihre Nachricht wird gesendet in:',
+      'booking.confirmEdit': 'Bearbeiten',
+      'booking.confirmSendNow': 'Jetzt Senden',
       'cal.sun': 'So', 'cal.mon': 'Mo', 'cal.tue': 'Di', 'cal.wed': 'Mi', 'cal.thu': 'Do', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
       'booking.labelHotel': 'Hotel/Resort Name',
       'booking.placeholderHotel': 'Hotel/Resortname suchen...',
@@ -1280,6 +1304,8 @@
       btnPrivate.classList.remove('active');
       guestGroup.style.display = '';
     }
+    btnPrivate.classList.remove('bf-error');
+    btnGroup.classList.remove('bf-error');
     updatePrice();
   }
 
@@ -1309,6 +1335,47 @@
     waBtn.href = 'https://wa.me/84913140196?text=' + buildWAMessage();
   }
 
+  function resetBookingForm() {
+    document.getElementById('bfName').value = '';
+    document.getElementById('bfPhone').value = '';
+    document.getElementById('bfNotes').value = '';
+    var hotelObj = document.getElementById('bfHotelName');
+    if (hotelObj) {
+      hotelObj.value = '';
+      hotelObj.classList.remove('has-value');
+    }
+    var addrObj = document.getElementById('bfHotelAddress');
+    if (addrObj) {
+      addrObj.value = '';
+      addrObj.setAttribute('readonly', '');
+    }
+    var customGrp = document.getElementById('bfHotelCustomGroup');
+    if (customGrp) customGrp.style.display = 'none';
+    var customInput = document.getElementById('bfHotelCustomName');
+    if (customInput) customInput.value = '';
+
+    guests = 1;
+    if (guestVal) guestVal.textContent = '1';
+    setDefaultDatetime();
+    /* Reset tour type — no pre-selection */
+    tourType = 'private';           /* keep internal default for price calc */
+    if (btnPrivate) { btnPrivate.classList.remove('active'); btnPrivate.classList.remove('bf-error'); }
+    if (btnGroup) { btnGroup.classList.remove('active'); btnGroup.classList.remove('bf-error'); }
+    if (guestGroup) guestGroup.style.display = 'none';
+
+    // Clear route drops
+    if (window.bfRouteResetAll) window.bfRouteResetAll();
+
+    // Remove errors
+    ['bfName', 'bfPhone', 'bfHotelCustomName', 'bfHotelAddress'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        var targetEl = el.closest('.bf-hotel-input-row') || el;
+        targetEl.classList.remove('bf-error');
+      }
+    });
+  }
+
   /* ── Open modal ── */
   function openBooking(data) {
     tourName = data.name || 'Xe Jeep Mr. Ben';
@@ -1320,18 +1387,7 @@
     bpbPrivate.textContent = fmt(pricePrivate);
     bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">/người</span>';
 
-    // Reset form
-    document.getElementById('bfName').value = '';
-    document.getElementById('bfPhone').value = '';
-    document.getElementById('bfNotes').value = '';
-    guests = 1;
-    guestVal.textContent = '1';
-    setDefaultDatetime();
-    /* Reset tour type — no pre-selection */
-    tourType = 'private';           /* keep internal default for price calc */
-    btnPrivate.classList.remove('active');
-    btnGroup.classList.remove('active');
-    guestGroup.style.display = 'none';
+    // We do NOT reset the form here anymore to preserve user input.
     updatePrice();
     refreshWALink();
 
@@ -1417,7 +1473,6 @@
       codeOpts.forEach(function (opt) {
         opt.classList.toggle('active', opt.getAttribute('data-lang') === 'custom');
       });
-      refreshWALink();
       return;
     }
 
@@ -1443,7 +1498,6 @@
     codeOpts.forEach(function (opt) {
       opt.classList.toggle('active', opt.getAttribute('data-code') === entry.code);
     });
-    refreshWALink();
   }
 
   function openCodeDropdown() {
@@ -1486,11 +1540,7 @@
   // Also sync on initial load
   setPhoneCode(localStorage.getItem('mrben-lang') || 'vi');
 
-  /* ── Refresh WA link on any input change ── */
-  ['bfName', 'bfPhone', 'bfDatetime', 'bfNotes'].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('input', refreshWALink);
-  });
+  // Link generation is now handled dynamically on "Book" click.
 
   function buildMessage(isHtml) {
     var bStart = isHtml ? '<b>' : '';
@@ -1590,6 +1640,57 @@
       finalRoute = langParts.join(' → ');
     }
 
+    if (isHtml === 'list') {
+      var T = t;
+      var addonLangStr = addonSandDuneSelected ? (T['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep') : '';
+      var typeLangStr = tourType === 'private' ? (T['booking.typePrivate'] || 'Tour Riêng Tư') : (T['booking.typeGroup'] || 'Tour Ghép') + ' (' + guests + ')';
+      var tourLineLang = (timeOnly ? timeOnly + ' - ' : '') + typeLangStr;
+
+      var cleanLabel = function (lbl) {
+        if (!lbl) return '';
+        return lbl.replace(/^-\s*/, '').replace(/:\s*$/, '');
+      };
+
+      var routeHtml = finalRoute.split(' → ').map(function (stop) {
+        return '<span class="bf-route-pill-sm">' + stop + '</span>';
+      }).join('<span class="bf-route-arrow-sm">↓</span>');
+
+      var items = [
+        { icon: 'fa-user', color: 'ci-user', label: cleanLabel(T['wa.name'] || 'Họ tên'), val: name || '—' },
+        { icon: 'fa-phone-alt', color: 'ci-phone', label: cleanLabel(T['wa.phone'] || 'SĐT'), val: fullPhone },
+        { icon: 'fa-map-signs', color: 'ci-truck', label: cleanLabel(T['wa.route'] || 'Lộ trình'), val: '<div class="bf-confirm-route-wrap">' + routeHtml + '</div>' }
+      ];
+      if (hotelName) {
+        items.push({ icon: 'fa-building', color: 'ci-hotel', label: cleanLabel(T['wa.hotel'] || 'Khách sạn'), val: hotelName });
+      }
+      if (hotelAddr) {
+        items.push({ icon: 'fa-map-marker-alt', color: 'ci-pin', label: cleanLabel(T['wa.address'] || 'Địa chỉ'), val: hotelAddr });
+      }
+
+      items.push({ icon: 'fa-car-side', color: 'ci-jeep', label: cleanLabel(T['wa.tour'] || 'Tour'), val: tourLineLang });
+      items.push({ icon: 'fa-truck-pickup', color: 'ci-truck', label: cleanLabel(T['wa.car'] || 'Loại xe'), val: tourName });
+
+      var _dtParts = dt.split(' | ');
+      if (_dtParts.length === 2) {
+        items.push({ icon: 'fa-calendar-alt', color: 'ci-date', label: 'Ngày', val: _dtParts[0] });
+        // Note: Giờ is already included in `tourLineLang` (Tour), but if we want to separate it: 
+        // items.push({ icon: 'fa-clock', color: 'ci-time', label: 'Giờ', val: _dtParts[1] });
+      } else {
+        items.push({ icon: 'fa-calendar-alt', color: 'ci-date', label: cleanLabel(T['wa.time'] || 'Ngày & Giờ'), val: dt });
+      }
+
+      if (addonSandDuneSelected) {
+        items.push({ icon: 'fa-star', color: 'ci-addon', label: cleanLabel(T['wa.addon'] || 'Dịch vụ thêm'), val: addonLangStr });
+      }
+
+      if (notes) {
+        items.push({ icon: 'fa-comment-alt', color: 'ci-user', label: cleanLabel(T['wa.notes'] || 'Ghi chú'), val: notes });
+      }
+      items.push({ icon: 'fa-money-bill-wave', color: 'ci-money', label: (T['booking.totalPrice'] || 'Tổng tiền').replace(':', ''), val: totalText });
+
+      return items;
+    }
+
     if (!isHtml) {
       // Dùng bản dịch tương ứng với ngôn ngữ đang xét
       var T = t;
@@ -1673,27 +1774,182 @@
       .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
   }
 
-  function refreshWALink() {
-    waBtn.href = 'https://wa.me/84913140196?text=' + buildWAMessage();
+  /* ─── Confirm Modal Logic ─── */
+  var confirmModal = document.getElementById('bfConfirmModal');
+  if (confirmModal) document.body.appendChild(confirmModal); // Reparent out of booking-overlay to avoid clipping
+  var confirmClose = document.getElementById('bfConfirmClose');
+  var confirmPreview = document.getElementById('bfConfirmPreview');
+  var confirmNum = document.getElementById('bfCountdownNum');
+  var confirmCircle = document.getElementById('bfCountdownCircle');
+  var btnEdit = document.getElementById('bfConfirmEdit');
+  var btnSendNow = document.getElementById('bfConfirmSendNow');
+
+  var confirmTimer = null;
+  var countdownSecs = 30;
+  var pendingPlatform = null;
+  var pendingLink = '';
+
+  function openConfirmModal(platform) {
+    if (!confirmModal) return;
+    pendingPlatform = platform;
+    var rawMsg = buildWAMessage();
+    var plainMsg = buildMessage(false);
+    var listData = buildMessage('list');
+
+    if (platform === 'whatsapp') {
+      pendingLink = 'https://wa.me/84913140196?text=' + rawMsg;
+    } else if (platform === 'zalo') {
+      var zObj = { act: "WA", oa: "84913140196", ext: "txt", text: plainMsg };
+      var state = encodeURIComponent(JSON.stringify(zObj));
+      pendingLink = 'https://zalo.me/84913140196?state=' + state;
+    }
+
+    // Inject List Data
+    var listEl = document.getElementById('bfConfirmList');
+    if (listEl) {
+      listEl.innerHTML = '';
+      listData.forEach(function (item) {
+        var li = document.createElement('li');
+        li.className = 'bf-confirm-item';
+        li.innerHTML =
+          '<div class="bf-confirm-icon ' + item.color + '"><i class="fas ' + item.icon + '"></i></div>' +
+          '<span class="bf-confirm-label">' + item.label + ':</span>' +
+          '<span class="bf-confirm-val">' + item.val + '</span>';
+        listEl.appendChild(li);
+      });
+    }
+
+    countdownSecs = 30;
+    if (confirmNum) confirmNum.textContent = countdownSecs;
+
+    confirmModal.classList.add('open');
+    clearInterval(confirmTimer);
+    confirmTimer = setInterval(function () {
+      countdownSecs--;
+      if (confirmNum) confirmNum.textContent = countdownSecs;
+      if (countdownSecs <= 0) { clearInterval(confirmTimer); executeSend(); }
+    }, 1000);
   }
 
-  // Intercept clicks to send to Telegram silently
-  waBtn.addEventListener('click', sendToTelegram);
-  var zaloBtn = document.getElementById('bfZalo');
-  if (zaloBtn) {
-    zaloBtn.addEventListener('click', function () {
+  function closeConfirmModal() {
+    clearInterval(confirmTimer);
+    if (confirmModal) {
+      confirmModal.classList.remove('open');
+    }
+    pendingPlatform = null;
+    pendingLink = '';
+  }
+
+  function executeSend() {
+    if (pendingLink) {
       sendToTelegram();
-      // Sao chép tin nhắn vào clipboard cho khách dán vào Zalo
-      var msgText = buildMessage(false);
-      var lang = localStorage.getItem('mrben-lang') || 'vi';
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(msgText).then(function () {
-          var alertMsg = lang === 'vi' ? 'Đã sao chép nội dung đặt xe! Vui lòng dán vào app Zalo để gửi cho Mr. Ben.' : 'Booking details copied! Please paste them into the Zalo app to send to Mr. Ben.';
-          alert(alertMsg);
-        }).catch(function (e) {
-          console.error("Lỗi khi copy text: ", e);
-        });
+      var a = document.createElement('a');
+      a.href = pendingLink;
+      a.target = '_blank';
+      a.click();
+
+      // Clear form after successful send
+      setTimeout(function () {
+        resetBookingForm();
+      }, 500);
+    }
+    closeConfirmModal();
+  }
+
+  if (confirmClose) confirmClose.addEventListener('click', closeConfirmModal);
+  if (btnEdit) btnEdit.addEventListener('click', closeConfirmModal);
+  if (btnSendNow) btnSendNow.addEventListener('click', executeSend);
+
+  function validateBookingForm() {
+    var isValid = true;
+    var firstErr = null;
+
+    var T = (window.__MRB_TRANS || {})[localStorage.getItem('mrben-lang') || 'vi'] || {};
+    var reqFields = [
+      { id: 'bfName', text: T['wa.name'] || 'Họ tên' },
+      { id: 'bfPhone', text: T['wa.phone'] || 'SĐT' },
+      // Check Hotel Name. If custom, check Custom Name.
+      { id: 'bfHotelName', text: T['wa.hotel'] || 'Khách sạn' },
+      { id: 'bfHotelAddress', text: T['wa.hotelAddress'] || 'Địa chỉ' }
+    ];
+
+    var hotelNameEl = document.getElementById('bfHotelName');
+    if (hotelNameEl && hotelNameEl.value === 'Khách sạn khác') {
+      reqFields.push({ id: 'bfHotelCustomName', text: T['wa.hotel'] || 'Khách sạn' });
+    }
+
+    reqFields.forEach(function (f) {
+      var el = document.getElementById(f.id);
+      if (el) {
+        var targetEl = el.closest('.bf-hotel-input-row') || el;
+        if (!el.value.trim()) {
+          targetEl.classList.add('bf-error');
+          isValid = false;
+          if (!firstErr) firstErr = el;
+        } else {
+          targetEl.classList.remove('bf-error');
+        }
       }
+    });
+
+    // Check Datetime
+    var dt = document.getElementById('bfDatetime');
+    var dtTrigger = document.getElementById('bfDtTrigger');
+    if (dt && !dt.value.trim()) {
+      if (dtTrigger) dtTrigger.classList.add('bf-error');
+      isValid = false;
+      if (!firstErr && dtTrigger) firstErr = dtTrigger;
+    } else {
+      if (dtTrigger) dtTrigger.classList.remove('bf-error');
+    }
+
+    // Check Tour Type (must have one active button)
+    var btnPriv = document.getElementById('bfTypePrivate');
+    var btnGrp = document.getElementById('bfTypeGroup');
+    if (btnPriv && btnGrp) {
+      if (!btnPriv.classList.contains('active') && !btnGrp.classList.contains('active')) {
+        btnPriv.classList.add('bf-error');
+        btnGrp.classList.add('bf-error');
+        isValid = false;
+        if (!firstErr) firstErr = btnPriv;
+      } else {
+        btnPriv.classList.remove('bf-error');
+        btnGrp.classList.remove('bf-error');
+      }
+    }
+
+    if (!isValid && firstErr) {
+      firstErr.focus();
+      // Optional: scroll into view
+      firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    return isValid;
+  }
+
+  // Remove error class on input
+  ['bfName', 'bfPhone', 'bfHotelCustomName', 'bfHotelAddress'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function () {
+        var targetEl = el.closest('.bf-hotel-input-row') || el;
+        targetEl.classList.remove('bf-error');
+      });
+    }
+  });
+
+  var btnWa = document.getElementById('bfWhatsApp');
+  var btnZalo = document.getElementById('bfZalo');
+  if (btnWa) {
+    btnWa.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (validateBookingForm()) openConfirmModal('whatsapp');
+    });
+  }
+  if (btnZalo) {
+    btnZalo.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (validateBookingForm()) openConfirmModal('zalo');
     });
   }
 
@@ -1714,6 +1970,7 @@
   var tpView = document.getElementById('bfTpView');
   var calTitle = document.getElementById('bfCalTitle');
   var calDays = document.getElementById('bfCalDays');
+  /* DATE PICKER logic continues below */
   var calPrev = document.getElementById('bfCalPrev');
   var calNext = document.getElementById('bfCalNext');
 
@@ -1901,6 +2158,18 @@
   // Re-default when booking modal reopens
   document.addEventListener('mrben-booking-open', setDefault);
 
+  // Translate Date & Time label dynamically
+  document.addEventListener('mrben-langchange', function () {
+    if (selDate && selHour !== null && selMin !== null) {
+      confirmSlot(selHour, selMin);
+    } else {
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      var TRANS = window.__MRB_TRANS || {};
+      var placeholder = (TRANS[lang] && TRANS[lang]['booking.datePlaceholder']) || 'Chọn ngày & giờ khởi hành';
+      dtDisplay.textContent = placeholder;
+    }
+  });
+
 })();
 
 /* ============================================================
@@ -2081,6 +2350,28 @@
   });
 
   group.style.display = 'none';
+
+  // Translate Route selections dynamically
+  document.addEventListener('mrben-langchange', function () {
+    if (!dtHidden) return;
+    var isSunset = dtHidden.value && dtHidden.value.indexOf('T13:30') !== -1;
+    var newOrder = isSunset ? getSunsetOrder() : getSunriseOrder();
+
+    // Map old language strings to new language strings
+    var mapping = {};
+    for (var i = 0; i < 4; i++) {
+      mapping[currentOrder[i]] = newOrder[i];
+    }
+
+    var newValues = values.map(function (v) { return mapping[v] || v; });
+
+    currentOrder = newOrder;
+    values = newValues;
+
+    values.forEach(function (stop, i) { if (pillEls[i]) pillEls[i].textContent = stop; });
+    broadcastRoute();
+    if (dropWrap && dropWrap.style.display !== 'none') rebuildAll();
+  });
 
 })();
 
@@ -2292,6 +2583,10 @@
   function selectHotel(h) {
     nameInput.value = h.name;
     nameInput.classList.add('has-value');
+    var targetName = nameInput.closest('.bf-hotel-input-row') || nameInput;
+    targetName.classList.remove('bf-error');
+    var targetAddr = addrInput.closest('.bf-hotel-input-row') || addrInput;
+    targetAddr.classList.remove('bf-error');
     if (h._isOther) {
       /* keep address empty & editable */
       addrInput.value = '';
@@ -2331,6 +2626,22 @@
     if (customGroup) customGroup.style.display = 'none';
     if (customInput) customInput.value = '';
     closeDropdown();
+  });
+
+  // Translate "Other Hotel" dynamically
+  document.addEventListener('mrben-langchange', function () {
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    var otherStr = T['wa.hotelOther'] || T['booking.hotelOther'] || 'Khách sạn khác';
+
+    var otherObj = hotelData[hotelData.length - 1];
+    if (otherObj && otherObj._isOther) {
+      var oldOtherStr = otherObj.name;
+      otherObj.name = otherStr;
+      if (nameInput && nameInput.value === oldOtherStr) {
+        nameInput.value = otherStr;
+      }
+    }
   });
 
 })();
