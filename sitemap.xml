@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Main English Homepage (Default) -->
+  <url>
+    <loc>https://mrbenjeeptours.com/</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Alternate Language Links -->
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mrbenjeeptours.com/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://mrbenjeeptours.com/?lang=vi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mrbenjeeptours.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mrbenjeeptours.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mrbenjeeptours.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mrbenjeeptours.com/?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mrbenjeeptours.com/?lang=de"/>
+  </url>
+
+  <!-- Vietnamese version -->
+  <url>
+    <loc>https://mrbenjeeptours.com/?lang=vi</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Russian version -->
+  <url>
+    <loc>https://mrbenjeeptours.com/?lang=ru</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Chinese version -->
+  <url>
+    <loc>https://mrbenjeeptours.com/?lang=zh</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Korean version -->
+  <url>
+    <loc>https://mrbenjeeptours.com/?lang=ko</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- German version -->
+  <url>
+    <loc>https://mrbenjeeptours.com/?lang=de</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
