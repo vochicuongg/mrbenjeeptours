@@ -1882,7 +1882,27 @@
       var el = document.getElementById(f.id);
       if (el) {
         var targetEl = el.closest('.bf-hotel-input-row') || el;
-        if (!el.value.trim()) {
+        var val = el.value.trim();
+        var isInvalid = !val;
+
+        // Custom validation logic
+        if (f.id === 'bfName' && val) {
+          // Name cannot contain numbers
+          if (/[0-9]/.test(val)) isInvalid = true;
+        } else if (f.id === 'bfPhone' && val) {
+          // Phone length validation based on country code
+          var pLen = val.length;
+          var cCode = (typeof selectedPhoneCode !== 'undefined' ? selectedPhoneCode : '+84');
+          if (cCode === '+84' && (pLen < 9 || pLen > 10)) isInvalid = true;      // VN: 9-10
+          else if (cCode === '+1' && pLen !== 10) isInvalid = true;              // US: 10
+          else if (cCode === '+7' && pLen !== 10) isInvalid = true;              // RU: 10
+          else if (cCode === '+86' && pLen !== 11) isInvalid = true;             // CN: 11
+          else if (cCode === '+82' && (pLen < 9 || pLen > 10)) isInvalid = true; // KR: 9-10
+          else if (cCode === '+49' && (pLen < 10 || pLen > 11)) isInvalid = true;// DE: 10-11
+          else if (cCode === '' && (pLen < 8 || pLen > 15)) isInvalid = true;    // Custom: 8-15
+        }
+
+        if (isInvalid) {
           targetEl.classList.add('bf-error');
           isValid = false;
           if (!firstErr) firstErr = el;
@@ -1934,6 +1954,15 @@
       el.addEventListener('input', function () {
         var targetEl = el.closest('.bf-hotel-input-row') || el;
         targetEl.classList.remove('bf-error');
+
+        // Strip numbers from Name
+        if (id === 'bfName') {
+          this.value = this.value.replace(/[0-9]/g, '');
+        }
+        // Strip non-numbers from Phone
+        if (id === 'bfPhone') {
+          this.value = this.value.replace(/\D/g, '');
+        }
       });
     }
   });
@@ -2513,9 +2542,16 @@
   /* Address read-only by default */
   addrInput.setAttribute('readonly', '');
 
+  /* Function to remove Vietnamese accents for better searching */
+  function removeAccents(str) {
+    if (!str) return '';
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
   /* ── Build dropdown ── */
   function buildDropdown(filter) {
-    filter = (filter || '').toLowerCase().trim();
+    var rawFilter = (filter || '').trim();
+    var cleanFilter = removeAccents(rawFilter);
     dropdown.innerHTML = '';
 
     var searchWrap = document.createElement('li');
@@ -2527,9 +2563,13 @@
       'placeholder="Tìm kiếm..." autocomplete="off" />';
     dropdown.appendChild(searchWrap);
 
-    var results = hotelData.filter(function (h) {
-      return !filter || h.name.toLowerCase().indexOf(filter) !== -1;
+    var normalResults = hotelData.filter(function (h) {
+      if (h._isOther) return false;
+      return !cleanFilter || removeAccents(h.name).indexOf(cleanFilter) !== -1;
     });
+
+    var otherHotel = hotelData.find(function (h) { return h._isOther; });
+    var results = normalResults;
 
     if (results.length === 0) {
       var none = document.createElement('li');
@@ -2539,7 +2579,7 @@
     } else {
       results.forEach(function (h) {
         var li = document.createElement('li');
-        li.className = 'bf-hotel-opt' + (h._isOther ? ' is-other' : '');
+        li.className = 'bf-hotel-opt';
         li.setAttribute('role', 'option');
         li.innerHTML =
           '<span class="bf-hotel-opt-name">' + h.name + '</span>' +
@@ -2550,6 +2590,19 @@
         });
         dropdown.appendChild(li);
       });
+    }
+
+    // Always append "Other Hotel" at the bottom
+    if (otherHotel) {
+      var otherLi = document.createElement('li');
+      otherLi.className = 'bf-hotel-opt is-other';
+      otherLi.setAttribute('role', 'option');
+      otherLi.innerHTML = '<span class="bf-hotel-opt-name">' + otherHotel.name + '</span>';
+      otherLi.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        selectHotel(otherHotel);
+      });
+      dropdown.appendChild(otherLi);
     }
 
     var searchEl = document.getElementById('bfHotelSearch');
