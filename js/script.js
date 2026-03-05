@@ -1463,7 +1463,10 @@
   function setPhoneCode(langOrCode) {
     if (langOrCode === 'custom') {
       selectedPhoneCode = '';
-      if (codeFlag) codeFlag.style.display = 'none';
+      if (codeFlag) {
+        codeFlag.style.display = '';
+        codeFlag.src = 'assets/images/languages/united-nation.webp';
+      }
       if (codeText) {
         codeText.readOnly = false;
         codeText.value = '+';
@@ -1899,7 +1902,22 @@
           else if (cCode === '+86' && pLen !== 11) isInvalid = true;             // CN: 11
           else if (cCode === '+82' && (pLen < 9 || pLen > 10)) isInvalid = true; // KR: 9-10
           else if (cCode === '+49' && (pLen < 10 || pLen > 11)) isInvalid = true;// DE: 10-11
-          else if (cCode === '' && (pLen < 8 || pLen > 15)) isInvalid = true;    // Custom: 8-15
+          else if (cCode === '') {
+            var ct = document.getElementById('bfPhoneCodeText');
+            var cBtn = document.getElementById('bfPhoneCodeBtn');
+            if (ct && cBtn) {
+              var cVal = ct.value.trim();
+              var validGlobalPattern = /^\+(1|7|20|27|21[1-368]|22\d|23\d|24[0-689]|25[0-8]|26\d|29[0-37-9]|3[0-469]|35\d|37\d|38[0-35-79]|4[013-9]|42[013]|5[1-8]|50\d|59\d|6[0-6]|67[02-9]|68[0-35-9]|69[0-2]|8[1246]|85[02356]|870|88[06]|9[0-58]|96[0-8]|97[0-79]|99[1-68])$/;
+              if (!validGlobalPattern.test(cVal)) {
+                cBtn.classList.add('bf-error');
+                isInvalid = true;
+                if (!firstErr) firstErr = ct;
+              } else {
+                cBtn.classList.remove('bf-error');
+              }
+            }
+            if (pLen < 8 || pLen > 15) isInvalid = true;    // Custom phone digits
+          }
         }
 
         if (isInvalid) {
@@ -1966,6 +1984,31 @@
       });
     }
   });
+
+  // Strip non-numeric/plus from Custom Phone Code text and validate
+  var phoneCodeInput = document.getElementById('bfPhoneCodeText');
+  var phoneCodeBtn = document.getElementById('bfPhoneCodeBtn');
+  var validGlobalPattern = /^\+(1|7|20|27|21[1-368]|22\d|23\d|24[0-689]|25[0-8]|26\d|29[0-37-9]|3[0-469]|35\d|37\d|38[0-35-79]|4[013-9]|42[013]|5[1-8]|50\d|59\d|6[0-6]|67[02-9]|68[0-35-9]|69[0-2]|8[1246]|85[02356]|870|88[06]|9[0-58]|96[0-8]|97[0-79]|99[1-68])$/;
+  var partialGlobalPattern = /^\+(2[1-689]?|3[578]?|42?|5[09]?|6[789]?|8[578]?|9[679]?)$/;
+
+  if (phoneCodeInput) {
+    phoneCodeInput.addEventListener('input', function () {
+      // Ensure it starts with +, then only numbers
+      var val = this.value.replace(/[^\d+]/g, '');
+      if (val && val[0] !== '+') val = '+' + val.replace(/\+/g, '');
+      else if (val) val = '+' + val.substring(1).replace(/\+/g, '');
+      this.value = val;
+
+      // Real-time validation
+      if (phoneCodeBtn) {
+        if (val.length > 1 && !validGlobalPattern.test(val) && !partialGlobalPattern.test(val)) {
+          phoneCodeBtn.classList.add('bf-error');
+        } else {
+          phoneCodeBtn.classList.remove('bf-error');
+        }
+      }
+    });
+  }
 
   var btnWa = document.getElementById('bfWhatsApp');
   var btnZalo = document.getElementById('bfZalo');
