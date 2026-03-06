@@ -41,6 +41,10 @@
     }
     </script>
 
+    <!-- Preload Critical LCP Assets -->
+    <link rel="preload" as="image" href="assets/images/background/background.jpg" type="image/jpeg"
+        fetchpriority="high" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,10 +52,14 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
 
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome CDN (Deferred for Performance) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    </noscript>
 
-    <!-- Main Stylesheet -->
+    <!-- Main Stylesheet (Critical) -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -61,12 +69,14 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-logo-img" />
+                <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-logo-img"
+                    fetchpriority="high" width="98" height="98" />
             </a>
             <ul class="nav-links" id="navLinks">
                 <!-- Logo shown only in mobile overlay -->
                 <li class="nav-mobile-logo-item">
-                    <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-mobile-logo" />
+                    <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-mobile-logo"
+                        loading="lazy" width="98" height="98" />
                 </li>
                 <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
@@ -77,39 +87,39 @@
             <!-- ── Language Switcher ── -->
             <div class="lang-switcher" id="langSwitcher">
                 <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-                    <img src="assets/images/languages/vietnam.webp" alt="VI" class="lang-flag" id="langFlagActive" />
+                    <img src="assets/images/languages/vietnam.webp" alt="VI" class="lang-flag" id="langFlagActive" / decoding="async" loading="lazy" width="39" height="39">
                     <span class="lang-code" id="langCodeActive">VI</span>
                     <i class="fas fa-chevron-down lang-arrow" id="langArrow"></i>
                 </button>
                 <ul class="lang-dropdown" id="langDropdown" role="listbox">
                     <li class="lang-option active" data-lang="vi" data-flag="assets/images/languages/vietnam.webp"
                         data-label="VI" role="option">
-                        <img src="assets/images/languages/vietnam.webp" alt="Vietnam" class="lang-flag" />
+                        <img src="assets/images/languages/vietnam.webp" alt="Vietnam" class="lang-flag" / decoding="async" loading="lazy" width="39" height="39">
                         <span>Tiếng Việt</span>
                     </li>
                     <li class="lang-option" data-lang="en" data-flag="assets/images/languages/usa.webp" data-label="EN"
                         role="option">
-                        <img src="assets/images/languages/usa.webp" alt="English" class="lang-flag" />
+                        <img src="assets/images/languages/usa.webp" alt="English" class="lang-flag" / decoding="async" loading="lazy" width="39" height="39">
                         <span>English</span>
                     </li>
                     <li class="lang-option" data-lang="ru" data-flag="assets/images/languages/russia.webp"
                         data-label="RU" role="option">
-                        <img src="assets/images/languages/russia.webp" alt="Русский" class="lang-flag" />
+                        <img src="assets/images/languages/russia.webp" alt="Русский" class="lang-flag" / decoding="async" loading="lazy" width="39" height="39">
                         <span>Русский</span>
                     </li>
                     <li class="lang-option" data-lang="zh" data-flag="assets/images/languages/china.webp"
                         data-label="ZH" role="option">
-                        <img src="assets/images/languages/china.webp" alt="中文" class="lang-flag" />
+                        <img src="assets/images/languages/china.webp" alt="中文" class="lang-flag" / decoding="async" loading="lazy" width="39" height="39">
                         <span>中文</span>
                     </li>
                     <li class="lang-option" data-lang="ko" data-flag="assets/images/languages/south-korea.webp"
                         data-label="KO" role="option">
-                        <img src="assets/images/languages/south-korea.webp" alt="한국어" class="lang-flag" />
+                        <img src="assets/images/languages/south-korea.webp" alt="한국어" class="lang-flag" / decoding="async" loading="lazy" width="39" height="39">
                         <span>한국어</span>
                     </li>
                     <li class="lang-option" data-lang="de" data-flag="assets/images/languages/germany.webp"
                         data-label="DE" role="option">
-                        <img src="assets/images/languages/germany.webp" alt="Deutsch" class="lang-flag" />
+                        <img src="assets/images/languages/germany.webp" alt="Deutsch" class="lang-flag" / decoding="async" loading="lazy" width="39" height="39">
                         <span>Deutsch</span>
                     </li>
                 </ul>
@@ -217,7 +227,7 @@
                     <!-- Xe Jeep Đỏ -->
                     <div class="tour-card">
                         <div class="tour-img-wrap">
-                            <img src="assets/images/produtcs/xe-jeep-do.webp" alt="Xe Jeep Đỏ" loading="lazy" />
+                            <img src="assets/images/produtcs/xe-jeep-do.webp" alt="Xe Jeep Đỏ" loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge">Best Seller</span>
                         </div>
                         <div class="tour-body">
@@ -254,7 +264,7 @@
                     <!-- Xe Jeep Cam -->
                     <div class="tour-card">
                         <div class="tour-img-wrap">
-                            <img src="assets/images/produtcs/xe-jeep-cam.webp" alt="Xe Jeep Cam" loading="lazy" />
+                            <img src="assets/images/produtcs/xe-jeep-cam.webp" alt="Xe Jeep Cam" loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge sunset-badge">Popular</span>
                         </div>
                         <div class="tour-body">
@@ -291,7 +301,7 @@
                     <!-- Xe Jeep Hồng -->
                     <div class="tour-card">
                         <div class="tour-img-wrap">
-                            <img src="assets/images/produtcs/xe-jeep-hong.webp" alt="Xe Jeep Hồng" loading="lazy" />
+                            <img src="assets/images/produtcs/xe-jeep-hong.webp" alt="Xe Jeep Hồng" loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge sunset-badge">Popular</span>
                         </div>
                         <div class="tour-body">
@@ -328,7 +338,7 @@
                     <!-- Xe Jeep Trắng -->
                     <div class="tour-card">
                         <div class="tour-img-wrap">
-                            <img src="assets/images/produtcs/xe-jeep-trang.webp" alt="Xe Jeep Trắng" loading="lazy" />
+                            <img src="assets/images/produtcs/xe-jeep-trang.webp" alt="Xe Jeep Trắng" loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge">Premium</span>
                         </div>
                         <div class="tour-body">
@@ -365,7 +375,7 @@
                     <!-- Xe Jeep Vàng -->
                     <div class="tour-card">
                         <div class="tour-img-wrap">
-                            <img src="assets/images/produtcs/xe-jeep-vang.webp" alt="Xe Jeep Vàng" loading="lazy" />
+                            <img src="assets/images/produtcs/xe-jeep-vang.webp" alt="Xe Jeep Vàng" loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge sunset-badge">Popular</span>
                         </div>
                         <div class="tour-body">
@@ -403,7 +413,7 @@
                     <div class="tour-card">
                         <div class="tour-img-wrap">
                             <img src="assets/images/produtcs/xe-jeep-xanh-duong.webp" alt="Xe Jeep Xanh Dương"
-                                loading="lazy" />
+                                loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge sunset-badge">Popular</span>
                         </div>
                         <div class="tour-body">
@@ -441,7 +451,7 @@
                     <div class="tour-card">
                         <div class="tour-img-wrap">
                             <img src="assets/images/produtcs/xe-jeep-xanh-luc.webp" alt="Xe Jeep Xanh Lục"
-                                loading="lazy" />
+                                loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge">Premium</span>
                         </div>
                         <div class="tour-body">
@@ -479,7 +489,7 @@
                     <div class="tour-card">
                         <div class="tour-img-wrap">
                             <!-- Using xe-jeep-cam as a generic thumb or multiple jeeps. Will just use xe-jeep-do for now. -->
-                            <img src="assets/images/produtcs/other-jeep.webp" alt="Xe Bất Kỳ" loading="lazy" />
+                            <img src="assets/images/produtcs/other-jeep.webp" alt="Xe Bất Kỳ" loading="lazy" / decoding="async" width="634" height="475">
                             <span class="tour-badge sunset-badge">Any Car</span>
                         </div>
                         <div class="tour-body">
@@ -533,40 +543,40 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib1.webp" alt="White Sand Dunes" loading="lazy" />
+                    <img src="/assets/images/library/lib1.webp" alt="White Sand Dunes" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib2.webp" alt="Jeep Adventure" loading="lazy" />
+                    <img src="/assets/images/library/lib2.webp" alt="Jeep Adventure" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib3.webp" alt="Coastal Views" loading="lazy" />
+                    <img src="/assets/images/library/lib3.webp" alt="Coastal Views" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <!-- Row 2 -->
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib4.webp" alt="Red Sand Dunes" loading="lazy" />
+                    <img src="/assets/images/library/lib4.webp" alt="Red Sand Dunes" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib5.webp" alt="Sunset Golden Hour" loading="lazy" />
+                    <img src="/assets/images/library/lib5.webp" alt="Sunset Golden Hour" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib6.webp" alt="Lighthouse Visit" loading="lazy" />
+                    <img src="/assets/images/library/lib6.webp" alt="Lighthouse Visit" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib7.webp" alt="White Sand Dunes" loading="lazy" />
+                    <img src="/assets/images/library/lib7.webp" alt="White Sand Dunes" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib8.webp" alt="Jeep Adventure" loading="lazy" />
+                    <img src="/assets/images/library/lib8.webp" alt="Jeep Adventure" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/assets/images/library/lib9.webp" alt="Coastal Views" loading="lazy" />
+                    <img src="/assets/images/library/lib9.webp" alt="Coastal Views" loading="lazy" / decoding="async" width="538" height="670">
                     <div class="gallery-overlay"></div>
                 </div>
             </div>
@@ -708,7 +718,7 @@
                         <div class="bf-phone-code-wrap">
                             <button class="bf-phone-code" id="bfPhoneCodeBtn" type="button" aria-haspopup="listbox">
                                 <img src="assets/images/languages/vietnam.webp" alt="VN" class="bf-flag"
-                                    id="bfPhoneFlag" />
+                                    id="bfPhoneFlag" / decoding="async" loading="lazy" width="39" height="39">
                                 <input type="text" class="bf-phone-code-input" id="bfPhoneCodeText" value="+84"
                                     readonly />
                                 <i class="fas fa-chevron-down bf-code-arrow"></i>
@@ -716,37 +726,37 @@
                             <ul class="bf-phone-dropdown" id="bfPhoneDropdown" role="listbox">
                                 <li class="bf-phone-opt" data-lang="vi" data-code="+84"
                                     data-flag="assets/images/languages/vietnam.webp">
-                                    <img src="assets/images/languages/vietnam.webp" class="bf-flag" alt="VN" /> Việt Nam
+                                    <img src="assets/images/languages/vietnam.webp" class="bf-flag" alt="VN" / decoding="async" loading="lazy" width="39" height="39"> Việt Nam
                                     <span>+84</span>
                                 </li>
                                 <li class="bf-phone-opt" data-lang="en" data-code="+1"
                                     data-flag="assets/images/languages/usa.webp">
-                                    <img src="assets/images/languages/usa.webp" class="bf-flag" alt="US" />
+                                    <img src="assets/images/languages/usa.webp" class="bf-flag" alt="US" / decoding="async" loading="lazy" width="39" height="39">
                                     USA <span>+1</span>
                                 </li>
                                 <li class="bf-phone-opt" data-lang="ru" data-code="+7"
                                     data-flag="assets/images/languages/russia.webp">
-                                    <img src="assets/images/languages/russia.webp" class="bf-flag" alt="RU" /> Россия
+                                    <img src="assets/images/languages/russia.webp" class="bf-flag" alt="RU" / decoding="async" loading="lazy" width="39" height="39"> Россия
                                     <span>+7</span>
                                 </li>
                                 <li class="bf-phone-opt" data-lang="zh" data-code="+86"
                                     data-flag="assets/images/languages/china.webp">
-                                    <img src="assets/images/languages/china.webp" class="bf-flag" alt="ZH" /> 中国
+                                    <img src="assets/images/languages/china.webp" class="bf-flag" alt="ZH" / decoding="async" loading="lazy" width="39" height="39"> 中国
                                     <span>+86</span>
                                 </li>
                                 <li class="bf-phone-opt" data-lang="ko" data-code="+82"
                                     data-flag="assets/images/languages/south-korea.webp">
-                                    <img src="assets/images/languages/south-korea.webp" class="bf-flag" alt="KO" /> 한국
+                                    <img src="assets/images/languages/south-korea.webp" class="bf-flag" alt="KO" / decoding="async" loading="lazy" width="39" height="39"> 한국
                                     <span>+82</span>
                                 </li>
                                 <li class="bf-phone-opt" data-lang="de" data-code="+49"
                                     data-flag="assets/images/languages/germany.webp">
-                                    <img src="assets/images/languages/germany.webp" class="bf-flag" alt="DE" />
+                                    <img src="assets/images/languages/germany.webp" class="bf-flag" alt="DE" / decoding="async" loading="lazy" width="39" height="39">
                                     Deutschland <span>+49</span>
                                 </li>
                                 <li class="bf-phone-opt bf-opt-custom" data-lang="custom" data-code=""
                                     data-flag="assets/images/languages/united-nation.webp">
-                                    <img src="assets/images/languages/united-nation.webp" class="bf-flag" alt="Other" />
+                                    <img src="assets/images/languages/united-nation.webp" class="bf-flag" alt="Other" / decoding="async" loading="lazy" width="39" height="39">
                                     <span data-i18n="booking.phoneOther">Khác</span> <span>...</span>
                                 </li>
                             </ul>

@@ -943,9 +943,17 @@
   })();
 
   /* ─── Navbar: Solid on scroll ──────────────────────────────── */
+  let isScrolling = false;
   function handleScroll() {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-    backToTop.classList.toggle('visible', window.scrollY > 400);
+    if (!isScrolling) {
+      window.requestAnimationFrame(function () {
+        var y = window.scrollY;
+        navbar.classList.toggle('scrolled', y > 60);
+        backToTop.classList.toggle('visible', y > 400);
+        isScrolling = false;
+      });
+      isScrolling = true;
+    }
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
@@ -1093,9 +1101,12 @@
     for (var i = idx; i < idx + perView; i++) {
       var card = cards[i];
       if (!card) continue;
-      card.style.animation = '';          // clear first
-      void card.offsetWidth;             // force reflow → ensures restart
-      card.style.animation = animName + ' 0.42s cubic-bezier(0.25,0.46,0.45,0.94) both';
+      card.style.animation = 'none';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          card.style.animation = animName + ' 0.42s cubic-bezier(0.25,0.46,0.45,0.94) both';
+        });
+      });
     }
   }
 
