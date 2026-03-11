@@ -925,9 +925,14 @@
     if (e.key === 'Escape') { closeLang(); closeMenu(); }
   });
 
-  /* Restore saved language on page load */
+  /* Restore saved language or detect browser language on page load */
   (function initLang() {
-    const saved = localStorage.getItem('mrben-lang') || 'vi';
+    let saved = localStorage.getItem('mrben-lang');
+    if (!saved) {
+      const browserLang = (navigator.language || navigator.userLanguage || '').substring(0, 2).toLowerCase();
+      const supportedLangs = ['vi', 'en', 'ru', 'zh', 'ko', 'de'];
+      saved = supportedLangs.includes(browserLang) ? browserLang : 'en';
+    }
     const savedOption = document.querySelector('.lang-option[data-lang="' + saved + '"]');
     if (savedOption) {
       langOptions.forEach(function (o) { o.classList.remove('active'); });
