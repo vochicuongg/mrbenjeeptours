@@ -692,6 +692,176 @@ button {
     width: 24px;
 }
 
+/* ── Unified Jeep Booking CTA ── */
+.jeep-booking-cta {
+    margin-top: 48px;
+    padding: 0 16px;
+}
+
+.jbc-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(56, 32, 16, 0.85), rgba(26, 15, 10, 0.95));
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 20px;
+    padding: 40px 36px 36px;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.35),
+        0 0 60px rgba(212, 175, 55, 0.08) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.jbc-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-light), var(--color-gold), var(--color-gold-light), transparent);
+}
+
+.jbc-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(200, 75, 17, 0.15));
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+}
+
+.jbc-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.jbc-prices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 20px;
+}
+
+.jbc-price-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    max-width: 200px;
+}
+
+.jbc-price-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.jbc-price-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    letter-spacing: -0.01em;
+}
+
+.jbc-price-per {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.jbc-price-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.35), transparent);
+    flex-shrink: 0;
+    margin: 0 20px;
+}
+
+.jbc-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+.jbc-hint i {
+    color: var(--color-gold);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.jbc-book-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jbc-book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.45);
+}
+
+@media (max-width: 480px) {
+    .jbc-inner {
+        padding: 32px 20px 28px;
+    }
+
+    .jbc-title {
+        font-size: 1.25rem;
+    }
+
+    .jbc-price-val {
+        font-size: 1.05rem;
+    }
+
+    .jbc-price-divider {
+        margin: 0 12px;
+    }
+
+    .jbc-hint {
+        font-size: 0.76rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .jbc-book-btn {
+        max-width: 100%;
+    }
+}
+
 .tour-card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
@@ -3170,6 +3340,23 @@ button {
     background: var(--color-gold);
     border-color: var(--color-gold);
     color: #1A0F0A;
+}
+
+/* ── Addon sub-counter (sand dune vehicles) ── */
+.bf-addon-sub {
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 10px;
+    animation: bfFadeIn 0.3s ease;
+}
+
+.bf-label-sm {
+    font-size: 0.82rem !important;
+    margin-bottom: 8px !important;
+    display: flex;
+    align-items: center;
 }
 
 /* ── Itinerary section ─────────────────────────────── */

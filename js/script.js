@@ -113,8 +113,9 @@
       'booking.sunrise': 'BÌNH MINH',
       'booking.sunset': 'HOÀNG HÔN',
       'booking.labelGuests': 'Số Người',
+      'booking.labelVehicles': 'Số Lượng Xe',
       'booking.labelNotes': 'Ghi Chú',
-      'booking.placeholderNotes': 'Yêu cầu đặc biệt...',
+      'booking.placeholderNotes': 'Chọn màu xe hoặc yêu cầu khác...',
       'booking.labelPickupAddress': 'Địa Chỉ Đón',
       'booking.placeholderPickupAddress': 'Nhập địa chỉ đón',
       'booking.unitPrice': 'Đơn giá:',
@@ -137,8 +138,12 @@
       'booking.labelAddon': 'Dịch vụ thêm',
       'booking.optionalBadge': 'Tuỳ chọn',
       'booking.addonSandDune': 'Leo đồi cát trắng bằng xe Jeep',
+      'booking.labelAddonVehicles': 'Số xe leo đồi cát',
       'booking.labelItinerary': 'Lộ Trình',
       'booking.customizeRoute': 'Tùy chỉnh lộ trình',
+      'booking.ctaTitle': 'Đặt Xe Jeep Tour',
+      'booking.ctaHint': 'Bạn muốn chọn màu xe? Hãy ghi vào phần Ghi chú khi đặt xe.',
+      'booking.ctaButton': 'Đặt Xe Ngay',
       'cal.months': 'Tháng 1,Tháng 2,Tháng 3,Tháng 4,Tháng 5,Tháng 6,Tháng 7,Tháng 8,Tháng 9,Tháng 10,Tháng 11,Tháng 12',
       'stop.whiteDune': 'Đồi Cát Trắng',
       'stop.redDune': 'Đồi Cát Đỏ',
@@ -148,7 +153,7 @@
       'wa.name': '- Họ tên: ',
       'wa.phone': '- SĐT: ',
       'wa.tour': '- Tour: ',
-      'wa.car': '- Loại xe: ',
+      'wa.vehicles': '- Số lượng xe: ',
       'wa.addon': '- Dịch vụ thêm: ',
       'wa.route': '- Lộ trình: ',
       'wa.hotel': '- Khách sạn: ',
@@ -248,8 +253,9 @@
       'booking.sunrise': 'SUNRISE',
       'booking.sunset': 'SUNSET',
       'booking.labelGuests': 'Number of People',
+      'booking.labelVehicles': 'Number of Vehicles',
       'booking.labelNotes': 'Notes',
-      'booking.placeholderNotes': 'Special requests...',
+      'booking.placeholderNotes': 'Choose car color or other requests...',
       'booking.labelPickupAddress': 'Pickup Address',
       'booking.placeholderPickupAddress': 'Enter pickup address...',
       'booking.unitPrice': 'Unit price:',
@@ -272,8 +278,12 @@
       'booking.labelAddon': 'Add-on Service',
       'booking.optionalBadge': 'Optional',
       'booking.addonSandDune': 'White Sand Dune Climbing by Jeep',
+      'booking.labelAddonVehicles': 'Vehicles for sand dune',
       'booking.labelItinerary': 'Itinerary',
       'booking.customizeRoute': 'Customize itinerary',
+      'booking.ctaTitle': 'Book Jeep Tour',
+      'booking.ctaHint': 'Want a specific Jeep color? Mention it in the Notes field when booking.',
+      'booking.ctaButton': 'Book Now',
       'cal.months': 'January,February,March,April,May,June,July,August,September,October,November,December',
       'stop.whiteDune': 'White Sand Dune',
       'stop.redDune': 'Red Sand Dune',
@@ -283,7 +293,7 @@
       'wa.name': '- Name: ',
       'wa.phone': '- Phone: ',
       'wa.tour': '- Tour: ',
-      'wa.car': '- Jeep: ',
+      'wa.vehicles': '- Number of vehicles: ',
       'wa.addon': '- Add-on: ',
       'wa.route': '- Itinerary: ',
       'wa.hotel': '- Hotel: ',
@@ -383,8 +393,9 @@
       'booking.sunrise': 'РАССВЕТ',
       'booking.sunset': 'ЗАКАТ',
       'booking.labelGuests': 'Количество Людей',
+      'booking.labelVehicles': 'Количество Автомобилей',
       'booking.labelNotes': 'Примечания',
-      'booking.placeholderNotes': 'Особые пожелания...',
+      'booking.placeholderNotes': 'Выберите цвет автомобиля или другие пожелания...',
       'booking.labelPickupAddress': 'Адрес отправления',
       'booking.placeholderPickupAddress': 'Введите адрес отправления...',
       'booking.unitPrice': 'Цена:',
@@ -407,8 +418,12 @@
       'booking.labelAddon': 'Дополнительная услуга',
       'booking.optionalBadge': 'Необязательно',
       'booking.addonSandDune': 'Подъём на Белые песчаные дюны на джипе',
+      'booking.labelAddonVehicles': 'Авто для дюн',
       'booking.labelItinerary': 'Маршрут',
       'booking.customizeRoute': 'Настроить маршрут',
+      'booking.ctaTitle': 'Забронировать Джип-тур',
+      'booking.ctaHint': 'Хотите выбрать цвет джипа? Укажите в поле Примечания при бронировании.',
+      'booking.ctaButton': 'Забронировать',
       'cal.sun': 'Вс', 'cal.mon': 'Пн', 'cal.tue': 'Вт', 'cal.wed': 'Ср', 'cal.thu': 'Чт', 'cal.fri': 'Пт', 'cal.sat': 'Сб',
       'cal.months': 'Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь',
       'stop.whiteDune': 'Белые Песчаные Дюны',
@@ -419,7 +434,7 @@
       'wa.name': '- Имя: ',
       'wa.phone': '- Телефон: ',
       'wa.tour': '- Тур: ',
-      'wa.car': '- Авто: ',
+      'wa.vehicles': '- Количество авто: ',
       'wa.addon': '- Доп. услуги: ',
       'wa.route': '- Маршрут: ',
       'wa.hotel': '- Отель: ',
@@ -519,8 +534,9 @@
       'booking.sunrise': '日出',
       'booking.sunset': '日落',
       'booking.labelGuests': '人数',
+      'booking.labelVehicles': '车辆数量',
       'booking.labelNotes': '备注',
-      'booking.placeholderNotes': '特殊需求...',
+      'booking.placeholderNotes': '选择车辆颜色或其他要求...',
       'booking.labelPickupAddress': '接送地址',
       'booking.placeholderPickupAddress': '请输入接送地址...',
       'booking.unitPrice': '单价：',
@@ -543,8 +559,12 @@
       'booking.labelAddon': '附加服务',
       'booking.optionalBadge': '可选',
       'booking.addonSandDune': '吉普车白沙丘探险',
+      'booking.labelAddonVehicles': '沙丘车辆数',
       'booking.labelItinerary': '行程路线',
       'booking.customizeRoute': '自定义路线',
+      'booking.ctaTitle': '预订吉普车旅游',
+      'booking.ctaHint': '想要特定颜色的吉普车？请在预订时在备注栏中注明。',
+      'booking.ctaButton': '立即预订',
       'cal.sun': '日', 'cal.mon': '一', 'cal.tue': '二', 'cal.wed': '三', 'cal.thu': '四', 'cal.fri': '五', 'cal.sat': '六',
       'cal.months': '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月',
       'stop.whiteDune': '白沙丘',
@@ -555,7 +575,7 @@
       'wa.name': '- 姓名：',
       'wa.phone': '- 电话：',
       'wa.tour': '- 游览：',
-      'wa.car': '- 吉普：',
+      'wa.vehicles': '- 车辆数量：',
       'wa.addon': '- 附加服务：',
       'wa.route': '- 行程：',
       'wa.hotel': '- 酒店：',
@@ -655,8 +675,9 @@
       'booking.sunrise': '일출',
       'booking.sunset': '일몰',
       'booking.labelGuests': '인원수',
+      'booking.labelVehicles': '차량 수',
       'booking.labelNotes': '메모',
-      'booking.placeholderNotes': '특별 요청...',
+      'booking.placeholderNotes': '차량 색상 또는 기타 요청...',
       'booking.labelPickupAddress': '픽업 주소',
       'booking.placeholderPickupAddress': '픽업 주소를 입력하세요...',
       'booking.unitPrice': '단가:',
@@ -679,8 +700,12 @@
       'booking.labelAddon': '추가 서비스',
       'booking.optionalBadge': '선택사항',
       'booking.addonSandDune': '지프로 화이트 샌드듄 오르기',
+      'booking.labelAddonVehicles': '듄 차량 수',
       'booking.labelItinerary': '여행 경로',
       'booking.customizeRoute': '경로 맞춤 설정',
+      'booking.ctaTitle': '지프 투어 예약',
+      'booking.ctaHint': '원하는 지프 색상이 있으신가요? 예약 시 메모란에 기재해 주세요.',
+      'booking.ctaButton': '지금 예약',
       'cal.sun': '일', 'cal.mon': '월', 'cal.tue': '화', 'cal.wed': '수', 'cal.thu': '목', 'cal.fri': '금', 'cal.sat': '토',
       'cal.months': '1월,2월,3월,4월,5월,6월,7월,8월,9월,10월,11월,12월',
       'stop.whiteDune': '화이트 샌드듄',
@@ -691,7 +716,7 @@
       'wa.name': '- 이름: ',
       'wa.phone': '- 전화: ',
       'wa.tour': '- 투어: ',
-      'wa.car': '- 차량: ',
+      'wa.vehicles': '- 차량 수: ',
       'wa.addon': '- 추가 서비스: ',
       'wa.route': '- 경로: ',
       'wa.hotel': '- 호텔: ',
@@ -791,8 +816,9 @@
       'booking.sunrise': 'SONNENAUFGANG',
       'booking.sunset': 'SONNENUNTERGANG',
       'booking.labelGuests': 'Personenanzahl',
+      'booking.labelVehicles': 'Fahrzeuganzahl',
       'booking.labelNotes': 'Anmerkungen',
-      'booking.placeholderNotes': 'Besondere Wünsche...',
+      'booking.placeholderNotes': 'Wählen Sie eine Farbe oder andere Wünsche...',
       'booking.labelPickupAddress': 'Abholadresse',
       'booking.placeholderPickupAddress': 'Abholadresse eingeben...',
       'booking.unitPrice': 'Preis:',
@@ -815,8 +841,12 @@
       'booking.labelAddon': 'Zusatzservice',
       'booking.optionalBadge': 'Optional',
       'booking.addonSandDune': 'Weiße Sanddüne mit dem Jeep erkunden',
+      'booking.labelAddonVehicles': 'Dünen-Fahrzeuge',
       'booking.labelItinerary': 'Reiseroute',
       'booking.customizeRoute': 'Route anpassen',
+      'booking.ctaTitle': 'Jeep-Tour Buchen',
+      'booking.ctaHint': 'Wünschen Sie eine bestimmte Jeep-Farbe? Geben Sie es bei der Buchung im Notizfeld an.',
+      'booking.ctaButton': 'Jetzt Buchen',
       'cal.sun': 'So', 'cal.mon': 'Mo', 'cal.tue': 'Di', 'cal.wed': 'Mi', 'cal.thu': 'Do', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
       'cal.months': 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember',
       'stop.whiteDune': 'Weiße Sanddüne',
@@ -827,7 +857,7 @@
       'wa.name': '- Name: ',
       'wa.phone': '- Telefon: ',
       'wa.tour': '- Tour: ',
-      'wa.car': '- Jeep: ',
+      'wa.vehicles': '- Fahrzeuganzahl: ',
       'wa.addon': '- Zusatzleistung: ',
       'wa.route': '- Reiseroute: ',
       'wa.hotel': '- Hotel: ',
@@ -1218,11 +1248,12 @@
 
   /* ── Prices (VND, raw numbers) ── */
   var PRICE_PRIVATE = 450000;
-  var PRICE_GROUP = 120000;
+  var PRICE_GROUP = 150000;
 
   /* ── State ── */
   var tourType = 'private'; // 'private' | 'group'
   var guests = 1;
+  var vehicleCount = 1;
   var tourName = 'Xe Jeep Mr. Ben';
   var tourNameVi = 'Xe Jeep Mr. Ben'; // luôn là tiếng Việt, dùng cho chatbot
   var pricePrivate = PRICE_PRIVATE;
@@ -1250,9 +1281,13 @@
   }
 
   var guestGroup = document.getElementById('bfGuestGroup');
+  var vehicleGroup = document.getElementById('bfVehicleGroup');
   var guestVal = document.getElementById('bfGuestVal');
   var minusBtn = document.getElementById('bfMinus');
   var plusBtn = document.getElementById('bfPlus');
+  var vehicleVal = document.getElementById('bfVehicleVal');
+  var vehicleMinusBtn = document.getElementById('bfVehicleMinus');
+  var vehiclePlusBtn = document.getElementById('bfVehiclePlus');
   var unitPriceEl = document.getElementById('bfUnitPrice');
   var totalEl = document.getElementById('bfTotal');
   var waBtn = document.getElementById('bfWhatsApp');
@@ -1273,7 +1308,7 @@
     dtInput.value = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
   }
 
-  var ADDON_PRICE = 900000; /* flat fee regardless of type/guests */
+  var ADDON_PRICE_PER_VEHICLE = 900000; /* 900k per vehicle for sand dune */
 
   function updatePrice() {
     var unit = 0;
@@ -1283,21 +1318,46 @@
       unit = priceGroup;
     }
 
-    var count = (tourType === 'group') ? guests : 1;
+    var count = (tourType === 'group') ? guests : vehicleCount;
     var baseTotal = unit * count;
 
-    // As requested: The sand dune add-on replaces the total price with a flat 900k
-    var finalTotal = addonSandDuneSelected ? ADDON_PRICE : baseTotal;
+    // Sand dune addon: 900k per vehicle (private) or 900k per person (group)
+    var finalTotal;
+    if (addonSandDuneSelected) {
+      if (tourType === 'private') {
+        finalTotal = ADDON_PRICE_PER_VEHICLE * vehicleCount;
+      } else if (tourType === 'group') {
+        finalTotal = ADDON_PRICE_PER_VEHICLE;
+      } else {
+        finalTotal = baseTotal;
+      }
+    } else {
+      finalTotal = baseTotal;
+    }
 
     var unitText = '—';
     if (tourType) {
       unitText = fmt(unit);
       if (addonSandDuneSelected) {
-        // Show that the total became the flat addon price using translation
         var lang = localStorage.getItem('mrben-lang') || 'vi';
         var t = (window.__MRB_TRANS || {})[lang] || {};
         var packText = t['booking.addonPack'] || 'Gói Đồi Cát';
-        unitText += ' + ' + packText;
+        unitText = '(' + unitText + ' + ' + packText + ')';
+      }
+
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      var vehicleStr = 'xe';
+      var guestStr = 'người';
+      if (lang === 'en') { vehicleStr = 'vehicles'; guestStr = 'people'; }
+      else if (lang === 'ru') { vehicleStr = 'авто'; guestStr = 'чел.'; }
+      else if (lang === 'zh') { vehicleStr = '辆'; guestStr = '人'; }
+      else if (lang === 'ko') { vehicleStr = '대'; guestStr = '명'; }
+      else if (lang === 'de') { vehicleStr = 'Fahrzeuge'; guestStr = 'Personen'; }
+
+      if (tourType === 'private') {
+        unitText += ' × ' + vehicleCount + ' ' + vehicleStr;
+      } else {
+        unitText += ' × ' + guests + ' ' + guestStr;
       }
     } else if (addonSandDuneSelected) {
       var lang = localStorage.getItem('mrben-lang') || 'vi';
@@ -1314,11 +1374,13 @@
     if (type === 'private') {
       btnPrivate.classList.add('active');
       btnGroup.classList.remove('active');
-      guestGroup.style.display = 'none';
+      if (guestGroup) guestGroup.style.display = 'none';
+      if (vehicleGroup) vehicleGroup.style.display = '';
     } else {
       btnGroup.classList.add('active');
       btnPrivate.classList.remove('active');
-      guestGroup.style.display = '';
+      if (guestGroup) guestGroup.style.display = '';
+      if (vehicleGroup) vehicleGroup.style.display = 'none';
     }
     btnPrivate.classList.remove('bf-error');
     btnGroup.classList.remove('bf-error');
@@ -1331,14 +1393,23 @@
     var dt = dtInput.value ? dtInput.value.replace('T', ' ') : '—';
     var notes = document.getElementById('bfNotes').value.trim();
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
-    var total = addonSandDuneSelected ? fmt(ADDON_PRICE) : (tourType === 'private' ? fmt(pricePrivate) : fmt(priceGroup * guests));
+    var total;
+    if (addonSandDuneSelected) {
+      if (tourType === 'private') {
+        total = fmt(ADDON_PRICE_PER_VEHICLE * vehicleCount);
+      } else {
+        total = fmt(ADDON_PRICE_PER_VEHICLE);
+      }
+    } else {
+      total = tourType === 'private' ? fmt(pricePrivate * vehicleCount) : fmt(priceGroup * guests);
+    }
 
     var msg = '🏕️ <b>ĐẶT TOUR MR. BEN JEEP TOURS</b>\n'
       + '━━━━━━━━━━━━━━━\n'
       + '👤 <b>Họ tên:</b> ' + (name || '—') + '\n'
       + '📞 <b>SĐT:</b> +84' + (phone.replace(/^0/, '') || '—') + '\n'
-      + '🚙 <b>Tên xe:</b> ' + tourName + '\n'
       + '📋 <b>Loại Tour:</b> ' + typeStr + '\n'
+      + (tourType === 'private' ? ('🚗 <b>Số lượng xe:</b> ' + vehicleCount + ' xe\n') : '')
       + (window.__bfCurrentRoute ? '🗺️ <b>Lộ trình:</b> ' + window.__bfCurrentRoute + '\n' : '')
       + '📅 <b>Ngày & Giờ:</b> ' + dt + '\n'
       + '💵 <b>Tổng tiền:</b> ' + total + '\n'
@@ -1371,7 +1442,11 @@
     if (customInput) customInput.value = '';
 
     guests = 1;
+    vehicleCount = 1;
+    addonSandDuneSelected = false;
+    if (addonSandDune) addonSandDune.classList.remove('selected');
     if (guestVal) guestVal.textContent = '1';
+    if (vehicleVal) vehicleVal.textContent = '1';
     setDefaultDatetime();
     /* Reset tour type — no pre-selection */
     tourType = 'private';           /* keep internal default for price calc */
@@ -1417,24 +1492,22 @@
     document.body.style.overflow = '';
   }
 
-  /* ── Bind all "Book Now" buttons on tour cards ── */
-  document.querySelectorAll('.tour-card .btn-gold').forEach(function (btn) {
+  /* ── Bind unified "Đặt Xe Ngay" CTA button ── */
+  var jbcBookBtn = document.getElementById('jbcBookBtn');
+  if (jbcBookBtn) {
+    jbcBookBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      openBooking({ name: 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
+    });
+  }
+
+  /* Also keep "Book Now" in navbar CTA working */
+  document.querySelectorAll('.nav-cta').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      var card = btn.closest('.tour-card');
-      var nameStr = card.querySelector('.tour-title') ? card.querySelector('.tour-title').textContent.trim() : 'Xe Jeep Mr. Ben';
-      var tiers = card.querySelectorAll('.price-amount');
-      var pvt = PRICE_PRIVATE, grp = PRICE_GROUP;
-      if (tiers.length >= 2) {
-        pvt = parseInt(tiers[0].textContent.replace(/[^0-9]/g, '')) || PRICE_PRIVATE;
-        grp = parseInt(tiers[1].textContent.replace(/[^0-9]/g, '')) || PRICE_GROUP;
-      }
-      var i18nKey = card.querySelector('.tour-title[data-i18n]') ? card.querySelector('.tour-title[data-i18n]').getAttribute('data-i18n') : null;
-      var nameVi = i18nKey ? ((window.__MRB_TRANS || {})['vi'] || {})[i18nKey] || nameStr : nameStr;
-      openBooking({ name: nameStr, nameVi: nameVi, private: pvt, group: grp });
+      openBooking({ name: 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
     });
   });
-
 
 
   /* ── Close ── */
@@ -1452,11 +1525,23 @@
 
   /* ── Guest counter ── */
   minusBtn.addEventListener('click', function () {
-    if (guests > 1) { guests--; guestVal.textContent = guests; updatePrice(); }
+    if (guests > 1) { guests--; guestVal.textContent = guests; updatePrice(); refreshWALink(); }
   });
   plusBtn.addEventListener('click', function () {
-    if (guests < 4) { guests++; guestVal.textContent = guests; updatePrice(); }
+    if (guests < 4) { guests++; guestVal.textContent = guests; updatePrice(); refreshWALink(); }
   });
+
+  /* ── Vehicle counter ── */
+  if (vehicleMinusBtn) {
+    vehicleMinusBtn.addEventListener('click', function () {
+      if (vehicleCount > 1) { vehicleCount--; vehicleVal.textContent = vehicleCount; updatePrice(); refreshWALink(); }
+    });
+  }
+  if (vehiclePlusBtn) {
+    vehiclePlusBtn.addEventListener('click', function () {
+      if (vehicleCount < 10) { vehicleCount++; vehicleVal.textContent = vehicleCount; updatePrice(); refreshWALink(); }
+    });
+  }
 
   /* ── Phone code dropdown ─────────────────────────────────── */
   var selectedPhoneCode = '+84';
@@ -1607,12 +1692,22 @@
     // Luôn dùng tiếng Việt cho loại tour
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
     var tourLine = (timeOnly ? timeOnly + ' - ' : '') + typeStr;
+    var vehicleStr = vehicleCount + ' xe';
     var unit = 0;
     if (tourType === 'private') unit = pricePrivate;
     else if (tourType === 'group') unit = priceGroup;
-    var count = (tourType === 'group') ? guests : 1;
+    var count = (tourType === 'group') ? guests : vehicleCount;
     var baseTotal = unit * count;
-    var totalNum = addonSandDuneSelected ? ADDON_PRICE : baseTotal;
+    var totalNum;
+    if (addonSandDuneSelected) {
+      if (tourType === 'private') {
+        totalNum = ADDON_PRICE_PER_VEHICLE * vehicleCount;
+      } else {
+        totalNum = ADDON_PRICE_PER_VEHICLE;
+      }
+    } else {
+      totalNum = baseTotal;
+    }
     var totalText = totalNum > 0 ? fmt(totalNum) : '—';
 
     // Lấy mã vùng: dùng mã có sẵn hoặc lấy giá trị khách nhập nếu chọn 'Khác'
@@ -1687,7 +1782,9 @@
       }
 
       items.push({ icon: 'fa-car-side', color: 'ci-jeep', label: cleanLabel(T['wa.tour'] || 'Tour'), val: tourLineLang });
-      items.push({ icon: 'fa-truck-pickup', color: 'ci-truck', label: cleanLabel(T['wa.car'] || 'Loại xe'), val: tourName });
+      if (tourType === 'private') {
+        items.push({ icon: 'fa-truck-monster', color: 'ci-truck', label: cleanLabel(T['wa.vehicles'] || 'Số lượng xe'), val: vehicleCount + '' });
+      }
 
       var _dtParts = dt.split(' | ');
       if (_dtParts.length === 2) {
@@ -1724,7 +1821,7 @@
         + (T['wa.name'] || '- Họ tên: ') + (name || '—') + '\n'
         + (T['wa.phone'] || '- SĐT: ') + fullPhone + '\n'
         + (T['wa.tour'] || '- Tour: ') + tourLineLang + '\n'
-        + (T['wa.car'] || '- Loại xe: ') + tourName + '\n'
+        + (tourType === 'private' ? ((T['wa.vehicles'] || '- Số lượng xe: ') + vehicleCount + '\n') : '')
         + (addonSandDuneSelected ? (T['wa.addon'] || '- Dịch vụ thêm: ') + addonLangStr + '\n' : '')
         + (T['wa.route'] || '- Lộ trình: ') + finalRoute + '\n'
         + (T['wa.hotel'] || '- Khách sạn: ') + (hotelName || '—') + '\n'
@@ -1743,7 +1840,7 @@
       + '👤 Họ tên: <b>' + (name || '—') + '</b>\n'
       + '📞 SĐT: <b>' + fullPhone + '</b>\n'
       + '🚙 Tour: <b>' + tourLine + '</b>\n'
-      + '📋 Loại xe: <b>' + tourNameVi + '</b>\n'
+      + (tourType === 'private' ? ('🚗 Số lượng xe: <b>' + vehicleStr + '</b>\n') : '')
       + (addonSandDuneSelected ? '🏜️ Dịch vụ thêm: <b>' + addonStr + '</b>\n' : '')
       + (finalRouteVi ? '🗺️ Lộ trình: <b>' + finalRouteVi + '</b>\n' : '')
       + (pickup ? '📍 Điểm đón: <b>' + pickup + '</b>\n' : '')
