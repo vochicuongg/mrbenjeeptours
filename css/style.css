@@ -3064,6 +3064,36 @@ button {
     justify-content: center;
 }
 
+.bf-route-ok-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.bf-route-ok-btn {
+    background: linear-gradient(135deg, var(--color-gold), #b8860b);
+    color: var(--color-bg-dark);
+    border: none;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+}
+
+.bf-route-ok-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+}
+
+.bf-route-ok-btn:active {
+    transform: translateY(0);
+}
+
 .goldx {
     background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
     border: none;

@@ -141,6 +141,7 @@
       'booking.labelAddonVehicles': 'Số xe leo đồi cát',
       'booking.labelItinerary': 'Lộ Trình',
       'booking.customizeRoute': 'Tùy chỉnh lộ trình',
+      'booking.routeOk': 'Hoàn tất',
       'booking.ctaTitle': 'Đặt Xe Jeep Tour',
       'booking.ctaHint': 'Bạn muốn chọn màu xe? Hãy ghi vào phần Ghi chú khi đặt xe.',
       'booking.ctaButton': 'Đặt Xe Ngay',
@@ -281,13 +282,14 @@
       'booking.labelAddonVehicles': 'Vehicles for sand dune',
       'booking.labelItinerary': 'Itinerary',
       'booking.customizeRoute': 'Customize itinerary',
+      'booking.routeOk': 'Done',
       'booking.ctaTitle': 'Book Jeep Tour',
       'booking.ctaHint': 'Want a specific Jeep color? Mention it in the Notes field when booking.',
       'booking.ctaButton': 'Book Now',
       'cal.months': 'January,February,March,April,May,June,July,August,September,October,November,December',
       'stop.whiteDune': 'White Sand Dune',
       'stop.redDune': 'Red Sand Dune',
-      'stop.fishVillage': 'Mũi Né Fishing Village',
+      'stop.fishVillage': 'Mui Ne Fishing Village',
       'stop.fairyStream': 'Fairy Stream',
       'wa.greeting': 'Hello Mr. Ben, I would like to book your Jeep. Here is my booking information:\n',
       'wa.name': '- Name: ',
@@ -421,6 +423,7 @@
       'booking.labelAddonVehicles': 'Авто для дюн',
       'booking.labelItinerary': 'Маршрут',
       'booking.customizeRoute': 'Настроить маршрут',
+      'booking.routeOk': 'Готово',
       'booking.ctaTitle': 'Забронировать Джип-тур',
       'booking.ctaHint': 'Хотите выбрать цвет джипа? Укажите в поле Примечания при бронировании.',
       'booking.ctaButton': 'Забронировать',
@@ -562,6 +565,7 @@
       'booking.labelAddonVehicles': '沙丘车辆数',
       'booking.labelItinerary': '行程路线',
       'booking.customizeRoute': '自定义路线',
+      'booking.routeOk': '完成',
       'booking.ctaTitle': '预订吉普车旅游',
       'booking.ctaHint': '想要特定颜色的吉普车？请在预订时在备注栏中注明。',
       'booking.ctaButton': '立即预订',
@@ -703,6 +707,7 @@
       'booking.labelAddonVehicles': '듄 차량 수',
       'booking.labelItinerary': '여행 경로',
       'booking.customizeRoute': '경로 맞춤 설정',
+      'booking.routeOk': '완료',
       'booking.ctaTitle': '지프 투어 예약',
       'booking.ctaHint': '원하는 지프 색상이 있으신가요? 예약 시 메모란에 기재해 주세요.',
       'booking.ctaButton': '지금 예약',
@@ -844,6 +849,7 @@
       'booking.labelAddonVehicles': 'Dünen-Fahrzeuge',
       'booking.labelItinerary': 'Reiseroute',
       'booking.customizeRoute': 'Route anpassen',
+      'booking.routeOk': 'Fertig',
       'booking.ctaTitle': 'Jeep-Tour Buchen',
       'booking.ctaHint': 'Wünschen Sie eine bestimmte Jeep-Farbe? Geben Sie es bei der Buchung im Notizfeld an.',
       'booking.ctaButton': 'Jetzt Buchen',
@@ -851,7 +857,7 @@
       'cal.months': 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember',
       'stop.whiteDune': 'Weiße Sanddüne',
       'stop.redDune': 'Rote Sanddüne',
-      'stop.fishVillage': 'Fischerdorf Mũi Né',
+      'stop.fishVillage': 'Fischerdorf Mui Ne',
       'stop.fairyStream': 'Feenbach',
       'wa.greeting': 'Hallo Mr. Ben, ich möchte einen Jeep buchen. Hier sind meine Buchungsinformationen:\n',
       'wa.name': '- Name: ',
@@ -2459,8 +2465,6 @@
   }
 
   function rebuildAll() {
-    /* Reset values to default order */
-    values = currentOrder.slice();
     for (var i = 0; i < 4; i++) buildList(i);
     broadcastRoute();
   }
@@ -2499,11 +2503,23 @@
   /* Close on outside click */
   document.addEventListener('click', closeAll);
 
-  /* ── Customize toggle ───────────────────────────────── */
+  /* ── Customize toggle & OK button ────────────────────── */
+  var okRow = document.getElementById('bfRouteOkRow');
+  var okBtn = document.getElementById('bfRouteOkBtn');
+
+  if (okBtn) {
+    okBtn.addEventListener('click', function () {
+      dropWrap.style.display = 'none';
+      if (okRow) okRow.style.display = 'none';
+      customizeBtn.classList.remove('open');
+    });
+  }
+
   if (customizeBtn) {
     customizeBtn.addEventListener('click', function () {
       var opening = dropWrap.style.display === 'none';
       dropWrap.style.display = opening ? '' : 'none';
+      if (okRow) okRow.style.display = opening ? '' : 'none';
       customizeBtn.classList.toggle('open', opening);
       if (opening) rebuildAll();
     });
