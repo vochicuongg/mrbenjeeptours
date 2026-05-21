@@ -2873,7 +2873,6 @@
     closeDropdown();
   });
 
-  // Translate "Other Hotel" dynamically
   document.addEventListener('mrben-langchange', function () {
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var T = (window.__MRB_TRANS || {})[lang] || {};
@@ -2888,5 +2887,72 @@
       }
     }
   });
+
+})();
+
+/* ============================================================
+   HERO VIDEO PLAY/PAUSE CONTROLLER
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var video = document.getElementById('heroVideo');
+  var toggleBtn = document.getElementById('heroVideoToggle');
+  var pauseIcon = document.getElementById('hvtPause');
+  var playIcon = document.getElementById('hvtPlay');
+
+  if (!video || !toggleBtn || !pauseIcon || !playIcon) return;
+
+  /* ─── State ─────────────────────────────────────────────── */
+  var isPlaying = true; // Video autoplays
+
+  function showPause() {
+    pauseIcon.style.display = '';
+    playIcon.style.display = 'none';
+    toggleBtn.setAttribute('aria-label', 'Pause video');
+    toggleBtn.classList.add('is-playing');
+  }
+
+  function showPlay() {
+    pauseIcon.style.display = 'none';
+    playIcon.style.display = '';
+    toggleBtn.setAttribute('aria-label', 'Play video');
+    toggleBtn.classList.remove('is-playing');
+  }
+
+  /* ─── Toggle handler ────────────────────────────────────── */
+  toggleBtn.addEventListener('click', function () {
+    if (isPlaying) {
+      video.pause();
+      isPlaying = false;
+      showPlay();
+      sessionStorage.setItem('mrben-video-paused', '1');
+    } else {
+      video.play().catch(function () { /* autoplay blocked – ignore */ });
+      isPlaying = true;
+      showPause();
+      sessionStorage.removeItem('mrben-video-paused');
+    }
+  });
+
+  /* ─── Respect user preference from current session ──────── */
+  if (sessionStorage.getItem('mrben-video-paused') === '1') {
+    video.pause();
+    isPlaying = false;
+    showPlay();
+  } else {
+    /* Ensure autoplay actually started (some browsers block it) */
+    var playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.then(function () {
+        isPlaying = true;
+        showPause();
+      }).catch(function () {
+        /* Autoplay was blocked — show play button */
+        isPlaying = false;
+        showPlay();
+      });
+    }
+  }
 
 })();

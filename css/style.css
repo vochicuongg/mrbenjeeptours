@@ -348,7 +348,7 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('/assets/images/background/background.jpg') center center / cover no-repeat;
+    background: #1A0F0A;
     overflow: hidden;
 }
 
@@ -3709,3 +3709,137 @@ button {
     height: 1px;
     background: rgba(212, 175, 55, 0.15);
 }
+
+/* ============================================================
+   HERO VIDEO BACKGROUND
+   ============================================================ */
+
+/* Video element – fills the entire hero section */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* ── Video Play/Pause Toggle Button ─────────────────────────── */
+.hero-video-toggle {
+    position: absolute;
+    bottom: 40px;
+    right: 32px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    background: rgba(26, 15, 10, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--color-gold);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.35),
+        0 0 0 0 rgba(212, 175, 55, 0);
+}
+
+.hero-video-toggle:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--color-gold);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(212, 175, 55, 0.15);
+    transform: scale(1.08);
+}
+
+.hero-video-toggle:active {
+    transform: scale(0.95);
+}
+
+.hvt-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Play icon slight right offset for optical centering */
+.hvt-icon--play i {
+    margin-left: 2px;
+}
+
+/* Pulse animation when video is playing */
+@keyframes hvtPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.35), 0 0 0 0 rgba(212,175,55,0.25); }
+    50% { box-shadow: 0 4px 20px rgba(0,0,0,0.35), 0 0 0 8px rgba(212,175,55,0); }
+}
+
+.hero-video-toggle.is-playing {
+    animation: hvtPulse 2.5s ease infinite;
+}
+
+/* ── Mobile Responsive Video ──────────────────────────────── */
+@media (max-width: 680px) {
+    /* On mobile: use object-fit cover with full viewport fill.
+       The video fills 100% width and height, cropping as needed
+       to match the device's native aspect ratio. */
+    .hero-video {
+        width: 100%;
+        height: 100%;
+        min-width: unset;
+        min-height: unset;
+        top: 0;
+        left: 0;
+        transform: none;
+        object-fit: cover;
+        /* The video will automatically scale to cover the
+           viewport's aspect ratio, whether it's 9:16 (standard),
+           9:19.5 (iPhone), 9:22 (Z Flip5), or any other ratio */
+    }
+
+    /* Move button to bottom-left on mobile to avoid
+       overlapping with the centered scroll hint */
+    .hero-video-toggle {
+        bottom: 36px;
+        right: 20px;
+        left: auto;
+        width: 42px;
+        height: 42px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ── Very tall phones (e.g., Z Flip5 9:22, foldables) ─────── */
+@media (max-width: 480px) and (min-aspect-ratio: 1/2.2) {
+    .hero-video {
+        object-position: center center;
+    }
+}
+
+/* ── Landscape mobile: ensure video still covers properly ──── */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-video {
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+    }
+
+    .hero-video-toggle {
+        bottom: 16px;
+        right: 24px;
+        left: auto;
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+}

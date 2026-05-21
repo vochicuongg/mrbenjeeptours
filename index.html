@@ -42,8 +42,7 @@
     </script>
 
     <!-- Preload Critical LCP Assets -->
-    <link rel="preload" as="image" href="assets/images/background/background.jpg" type="image/jpeg"
-        fetchpriority="high" />
+    <link rel="preload" as="video" href="assets/images/background/background.webm" type="video/webm" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -141,6 +140,11 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="home">
+        <!-- Video Background -->
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline
+            poster="assets/images/background/background.jpg">
+            <source src="assets/images/background/background.webm" type="video/webm">
+        </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-eyebrow" data-i18n="hero.eyebrow"><i class="fas fa-star"></i> Luxury Jeep Tours · Mũi Né ·
@@ -163,6 +167,11 @@
                 <a href="#tours" class="btn btn-gold" data-i18n="hero.bookAdv">Book Your Adventure</a>
             </div>
         </div>
+        <!-- Video Play/Pause Button -->
+        <button class="hero-video-toggle" id="heroVideoToggle" aria-label="Pause video">
+            <span class="hvt-icon hvt-icon--pause" id="hvtPause"><i class="fas fa-pause"></i></span>
+            <span class="hvt-icon hvt-icon--play" id="hvtPlay" style="display:none"><i class="fas fa-play"></i></span>
+        </button>
         <div class="hero-scroll-hint">
             <span data-i18n="hero.scroll">Scroll Down</span>
             <i class="fas fa-chevron-down"></i>
