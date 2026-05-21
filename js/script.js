@@ -2926,33 +2926,24 @@
       video.pause();
       isPlaying = false;
       showPlay();
-      sessionStorage.setItem('mrben-video-paused', '1');
     } else {
       video.play().catch(function () { /* autoplay blocked – ignore */ });
       isPlaying = true;
       showPause();
-      sessionStorage.removeItem('mrben-video-paused');
     }
   });
 
-  /* ─── Respect user preference from current session ──────── */
-  if (sessionStorage.getItem('mrben-video-paused') === '1') {
-    video.pause();
-    isPlaying = false;
-    showPlay();
-  } else {
-    /* Ensure autoplay actually started (some browsers block it) */
-    var playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.then(function () {
-        isPlaying = true;
-        showPause();
-      }).catch(function () {
-        /* Autoplay was blocked — show play button */
-        isPlaying = false;
-        showPlay();
-      });
-    }
+  /* ─── Always autoplay on page load ─────────────────────── */
+  var playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.then(function () {
+      isPlaying = true;
+      showPause();
+    }).catch(function () {
+      /* Autoplay was blocked — show play button */
+      isPlaying = false;
+      showPlay();
+    });
   }
 
 })();
