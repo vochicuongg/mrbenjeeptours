@@ -2717,6 +2717,7 @@
     { name: 'Villa Aria Mui Ne', address: '60A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Vinh Sương Seaside Hotel', address: '46 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Vipol Hotel Mui Ne', address: '29A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'VIVA BEACH RESORT Mui Ne', address: '134 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Xin Chào Hotel', address: '129 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Khách sạn khác', address: '', _isOther: true }
   ];
