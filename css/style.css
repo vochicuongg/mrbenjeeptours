@@ -176,6 +176,7 @@ button {
 /* ── Section Shared ──────────────────────────────────────── */
 .section {
     padding: var(--section-py) 0;
+    scroll-margin-top: 80px; /* Offset for fixed navbar when scrolling */
 }
 
 .section-header {
@@ -3842,4 +3843,4 @@ button {
         height: 40px;
         font-size: 0.8rem;
     }
-}
+}

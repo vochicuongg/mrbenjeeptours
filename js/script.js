@@ -996,8 +996,55 @@
       isScrolling = true;
     }
   }
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    /* ─── Smooth Scrolling & Active Link Tracking ────────────────── */
+    function updateActiveLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 100;
+
+        sections.forEach(section => {
+            if (scrollPosition >= section.offsetTop) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+    }
+
+    // Track active section on scroll
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+    // Enhanced Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    updateActiveLink();
 
   /* ─── Mobile Menu ──────────────────────────────────────────── */
   function closeMenu() {

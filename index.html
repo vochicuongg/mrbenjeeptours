@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8" />
@@ -63,83 +63,98 @@
 </head>
 
 <body>
+    <!-- Structured Data for Sitelinks/Navigation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Giới Thiệu", "url": "https://mrbenjeeptours.com/#about" },
+        { "@type": "ListItem", "position": 2, "name": "Jeep Tours", "url": "https://mrbenjeeptours.com/#tours" },
+        { "@type": "ListItem", "position": 3, "name": "Liên Hệ", "url": "https://mrbenjeeptours.com/#contact" }
+      ]
+    }
+    </script>
 
     <!-- ===================== NAVBAR ===================== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-logo-img"
-                    fetchpriority="high" width="98" height="98" />
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <!-- Logo shown only in mobile overlay -->
-                <li class="nav-mobile-logo-item">
-                    <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-mobile-logo"
-                        loading="lazy" width="98" height="98" />
-                </li>
-                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
-                <li><a href="#tours" class="nav-link" data-i18n="nav.tours">Tours</a></li>
-                <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
-            </ul>
-            <!-- ── Language Switcher ── -->
-            <div class="lang-switcher" id="langSwitcher">
-                <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-                    <img src="assets/images/languages/vietnam.webp" alt="VI" class="lang-flag" id="langFlagActive" /
-                        decoding="async" loading="lazy" width="39" height="39">
-                    <span class="lang-code" id="langCodeActive">VI</span>
-                    <i class="fas fa-chevron-down lang-arrow" id="langArrow"></i>
-                </button>
-                <ul class="lang-dropdown" id="langDropdown" role="listbox">
-                    <li class="lang-option active" data-lang="vi" data-flag="assets/images/languages/vietnam.webp"
-                        data-label="VI" role="option">
-                        <img src="assets/images/languages/vietnam.webp" alt="Vietnam" class="lang-flag" /
-                            decoding="async" loading="lazy" width="39" height="39">
-                        <span>Tiếng Việt</span>
+    <header class="site-header">
+        <nav class="navbar" id="navbar" aria-label="Main Navigation">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">
+                    <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-logo-img"
+                        fetchpriority="high" width="98" height="98" />
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <!-- Logo shown only in mobile overlay -->
+                    <li class="nav-mobile-logo-item">
+                        <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="nav-mobile-logo"
+                            loading="lazy" width="98" height="98" />
                     </li>
-                    <li class="lang-option" data-lang="en" data-flag="assets/images/languages/usa.webp" data-label="EN"
-                        role="option">
-                        <img src="assets/images/languages/usa.webp" alt="English" class="lang-flag" / decoding="async"
-                            loading="lazy" width="39" height="39">
-                        <span>English</span>
-                    </li>
-                    <li class="lang-option" data-lang="ru" data-flag="assets/images/languages/russia.webp"
-                        data-label="RU" role="option">
-                        <img src="assets/images/languages/russia.webp" alt="Русский" class="lang-flag" /
-                            decoding="async" loading="lazy" width="39" height="39">
-                        <span>Русский</span>
-                    </li>
-                    <li class="lang-option" data-lang="zh" data-flag="assets/images/languages/china.webp"
-                        data-label="ZH" role="option">
-                        <img src="assets/images/languages/china.webp" alt="中文" class="lang-flag" / decoding="async"
-                            loading="lazy" width="39" height="39">
-                        <span>中文</span>
-                    </li>
-                    <li class="lang-option" data-lang="ko" data-flag="assets/images/languages/south-korea.webp"
-                        data-label="KO" role="option">
-                        <img src="assets/images/languages/south-korea.webp" alt="한국어" class="lang-flag" /
-                            decoding="async" loading="lazy" width="39" height="39">
-                        <span>한국어</span>
-                    </li>
-                    <li class="lang-option" data-lang="de" data-flag="assets/images/languages/germany.webp"
-                        data-label="DE" role="option">
-                        <img src="assets/images/languages/germany.webp" alt="Deutsch" class="lang-flag" /
-                            decoding="async" loading="lazy" width="39" height="39">
-                        <span>Deutsch</span>
-                    </li>
+                    <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                    <li><a href="#tours" class="nav-link" data-i18n="nav.tours">Tours</a></li>
+                    <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
                 </ul>
+                <!-- ── Language Switcher ── -->
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+                        <img src="assets/images/languages/vietnam.webp" alt="VI" class="lang-flag" id="langFlagActive" /
+                            decoding="async" loading="lazy" width="39" height="39">
+                        <span class="lang-code" id="langCodeActive">VI</span>
+                        <i class="fas fa-chevron-down lang-arrow" id="langArrow"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="langDropdown" role="listbox">
+                        <li class="lang-option active" data-lang="vi" data-flag="assets/images/languages/vietnam.webp"
+                            data-label="VI" role="option">
+                            <img src="assets/images/languages/vietnam.webp" alt="Vietnam" class="lang-flag" /
+                                decoding="async" loading="lazy" width="39" height="39">
+                            <span>Tiếng Việt</span>
+                        </li>
+                        <li class="lang-option" data-lang="en" data-flag="assets/images/languages/usa.webp" data-label="EN"
+                            role="option">
+                            <img src="assets/images/languages/usa.webp" alt="English" class="lang-flag" / decoding="async"
+                                loading="lazy" width="39" height="39">
+                            <span>English</span>
+                        </li>
+                        <li class="lang-option" data-lang="ru" data-flag="assets/images/languages/russia.webp"
+                            data-label="RU" role="option">
+                            <img src="assets/images/languages/russia.webp" alt="Русский" class="lang-flag" /
+                                decoding="async" loading="lazy" width="39" height="39">
+                            <span>Русский</span>
+                        </li>
+                        <li class="lang-option" data-lang="zh" data-flag="assets/images/languages/china.webp"
+                            data-label="ZH" role="option">
+                            <img src="assets/images/languages/china.webp" alt="中文" class="lang-flag" / decoding="async"
+                                loading="lazy" width="39" height="39">
+                            <span>中文</span>
+                        </li>
+                        <li class="lang-option" data-lang="ko" data-flag="assets/images/languages/south-korea.webp"
+                            data-label="KO" role="option">
+                            <img src="assets/images/languages/south-korea.webp" alt="한국어" class="lang-flag" /
+                                decoding="async" loading="lazy" width="39" height="39">
+                            <span>한국어</span>
+                        </li>
+                        <li class="lang-option" data-lang="de" data-flag="assets/images/languages/germany.webp"
+                            data-label="DE" role="option">
+                            <img src="assets/images/languages/germany.webp" alt="Deutsch" class="lang-flag" /
+                                decoding="async" loading="lazy" width="39" height="39">
+                            <span>Deutsch</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#tours" class="btn btn-gold nav-cta" data-i18n="nav.bookNow">Book Now</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
+        </nav>
+    </header>
 
-            <a href="#tours" class="btn btn-gold nav-cta" data-i18n="nav.bookNow">Book Now</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- ===================== HERO ===================== -->
-    <section class="hero" id="home">
+    <main id="main-content">
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="home">
         <!-- Video Background -->
         <video class="hero-video" id="heroVideo" autoplay muted loop playsinline
             poster="assets/images/background/background.jpg">
@@ -498,12 +513,12 @@
     </section>
 
     <!-- ===================== BOOKING / CTA BANNER ===================== -->
-    <section class="cta-banner" id="contact">
+    <section class="section contact cta-banner" id="contact">
         <div class="cta-overlay"></div>
         <div class="cta-content container">
-            <h2 class="cta-title"><span data-i18n="cta.title1">Ready for Your</span> <span class="gold-text"
+            <h2 class="section-title cta-title"><span data-i18n="cta.title1">Ready for Your</span> <span class="gold-text"
                     data-i18n="cta.titleGold">Adventure?</span></h2>
-            <p class="cta-sub" data-i18n="cta.sub">Contact us now and our team will craft the perfect itinerary for you.
+            <p class="section-subtitle cta-sub" data-i18n="cta.sub">Contact us now and our team will craft the perfect itinerary for you.
             </p>
             <div class="contact-cards">
                 <a href="tel:+84913140196" class="contact-card">
