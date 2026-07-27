@@ -135,7 +135,7 @@
       'booking.placeholderCustomHotel': 'Nhập tên khách sạn/resort...',
       'booking.labelHotelAddress': 'Địa Chỉ Khách Sạn/Resort',
       'booking.placeholderHotelAddress': 'Địa chỉ khách sạn/resort của bạn',
-      'booking.labelAddon': 'Dịch vụ thêm',
+      'booking.labelAddon': 'Dịch Vụ Thêm',
       'booking.optionalBadge': 'Tuỳ chọn',
       'booking.addonSandDune': 'Leo đồi cát trắng bằng xe Jeep',
       'booking.labelAddonVehicles': 'Số xe leo đồi cát',
@@ -1502,10 +1502,12 @@
     if (vehicleVal) vehicleVal.textContent = '1';
     setDefaultDatetime();
     /* Reset tour type — no pre-selection */
-    tourType = 'private';           /* keep internal default for price calc */
+    tourType = '';           /* không có mặc định, người dùng phải chọn */
     if (btnPrivate) { btnPrivate.classList.remove('active'); btnPrivate.classList.remove('bf-error'); }
     if (btnGroup) { btnGroup.classList.remove('active'); btnGroup.classList.remove('bf-error'); }
+    /* Ẩn cả hai trường Số lượng xe và Số người khi chưa chọn loại tour */
     if (guestGroup) guestGroup.style.display = 'none';
+    if (vehicleGroup) vehicleGroup.style.display = 'none';
 
     // Clear route drops
     if (window.bfRouteResetAll) window.bfRouteResetAll();
@@ -1530,6 +1532,12 @@
     tourNameEl.textContent = tourName;
     bpbPrivate.textContent = fmt(pricePrivate);
     bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">/người</span>';
+
+    // Đảm bảo ẩn Số lượng xe và Số người khi mở modal lần đầu nếu chưa chọn loại tour
+    if (!tourType || tourType === '') {
+      if (guestGroup) guestGroup.style.display = 'none';
+      if (vehicleGroup) vehicleGroup.style.display = 'none';
+    }
 
     // We do NOT reset the form here anymore to preserve user input.
     updatePrice();
