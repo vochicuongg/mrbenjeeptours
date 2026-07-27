@@ -3343,7 +3343,7 @@ button {
     align-items: center;
     gap: 12px;
     width: 100%;
-    padding: 16px 18px;
+    padding: 11px 14px;
     font-weight: 700;
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(212, 175, 55, 0.05));
     border: 2px solid transparent;
