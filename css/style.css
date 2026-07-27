@@ -176,7 +176,8 @@ button {
 /* ── Section Shared ──────────────────────────────────────── */
 .section {
     padding: var(--section-py) 0;
-    scroll-margin-top: 80px; /* Offset for fixed navbar when scrolling */
+    scroll-margin-top: 80px;
+    /* Offset for fixed navbar when scrolling */
 }
 
 .section-header {
@@ -3311,66 +3312,129 @@ button {
     vertical-align: middle;
 }
 
-/* Addon toggle button */
+/* Addon toggle button - Premium Special Service Design */
 .bf-addon-toggle {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
-    padding: 11px 14px;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1.5px dashed rgba(212, 175, 55, 0.25);
-    border-radius: 10px;
-    color: var(--color-text-muted);
-    font-size: 0.88rem;
+    padding: 16px 18px;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(212, 175, 55, 0.05));
+    border: 2px solid transparent;
+    border-radius: 14px;
+    color: var(--color-text);
+    font-size: 0.92rem;
     font-family: var(--font-sans);
     cursor: pointer;
     text-align: left;
-    transition: border-color 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 12px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .bf-addon-toggle:hover {
-    border-color: rgba(212, 175, 55, 0.5);
-    color: var(--color-text);
+    border-color: rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(212, 175, 55, 0.08));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .bf-addon-check {
-    width: 20px;
-    height: 20px;
-    border-radius: 6px;
-    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     color: transparent;
-    transition: all 0.3s var(--ease);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bf-addon-icon {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
+    color: var(--color-gold);
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bf-addon-toggle:hover .bf-addon-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .bf-addon-text {
     flex: 1;
-    line-height: 1.4;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
 }
 
-/* Selected state */
+/* Selected state - Glowing Premium Look */
 .bf-addon-toggle.selected {
     border-color: var(--color-gold);
-    border-style: solid;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.05));
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.2), 
+        rgba(212, 175, 55, 0.15),
+        rgba(184, 134, 11, 0.1));
     color: var(--color-gold);
+    box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4),
+                0 0 0 1px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: addonPulse 2s ease-in-out infinite;
 }
 
 .bf-addon-toggle.selected .bf-addon-check {
-    background: var(--color-gold);
+    background: linear-gradient(135deg, var(--color-gold), #FFD700);
     border-color: var(--color-gold);
     color: #1A0F0A;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.6),
+                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.bf-addon-toggle.selected .bf-addon-icon {
+    color: #FFD700;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    animation: iconSpin 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SYNCHRONIZED ADDON ANIMATIONS
+   Tất cả animation có cùng chu kỳ 3s để đồng bộ
+   ═══════════════════════════════════════════════════════ */
+
+/* Pulse animation for selected addon - 3s cycle */
+@keyframes addonPulse {
+    0%, 100% {
+        box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4),
+                    0 0 0 1px rgba(212, 175, 55, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 32px rgba(212, 175, 55, 0.6),
+                    0 0 0 2px rgba(212, 175, 55, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Icon spin animation - 3s cycle */
+@keyframes iconSpin {
+    0%, 100% {
+        transform: scale(1.1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.15) rotate(5deg);
+    }
+    75% {
+        transform: scale(1.15) rotate(-5deg);
+    }
 }
 
 /* ── Addon sub-counter (sand dune vehicles) ── */
@@ -3614,38 +3678,117 @@ button {
     line-height: 44px;
 }
 
-/* Total */
+/* Total - Price Breakdown */
 .bf-total-row {
     background: rgba(212, 175, 55, 0.06);
     border: 1px solid rgba(212, 175, 55, 0.15);
     border-radius: 12px;
-    padding: 14px 16px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
-.bf-unit-row,
-.bf-final-row {
+.bf-total-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin: 0 0 4px 0;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bf-price-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.88rem;
+    padding: 0px 0;
+}
+
+/* Special Premium Design for Addon Item in Price Breakdown */
+/* ĐỒNG BỘ với .bf-addon-toggle (không có shimmer) */
+.bf-price-item--addon {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.2), 
+        rgba(212, 175, 55, 0.15),
+        rgba(184, 134, 11, 0.1));
+    border: 2px solid var(--color-gold);
+    border-radius: 10px;
+    padding: 12px 14px !important;
+    margin: 4px 0;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4),
+                0 0 0 1px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: addonPulse 3s ease-in-out infinite;
+}
+
+.bf-price-item--addon .bf-price-label {
+    color: var(--color-gold);
+    font-weight: 700;
+}
+
+.bf-price-item--addon .bf-price-label i {
+    font-size: 1.1rem;
+    color: #FFD700;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    animation: iconSpin 3s ease-in-out infinite;
+}
+
+.bf-price-item--addon .bf-price-value {
+    color: #FFD700;
+    font-size: 1rem;
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.bf-price-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
 }
 
-.bf-final-row {
-    font-size: 0.95rem;
-    color: var(--color-text);
+.bf-price-label i {
+    color: var(--color-gold);
+    font-size: 1rem;
+    width: 18px;
+    text-align: center;
+}
+
+.bf-price-value {
+    font-size: 0.9rem;
     font-weight: 600;
-    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    color: var(--color-text);
+}
+
+.bf-price-divider {
+    height: 1px;
+    background: rgba(212, 175, 55, 0.2);
+    margin: 4px 0;
+}
+
+.bf-price-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 8px;
 }
 
-.bf-total-num {
-    font-size: 1.2rem;
-    color: var(--color-gold);
+.bf-price-total-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.bf-price-total-value {
+    font-size: 1.3rem;
     font-weight: 700;
+    color: var(--color-gold);
 }
 
 /* Action buttons */
@@ -3781,8 +3924,15 @@ button {
 
 /* Pulse animation when video is playing */
 @keyframes hvtPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.35), 0 0 0 0 rgba(212,175,55,0.25); }
-    50% { box-shadow: 0 4px 20px rgba(0,0,0,0.35), 0 0 0 8px rgba(212,175,55,0); }
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(212, 175, 55, 0.25);
+    }
+
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(212, 175, 55, 0);
+    }
 }
 
 .hero-video-toggle.is-playing {
@@ -3791,6 +3941,7 @@ button {
 
 /* ── Mobile Responsive Video ──────────────────────────────── */
 @media (max-width: 680px) {
+
     /* On mobile: use object-fit cover with full viewport fill.
        The video fills 100% width and height, cropping as needed
        to match the device's native aspect ratio. */

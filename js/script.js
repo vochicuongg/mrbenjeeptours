@@ -119,6 +119,7 @@
       'booking.labelPickupAddress': 'Địa Chỉ Đón',
       'booking.placeholderPickupAddress': 'Nhập địa chỉ đón',
       'booking.unitPrice': 'Đơn giá:',
+      'booking.priceBreakdown': 'Chi tiết giá',
       'booking.totalPrice': 'Tổng Tiền:',
       'booking.bookWhatsapp': 'Đặt qua WhatsApp',
       'booking.bookZalo': 'Đặt qua Zalo',
@@ -260,6 +261,7 @@
       'booking.labelPickupAddress': 'Pickup Address',
       'booking.placeholderPickupAddress': 'Enter pickup address...',
       'booking.unitPrice': 'Unit price:',
+      'booking.priceBreakdown': 'Price Breakdown',
       'booking.totalPrice': 'Total:',
       'booking.bookWhatsapp': 'Book via WhatsApp',
       'booking.bookZalo': 'Book via Zalo',
@@ -401,6 +403,7 @@
       'booking.labelPickupAddress': 'Адрес отправления',
       'booking.placeholderPickupAddress': 'Введите адрес отправления...',
       'booking.unitPrice': 'Цена:',
+      'booking.priceBreakdown': 'Детализация цены',
       'booking.totalPrice': 'Итого:',
       'booking.bookWhatsapp': 'Забронировать WhatsApp',
       'booking.bookZalo': 'Забронировать через Zalo',
@@ -543,6 +546,7 @@
       'booking.labelPickupAddress': '接送地址',
       'booking.placeholderPickupAddress': '请输入接送地址...',
       'booking.unitPrice': '单价：',
+      'booking.priceBreakdown': '价格明细',
       'booking.totalPrice': '总价：',
       'booking.bookWhatsapp': '通过WhatsApp预订',
       'booking.bookZalo': '通过Zalo预订',
@@ -685,6 +689,7 @@
       'booking.labelPickupAddress': '픽업 주소',
       'booking.placeholderPickupAddress': '픽업 주소를 입력하세요...',
       'booking.unitPrice': '단가:',
+      'booking.priceBreakdown': '가격 내역',
       'booking.totalPrice': '합계:',
       'booking.bookWhatsapp': 'WhatsApp으로 예약',
       'booking.bookZalo': 'Zalo로 예약',
@@ -827,6 +832,7 @@
       'booking.labelPickupAddress': 'Abholadresse',
       'booking.placeholderPickupAddress': 'Abholadresse eingeben...',
       'booking.unitPrice': 'Preis:',
+      'booking.priceBreakdown': 'Preisaufschlüsselung',
       'booking.totalPrice': 'Gesamt:',
       'booking.bookWhatsapp': 'Via WhatsApp buchen',
       'booking.bookZalo': 'Via Zalo buchen',
@@ -1375,12 +1381,15 @@
     var baseTotal = unit * count;
 
     // Sand dune addon: 900k per vehicle (private) or 900k per person (group)
+    var addonTotal = 0;
     var finalTotal;
     if (addonSandDuneSelected) {
       if (tourType === 'private') {
-        finalTotal = ADDON_PRICE_PER_VEHICLE * vehicleCount;
+        addonTotal = ADDON_PRICE_PER_VEHICLE * vehicleCount;
+        finalTotal = addonTotal;
       } else if (tourType === 'group') {
-        finalTotal = ADDON_PRICE_PER_VEHICLE;
+        addonTotal = ADDON_PRICE_PER_VEHICLE;
+        finalTotal = addonTotal;
       } else {
         finalTotal = baseTotal;
       }
@@ -1388,38 +1397,96 @@
       finalTotal = baseTotal;
     }
 
-    var unitText = '—';
+    // Get translation strings
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var t = (window.__MRB_TRANS || {})[lang] || {};
+    
+    // Get UI elements
+    var tourTypeRow = document.getElementById('bfPriceTourType');
+    var tourTypeLabel = document.getElementById('bfPriceTourTypeLabel');
+    var tourTypeValue = document.getElementById('bfPriceTourTypeValue');
+    var quantityRow = document.getElementById('bfPriceQuantity');
+    var quantityIcon = document.getElementById('bfPriceQuantityIcon');
+    var quantityLabel = document.getElementById('bfPriceQuantityLabel');
+    var quantityValue = document.getElementById('bfPriceQuantityValue');
+    var addonRow = document.getElementById('bfPriceAddon');
+    var addonValue = document.getElementById('bfPriceAddonValue');
+
+    // Hide all by default
+    if (tourTypeRow) tourTypeRow.style.display = 'none';
+    if (quantityRow) quantityRow.style.display = 'none';
+    if (addonRow) addonRow.style.display = 'none';
+
+    // Show details only if tour type is selected
     if (tourType) {
-      unitText = fmt(unit);
-      if (addonSandDuneSelected) {
-        var lang = localStorage.getItem('mrben-lang') || 'vi';
-        var t = (window.__MRB_TRANS || {})[lang] || {};
-        var packText = t['booking.addonPack'] || 'Gói Đồi Cát';
-        unitText = '(' + unitText + ' + ' + packText + ')';
+      // Tour Type Row
+      if (tourTypeRow && tourTypeLabel && tourTypeValue) {
+        tourTypeRow.style.display = 'flex';
+        if (tourType === 'private') {
+          tourTypeLabel.textContent = t['booking.typePrivate'] || 'Tour Riêng Tư';
+        } else {
+          tourTypeLabel.textContent = t['booking.typeGroup'] || 'Tour Ghép';
+        }
+        tourTypeValue.textContent = fmt(unit);
       }
 
-      var lang = localStorage.getItem('mrben-lang') || 'vi';
-      var vehicleStr = 'xe';
-      var guestStr = 'người';
-      if (lang === 'en') { vehicleStr = 'vehicles'; guestStr = 'people'; }
-      else if (lang === 'ru') { vehicleStr = 'авто'; guestStr = 'чел.'; }
-      else if (lang === 'zh') { vehicleStr = '辆'; guestStr = '人'; }
-      else if (lang === 'ko') { vehicleStr = '대'; guestStr = '명'; }
-      else if (lang === 'de') { vehicleStr = 'Fahrzeuge'; guestStr = 'Personen'; }
-
-      if (tourType === 'private') {
-        unitText += ' × ' + vehicleCount + ' ' + vehicleStr;
-      } else {
-        unitText += ' × ' + guests + ' ' + guestStr;
+      // Quantity Row - Always show when tour type is selected
+      if (quantityRow && quantityIcon && quantityLabel && quantityValue) {
+        quantityRow.style.display = 'flex';
+        if (tourType === 'private') {
+          quantityIcon.className = 'fas fa-car';
+          quantityLabel.textContent = t['booking.labelVehicles'] || 'Số Lượng Xe';
+          quantityValue.textContent = '× ' + vehicleCount;
+        } else {
+          quantityIcon.className = 'fas fa-users';
+          quantityLabel.textContent = t['booking.labelGuests'] || 'Số Người';
+          quantityValue.textContent = '× ' + guests;
+        }
       }
-    } else if (addonSandDuneSelected) {
-      var lang = localStorage.getItem('mrben-lang') || 'vi';
-      var t = (window.__MRB_TRANS || {})[lang] || {};
-      unitText = t['booking.addonPack'] || 'Gói Đồi Cát';
+
+      // Addon Row - Show below Quantity if selected (without price)
+      if (addonSandDuneSelected && addonRow) {
+        addonRow.style.display = 'flex';
+        addonRow.classList.add('bf-price-item--addon'); // Apply special premium addon styling
+        // Don't show price for addon
+      } else if (addonRow) {
+        addonRow.classList.remove('bf-price-item--addon'); // Remove when not selected
+      }
     }
 
-    unitPriceEl.textContent = unitText;
-    totalEl.textContent = finalTotal > 0 ? fmt(finalTotal) : '—';
+    // Legacy support - keep old elements working
+    if (unitPriceEl) {
+      var unitText = '—';
+      if (tourType) {
+        unitText = fmt(unit);
+        if (addonSandDuneSelected) {
+          var packText = t['booking.addonPack'] || 'Gói Đồi Cát';
+          unitText = '(' + unitText + ' + ' + packText + ')';
+        }
+
+        var vehicleStr = 'xe';
+        var guestStr = 'người';
+        if (lang === 'en') { vehicleStr = 'vehicles'; guestStr = 'people'; }
+        else if (lang === 'ru') { vehicleStr = 'авто'; guestStr = 'чел.'; }
+        else if (lang === 'zh') { vehicleStr = '辆'; guestStr = '人'; }
+        else if (lang === 'ko') { vehicleStr = '대'; guestStr = '명'; }
+        else if (lang === 'de') { vehicleStr = 'Fahrzeuge'; guestStr = 'Personen'; }
+
+        if (tourType === 'private') {
+          unitText += ' × ' + vehicleCount + ' ' + vehicleStr;
+        } else {
+          unitText += ' × ' + guests + ' ' + guestStr;
+        }
+      } else if (addonSandDuneSelected) {
+        unitText = t['booking.addonPack'] || 'Gói Đồi Cát';
+      }
+      unitPriceEl.textContent = unitText;
+    }
+
+    // Total
+    if (totalEl) {
+      totalEl.textContent = finalTotal > 0 ? fmt(finalTotal) : '—';
+    }
   }
 
   function setTourType(type) {
@@ -1533,10 +1600,19 @@
     bpbPrivate.textContent = fmt(pricePrivate);
     bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">/người</span>';
 
-    // Đảm bảo ẩn Số lượng xe và Số người khi mở modal lần đầu nếu chưa chọn loại tour
+    // Đảm bảo ẩn Số lượng xe và Số người khi mở modal nếu chưa chọn loại tour
     if (!tourType || tourType === '') {
       if (guestGroup) guestGroup.style.display = 'none';
       if (vehicleGroup) vehicleGroup.style.display = 'none';
+    } else {
+      // Nếu đã chọn loại tour, hiển thị đúng trường
+      if (tourType === 'private') {
+        if (guestGroup) guestGroup.style.display = 'none';
+        if (vehicleGroup) vehicleGroup.style.display = '';
+      } else {
+        if (guestGroup) guestGroup.style.display = '';
+        if (vehicleGroup) vehicleGroup.style.display = 'none';
+      }
     }
 
     // We do NOT reset the form here anymore to preserve user input.

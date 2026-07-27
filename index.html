@@ -974,13 +974,41 @@
 
                     <!-- Total -->
                     <div class="bf-total-row">
-                        <div class="bf-unit-row">
-                            <span data-i18n="booking.unitPrice">Đơn giá:</span>
-                            <span id="bfUnitPrice">450,000₫</span>
+                        <h4 class="bf-total-title" data-i18n="booking.priceBreakdown">Chi tiết giá</h4>
+                        
+                        <!-- Tour Type Row -->
+                        <div class="bf-price-item" id="bfPriceTourType" style="display:none;">
+                            <span class="bf-price-label">
+                                <i class="fas fa-user-shield"></i>
+                                <span id="bfPriceTourTypeLabel" data-i18n="booking.typePrivate">Tour Riêng Tư</span>
+                            </span>
+                            <span class="bf-price-value" id="bfPriceTourTypeValue">450,000₫</span>
                         </div>
-                        <div class="bf-final-row">
-                            <span data-i18n="booking.totalPrice">Tổng Tiền:</span>
-                            <strong id="bfTotal" class="bf-total-num">450,000₫</strong>
+                        
+                        <!-- Quantity Row (Vehicles or Guests) -->
+                        <div class="bf-price-item" id="bfPriceQuantity" style="display:none;">
+                            <span class="bf-price-label">
+                                <i class="fas fa-car" id="bfPriceQuantityIcon"></i>
+                                <span id="bfPriceQuantityLabel" data-i18n="booking.labelVehicles">Số Lượng Xe</span>
+                            </span>
+                            <span class="bf-price-value" id="bfPriceQuantityValue">× 1</span>
+                        </div>
+                        
+                        <!-- Sand Dune Addon -->
+                        <div class="bf-price-item" id="bfPriceAddon" style="display:none;">
+                            <span class="bf-price-label">
+                                <i class="fas fa-mountain"></i>
+                                <span data-i18n="booking.addonSandDune">Leo đồi cát trắng bằng xe Jeep</span>
+                            </span>
+                            <span class="bf-price-value" id="bfPriceAddonValue"></span>
+                        </div>
+                        
+                        <div class="bf-price-divider"></div>
+                        
+                        <!-- Total -->
+                        <div class="bf-price-total">
+                            <span class="bf-price-total-label" data-i18n="booking.totalPrice">Tổng Tiền</span>
+                            <strong class="bf-price-total-value" id="bfTotal">450,000₫</strong>
                         </div>
                     </div>
 
