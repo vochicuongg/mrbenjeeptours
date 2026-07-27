@@ -1744,8 +1744,33 @@ button {
     }
 
     .features-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .feature-card {
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 0;
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .feature-card p {
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
 
 
@@ -3331,7 +3356,7 @@ button {
     position: relative;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 12px rgba(212, 175, 55, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .bf-addon-toggle:hover {
@@ -3339,30 +3364,23 @@ button {
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(212, 175, 55, 0.08));
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.bf-addon-check {
-    width: 24px;
-    height: 24px;
+.bf-addon-icon {
+    width: 28px;
+    height: 28px;
     border-radius: 8px;
     border: 2px solid rgba(212, 175, 55, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 0.7rem;
-    color: transparent;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.bf-addon-icon {
     font-size: 1.2rem;
-    flex-shrink: 0;
     color: var(--color-gold);
+    background: rgba(255, 255, 255, 0.05);
     filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bf-addon-toggle:hover .bf-addon-icon {
@@ -3379,14 +3397,14 @@ button {
 /* Selected state - Glowing Premium Look */
 .bf-addon-toggle.selected {
     border-color: var(--color-gold);
-    background: linear-gradient(135deg, 
-        rgba(255, 215, 0, 0.2), 
-        rgba(212, 175, 55, 0.15),
-        rgba(184, 134, 11, 0.1));
+    background: linear-gradient(135deg,
+            rgba(255, 215, 0, 0.2),
+            rgba(212, 175, 55, 0.15),
+            rgba(184, 134, 11, 0.1));
     color: var(--color-gold);
     box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4),
-                0 0 0 1px rgba(212, 175, 55, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 0 0 1px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     animation: addonPulse 2s ease-in-out infinite;
 }
 
@@ -3395,13 +3413,30 @@ button {
     border-color: var(--color-gold);
     color: #1A0F0A;
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.6),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
 .bf-addon-toggle.selected .bf-addon-icon {
-    color: #FFD700;
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    background: linear-gradient(135deg, var(--color-gold), #FFD700);
+    border-color: var(--color-gold);
+    color: #1A0F0A;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Hide mountain icon and show check icon when selected */
+.bf-addon-toggle.selected .bf-addon-icon i {
+    display: none;
+}
+
+.bf-addon-toggle.selected .bf-addon-icon::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: #1A0F0A;
     animation: iconSpin 3s ease-in-out infinite;
 }
 
@@ -3412,26 +3447,33 @@ button {
 
 /* Pulse animation for selected addon - 3s cycle */
 @keyframes addonPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4),
-                    0 0 0 1px rgba(212, 175, 55, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            0 0 0 1px rgba(212, 175, 55, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
+
     50% {
         box-shadow: 0 4px 32px rgba(212, 175, 55, 0.6),
-                    0 0 0 2px rgba(212, 175, 55, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            0 0 0 2px rgba(212, 175, 55, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 }
 
 /* Icon spin animation - 3s cycle */
 @keyframes iconSpin {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1.1) rotate(0deg);
     }
+
     25% {
         transform: scale(1.15) rotate(5deg);
     }
+
     75% {
         transform: scale(1.15) rotate(-5deg);
     }
@@ -3709,18 +3751,18 @@ button {
 /* Special Premium Design for Addon Item in Price Breakdown */
 /* ĐỒNG BỘ với .bf-addon-toggle (không có shimmer) */
 .bf-price-item--addon {
-    background: linear-gradient(135deg, 
-        rgba(255, 215, 0, 0.2), 
-        rgba(212, 175, 55, 0.15),
-        rgba(184, 134, 11, 0.1));
+    background: linear-gradient(135deg,
+            rgba(255, 215, 0, 0.2),
+            rgba(212, 175, 55, 0.15),
+            rgba(184, 134, 11, 0.1));
     border: 2px solid var(--color-gold);
     border-radius: 10px;
-    padding: 12px 14px !important;
-    margin: 4px 0;
+    padding: 6px 12px !important;
+    margin: -4px -8px;
     position: relative;
     box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4),
-                0 0 0 1px rgba(212, 175, 55, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 0 0 1px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     animation: addonPulse 3s ease-in-out infinite;
 }
 

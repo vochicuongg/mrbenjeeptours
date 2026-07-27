@@ -98,6 +98,8 @@
       'tour.any.desc': 'Bạn không quan tâm đến màu sắc xe? Hãy chọn mục này, chúng tôi sẽ sắp xếp chiếc xe tốt nhất hiện có cho chuyến đi của bạn.',
       'booking.pricePrivate': 'Tour Riêng Tư',
       'booking.priceGroup': 'Tour Ghép',
+      'booking.pricePrivateValue': '450,000₫',
+      'booking.priceGroupValue': '150,000₫',
       'booking.labelName': 'Họ và Tên',
       'booking.formTitle': 'Đặt Tour',
       'booking.placeholderName': 'Nhập tên của bạn',
@@ -240,6 +242,8 @@
       'tour.any.desc': 'Don\'t have a color preference? Choose this option and we will arrange the best available Jeep for your journey.',
       'booking.pricePrivate': 'Private Tour',
       'booking.priceGroup': 'Group Tour',
+      'booking.pricePrivateValue': '$450,000',
+      'booking.priceGroupValue': '$150,000',
       'booking.labelName': 'Full Name',
       'booking.formTitle': 'Book Tour',
       'booking.placeholderName': 'Enter your name',
@@ -1400,7 +1404,7 @@
     // Get translation strings
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var t = (window.__MRB_TRANS || {})[lang] || {};
-    
+
     // Get UI elements
     var tourTypeRow = document.getElementById('bfPriceTourType');
     var tourTypeLabel = document.getElementById('bfPriceTourTypeLabel');
@@ -1596,9 +1600,13 @@
     pricePrivate = data.private || PRICE_PRIVATE;
     priceGroup = data.group || PRICE_GROUP;
 
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var t = (window.__MRB_TRANS || {})[lang] || {};
+    var perText = t['tour.price.per'] || '/người';
+    
     tourNameEl.textContent = tourName;
     bpbPrivate.textContent = fmt(pricePrivate);
-    bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">/người</span>';
+    bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">' + perText + '</span>';
 
     // Đảm bảo ẩn Số lượng xe và Số người khi mở modal nếu chưa chọn loại tour
     if (!tourType || tourType === '') {
