@@ -971,14 +971,48 @@
     if (e.key === 'Escape') { closeLang(); closeMenu(); }
   });
 
-  /* Restore saved language or detect browser language on page load */
+  /* Restore saved language or auto-detect from device/browser settings */
   (function initLang() {
     let saved = localStorage.getItem('mrben-lang');
+    
+    // If no saved language, auto-detect from device/browser
     if (!saved) {
-      const browserLang = (navigator.language || navigator.userLanguage || '').substring(0, 2).toLowerCase();
+      // Get full browser language (e.g., 'vi-VN', 'en-US', 'ru-RU', 'zh-CN', 'ko-KR', 'de-DE')
+      const fullLang = navigator.language || navigator.userLanguage || '';
+      const browserLang = fullLang.substring(0, 2).toLowerCase();
+      
       const supportedLangs = ['vi', 'en', 'ru', 'zh', 'ko', 'de'];
-      saved = supportedLangs.includes(browserLang) ? browserLang : 'en';
+      
+      // Map browser language codes to supported languages
+      let detectedLang = 'en'; // fallback default
+      
+      if (supportedLangs.includes(browserLang)) {
+        detectedLang = browserLang;
+      } else if (fullLang.toLowerCase().startsWith('zh')) {
+        // Chinese variants (zh-CN, zh-TW, zh-HK) → 'zh'
+        detectedLang = 'zh';
+      } else if (fullLang.toLowerCase().startsWith('ko')) {
+        // Korean variants → 'ko'
+        detectedLang = 'ko';
+      } else if (fullLang.toLowerCase().startsWith('ru')) {
+        // Russian variants → 'ru'
+        detectedLang = 'ru';
+      } else if (fullLang.toLowerCase().startsWith('de')) {
+        // German variants → 'de'
+        detectedLang = 'de';
+      } else if (fullLang.toLowerCase().startsWith('vi')) {
+        // Vietnamese variants → 'vi'
+        detectedLang = 'vi';
+      }
+      
+      saved = detectedLang;
+      
+      // Save auto-detected language to localStorage for consistency
+      localStorage.setItem('mrben-lang', saved);
+      
+      console.log('🌐 Auto-detected language from device:', fullLang, '→', saved);
     }
+    
     const savedOption = document.querySelector('.lang-option[data-lang="' + saved + '"]');
     if (savedOption) {
       langOptions.forEach(function (o) { o.classList.remove('active'); });
