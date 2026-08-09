@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Mr. Ben Jeep Tours – Chuyên cung cấp dịch vụ thuê xe Jeep Mũi Né (Booking Jeep Tour) uy tín, giá rẻ. Trải nghiệm ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ Mũi Né – Phan Thiết." />
+        content="Mr. Ben Jeep Tours – Thuê xe Jeep Mũi Né uy tín, giá rẻ. Ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ Phan Thiết." />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' https://mrbenjeeptours.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://*.workers.dev; media-src 'self'; frame-ancestors 'none';" />
+    <link rel="canonical" href="https://mrbenjeeptours.com/" />
     <meta name="keywords"
-        content="xe jeep mũi né, thuê xe jeep mũi né, booking jeep tour, jeep tour mui ne, giá thuê xe jeep mũi né, tour xe jeep đồi cát trắng, cho thuê xe jeep phan thiết, mui ne jeep tour sunrise, mui ne jeep tour sunset, mr ben jeep tours, review xe jeep mũi né, xe jeep đồi cát đỏ, thuê xe mui trần mũi né" />
+        content="xe jeep mũi né, thuê xe jeep mũi né, booking jeep tour, tour mũi né, đồi cát trắng, đồi cát đỏ, mr ben tours, tour bình minh mũi né, tour hoàng hôn phan thiết, thuê xe mui trần mũi né, review mr ben" />
     <meta name="google-site-verification" content="DJOV9EOVjAO9STvi8BuNcy-SfQA98gXiSK6qxDSrH34" />
     <title>Mr. Ben Jeep Tours | Đặt Xe Jeep Mũi Né - Booking Jeep Tour</title>
 
@@ -28,7 +31,7 @@
     <meta property="og:url" content="https://mrbenjeeptours.com/" />
     <meta property="og:title" content="Mr. Ben Jeep Tours | Đặt Xe Jeep Mũi Né - Booking Jeep Tour" />
     <meta property="og:description"
-        content="Mr. Ben Jeep Tours – Chuyên cung cấp dịch vụ đặt xe Jeep Mũi Né (Booking Jeep Tour) cao cấp khám phá Đồi Cát Trắng, Đồi Cát Đỏ tại Mũi Né – Phan Thiết, Việt Nam." />
+        content="Thuê xe Jeep Mũi Né cao cấp. Khám phá Đồi Cát Trắng, Đồi Cát Đỏ tại Phan Thiết cùng Mr. Ben." />
     <meta property="og:image" content="https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp" />
 
     <!-- Structured Data for Google Site Name & Logo -->
@@ -41,8 +44,51 @@
     }
     </script>
 
+    <!-- Structured Data for Local Business with sameAs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Mr. Ben Jeep Tours",
+      "url": "https://mrbenjeeptours.com/",
+      "image": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+      "description": "Thuê xe Jeep Mũi Né uy tín, giá rẻ. Ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ Phan Thiết.",
+      "telephone": "+84913140196",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phan Thiết",
+        "addressRegion": "Bình Thuận",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.9333,
+        "longitude": 108.2833
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "04:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://web.facebook.com/binh.jeep",
+        "https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
+        "https://zalo.me/84913140196"
+      ],
+      "priceRange": "150,000₫ – 450,000₫",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "128",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+
     <!-- Preload Critical LCP Assets -->
-    <link rel="preload" as="video" href="assets/images/background/background.webm" type="video/webm" />
+    <link rel="preload" as="image" href="assets/images/background/background.jpg" type="image/jpeg" fetchpriority="high" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -169,9 +215,9 @@
                     <span data-i18n="hero.title1" class="hero-title-line1">Khám Phá Mũi Né</span>
                     <span class="hero-brand-lockup">
                         <span class="hero-title-with" data-i18n="hero.titleWith">Cùng</span>
-                        <span class="hero-brand-name">
+                        <span class="hero-brand-name" aria-hidden="true">
                             <span class="hero-brand-mr">MR. BEN</span>
-                            <span class="hero-brand-jeep">JEEP TOURS</span>
+                            <span class="hero-brand-jeep">TOURS</span>
                         </span>
                     </span>
                 </h1>
@@ -486,50 +532,85 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib1.webp" alt="White Sand Dunes" loading="lazy" /
+                        <img src="/assets/images/library/lib1.webp" alt="Đồi Cát Trắng Mũi Né lúc bình minh" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib2.webp" alt="Jeep Adventure" loading="lazy" /
+                        <img src="/assets/images/library/lib2.webp" alt="Xe Jeep phiêu lưu trên đồi cát đỏ" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib3.webp" alt="Coastal Views" loading="lazy" /
+                        <img src="/assets/images/library/lib3.webp" alt="Cảnh biển Mũi Né từ trên đồi cát" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <!-- Row 2 -->
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib4.webp" alt="Red Sand Dunes" loading="lazy" /
+                        <img src="/assets/images/library/lib4.webp" alt="Đồi Cát Đỏ hoàng hôn Phan Thiết" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib5.webp" alt="Sunset Golden Hour" loading="lazy" /
+                        <img src="/assets/images/library/lib5.webp" alt="Hoàng hôn vàng rực trên đồi cát Mũi Né" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib6.webp" alt="Lighthouse Visit" loading="lazy" /
+                        <img src="/assets/images/library/lib6.webp" alt="Hải đăng Kê Gà Phan Thiết" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib7.webp" alt="White Sand Dunes" loading="lazy" /
+                        <img src="/assets/images/library/lib7.webp" alt="Du khách vui chơi trên cát trắng Mũi Né" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib8.webp" alt="Jeep Adventure" loading="lazy" /
+                        <img src="/assets/images/library/lib8.webp" alt="Đoàn xe Jeep Mr. Ben trên cung đường đồi cát" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib9.webp" alt="Coastal Views" loading="lazy" /
+                        <img src="/assets/images/library/lib9.webp" alt="Suối Tiên và làng chài Mũi Né" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== REVIEWS / TESTIMONIALS ===================== -->
+        <section class="section reviews" id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow" data-i18n="reviews.eyebrow">Khách Hàng Nói Gì</p>
+                    <h2 class="section-title"><span data-i18n="reviews.title1">Đánh Giá</span> <span class="gold-text"
+                            data-i18n="reviews.titleGold">Từ Khách Hàng</span></h2>
+                    <p class="section-subtitle" data-i18n="reviews.subtitle">Hơn 128 đánh giá 5 sao từ du khách khắp nơi trên thế giới.</p>
+                </div>
+                <div class="trust-badges">
+                    <div class="trust-badge"><i class="fas fa-star"></i><div><strong>5.0/5</strong><span>TripAdvisor</span></div></div>
+                    <div class="trust-badge"><i class="fas fa-shield-halved"></i><div><strong data-i18n="trust.insurance">Bảo Hiểm</strong><span data-i18n="trust.fullCoverage">Đầy đủ</span></div></div>
+                    <div class="trust-badge"><i class="fas fa-users"></i><div><strong>2,000+</strong><span data-i18n="trust.happyGuests">Khách hài lòng</span></div></div>
+                    <div class="trust-badge"><i class="fas fa-certificate"></i><div><strong data-i18n="trust.licensed">Giấy Phép</strong><span data-i18n="trust.official">Hợp pháp</span></div></div>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text" data-i18n="review.1.text">"Tour tuyệt vời! Tài xế thân thiện, cảnh bình minh đồi cát trắng đẹp khó tin."</p>
+                        <div class="review-author"><strong data-i18n="review.1.name">Nguyễn Minh Anh</strong><span data-i18n="review.1.origin">Hà Nội, Việt Nam</span></div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text" data-i18n="review.2.text">"Amazing sunrise tour! The driver was professional. Highly recommend Mr. Ben!"</p>
+                        <div class="review-author"><strong data-i18n="review.2.name">Sarah Johnson</strong><span data-i18n="review.2.origin">London, UK</span></div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text" data-i18n="review.3.text">"Лучший тур в Муйне! Водитель показал скрытые места. Поеду снова!"</p>
+                        <div class="review-author"><strong data-i18n="review.3.name">Алексей Петров</strong><span data-i18n="review.3.origin">Москва, Россия</span></div>
                     </div>
                 </div>
             </div>
@@ -1013,7 +1094,7 @@
 
                     <!-- Actions -->
                     <div class="bf-actions">
-                        <a class="bf-btn bf-btn-wa" id="bfWhatsApp" href="#" target="_blank">
+                        <a class="bf-btn bf-btn-wa" id="bfWhatsApp" href="https://wa.me/84913140196" target="_blank">
                             <i class="fab fa-whatsapp"></i> <span data-i18n="booking.bookWhatsapp">Đặt qua
                                 WhatsApp</span>
                         </a>
