@@ -89,6 +89,7 @@
       'footer.quickLinks': 'Liên Kết Nhanh',
       'footer.contactInfo': 'Thông Tin Liên Hệ',
       'footer.hours': 'Mở Cửa Hàng Ngày: 4:00 – 21:00',
+      'footer.findUs': 'Tìm Chúng Tôi',
       'footer.copy': '© 2026 Mr. Ben Jeep Tours. Thiết kế và phát triển bởi',
       'booking.datePlaceholder': 'Chọn ngày & giờ khởi hành',
       'tour.meta.hours': '4 Giờ',
@@ -184,6 +185,12 @@
       'wa.total': '- Tổng tiền: ',
       'wa.notes': '- Ghi chú: ',
       'wa.footer': 'Mong bạn hãy liên lạc sớm cho tôi nhé.',
+      'booking.thankTitle': 'Cảm Ơn Bạn! 🎉',
+      'booking.thankMessage': 'Cảm ơn bạn đã đặt tour Jeep với Mr. Ben! Chúng tôi sẽ liên hệ lại với bạn sớm nhất để xác nhận chuyến đi. Chúc bạn có một chuyến phiêu lưu tuyệt vời!',
+      'booking.thankClose': 'Đóng',
+      'booking.hotelOther': 'Khách sạn khác',
+      'booking.hotelSearchPlaceholder': 'Tìm kiếm...',
+      'booking.hotelNoResult': 'Không tìm thấy khách sạn',
     },
     en: {
       'nav.home': 'Home',
@@ -251,6 +258,7 @@
       'footer.quickLinks': 'Quick Links',
       'footer.contactInfo': 'Contact Info',
       'footer.hours': 'Open Daily: 4:00 – 21:00',
+      'footer.findUs': 'Find Us',
       'footer.copy': '© 2026 Mr. Ben Jeep Tours. Designed and developed by',
       'booking.datePlaceholder': 'Select departure date & time',
       'tour.meta.hours': '4 Hours',
@@ -346,6 +354,12 @@
       'wa.total': '- Total: ',
       'wa.notes': '- Notes: ',
       'wa.footer': 'Please contact me soon.',
+      'booking.thankTitle': 'Thank You! 🎉',
+      'booking.thankMessage': 'Thank you for booking a Jeep tour with Mr. Ben! We will contact you shortly to confirm your trip. Wishing you an amazing adventure!',
+      'booking.thankClose': 'Close',
+      'booking.hotelOther': 'Other hotel',
+      'booking.hotelSearchPlaceholder': 'Search...',
+      'booking.hotelNoResult': 'No hotel found',
     },
     ru: {
       'nav.home': 'Главная',
@@ -413,6 +427,7 @@
       'footer.quickLinks': 'Быстрые Ссылки',
       'footer.contactInfo': 'Контактная Информация',
       'footer.hours': 'Ежедневно: 4:00 – 21:00',
+      'footer.findUs': 'Найти Нас',
       'footer.copy': '© 2026 Mr. Ben Jeep Tours. Дизайн и разработка:',
       'booking.datePlaceholder': 'Выберите дату и время отправления',
       'tour.meta.hours': '4 Часа',
@@ -507,6 +522,12 @@
       'wa.total': '- Итого: ',
       'wa.notes': '- Примечания: ',
       'wa.footer': 'Пожалуйста, свяжитесь со мной в ближайшее время.',
+      'booking.thankTitle': 'Спасибо! 🎉',
+      'booking.thankMessage': 'Спасибо за бронирование джип-тура с Mr. Ben! Мы свяжемся с вами в ближайшее время для подтверждения поездки. Желаем вам незабываемого приключения!',
+      'booking.thankClose': 'Закрыть',
+      'booking.hotelOther': 'Другой отель',
+      'booking.hotelSearchPlaceholder': 'Поиск...',
+      'booking.hotelNoResult': 'Отель не найден',
     },
     zh: {
       'nav.home': '首页',
@@ -574,6 +595,7 @@
       'footer.quickLinks': '快速链接',
       'footer.contactInfo': '联系信息',
       'footer.hours': '每日开放: 4:00 – 21:00',
+      'footer.findUs': '找到我们',
       'footer.copy': '© 2026 Mr. Ben Jeep Tours. 设计与开发：',
       'booking.datePlaceholder': '选择出发日期和时间',
       'tour.meta.hours': '4小时',
@@ -668,6 +690,12 @@
       'wa.total': '- 总计：',
       'wa.notes': '- 备注：',
       'wa.footer': '请尽快与我联系。',
+      'booking.thankTitle': '谢谢您！🎉',
+      'booking.thankMessage': '感谢您预订 Mr. Ben 的吉普车之旅！我们将尽快与您联系确认行程。祝您旅途愉快！',
+      'booking.thankClose': '关闭',
+      'booking.hotelOther': '其他酒店',
+      'booking.hotelSearchPlaceholder': '搜索...',
+      'booking.hotelNoResult': '未找到酒店',
     },
     ko: {
       'nav.home': '홈',
@@ -735,6 +763,7 @@
       'footer.quickLinks': '빠른 링크',
       'footer.contactInfo': '연락체',
       'footer.hours': '매일 영업: 4:00 – 21:00',
+      'footer.findUs': '위치 찾기',
       'footer.copy': '© 2026 Mr. Ben Jeep Tours. 디자인 및 개발:',
       'booking.datePlaceholder': '출발 날짜와 시간 선택',
       'tour.meta.hours': '4시간',
@@ -829,6 +858,12 @@
       'wa.total': '- 합계: ',
       'wa.notes': '- 메모: ',
       'wa.footer': '빠른 연락 부탁드립니다.',
+      'booking.thankTitle': '감사합니다! 🎉',
+      'booking.thankMessage': 'Mr. Ben 지프 투어를 예약해 주셔서 감사합니다! 곧 연락드려 여행을 확인해 드리겠습니다. 멋진 모험이 되시길 바랍니다!',
+      'booking.thankClose': '닫기',
+      'booking.hotelOther': '기타 호텔',
+      'booking.hotelSearchPlaceholder': '검색...',
+      'booking.hotelNoResult': '호텔을 찾을 수 없습니다',
     },
     de: {
       'nav.home': 'Start',
@@ -896,6 +931,7 @@
       'footer.quickLinks': 'Schnelllinks',
       'footer.contactInfo': 'Kontaktinformationen',
       'footer.hours': 'Täglich geöffnet: 4:00 – 21:00',
+      'footer.findUs': 'Finden Sie Uns',
       'footer.copy': '© 2026 Mr. Ben Jeep Tours. Entworfen und entwickelt von',
       'booking.datePlaceholder': 'Abfahrtsdatum & Uhrzeit wählen',
       'tour.meta.hours': '4 Stunden',
@@ -990,6 +1026,12 @@
       'wa.total': '- Gesamt: ',
       'wa.notes': '- Notizen: ',
       'wa.footer': 'Bitte kontaktieren Sie mich bald.',
+      'booking.thankTitle': 'Vielen Dank! 🎉',
+      'booking.thankMessage': 'Vielen Dank für Ihre Buchung einer Jeep-Tour mit Mr. Ben! Wir werden uns in Kürze bei Ihnen melden, um Ihre Reise zu bestätigen. Wir wünschen Ihnen ein tolles Abenteuer!',
+      'booking.thankClose': 'Schließen',
+      'booking.hotelOther': 'Anderes Hotel',
+      'booking.hotelSearchPlaceholder': 'Suchen...',
+      'booking.hotelNoResult': 'Kein Hotel gefunden',
     }
 
   };
@@ -1082,18 +1124,18 @@
   /* Restore saved language or auto-detect from device/browser settings */
   (function initLang() {
     let saved = localStorage.getItem('mrben-lang');
-    
+
     // If no saved language, auto-detect from device/browser
     if (!saved) {
       // Get full browser language (e.g., 'vi-VN', 'en-US', 'ru-RU', 'zh-CN', 'ko-KR', 'de-DE')
       const fullLang = navigator.language || navigator.userLanguage || '';
       const browserLang = fullLang.substring(0, 2).toLowerCase();
-      
+
       const supportedLangs = ['vi', 'en', 'ru', 'zh', 'ko', 'de'];
-      
+
       // Map browser language codes to supported languages
       let detectedLang = 'en'; // fallback default
-      
+
       if (supportedLangs.includes(browserLang)) {
         detectedLang = browserLang;
       } else if (fullLang.toLowerCase().startsWith('zh')) {
@@ -1112,15 +1154,15 @@
         // Vietnamese variants → 'vi'
         detectedLang = 'vi';
       }
-      
+
       saved = detectedLang;
-      
+
       // Save auto-detected language to localStorage for consistency
       localStorage.setItem('mrben-lang', saved);
-      
+
       console.log('🌐 Auto-detected language from device:', fullLang, '→', saved);
     }
-    
+
     const savedOption = document.querySelector('.lang-option[data-lang="' + saved + '"]');
     if (savedOption) {
       langOptions.forEach(function (o) { o.classList.remove('active'); });
@@ -1745,7 +1787,7 @@
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var t = (window.__MRB_TRANS || {})[lang] || {};
     var perText = t['tour.price.per'] || '/người';
-    
+
     tourNameEl.textContent = tourName;
     bpbPrivate.textContent = fmt(pricePrivate);
     bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">' + perText + '</span>';
@@ -1939,7 +1981,8 @@
 
     // Xử lý thông tin Khách sạn
     var hotelObj = document.getElementById('bfHotelName');
-    var isCustom = (hotelObj && hotelObj.value === 'Khách sạn khác');
+    var hotelWrapCheck = document.getElementById('bfHotelWrap');
+    var isCustom = (hotelWrapCheck && hotelWrapCheck.classList.contains('is-other-selected'));
     var hotelName = '';
     if (isCustom) {
       hotelName = document.getElementById('bfHotelCustomName') ? document.getElementById('bfHotelCustomName').value.trim() : '';
@@ -2257,11 +2300,49 @@
       }, 500);
     }
     closeConfirmModal();
+    // Show thank-you modal after sending
+    openThankModal();
   }
 
   if (confirmClose) confirmClose.addEventListener('click', closeConfirmModal);
   if (btnEdit) btnEdit.addEventListener('click', closeConfirmModal);
   if (btnSendNow) btnSendNow.addEventListener('click', executeSend);
+
+  /* ─── Thank You Modal Logic ─── */
+  var thankModal = document.getElementById('bfThankModal');
+  if (thankModal) document.body.appendChild(thankModal); // Reparent to avoid clipping
+  var thankCloseBtn = document.getElementById('bfThankClose');
+
+  function openThankModal() {
+    if (!thankModal) return;
+    // Close the booking overlay behind
+    var bookingOverlay = document.getElementById('bookingOverlay');
+    if (bookingOverlay) {
+      bookingOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Apply current language translations to the thank modal
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    thankModal.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[key]) el.textContent = T[key];
+    });
+    thankModal.classList.add('open');
+  }
+
+  function closeThankModal() {
+    if (thankModal) {
+      thankModal.classList.remove('open');
+    }
+  }
+
+  if (thankCloseBtn) thankCloseBtn.addEventListener('click', closeThankModal);
+  if (thankModal) {
+    thankModal.addEventListener('click', function (e) {
+      if (e.target === thankModal) closeThankModal();
+    });
+  }
 
   function validateBookingForm() {
     var isValid = true;
@@ -2277,7 +2358,8 @@
     ];
 
     var hotelNameEl = document.getElementById('bfHotelName');
-    if (hotelNameEl && hotelNameEl.value === 'Khách sạn khác') {
+    var hotelWrapEl = document.getElementById('bfHotelWrap');
+    if (hotelNameEl && hotelWrapEl && hotelWrapEl.classList.contains('is-other-selected')) {
       reqFields.push({ id: 'bfHotelCustomName', text: T['wa.hotel'] || 'Khách sạn' });
     }
 
@@ -2422,6 +2504,24 @@
     btnZalo.addEventListener('click', function (e) {
       e.preventDefault();
       if (validateBookingForm()) openConfirmModal('zalo');
+    });
+  }
+
+  var btnCall = document.querySelector('.bf-btn-call');
+  if (btnCall) {
+    btnCall.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (validateBookingForm()) {
+        sendToTelegram();
+        // Open the tel: link
+        window.location.href = btnCall.getAttribute('href');
+        // Clear form after successful send
+        setTimeout(function () {
+          resetBookingForm();
+        }, 500);
+        // Show thank-you modal
+        openThankModal();
+      }
     });
   }
 
@@ -2901,7 +3001,6 @@
     { name: 'Đen Homestay Mũi Né', address: '248 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Đồi Dừa Homestay', address: 'St thôn Hồ Quang Cảnh, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Eva Hut Homestay Mũi Né', address: '202 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'Fiore Healthy Resort', address: 'Tỉnh lộ 719, Xã Tiến Thành, Tỉnh Lâm Đồng' },
     { name: 'Four Oceans Resort', address: 'Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Gem\'s House Homestay&Villa', address: '201/4 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Gia An Guesthouse', address: '100 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -3077,7 +3176,7 @@
     { name: 'Windy Hills Hotel', address: '299 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Xin Chào Hotel', address: '129 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Khách sạn khác', address: '', _isOther: true }
-    ];
+  ];
 
   var wrap = document.getElementById('bfHotelWrap');
   var inputRow = wrap && wrap.querySelector('.bf-hotel-input-row');
@@ -3089,8 +3188,74 @@
 
   if (!wrap || !nameInput || !dropdown || !addrInput) return;
 
+  /* Apply i18n to "other hotel" on init */
+  (function initOtherHotelI18n() {
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    var otherStr = T['booking.hotelOther'] || 'Khách sạn khác';
+    var otherObj = hotelData[hotelData.length - 1];
+    if (otherObj && otherObj._isOther) {
+      otherObj.name = otherStr;
+    }
+  })();
+
   /* Address read-only by default */
   addrInput.setAttribute('readonly', '');
+
+  /* ── Fake thick caret for address input ── */
+  (function initFakeCaret() {
+    var addrRow = addrInput.closest('.bf-hotel-input-row');
+    if (!addrRow) return;
+    addrRow.style.position = 'relative';
+
+    var fakeCaret = document.createElement('span');
+    fakeCaret.className = 'bf-fake-caret';
+    fakeCaret.style.display = 'none';
+    addrRow.appendChild(fakeCaret);
+
+    /* Measure text width using canvas for caret positioning */
+    var measureCanvas = document.createElement('canvas');
+    var ctx = measureCanvas.getContext('2d');
+
+    function getInputStyle() {
+      var cs = window.getComputedStyle(addrInput);
+      return cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+    }
+
+    function updateCaretPos() {
+      if (addrInput.hasAttribute('readonly')) {
+        fakeCaret.style.display = 'none';
+        return;
+      }
+      if (document.activeElement !== addrInput) {
+        fakeCaret.style.display = 'none';
+        return;
+      }
+      fakeCaret.style.display = '';
+
+      var selStart = addrInput.selectionStart || 0;
+      var textBefore = addrInput.value.substring(0, selStart);
+
+      ctx.font = getInputStyle();
+      var textW = ctx.measureText(textBefore).width;
+
+      /* Account for input's internal padding + icon offset */
+      var inputRect = addrInput.getBoundingClientRect();
+      var rowRect = addrRow.getBoundingClientRect();
+      var offsetLeft = inputRect.left - rowRect.left;
+
+      fakeCaret.style.left = (offsetLeft + textW) + 'px';
+    }
+
+    addrInput.addEventListener('focus', function () { updateCaretPos(); });
+    addrInput.addEventListener('blur', function () { fakeCaret.style.display = 'none'; });
+    addrInput.addEventListener('input', function () { updateCaretPos(); });
+    addrInput.addEventListener('click', function () { updateCaretPos(); });
+    addrInput.addEventListener('keyup', function () { updateCaretPos(); });
+    addrInput.addEventListener('keydown', function () {
+      setTimeout(updateCaretPos, 0);
+    });
+  })();
 
   /* Function to remove Vietnamese accents for better searching */
   function removeAccents(str) {
@@ -3104,13 +3269,17 @@
     var cleanFilter = removeAccents(rawFilter);
     dropdown.innerHTML = '';
 
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    var searchPlaceholder = T['booking.hotelSearchPlaceholder'] || 'Tìm kiếm...';
+    var noResultText = T['booking.hotelNoResult'] || 'Không tìm thấy khách sạn';
+
     var searchWrap = document.createElement('li');
     searchWrap.className = 'bf-hotel-search-wrap';
-    searchWrap.style.position = 'relative';
     searchWrap.innerHTML =
       '<i class="fas fa-search"></i>' +
       '<input class="bf-hotel-search" id="bfHotelSearch" type="text" ' +
-      'placeholder="Tìm kiếm..." autocomplete="off" />';
+      'placeholder="' + searchPlaceholder + '" autocomplete="off" />';
     dropdown.appendChild(searchWrap);
 
     var normalResults = hotelData.filter(function (h) {
@@ -3124,7 +3293,7 @@
     if (results.length === 0) {
       var none = document.createElement('li');
       none.className = 'bf-hotel-no-result';
-      none.textContent = 'Không tìm thấy khách sạn';
+      none.textContent = noResultText;
       dropdown.appendChild(none);
     } else {
       results.forEach(function (h) {
@@ -3201,19 +3370,55 @@
         customInput.value = '';
         setTimeout(function () { customInput.focus(); }, 50);
       }
+      /* mark wrap as other-selected & swap arrow → clear icon */
+      wrap.classList.add('is-other-selected');
+      var arrow = document.getElementById('bfHotelArrow');
+      if (arrow) {
+        arrow.classList.remove('fa-chevron-down');
+        arrow.classList.add('fa-times');
+      }
     } else {
       addrInput.value = h.address;
       addrInput.setAttribute('readonly', '');
       /* hide custom hotel name input */
       if (customGroup) customGroup.style.display = 'none';
       if (customInput) customInput.value = '';
+      /* ensure normal arrow state */
+      wrap.classList.remove('is-other-selected');
+      var arrow = document.getElementById('bfHotelArrow');
+      if (arrow) {
+        arrow.classList.remove('fa-times');
+        arrow.classList.add('fa-chevron-down');
+      }
     }
     closeDropdown();
+  }
+
+  /* ── Reset hotel selection back to search mode ── */
+  function resetHotelSelection() {
+    nameInput.value = '';
+    nameInput.classList.remove('has-value');
+    addrInput.value = '';
+    addrInput.setAttribute('readonly', '');
+    if (customGroup) customGroup.style.display = 'none';
+    if (customInput) customInput.value = '';
+    wrap.classList.remove('is-other-selected');
+    var arrow = document.getElementById('bfHotelArrow');
+    if (arrow) {
+      arrow.classList.remove('fa-times');
+      arrow.classList.add('fa-chevron-down');
+    }
+    openDropdown();
   }
 
   if (inputRow) {
     inputRow.addEventListener('click', function (e) {
       e.stopPropagation();
+      /* If "other" is selected and user clicks the clear icon → reset */
+      if (wrap.classList.contains('is-other-selected')) {
+        resetHotelSelection();
+        return;
+      }
       wrap.classList.contains('open') ? closeDropdown() : openDropdown();
     });
   }
@@ -3228,6 +3433,12 @@
     addrInput.setAttribute('readonly', '');
     if (customGroup) customGroup.style.display = 'none';
     if (customInput) customInput.value = '';
+    wrap.classList.remove('is-other-selected');
+    var arrow = document.getElementById('bfHotelArrow');
+    if (arrow) {
+      arrow.classList.remove('fa-times');
+      arrow.classList.add('fa-chevron-down');
+    }
     closeDropdown();
   });
 

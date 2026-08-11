@@ -1365,8 +1365,9 @@ button {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2.2fr 1fr 1.4fr;
-    gap: 60px;
+    grid-template-columns: 2fr 1fr 1.2fr 1.8fr;
+    column-gap: 48px;
+    row-gap: 48px;
     padding-bottom: 56px;
 }
 
@@ -1532,6 +1533,57 @@ button {
     letter-spacing: 0.04em;
 }
 
+/* ── Google Maps embed ── */
+.footer-map {
+    padding-top: 0;
+}
+
+.footer-map h4 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.footer-map h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+    border-radius: 2px;
+}
+
+.footer-map-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.footer-map-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: brightness(0.85) contrast(1.1) saturate(0.9);
+    transition: filter 0.3s ease;
+}
+
+.footer-map-wrap:hover iframe {
+    filter: brightness(1) contrast(1) saturate(1);
+}
+
 /* ============================================================
    BACK TO TOP
    ============================================================ */
@@ -1593,6 +1645,14 @@ button {
 
     .trust-badges {
         gap: 16px;
+    }
+
+    .footer-map {
+        grid-column: 1 / -1;
+    }
+
+    .footer-map-wrap {
+        padding-bottom: 45%;
     }
 }
 
@@ -1929,6 +1989,17 @@ button {
         grid-column: auto;
     }
 
+    .footer-map-wrap {
+        padding-bottom: 65%;
+        border-radius: 10px;
+    }
+
+    .footer-map h4 {
+        font-size: 0.92rem;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+    }
+
     /* Language switcher: always visible, smaller on mobile */
     .lang-switcher {
         order: -1;
@@ -2075,6 +2146,7 @@ button {
     align-items: flex-end;
     justify-content: center;
     padding: 16px;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px)) 16px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s var(--ease);
@@ -2088,14 +2160,18 @@ button {
 
 @media (max-width: 599px) {
     .booking-overlay {
-        padding: 20px 16px;
+        padding: 12px 10px;
+        padding: 12px 10px calc(12px + env(safe-area-inset-bottom, 0px)) 10px;
         align-items: center;
     }
 
     .booking-modal {
         width: 100%;
         max-width: 100%;
+        /* vh fallback → dvh for dynamic address-bar on every mobile browser */
         max-height: 85vh;
+        max-height: 85dvh;
+        max-height: min(85dvh, calc(100vh - 24px));
         border-radius: 15px;
         transform: translateY(20px) scale(0.98);
     }
@@ -2123,6 +2199,7 @@ button {
 
     .booking-body {
         padding: 14px 16px 24px !important;
+        padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
         gap: 10px !important;
     }
 
@@ -2149,6 +2226,94 @@ button {
     }
 }
 
+/* ── Extra-small phones (≤ 350px wide, e.g. iPhone SE / Galaxy S mini) ── */
+@media (max-width: 350px) {
+    .booking-overlay {
+        padding: 6px 4px;
+        padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px)) 4px;
+    }
+
+    .booking-modal {
+        max-height: 90vh;
+        max-height: 90dvh;
+        border-radius: 12px;
+    }
+
+    .booking-header {
+        padding: 14px 12px 8px;
+    }
+
+    .booking-title {
+        font-size: 1.05rem;
+    }
+
+    .booking-tour-name {
+        font-size: 0.72rem;
+    }
+
+    .booking-price-bar {
+        padding: 8px 12px;
+    }
+
+    .bpb-label {
+        font-size: 0.65rem;
+    }
+
+    .bpb-val {
+        font-size: 0.88rem;
+    }
+
+    .booking-body {
+        padding: 10px 12px 20px !important;
+        padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+        gap: 8px !important;
+    }
+
+    .bf-label {
+        font-size: 0.7rem;
+    }
+
+    .bf-input {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .bf-hotel-input-row {
+        padding: 8px 10px;
+    }
+
+    .bf-toggle {
+        padding: 8px 8px;
+        font-size: 0.78rem;
+    }
+}
+
+/* ── Landscape orientation on short phones ── */
+@media (max-height: 500px) and (orientation: landscape) {
+    .booking-overlay {
+        padding: 8px;
+    }
+
+    .booking-modal {
+        max-height: 94vh;
+        max-height: 94dvh;
+        border-radius: 12px;
+    }
+
+    .booking-header {
+        padding: 10px 16px 6px;
+    }
+
+    .booking-title {
+        font-size: 1rem;
+    }
+
+    .booking-body {
+        padding: 8px 16px 16px !important;
+        gap: 6px !important;
+    }
+}
+
 .booking-overlay.open {
     opacity: 1;
     pointer-events: all;
@@ -2160,7 +2325,9 @@ button {
     border-radius: 20px;
     width: 100%;
     max-width: 430px;
+    /* vh fallback for old browsers → dvh for modern mobile browsers */
     max-height: 92vh;
+    max-height: 92dvh;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -2168,6 +2335,8 @@ button {
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(212, 175, 55, 0.1);
     transform: translateY(24px) scale(0.97);
     transition: transform 0.35s var(--ease);
+    /* Prevent iOS bounce / over-scroll from breaking layout */
+    -webkit-overflow-scrolling: touch;
 }
 
 .booking-modal::-webkit-scrollbar {
@@ -2419,6 +2588,37 @@ button {
     transform: rotate(180deg);
 }
 
+/* Arrow becomes ✕ clear button when "other hotel" is selected */
+.bf-hotel-wrap.is-other-selected .bf-hotel-arrow {
+    transform: rotate(0deg);
+    color: #fff;
+    font-size: 0.7rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.bf-hotel-wrap.is-other-selected .bf-hotel-arrow:hover {
+    color: #fff;
+    background: rgba(212, 175, 55, 0.35);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.bf-hotel-wrap.is-other-selected .bf-hotel-input-row {
+    cursor: pointer;
+    border-color: rgba(212, 175, 55, 0.35);
+}
+
 .bf-hotel-dropdown {
     display: none;
     position: absolute;
@@ -2429,9 +2629,9 @@ button {
     border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 10px;
     max-height: 240px;
-    overflow-y: auto;
+    overflow: hidden auto;
     z-index: 9999;
-    padding: 6px 0;
+    padding: 0 0 6px;
     list-style: none;
     margin: 0;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
@@ -2497,12 +2697,15 @@ button {
     font-style: italic;
 }
 
+
+
 .bf-hotel-search-wrap {
-    padding: 8px 10px 4px;
+    padding: 10px 10px 6px;
     position: sticky;
     top: 0;
     background: #1e0e06;
     border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    z-index: 2;
 }
 
 .bf-hotel-search {
@@ -2544,11 +2747,49 @@ button {
 #bfHotelAddress {
     background: rgba(255, 255, 255, 0.04);
     color: rgba(255, 255, 255, 0.6);
+    caret-color: transparent;
 }
 
 #bfHotelAddress:not([readonly]) {
-    background: rgba(255, 255, 255, 0.05);
+    caret-color: transparent;
     color: var(--color-text);
+}
+
+/* Fake thick caret overlay */
+.bf-fake-caret {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.25em;
+    background: #ffffff;
+    pointer-events: none;
+    animation: bfCaretBlink 1s step-end infinite;
+    z-index: 2;
+    border-radius: 1px;
+}
+
+@keyframes bfCaretBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Address input row glow when editable (other hotel selected) */
+#bfHotelAddressGroup .bf-hotel-input-row:has(#bfHotelAddress:not([readonly])) {
+    border-color: rgba(212, 175, 55, 0.35);
+    cursor: text;
+}
+
+#bfHotelAddressGroup .bf-hotel-input-row:has(#bfHotelAddress:not([readonly]):focus) {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
 }
 
 .bf-dt-wrap {
@@ -4028,6 +4269,112 @@ button {
     flex: 1;
     height: 1px;
     background: rgba(212, 175, 55, 0.15);
+}
+
+/* ─── Thank You Modal ─── */
+.bf-thank-wrap {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(10px);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease);
+}
+
+.bf-thank-wrap.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bf-thank-card {
+    background: linear-gradient(135deg, #110905, #1a0f0a);
+    border: 1.5px solid var(--color-gold);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 60px rgba(212, 175, 55, 0.2);
+    padding: 40px 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bf-thank-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    border: 2px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    animation: thankPulse 2s ease-in-out infinite;
+}
+
+.bf-thank-icon i {
+    font-size: 2.2rem;
+    color: var(--color-gold);
+}
+
+.bf-thank-title {
+    margin: 0 0 16px;
+    font-family: var(--font-sans);
+    color: var(--color-gold);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.bf-thank-message {
+    margin: 0 0 28px;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: var(--font-sans);
+}
+
+.bf-thank-close-btn {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    color: #1A0A02;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.35);
+}
+
+.bf-thank-close-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+}
+
+.bf-thank-close-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes thankPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 12px rgba(212, 175, 55, 0);
+    }
 }
 
 /* ============================================================

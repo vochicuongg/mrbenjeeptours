@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description"
         content="Mr. Ben Jeep Tours – Thuê xe Jeep Mũi Né uy tín, giá rẻ. Ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ Phan Thiết." />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' https://mrbenjeeptours.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://*.workers.dev; media-src 'self'; frame-ancestors 'none';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' https://mrbenjeeptours.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://*.workers.dev; media-src 'self'; frame-src https://www.google.com; frame-ancestors 'none';" />
     <link rel="canonical" href="https://mrbenjeeptours.com/" />
     <meta name="keywords"
         content="xe jeep mũi né, thuê xe jeep mũi né, booking jeep tour, tour mũi né, đồi cát trắng, đồi cát đỏ, mr ben tours, tour bình minh mũi né, tour hoàng hôn phan thiết, thuê xe mui trần mũi né, review mr ben" />
@@ -706,7 +706,21 @@
                         </li>
                     </ul>
                 </div>
+
+                <!-- Google Maps -->
+                <div class="footer-map">
+                    <h4 data-i18n="footer.findUs">Find Us</h4>
+                    <div class="footer-map-wrap">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.2!2d108.2423205!3d10.9546982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768f003792ad01%3A0x3fbd5b9fe044b996!2sMr.%20Ben%20Jeep%20Tours%20M%C5%A9i%20N%C3%A9%20-%20Booking%20Jeep%20Tours%20Luxury!5e0!3m2!1svi!2svn!4v1700000000000"
+                            width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Mr. Ben Jeep Tours Mũi Né - Google Maps">
+                        </iframe>
+                    </div>
+                </div>
             </div>
+
             <div class="footer-bottom">
                 <p>
                     <span data-i18n="footer.copy">© 2026 Mr. Ben Jeep Tours. Designed and developed by</span>
@@ -1104,7 +1118,7 @@
                             <span data-i18n="booking.bookZalo">Đặt qua Zalo</span>
                         </a>
                         <div class="bf-or"><span data-i18n="booking.or">hoặc</span></div>
-                        <a class="bf-btn bf-btn-call" href="tel:+84913140196">
+                        <a class="bf-btn bf-btn-call" id="bfCall" href="tel:+84913140196">
                             <i class="fas fa-phone"></i> <span data-i18n="booking.callPhone">Gọi Điện Thoại</span>
                         </a>
                     </div>
@@ -1131,6 +1145,20 @@
                                 id="bfCountdownNum">30</span>s)
                         </button>
                     </div>
+                </div>
+            </div>
+
+            <!-- Thank You Modal -->
+            <div class="bf-thank-wrap" id="bfThankModal">
+                <div class="bf-thank-card">
+                    <div class="bf-thank-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="bf-thank-title" data-i18n="booking.thankTitle">Cảm Ơn Bạn! 🎉</h3>
+                    <p class="bf-thank-message" data-i18n="booking.thankMessage">Cảm ơn bạn đã đặt tour Jeep với Mr.
+                        Ben! Chúng tôi sẽ liên hệ lại với bạn sớm nhất để xác nhận chuyến đi. Chúc bạn có một chuyến
+                        phiêu lưu tuyệt vời!</p>
+                    <button class="bf-thank-close-btn" id="bfThankClose" data-i18n="booking.thankClose">Đóng</button>
                 </div>
             </div>
 
