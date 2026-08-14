@@ -10,7 +10,7 @@
  * 5. In your Worker dashboard, go to Settings -> Variables
  * 6. Add two environment variables (Encrypted):
  *    - TELEGRAM_BOT_TOKEN : 8698354601:AAGvQblFamiQ_qKOxzbP_bQxYyQx24f49Lw
- *    - TELEGRAM_CHAT_ID   : (Your Group Chat ID, e.g., -1001234567890)
+ *    - TELEGRAM_CHAT_ID   : -1003852617510
  * 7. Copy the Worker URL (e.g., https://mrben-telegram-bot.yourusername.workers.dev)
  * 8. Paste that URL into your js/script.js file where indicated.
  */

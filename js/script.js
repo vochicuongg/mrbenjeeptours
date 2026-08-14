@@ -2191,33 +2191,132 @@
   }
 
   function sendToTelegram() {
-    var rawMsg = buildMessage(true); // HTML array elements
-    // ĐIỀN ĐỊA CHỈ CLOUDFLARE WORKER CỦA BẠN VÀO ĐÂY
-    // Ví dụ: 'https://mrben-telegram-bot.ten-cua-ban.workers.dev'
+    // =========================================================
+    // LUỒNG 1: GỬI TIN NHẮN TỨC THÌ QUA CLOUDFLARE WORKER 
+    // =========================================================
+    var rawMsg = buildMessage(true); // Lấy chuỗi HTML
     var workerUrl = 'https://mrbenjeeptours.vochicuong-bin04.workers.dev';
 
     if (workerUrl === 'YOUR_CLOUDFLARE_WORKER_URL_HERE') {
       console.warn('Bạn chưa cập nhật link Cloudflare Worker. Tin nhắn Telegram sẽ không được gửi.');
-      return;
+    } else {
+      fetch(workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: rawMsg,
+          parse_mode: 'HTML' // Yêu cầu telegram render mã HTML
+        })
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success) {
+            console.log('Đã gửi thông tin đến Telegram Group thành công thông qua Worker.');
+          } else {
+            console.error('Lỗi khi gửi qua Worker:', data);
+          }
+        })
+        .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
     }
 
-    fetch(workerUrl, {
+    // =========================================================
+    // LUỒNG 2: ĐẨY DỮ LIỆU SANG MAKE.COM ĐỂ TẠO LỊCH GOOGLE CALENDAR
+    // =========================================================
+    var webhookUrl = 'https://hook.eu1.make.com/hz6g13pxrevta33z5piw4x5i7tko0vcd';
+
+    // Thu thập các biến thô để Make.com có thể bóc tách
+    var name = document.getElementById('bfName').value.trim();
+    var phone = document.getElementById('bfPhone').value.trim();
+    var cleanPhone = phone.replace(/^0/, '');
+    var codeTextEl = document.getElementById('bfPhoneCodeText');
+    var activeCode = selectedPhoneCode || (codeTextEl ? codeTextEl.value.trim() : '');
+    var fullPhone = activeCode + (cleanPhone || '—');
+
+    var hotelObj = document.getElementById('bfHotelName');
+    var hotelWrapCheck = document.getElementById('bfHotelWrap');
+    var isCustom = (hotelWrapCheck && hotelWrapCheck.classList.contains('is-other-selected'));
+    var hotelName = '';
+    if (isCustom) {
+      hotelName = document.getElementById('bfHotelCustomName') ? document.getElementById('bfHotelCustomName').value.trim() : '';
+    } else {
+      hotelName = hotelObj ? hotelObj.value.trim() : '';
+    }
+    var hotelAddr = document.getElementById('bfHotelAddress') ? document.getElementById('bfHotelAddress').value.trim() : '';
+
+    var pickupObj = document.getElementById('bfPickupAddress');
+    var pickup = pickupObj ? pickupObj.value.trim() : '';
+
+    var dtRaw = dtInput.value ? dtInput.value.replace('T', ' ') : '';
+    var dt = '—';
+    if (dtRaw) {
+      var dtParts = dtRaw.split(' ');
+      if (dtParts.length === 2) {
+        var dateParts = dtParts[0].split('-');
+        var paddedDay = dateParts[2].length === 1 ? '0' + dateParts[2] : dateParts[2];
+        dt = paddedDay + '-' + dateParts[1] + '-' + dateParts[0] + ' | ' + dtParts[1];
+      } else {
+        dt = dtRaw;
+      }
+    }
+
+    var timeOnly = dtRaw ? (dtRaw.split(' ')[1] || '') : '';
+    var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
+    var tourLine = (timeOnly ? timeOnly + ' - ' : '') + typeStr;
+    var vehicleStr = vehicleCount + ' xe';
+
+    var unit = 0;
+    if (tourType === 'private') unit = pricePrivate;
+    else if (tourType === 'group') unit = priceGroup;
+    var count = (tourType === 'group') ? guests : vehicleCount;
+    var baseTotal = unit * count;
+
+    var totalNum;
+    if (addonSandDuneSelected) {
+      if (tourType === 'private') {
+        totalNum = ADDON_PRICE_PER_VEHICLE * vehicleCount;
+      } else {
+        totalNum = ADDON_PRICE_PER_VEHICLE;
+      }
+    } else {
+      totalNum = baseTotal;
+    }
+    var totalText = totalNum > 0 ? fmt(totalNum) : '—';
+
+    var notes = document.getElementById('bfNotes').value.trim();
+    var tVi = (window.__MRB_TRANS || {})['vi'] || {};
+    var addonStr = tVi['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep';
+    var finalRouteVi = window.__bfCurrentRouteVi || '';
+
+    var now = new Date();
+    var nowDt = ('0' + now.getDate()).slice(-2) + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + now.getFullYear() + ' | ' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+
+    // Đóng gói thành JSON cho Make.com
+    var bookingData = {
+      name: name,
+      fullPhone: fullPhone,
+      tourLine: tourLine,
+      tourType: tourType,
+      vehicleStr: vehicleStr,
+      addonSandDuneSelected: addonSandDuneSelected,
+      addonStr: addonStr,
+      finalRouteVi: finalRouteVi,
+      pickup: pickup,
+      hotelName: hotelName,
+      hotelAddr: hotelAddr,
+      dt: dt,
+      dtIso: dtInput.value,
+      totalText: totalText,
+      notes: notes,
+      nowDt: nowDt
+    };
+
+    fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: rawMsg,
-        parse_mode: 'HTML' // Yêu cầu telegram render mã HTML
-      })
+      body: JSON.stringify(bookingData)
     })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (data.success) {
-          console.log('Đã gửi thông tin đến Telegram Group thành công thông qua Worker.');
-        } else {
-          console.error('Lỗi khi gửi qua Worker:', data);
-        }
-      })
-      .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
+      .then(function (r) { console.log('Ting ting! Đã đẩy dữ liệu lịch sang Make.com thành công!'); })
+      .catch(function (e) { console.error('Lỗi kết nối tới Make.com:', e); });
   }
 
   /* ─── Confirm Modal Logic ─── */
