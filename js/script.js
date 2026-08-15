@@ -2295,7 +2295,7 @@
       name: name,
       fullPhone: fullPhone,
       tourLine: tourLine,
-      tourType: tourType,
+      tourType: tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép',
       vehicleStr: vehicleStr,
       addonSandDuneSelected: addonSandDuneSelected,
       addonStr: addonStr,
