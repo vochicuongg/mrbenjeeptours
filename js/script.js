@@ -68,11 +68,11 @@
       'reviews.title1': 'Đánh Giá',
       'reviews.titleGold': 'Từ Khách Hàng',
       'reviews.subtitle': 'Hơn 128 đánh giá 5 sao từ du khách khắp nơi trên thế giới.',
-      'trust.insurance': 'Bảo Hiểm',
-      'trust.fullCoverage': 'Đầy đủ',
-      'trust.happyGuests': 'Khách hài lòng',
-      'trust.licensed': 'Giấy Phép',
-      'trust.official': 'Hợp pháp',
+      'trust.yearsUnit': 'Năm',
+      'trust.yearsDesc': 'Kinh nghiệm xe Jeep',
+      'trust.happyGuests': 'Khách hàng hài lòng',
+      'trust.ratingDesc': 'Google Maps & TripAdvisor',
+      'trust.safetyDesc': 'Chuyến đi an toàn',
       'review.1.text': '"Tour tuyệt vời! Tài xế thân thiện, cảnh bình minh đồi cát trắng đẹp khó tin."',
       'review.1.name': 'Nguyễn Minh Anh',
       'review.1.origin': 'Hà Nội, Việt Nam',
@@ -237,11 +237,11 @@
       'reviews.title1': 'Customer',
       'reviews.titleGold': 'Reviews',
       'reviews.subtitle': 'Over 128 five-star reviews from travelers around the world.',
-      'trust.insurance': 'Insurance',
-      'trust.fullCoverage': 'Full Coverage',
+      'trust.yearsUnit': 'Years',
+      'trust.yearsDesc': 'Jeep Experience',
       'trust.happyGuests': 'Happy Guests',
-      'trust.licensed': 'Licensed',
-      'trust.official': 'Official Business',
+      'trust.ratingDesc': 'Google Maps & TripAdvisor',
+      'trust.safetyDesc': 'Safe Trip',
       'review.1.text': '"Wonderful tour! Friendly driver, the sunrise over the white dunes was breathtaking."',
       'review.1.name': 'Nguyen Minh Anh',
       'review.1.origin': 'Hanoi, Vietnam',
@@ -406,11 +406,11 @@
       'reviews.title1': 'Отзывы',
       'reviews.titleGold': 'Клиентов',
       'reviews.subtitle': 'Более 128 пятизвёздочных отзывов от путешественников со всего мира.',
-      'trust.insurance': 'Страховка',
-      'trust.fullCoverage': 'Полная',
+      'trust.yearsUnit': 'Лет',
+      'trust.yearsDesc': 'Опыт работы с Jeep',
       'trust.happyGuests': 'Довольных гостей',
-      'trust.licensed': 'Лицензия',
-      'trust.official': 'Официальный бизнес',
+      'trust.ratingDesc': 'Google Maps & TripAdvisor',
+      'trust.safetyDesc': 'Безопасность',
       'review.1.text': '"Замечательный тур! Дружелюбный водитель, рассвет над белыми дюнами захватывает дух."',
       'review.1.name': 'Нгуен Минь Ань',
       'review.1.origin': 'Ханой, Вьетнам',
@@ -574,11 +574,11 @@
       'reviews.title1': '客户',
       'reviews.titleGold': '好评',
       'reviews.subtitle': '来自全球游客超过128条五星好评。',
-      'trust.insurance': '保险',
-      'trust.fullCoverage': '全面覆盖',
+      'trust.yearsUnit': '年',
+      'trust.yearsDesc': 'Jeep 驾驶经验',
       'trust.happyGuests': '满意游客',
-      'trust.licensed': '营业执照',
-      'trust.official': '合法经营',
+      'trust.ratingDesc': 'Google Maps & TripAdvisor',
+      'trust.safetyDesc': '安全保障',
       'review.1.text': '"太棒了！司机很友好，白沙丘的日出美不胜收。"',
       'review.1.name': '阮明英',
       'review.1.origin': '河内，越南',
@@ -742,11 +742,11 @@
       'reviews.title1': '고객',
       'reviews.titleGold': '리뷰',
       'reviews.subtitle': '전 세계 여행자들의 128개 이상 별 5개 리뷰.',
-      'trust.insurance': '보험',
-      'trust.fullCoverage': '완전 보장',
+      'trust.yearsUnit': '년',
+      'trust.yearsDesc': 'Jeep 운행 경험',
       'trust.happyGuests': '만족한 고객',
-      'trust.licensed': '사업 허가',
-      'trust.official': '합법 사업',
+      'trust.ratingDesc': 'Google Maps & TripAdvisor',
+      'trust.safetyDesc': '안전 보장',
       'review.1.text': '"정말 멋진 투어! 친절한 기사님, 백사구의 일출이 환상적이었어요."',
       'review.1.name': '응우옌 민 아인',
       'review.1.origin': '하노이, 베트남',
@@ -910,11 +910,11 @@
       'reviews.title1': 'Kunden',
       'reviews.titleGold': 'Bewertungen',
       'reviews.subtitle': 'Über 128 Fünf-Sterne-Bewertungen von Reisenden weltweit.',
-      'trust.insurance': 'Versicherung',
-      'trust.fullCoverage': 'Vollständig',
+      'trust.yearsUnit': 'Jahre',
+      'trust.yearsDesc': 'Jeep-Erfahrung',
       'trust.happyGuests': 'Zufriedene Gäste',
-      'trust.licensed': 'Lizenziert',
-      'trust.official': 'Offizielles Geschäft',
+      'trust.ratingDesc': 'Google Maps & TripAdvisor',
+      'trust.safetyDesc': 'Sicherheit',
       'review.1.text': '"Tolle Tour! Freundlicher Fahrer, der Sonnenaufgang über den weißen Dünen war atemberaubend."',
       'review.1.name': 'Nguyen Minh Anh',
       'review.1.origin': 'Hanoi, Vietnam',
@@ -3618,5 +3618,70 @@
       showPlay();
     });
   }
+
+  /* ─── Count-Up Animation for Trust Badges ──────────────── */
+  (function initCountUp() {
+    var counters = document.querySelectorAll('.count-up');
+    if (!counters.length) return;
+
+    var animated = false;
+
+    function animateCounters() {
+      if (animated) return;
+      animated = true;
+
+      counters.forEach(function (el) {
+        var target = parseFloat(el.getAttribute('data-count-target'));
+        var decimals = parseInt(el.getAttribute('data-count-decimals'), 10) || 0;
+        var duration = 2000; // ms
+        var startTime = null;
+
+        function easeOutQuart(t) {
+          return 1 - Math.pow(1 - t, 4);
+        }
+
+        function formatNumber(n) {
+          var val = decimals > 0 ? n.toFixed(decimals) : String(Math.floor(n));
+          return target >= 1000 && decimals === 0 ? Math.floor(n).toLocaleString('en-US') : val;
+        }
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var easedProgress = easeOutQuart(progress);
+          var current = easedProgress * target;
+
+          el.textContent = formatNumber(current);
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = formatNumber(target);
+          }
+        }
+
+        requestAnimationFrame(step);
+      });
+    }
+
+    // Use IntersectionObserver to trigger animation when badges are visible
+    if ('IntersectionObserver' in window) {
+      var trustSection = document.querySelector('.trust-badges');
+      if (trustSection) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounters();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(trustSection);
+      }
+    } else {
+      // Fallback: animate on page load
+      animateCounters();
+    }
+  })();
 
 })();
