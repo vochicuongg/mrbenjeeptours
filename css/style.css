@@ -1966,29 +1966,28 @@ button {
     }
 
 
-    /* Gallery */
+    /* Gallery – mobile auto-scroll marquee */
     .gallery-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 12px;
+        display: block;                 /* override desktop grid — track handles the flex row */
+        overflow: hidden;               /* hide the track overflow — translateX does the scrolling */
         padding-bottom: 24px;
-        /* Space for shadow/scroll */
-        overscroll-behavior-x: contain;
     }
 
-    .gallery-grid::-webkit-scrollbar {
-        display: none;
+    .gallery-track {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        will-change: transform;         /* GPU-accelerated */
+        cursor: grab;
     }
 
-    .gallery-grid .gallery-item {
-        flex: 0 0 85%;
-        max-width: 380px;
-        scroll-snap-align: center;
+    .gallery-track:active {
+        cursor: grabbing;
+    }
+
+    .gallery-track .gallery-item {
+        flex: 0 0 75vw;
+        max-width: 340px;
         margin: 0;
         aspect-ratio: 4/3;
     }

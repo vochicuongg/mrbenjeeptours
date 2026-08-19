@@ -1591,6 +1591,7 @@
 
     // Get UI elements
     var tourTypeRow = document.getElementById('bfPriceTourType');
+    var tourTypeIcon = document.getElementById('bfPriceTourTypeIcon');
     var tourTypeLabel = document.getElementById('bfPriceTourTypeLabel');
     var tourTypeValue = document.getElementById('bfPriceTourTypeValue');
     var quantityRow = document.getElementById('bfPriceQuantity');
@@ -1611,8 +1612,10 @@
       if (tourTypeRow && tourTypeLabel && tourTypeValue) {
         tourTypeRow.style.display = 'flex';
         if (tourType === 'private') {
+          if (tourTypeIcon) tourTypeIcon.className = 'fas fa-user-shield';
           tourTypeLabel.textContent = t['booking.typePrivate'] || 'Tour Riêng Tư';
         } else {
+          if (tourTypeIcon) tourTypeIcon.className = 'fas fa-users';
           tourTypeLabel.textContent = t['booking.typeGroup'] || 'Tour Ghép';
         }
         tourTypeValue.textContent = fmt(unit);
@@ -1626,7 +1629,7 @@
           quantityLabel.textContent = t['booking.labelVehicles'] || 'Số Lượng Xe';
           quantityValue.textContent = '× ' + vehicleCount;
         } else {
-          quantityIcon.className = 'fas fa-users';
+          quantityIcon.className = 'fa-solid fa-person-circle-plus';
           quantityLabel.textContent = t['booking.labelGuests'] || 'Số Người';
           quantityValue.textContent = '× ' + guests;
         }
@@ -3682,6 +3685,189 @@
       // Fallback: animate on page load
       animateCounters();
     }
+  })();
+
+  /* ─── Gallery Mobile Auto-Scroll Marquee ──────────────────── */
+  (function () {
+    var gallery = document.querySelector('.gallery-grid');
+    if (!gallery) return;
+
+    var SPEED      = 0.8;       // px per frame (~48 px/s @ 60 fps)
+    var RESUME_MS  = 1500;      // ms before auto-resume after interaction
+    var MOBILE_BP  = 680;       // must match CSS @media breakpoint
+
+    /* ── state ───────────────────────────────────────────────── */
+    var track       = null;     // .gallery-track wrapper (created by JS)
+    var origItems   = [];       // snapshotted before cloning
+    var origCount   = 0;
+    var oneSetW     = 0;        // px width of one original set (items + gaps)
+    var offset      = 0;        // current translateX offset (negative = scrolled right)
+    var rafId       = null;
+    var paused      = false;
+    var resumeTimer = null;
+    var built       = false;    // whether the track/clones are in the DOM
+    var trackBound  = false;
+
+    /* ── Build: wrap items in .gallery-track + clone ─────────── */
+    function build() {
+      if (built) return;
+      origItems = [].slice.call(gallery.querySelectorAll('.gallery-item'));
+      origCount = origItems.length;
+      if (!origCount) return;
+
+      /* Create track wrapper and move originals into it */
+      track = document.createElement('div');
+      track.className = 'gallery-track';
+      while (gallery.firstChild) track.appendChild(gallery.firstChild);
+      gallery.appendChild(track);
+
+      /* Ensure originals are visible (undo scroll-reveal hiding) */
+      for (var j = 0; j < origCount; j++) {
+        origItems[j].classList.add('revealed');
+        origItems[j].style.opacity = '';
+        origItems[j].style.transform = '';
+      }
+
+      /* Clone originals twice (append to track) */
+      for (var s = 0; s < 2; s++) {
+        for (var i = 0; i < origCount; i++) {
+          var c = origItems[i].cloneNode(true);
+          c.setAttribute('aria-hidden', 'true');
+          c.classList.add('gallery-clone');
+          c.classList.add('revealed');          // ensure scroll-reveal doesn't hide clones
+          c.style.opacity = '';                 // clear inline opacity:0 from reveal init
+          c.style.transform = '';               // clear inline translateY from reveal init
+          var img = c.querySelector('img');
+          if (img) img.removeAttribute('loading');
+          track.appendChild(c);
+        }
+      }
+
+      track.offsetHeight;  // force reflow
+      measure();
+      offset = 0;
+      applyTx();
+      built = true;
+      bindTrack();
+    }
+
+    /* ── Tear down ───────────────────────────────────────────── */
+    function teardown() {
+      if (!built) return;
+      var clones = track.querySelectorAll('.gallery-clone');
+      for (var i = clones.length - 1; i >= 0; i--) clones[i].parentNode.removeChild(clones[i]);
+      while (track.firstChild) gallery.appendChild(track.firstChild);
+      gallery.removeChild(track);
+      track = null; offset = 0; oneSetW = 0; built = false;
+    }
+
+    /* ── Measure one set width ───────────────────────────────── */
+    function measure() {
+      if (!track) return;
+      var gap = parseFloat(getComputedStyle(track).gap) || 0;
+      var w = 0;
+      for (var i = 0; i < origCount; i++) {
+        w += origItems[i].getBoundingClientRect().width + gap;
+      }
+      oneSetW = w;
+    }
+
+    function applyTx() {
+      if (track) track.style.transform = 'translateX(' + offset + 'px)';
+    }
+
+    /* ── Animation tick ────────────────────────────────────── */
+    function tick() {
+      if (!paused && oneSetW > 0) {
+        offset -= SPEED;
+        if (-offset >= oneSetW) offset += oneSetW;
+        applyTx();
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function start() {
+      if (rafId) return;
+      build();
+      if (!built) return;
+      rafId = requestAnimationFrame(tick);
+    }
+    function stop() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    }
+
+    /* ── Pause / resume ──────────────────────────────────────── */
+    function pauseNow()  { paused = true;  clearTimeout(resumeTimer); }
+    function resumeLater() {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function () {
+        if (oneSetW > 0) {
+          offset = offset % oneSetW;
+          if (offset > 0) offset -= oneSetW;
+        }
+        paused = false;
+      }, RESUME_MS);
+    }
+
+    /* ── Track interaction events (bound once) ───────────────── */
+    function bindTrack() {
+      if (trackBound || !track) return;
+      trackBound = true;
+
+      /* Touch */
+      var tx0 = 0, tOff = 0;
+      track.addEventListener('touchstart', function (e) {
+        pauseNow();
+        tx0 = e.touches[0].clientX; tOff = offset;
+      }, { passive: true });
+      track.addEventListener('touchmove', function (e) {
+        offset = tOff + (e.touches[0].clientX - tx0);
+        applyTx();
+      }, { passive: true });
+      track.addEventListener('touchend',    resumeLater, { passive: true });
+      track.addEventListener('touchcancel', resumeLater, { passive: true });
+
+      /* Mouse drag */
+      var mx0 = 0, mOff = 0, drag = false;
+      track.addEventListener('mousedown', function (e) {
+        pauseNow(); drag = true;
+        mx0 = e.clientX; mOff = offset;
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', function (e) {
+        if (!drag) return;
+        offset = mOff + (e.clientX - mx0);
+        applyTx();
+      });
+      window.addEventListener('mouseup', function () {
+        if (drag) { drag = false; resumeLater(); }
+      });
+
+      /* Wheel */
+      track.addEventListener('wheel', function () {
+        pauseNow(); resumeLater();
+      }, { passive: true });
+    }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    function check() {
+      if (window.innerWidth <= MOBILE_BP) {
+        start();
+      } else {
+        stop(); teardown(); paused = false;
+      }
+    }
+
+    var resizeTimer2 = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer2);
+      resizeTimer2 = setTimeout(function () {
+        if (built) measure();
+        check();
+      }, 200);
+    });
+
+    check();
   })();
 
 })();
