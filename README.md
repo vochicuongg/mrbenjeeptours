@@ -164,9 +164,9 @@ Hệ thống đa ngôn ngữ tự xây dựng (custom-built) dựa trên attribu
 
 ---
 
-## 🏖️ Phụ Thu Lễ (Holiday Surcharge: 27/8 – 2/9)
+## 🏖️ Phụ Thu Lễ
 
-Tính năng tự động tính phụ thu **+30%** khi khách hàng đặt lịch rơi vào dịp lễ Quốc Khánh Việt Nam (từ ngày **27 tháng 8** đến ngày **02 tháng 9** hàng năm).
+Tính năng tự động tính phụ thu **+30%** khi khách hàng đặt lịch rơi vào khoảng thời gian diễn ra Lễ hằng năm.
 
 ### Cơ chế hoạt động:
 1. **Kiểm tra ngày**: Hàm `isHolidaySurcharge()` phân tích giá trị `dtInput.value` (`YYYY-MM-DDTHH:MM`). Trả về `true` khi `(tháng == 8 && ngày >= 27) || (tháng == 9 && ngày <= 2)`.
