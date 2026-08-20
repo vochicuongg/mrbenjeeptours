@@ -172,8 +172,8 @@ Tính năng tự động tính phụ thu **+30%** khi khách hàng đặt lịch
 1. **Kiểm tra ngày**: Hàm `isHolidaySurcharge()` phân tích giá trị `dtInput.value` (`YYYY-MM-DDTHH:MM`). Trả về `true` khi `(tháng == 8 && ngày >= 27) || (tháng == 9 && ngày <= 2)`.
 2. **Tỷ lệ phụ thu**: `HOLIDAY_SURCHARGE_RATE = 0.3` (+30%).
 3. **Công thức tính**:
-   $$\text{Tiền phụ thu} = \text{round}(\text{Tổng tiền tour \& addon} \times 0.3)$$
-   $$\text{Tổng thanh toán} = \text{Tổng tiền tour \& addon} + \text{Tiền phụ thu}$$
+   - `Tiền phụ thu = round(Tổng tiền tour và addon × 0.3)`
+   - `Tổng thanh toán = Tổng tiền tour và addon + Tiền phụ thu`
 4. **Hiển thị giao diện**:
    - Dòng phụ thu riêng biệt trong bảng giá: icon 🏖️ (`fa-umbrella-beach`), nhãn đa ngôn ngữ, và số tiền `+X.000₫`.
    - Hiệu ứng gradient cam-đỏ nổi bật (`.bf-price-item--holiday`).
