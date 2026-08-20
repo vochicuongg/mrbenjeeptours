@@ -3158,6 +3158,7 @@
     { name: 'Minh Ngoc Hotel', address: '72 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Minh Tam Resort', address: '130C Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Moonbeam Homestay & Mini-resort Mui Ne', address: '16 Bùi Xuân Phái, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Morocco Villa Mui Ne', address: 'Khu phố 1 Nguyễn Tấn Định, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Mộc Villa Homestay', address: 'Hồ Quang Cảnh, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'MUI NE ALENA BUNGALOW HOTEL', address: '265/5 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Mui Ne Backpacker Village', address: '137 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -3692,21 +3693,21 @@
     var gallery = document.querySelector('.gallery-grid');
     if (!gallery) return;
 
-    var SPEED      = 0.8;       // px per frame (~48 px/s @ 60 fps)
-    var RESUME_MS  = 1500;      // ms before auto-resume after interaction
-    var MOBILE_BP  = 680;       // must match CSS @media breakpoint
+    var SPEED = 0.8;       // px per frame (~48 px/s @ 60 fps)
+    var RESUME_MS = 1500;      // ms before auto-resume after interaction
+    var MOBILE_BP = 680;       // must match CSS @media breakpoint
 
     /* ── state ───────────────────────────────────────────────── */
-    var track       = null;     // .gallery-track wrapper (created by JS)
-    var origItems   = [];       // snapshotted before cloning
-    var origCount   = 0;
-    var oneSetW     = 0;        // px width of one original set (items + gaps)
-    var offset      = 0;        // current translateX offset (negative = scrolled right)
-    var rafId       = null;
-    var paused      = false;
+    var track = null;     // .gallery-track wrapper (created by JS)
+    var origItems = [];       // snapshotted before cloning
+    var origCount = 0;
+    var oneSetW = 0;        // px width of one original set (items + gaps)
+    var offset = 0;        // current translateX offset (negative = scrolled right)
+    var rafId = null;
+    var paused = false;
     var resumeTimer = null;
-    var built       = false;    // whether the track/clones are in the DOM
-    var trackBound  = false;
+    var built = false;    // whether the track/clones are in the DOM
+    var trackBound = false;
 
     /* ── Build: wrap items in .gallery-track + clone ─────────── */
     function build() {
@@ -3797,7 +3798,7 @@
     }
 
     /* ── Pause / resume ──────────────────────────────────────── */
-    function pauseNow()  { paused = true;  clearTimeout(resumeTimer); }
+    function pauseNow() { paused = true; clearTimeout(resumeTimer); }
     function resumeLater() {
       clearTimeout(resumeTimer);
       resumeTimer = setTimeout(function () {
@@ -3824,7 +3825,7 @@
         offset = tOff + (e.touches[0].clientX - tx0);
         applyTx();
       }, { passive: true });
-      track.addEventListener('touchend',    resumeLater, { passive: true });
+      track.addEventListener('touchend', resumeLater, { passive: true });
       track.addEventListener('touchcancel', resumeLater, { passive: true });
 
       /* Mouse drag */
