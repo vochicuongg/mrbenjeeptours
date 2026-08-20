@@ -68,8 +68,8 @@
 - **Xác nhận đặt xe**: Confirm modal với countdown 30s tự động gửi
 - **Thank you modal**: Sau khi gửi thành công
 
-### 🏖️ Phụ Thu Lễ (27/8 – 2/9)
-- **+30% surcharge** tự động khi chọn ngày trong 27/8 – 2/9 (mỗi năm)
+### 🏖️ Phụ Thu Lễ
+- **+30% surcharge** tự động khi chọn ngày khoảng thời gian diễn ra Lễ (mỗi năm)
 - Hiển thị dòng riêng với icon 🏖️ và gradient cam/đỏ
 - Tính vào tổng tiền ở tất cả kênh: WhatsApp, Zalo, Telegram, Make.com
 
