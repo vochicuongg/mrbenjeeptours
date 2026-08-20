@@ -160,6 +160,7 @@
       'booking.labelAddon': 'Dịch Vụ Thêm',
       'booking.optionalBadge': 'Tuỳ chọn',
       'booking.addonSandDune': 'Leo đồi cát trắng bằng xe Jeep',
+      'booking.holidaySurcharge': 'Phụ Thu Lễ +30%',
       'booking.labelAddonVehicles': 'Số xe leo đồi cát',
       'booking.labelItinerary': 'Lộ Trình',
       'booking.customizeRoute': 'Tùy chỉnh lộ trình',
@@ -329,6 +330,7 @@
       'booking.labelAddon': 'Add-on Service',
       'booking.optionalBadge': 'Optional',
       'booking.addonSandDune': 'White Sand Dune Climbing by Jeep',
+      'booking.holidaySurcharge': 'Holiday Surcharge +30%',
       'booking.labelAddonVehicles': 'Vehicles for sand dune',
       'booking.labelItinerary': 'Itinerary',
       'booking.customizeRoute': 'Customize itinerary',
@@ -496,6 +498,7 @@
       'booking.labelAddon': 'Дополнительная услуга',
       'booking.optionalBadge': 'Необязательно',
       'booking.addonSandDune': 'Подъём на Белые песчаные дюны на джипе',
+      'booking.holidaySurcharge': 'Праздничная наценка +30%',
       'booking.labelAddonVehicles': 'Авто для дюн',
       'booking.labelItinerary': 'Маршрут',
       'booking.customizeRoute': 'Настроить маршрут',
@@ -664,6 +667,7 @@
       'booking.labelAddon': '附加服务',
       'booking.optionalBadge': '可选',
       'booking.addonSandDune': '吉普车白沙丘探险',
+      'booking.holidaySurcharge': '节日附加费 +30%',
       'booking.labelAddonVehicles': '沙丘车辆数',
       'booking.labelItinerary': '行程路线',
       'booking.customizeRoute': '自定义路线',
@@ -832,6 +836,7 @@
       'booking.labelAddon': '추가 서비스',
       'booking.optionalBadge': '선택사항',
       'booking.addonSandDune': '지프로 화이트 샌드듄 오르기',
+      'booking.holidaySurcharge': '명절 할증 +30%',
       'booking.labelAddonVehicles': '듄 차량 수',
       'booking.labelItinerary': '여행 경로',
       'booking.customizeRoute': '경로 맞춤 설정',
@@ -1000,6 +1005,7 @@
       'booking.labelAddon': 'Zusatzservice',
       'booking.optionalBadge': 'Optional',
       'booking.addonSandDune': 'Weiße Sanddüne mit dem Jeep erkunden',
+      'booking.holidaySurcharge': 'Feiertagszuschlag +30%',
       'booking.labelAddonVehicles': 'Dünen-Fahrzeuge',
       'booking.labelItinerary': 'Reiseroute',
       'booking.customizeRoute': 'Route anpassen',
@@ -1556,6 +1562,18 @@
   }
 
   var ADDON_PRICE_PER_VEHICLE = 900000; /* 900k per vehicle for sand dune */
+  var HOLIDAY_SURCHARGE_RATE = 0.3; /* 30% surcharge for 27/8 – 2/9 */
+
+  /* Check if selected date falls within holiday period (27 Aug – 2 Sep, any year) */
+  function isHolidaySurcharge() {
+    var val = dtInput.value; // format: YYYY-MM-DDTHH:MM
+    if (!val) return false;
+    var parts = val.split('T')[0].split('-'); // [YYYY, MM, DD]
+    var m = parseInt(parts[1], 10); // month 1-12
+    var d = parseInt(parts[2], 10); // day 1-31
+    // 27/8 → 31/8 (month=8, day 27-31) OR 1/9 → 2/9 (month=9, day 1-2)
+    return (m === 8 && d >= 27) || (m === 9 && d <= 2);
+  }
 
   function updatePrice() {
     var unit = 0;
@@ -1585,6 +1603,14 @@
       finalTotal = baseTotal;
     }
 
+    // Holiday surcharge: +30% if date is 27/8 – 2/9
+    var holidayActive = isHolidaySurcharge();
+    var surchargeAmount = 0;
+    if (holidayActive && finalTotal > 0) {
+      surchargeAmount = Math.round(finalTotal * HOLIDAY_SURCHARGE_RATE);
+      finalTotal = finalTotal + surchargeAmount;
+    }
+
     // Get translation strings
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var t = (window.__MRB_TRANS || {})[lang] || {};
@@ -1600,11 +1626,15 @@
     var quantityValue = document.getElementById('bfPriceQuantityValue');
     var addonRow = document.getElementById('bfPriceAddon');
     var addonValue = document.getElementById('bfPriceAddonValue');
+    var holidayRow = document.getElementById('bfPriceHoliday');
+    var holidayValue = document.getElementById('bfPriceHolidayValue');
+    var holidayLabel = document.getElementById('bfPriceHolidayLabel');
 
     // Hide all by default
     if (tourTypeRow) tourTypeRow.style.display = 'none';
     if (quantityRow) quantityRow.style.display = 'none';
     if (addonRow) addonRow.style.display = 'none';
+    if (holidayRow) holidayRow.style.display = 'none';
 
     // Show details only if tour type is selected
     if (tourType) {
@@ -1642,6 +1672,13 @@
         // Don't show price for addon
       } else if (addonRow) {
         addonRow.classList.remove('bf-price-item--addon'); // Remove when not selected
+      }
+
+      // Holiday Surcharge Row - Show if date is in 27/8 – 2/9
+      if (holidayActive && holidayRow && holidayValue) {
+        holidayRow.style.display = 'flex';
+        if (holidayLabel) holidayLabel.textContent = t['booking.holidaySurcharge'] || 'Phụ thu lễ';
+        holidayValue.textContent = '+' + fmt(surchargeAmount);
       }
     }
 
@@ -1704,16 +1741,22 @@
     var dt = dtInput.value ? dtInput.value.replace('T', ' ') : '—';
     var notes = document.getElementById('bfNotes').value.trim();
     var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
-    var total;
+    var totalNum;
     if (addonSandDuneSelected) {
       if (tourType === 'private') {
-        total = fmt(ADDON_PRICE_PER_VEHICLE * vehicleCount);
+        totalNum = ADDON_PRICE_PER_VEHICLE * vehicleCount;
       } else {
-        total = fmt(ADDON_PRICE_PER_VEHICLE);
+        totalNum = ADDON_PRICE_PER_VEHICLE;
       }
     } else {
-      total = tourType === 'private' ? fmt(pricePrivate * vehicleCount) : fmt(priceGroup * guests);
+      totalNum = tourType === 'private' ? pricePrivate * vehicleCount : priceGroup * guests;
     }
+    // Holiday surcharge
+    var _holiday = isHolidaySurcharge();
+    if (_holiday && totalNum > 0) {
+      totalNum = totalNum + Math.round(totalNum * HOLIDAY_SURCHARGE_RATE);
+    }
+    var total = fmt(totalNum);
 
     var msg = '🏕️ <b>ĐẶT TOUR MR. BEN JEEP TOURS</b>\n'
       + '━━━━━━━━━━━━━━━\n'
@@ -1723,6 +1766,7 @@
       + (tourType === 'private' ? ('🚗 <b>Số lượng xe:</b> ' + vehicleCount + ' xe\n') : '')
       + (window.__bfCurrentRoute ? '🗺️ <b>Lộ trình:</b> ' + window.__bfCurrentRoute + '\n' : '')
       + '📅 <b>Ngày & Giờ:</b> ' + dt + '\n'
+      + (_holiday ? '🎆 <b>Phụ thu lễ:</b> +30%\n' : '')
       + '💵 <b>Tổng tiền:</b> ' + total + '\n'
       + (notes ? '📝 <b>Ghi chú:</b> ' + notes + '\n' : '')
       + '━━━━━━━━━━━━━━━';
@@ -1872,6 +1916,14 @@
   if (vehiclePlusBtn) {
     vehiclePlusBtn.addEventListener('click', function () {
       if (vehicleCount < 10) { vehicleCount++; vehicleVal.textContent = vehicleCount; updatePrice(); refreshWALink(); }
+    });
+  }
+
+  /* ── Recalculate price when date changes (holiday surcharge) ── */
+  if (dtInput) {
+    dtInput.addEventListener('input', function () {
+      updatePrice();
+      refreshWALink();
     });
   }
 
@@ -2041,6 +2093,10 @@
     } else {
       totalNum = baseTotal;
     }
+    // Holiday surcharge
+    if (isHolidaySurcharge() && totalNum > 0) {
+      totalNum = totalNum + Math.round(totalNum * HOLIDAY_SURCHARGE_RATE);
+    }
     var totalText = totalNum > 0 ? fmt(totalNum) : '—';
 
     // Lấy mã vùng: dùng mã có sẵn hoặc lấy giá trị khách nhập nếu chọn 'Khác'
@@ -2135,6 +2191,9 @@
       if (notes) {
         items.push({ icon: 'fa-comment-alt', color: 'ci-user', label: cleanLabel(T['wa.notes'] || 'Ghi chú'), val: notes });
       }
+      if (isHolidaySurcharge()) {
+        items.push({ icon: 'fa-solid fa-umbrella-beach', color: 'ci-addon', label: T['booking.holidaySurcharge'] || 'Phụ thu lễ', val: '+30%' });
+      }
       items.push({ icon: 'fa-money-bill-wave', color: 'ci-money', label: (T['booking.totalPrice'] || 'Tổng tiền').replace(':', ''), val: totalText });
 
       return items;
@@ -2180,6 +2239,7 @@
       + (hotelName ? '🏨 Khách sạn: <b>' + hotelName + '</b>\n' : '')
       + (hotelAddr ? '📌 Địa chỉ: <b>' + hotelAddr + '</b>\n' : '')
       + '📅 Ngày & Giờ đón: <b>' + dt + '</b>\n'
+      + (isHolidaySurcharge() ? '🎆 Phụ thu lễ: <b>+30%</b>\n' : '')
       + '💵 Tổng tiền: <b>' + totalText + '</b>\n'
       + (notes ? '📝 Ghi chú: <b>' + notes + '</b>\n' : '')
       + '━━━━━━━━━━━━━━━\n'
@@ -2283,6 +2343,10 @@
     } else {
       totalNum = baseTotal;
     }
+    // Holiday surcharge
+    if (isHolidaySurcharge() && totalNum > 0) {
+      totalNum = totalNum + Math.round(totalNum * HOLIDAY_SURCHARGE_RATE);
+    }
     var totalText = totalNum > 0 ? fmt(totalNum) : '—';
 
     var notes = document.getElementById('bfNotes').value.trim();
@@ -2308,6 +2372,7 @@
       hotelAddr: hotelAddr,
       dt: dt,
       dtIso: dtInput.value,
+      holidaySurcharge: isHolidaySurcharge(),
       totalText: totalText,
       notes: notes,
       nowDt: nowDt
@@ -2360,7 +2425,7 @@
         var li = document.createElement('li');
         li.className = 'bf-confirm-item';
         li.innerHTML =
-          '<div class="bf-confirm-icon ' + item.color + '"><i class="fas ' + item.icon + '"></i></div>' +
+          '<div class="bf-confirm-icon ' + item.color + '"><i class="fa ' + item.icon + '"></i></div>' +
           '<span class="bf-confirm-label">' + item.label + ':</span>' +
           '<span class="bf-confirm-val">' + item.val + '</span>';
         listEl.appendChild(li);

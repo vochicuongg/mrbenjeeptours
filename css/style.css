@@ -2631,6 +2631,9 @@ button {
 .bf-input::placeholder {
     color: rgba(255, 255, 255, 0.3);
 }
+.bf-input:hover {
+    border-color: var(--color-gold);
+} 
 
 /* Validation Error Style */
 .bf-error {
@@ -2671,7 +2674,7 @@ button {
 }
 
 .bf-hotel-input-row:hover,
-.bf-hotel-wrap.open .bf-hotel-input-row {
+.bf-hotel-wrap.open .bf-hotel-input-row .bf-phone-input {
     border-color: var(--color-gold);
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
 }
@@ -4281,6 +4284,40 @@ button {
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
     position: relative;
     z-index: 1;
+}
+
+/* Holiday Surcharge Design (27/8 – 2/9) */
+.bf-price-item--holiday {
+    background: linear-gradient(135deg,
+            rgba(255, 69, 58, 0.15),
+            rgba(255, 149, 0, 0.12),
+            rgba(255, 69, 58, 0.08));
+    border: 1.5px solid rgba(255, 100, 50, 0.6);
+    border-radius: 10px;
+    padding: 6px 12px !important;
+    margin: -4px -8px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(255, 69, 58, 0.25),
+        0 0 0 1px rgba(255, 100, 50, 0.2);
+}
+
+.bf-price-item--holiday .bf-price-label {
+    color: #FF6B35;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.bf-price-item--holiday .bf-price-label i {
+    font-size: 1rem;
+    color: #FF6B35;
+    filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.6));
+}
+
+.bf-price-item--holiday .bf-price-value {
+    color: #FF6B35;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-shadow: 0 0 6px rgba(255, 107, 53, 0.3);
 }
 
 .bf-price-label {
