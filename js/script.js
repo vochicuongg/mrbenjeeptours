@@ -3131,6 +3131,7 @@
   'use strict';
 
   var hotelData = [
+    { name: '3B MAISON Homestay & Villa', address: '124 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Adachi Homestay Phan Thiết', address: '86/3 Nguyễn Công Hoan, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Allezboo Beach Resort', address: '8 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ananda Resort', address: '148 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -3227,6 +3228,7 @@
     { name: 'Minh Ngoc Hotel', address: '72 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Minh Tam Resort', address: '130C Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Moonbeam Homestay & Mini-resort Mui Ne', address: '16 Bùi Xuân Phái, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Mon Villa Mũi Né', address: '199 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Morocco Villa Mui Ne', address: 'Khu phố 1 Nguyễn Tấn Định, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Mộc Villa Homestay', address: 'Hồ Quang Cảnh, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'MUI NE ALENA BUNGALOW HOTEL', address: '265/5 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -3244,6 +3246,7 @@
     { name: 'Muine de Century Beach Resort', address: 'Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Muine Ocean Resort & Spa', address: '10 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Mường Thanh Holiday Mũi Né', address: '54 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Myla Havana Resort', address: '126A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Nam Chau Boutique Resort', address: 'Khu phố 5, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Nam Hai Hotel', address: '21 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Năm Thọ Guesthouse', address: '1 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -3300,6 +3303,7 @@
     { name: 'Radisson Resort Mui Ne', address: '16 Nguyễn Cơ Thạch, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Rang Garden Beach Resort', address: '128A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ravenala MuiNe Resort', address: '146 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Resort Đỗ Khoa', address: '126B Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ripple house', address: '67 Hòa Bình, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Riva Resort Mui Ne', address: '94 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Romana Resort & Spa', address: 'Km 8, Phường Phú Hài, Tỉnh Lâm Đồng' },
@@ -3314,6 +3318,7 @@
     { name: 'Sea Winds Resort', address: '139 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Second House', address: '157/10 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Serenity by the Sea', address: '88 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'SiLa House – Garden Room', address: '199/10 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Son Tra Guesthouse', address: '87B Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Song Anh Mui Ne Guesthouse', address: '4 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Sóng Biển Xanh Mũi Né Resort', address: '26 Xuân Thủy, Long Sơn, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -3324,7 +3329,7 @@
     { name: 'Sunrise Resort', address: '72 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Sunsea Resort', address: '50 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Suối Hồng Resort', address: '1 Nguyễn Hữu Thọ, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'Suri Guesthouse', address: '251/2 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Suri Mũi Né Homestay', address: '251/2 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Swiss Village Resort & Spa', address: '44 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Terracotta Resort & Spa', address: '28 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Thái Hòa Mũi Né Resort', address: '56 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
