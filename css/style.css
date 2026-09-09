@@ -80,6 +80,7 @@ textarea:focus {
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -592,6 +593,462 @@ button {
 }
 
 /* ============================================================
+   DESTINATIONS  — Stacked-card swiper
+   ============================================================ */
+.destinations {
+    background: var(--color-bg);
+}
+
+/* ── Wrapper ── */
+.dest-stack-wrapper {
+    position: relative;
+    max-width: 520px;
+    margin-inline: auto;
+    padding: 0 52px;
+}
+
+/* ── Stack container — cards pile on top of each other ── */
+.dest-stack {
+    position: relative;
+    width: 100%;
+    perspective: 1200px;
+    overflow-x: clip;
+    touch-action: pan-y;
+}
+
+/* ── Each card ── */
+.destination-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: grab;
+    user-select: none;
+    will-change: transform, opacity;
+    transition: transform 0.45s var(--ease), opacity 0.45s var(--ease), box-shadow 0.45s var(--ease);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.destination-card:active {
+    cursor: grabbing;
+}
+
+/* Z-index layers — JS adds these classes */
+.destination-card.dest-pos-0 {
+    z-index: 4;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.destination-card.dest-pos-1 {
+    z-index: 3;
+    transform: translateY(24px) scale(0.94);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.destination-card.dest-pos-2 {
+    z-index: 2;
+    transform: translateY(48px) scale(0.88);
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.destination-card.dest-pos-3 {
+    z-index: 1;
+    transform: translateY(72px) scale(0.82);
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Swiping animation */
+.destination-card.dest-swipe-left {
+    transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+    transform: translateX(-120%) rotate(-8deg) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.destination-card.dest-swipe-right {
+    transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+    transform: translateX(120%) rotate(8deg) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* Dragging state (no transition while dragging) */
+.destination-card.dest-dragging {
+    transition: none !important;
+}
+
+/* ── Image area ── */
+.destination-img-wrap {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    aspect-ratio: 3/2;
+}
+
+.destination-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Card counter badge ── */
+.dest-counter {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.destination-info {
+    padding: 24px 22px;
+    flex: 1;
+}
+
+.destination-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.destination-info p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+}
+
+/* ── Navigation arrows ── */
+.dest-arrow {
+    display: flex;
+    position: absolute;
+    top: 38%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-gold);
+    background: rgba(26, 15, 10, 0.88);
+    color: var(--color-gold);
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--dur) var(--ease), box-shadow var(--dur);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dest-arrow-prev {
+    left: -4px;
+}
+
+.dest-arrow-next {
+    right: -4px;
+}
+
+.dest-arrow:hover {
+    background: var(--color-gold);
+    color: #1A0F0A;
+}
+
+/* ── Dots ── */
+.dest-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dest-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    background: var(--color-border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--dur) var(--ease), width var(--dur) var(--ease);
+}
+
+.dest-dot.active {
+    background: var(--color-gold);
+    width: 24px;
+}
+
+/* ============================================================
+   DESTINATIONS — SPLIT-HERO SHOWCASE DESKTOP (>680px)
+   Netflix / Cinema-poster style: TEXT left | IMAGE right
+   Alternating layout for visual rhythm.
+   Mobile (≤680px) keeps the original stacked-card swiper.
+   ============================================================ */
+@media (min-width: 681px) {
+    .dest-stack-wrapper {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .dest-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        perspective: none;
+        height: auto !important;
+    }
+
+    .dest-arrow,
+    .dest-dots {
+        display: none !important;
+    }
+
+    /* ── Reset stacked-card → split row layout ── */
+    .destination-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: auto !important;
+        cursor: pointer;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(212, 175, 55, 0.15);
+        background: var(--color-bg-alt);
+        min-height: 280px;
+        transform: none !important;
+        transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease),
+            border-color 0.35s var(--ease);
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Alternating: even cards reverse */
+    .dest-stack .destination-card:nth-child(even) {
+        flex-direction: row-reverse !important;
+    }
+
+    /* Hero card (1st) — larger */
+    .dest-stack .destination-card:nth-child(1) {
+        min-height: 400px;
+        border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    /* ── IMAGE column ── */
+    .destination-img-wrap {
+        position: relative;
+        flex: 0 0 55%;
+        max-width: 55%;
+        aspect-ratio: auto;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .destination-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.65s var(--ease);
+    }
+
+    /* Soft gradient fading image into text side */
+    .destination-img-wrap::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 35%;
+        z-index: 2;
+        pointer-events: none;
+        transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+    }
+
+    .destination-card:nth-child(odd) .destination-img-wrap::after {
+        left: 0;
+        right: auto;
+        background: linear-gradient(to right,
+                var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.6) 50%, transparent 100%);
+    }
+
+    .destination-card:nth-child(even) .destination-img-wrap::after {
+        right: 0;
+        left: auto;
+        background: linear-gradient(to left,
+                var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.6) 50%, transparent 100%);
+    }
+
+    /* Hide counter on desktop */
+    .dest-counter {
+        display: none;
+    }
+
+    /* ── TEXT column ── */
+    .destination-info {
+        position: relative;
+        flex: 1 1 45%;
+        z-index: 3;
+        padding: 40px 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .destination-info h3 {
+        font-size: 1.65rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+        line-height: 1.25;
+        text-shadow: none;
+        background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transition: margin-bottom 0.3s var(--ease);
+    }
+
+    .destination-info p {
+        font-size: 0.92rem;
+        color: rgba(245, 239, 230, 0.78);
+        line-height: 1.75;
+        margin: 0;
+        max-height: 200px;
+        overflow: visible;
+        opacity: 1;
+    }
+
+    /* Hero text — bigger */
+    .dest-stack .destination-card:nth-child(1) .destination-info {
+        padding: 48px 44px;
+    }
+
+    .dest-stack .destination-card:nth-child(1) .destination-info p {
+        font-size: 1rem;
+    }
+}
+
+/* ── Destinations Split-Hero hover effects (desktop) ── */
+@media (min-width: 681px) {
+    .destination-card:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55),
+            0 0 40px rgba(212, 175, 55, 0.1);
+        border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    .destination-card:hover .destination-img-wrap img {
+        transform: scale(1.08);
+    }
+
+    .destination-card:hover .destination-img-wrap::after {
+        width: 25%;
+        opacity: 0.7;
+    }
+
+    .destination-card:hover .destination-info h3 {
+        margin-bottom: 16px;
+    }
+
+    /* Hero hover — extra glow */
+    .dest-stack .destination-card:nth-child(1):hover {
+        border-color: var(--color-gold);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6),
+            0 0 50px rgba(212, 175, 55, 0.15);
+    }
+}
+
+/* ── Destinations Split-Hero — Decorative index number ── */
+@media (min-width: 681px) {
+    .destination-info::before {
+        content: attr(data-index);
+        position: absolute;
+        top: 20px;
+        font-family: var(--font-serif);
+        font-size: 5rem;
+        font-weight: 700;
+        line-height: 1;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(212, 175, 55, 0.12), transparent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .destination-card:nth-child(odd) .destination-info::before {
+        left: 36px;
+    }
+
+    .destination-card:nth-child(even) .destination-info::before {
+        right: 36px;
+    }
+}
+
+/* ── Destinations Split-Hero tablet (681–960px) ── */
+@media (min-width: 681px) and (max-width: 960px) {
+    .dest-stack {
+        gap: 20px;
+    }
+
+    .destination-card {
+        min-height: 240px !important;
+    }
+
+    .dest-stack .destination-card:nth-child(1) {
+        min-height: 320px !important;
+    }
+
+    .destination-img-wrap {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .destination-info {
+        padding: 28px 24px !important;
+    }
+
+    .destination-info h3 {
+        font-size: 1.35rem !important;
+    }
+
+    .destination-info p {
+        font-size: 0.85rem !important;
+    }
+
+    .dest-stack .destination-card:nth-child(1) .destination-info h3 {
+        font-size: 1.65rem !important;
+    }
+
+    .dest-stack .destination-card:nth-child(1) .destination-info {
+        padding: 32px 28px !important;
+    }
+}
+
+/* ============================================================
    FEATURED TOURS
    ============================================================ */
 .tours {
@@ -627,7 +1084,6 @@ button {
     overflow: hidden;
 }
 
-/* Arrow buttons – visible on all screen sizes */
 .tours-arrow {
     display: flex;
     position: absolute;
@@ -1968,8 +2424,10 @@ button {
 
     /* Gallery – mobile auto-scroll marquee */
     .gallery-grid {
-        display: block;                 /* override desktop grid — track handles the flex row */
-        overflow: hidden;               /* hide the track overflow — translateX does the scrolling */
+        display: block;
+        /* override desktop grid — track handles the flex row */
+        overflow: hidden;
+        /* hide the track overflow — translateX does the scrolling */
         padding-bottom: 24px;
     }
 
@@ -1977,7 +2435,8 @@ button {
         display: flex;
         flex-wrap: nowrap;
         gap: 12px;
-        will-change: transform;         /* GPU-accelerated */
+        will-change: transform;
+        /* GPU-accelerated */
         cursor: grab;
     }
 
@@ -1995,6 +2454,37 @@ button {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+    }
+
+    .dest-stack-wrapper {
+        max-width: 100%;
+        padding: 0 12px;
+    }
+
+    .dest-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .dest-arrow-prev {
+        left: -6px;
+    }
+
+    .dest-arrow-next {
+        right: -6px;
+    }
+
+    .destination-info {
+        padding: 18px 16px;
+    }
+
+    .destination-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .destination-info p {
+        font-size: 0.82rem;
     }
 
     /* Reviews mobile */
@@ -2631,9 +3121,10 @@ button {
 .bf-input::placeholder {
     color: rgba(255, 255, 255, 0.3);
 }
+
 .bf-input:hover {
     border-color: var(--color-gold);
-} 
+}
 
 /* Validation Error Style */
 .bf-error {

@@ -118,8 +118,9 @@
       "@type": "ItemList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Giới Thiệu", "url": "https://mrbenjeeptours.com/#about" },
-        { "@type": "ListItem", "position": 2, "name": "Jeep Tours", "url": "https://mrbenjeeptours.com/#tours" },
-        { "@type": "ListItem", "position": 3, "name": "Liên Hệ", "url": "https://mrbenjeeptours.com/#contact" }
+        { "@type": "ListItem", "position": 2, "name": "Điểm Đến", "url": "https://mrbenjeeptours.com/#destinations" },
+        { "@type": "ListItem", "position": 3, "name": "Jeep Tours", "url": "https://mrbenjeeptours.com/#tours" },
+        { "@type": "ListItem", "position": 4, "name": "Liên Hệ", "url": "https://mrbenjeeptours.com/#contact" }
       ]
     }
     </script>
@@ -140,6 +141,7 @@
                     </li>
                     <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
                     <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                    <li><a href="#destinations" class="nav-link" data-i18n="nav.destinations">Destinations</a></li>
                     <li><a href="#tours" class="nav-link" data-i18n="nav.tours">Tours</a></li>
                     <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
                     <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
@@ -286,6 +288,93 @@
                     </div>
 
                 </div>
+            </div>
+        </section>
+
+        <!-- ===================== DESTINATIONS ===================== -->
+        <section class="section destinations" id="destinations">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow" data-i18n="dest.eyebrow">Explore Our Destinations</p>
+                    <h2 class="section-title"><span data-i18n="dest.title1">Stunning</span> <span class="gold-text"
+                            data-i18n="dest.titleGold">Destinations</span></h2>
+                    <p class="section-subtitle" data-i18n="dest.subtitle">Discover the breathtaking places you'll visit
+                        on our Jeep tours — from towering sand dunes to hidden fairy streams.</p>
+                </div>
+
+                <div class="dest-stack-wrapper">
+                    <button class="dest-arrow dest-arrow-prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="dest-arrow dest-arrow-next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <div class="dest-stack" id="destStack">
+                        <!-- White Sand Dune -->
+                        <div class="destination-card" data-dest="0">
+                            <div class="destination-img-wrap">
+                                <img src="assets/images/destinations/white-sand-dune.webp"
+                                    alt="Đồi Cát Trắng" loading="lazy" width="600" height="400" />
+                                <span class="dest-counter">1 / 4</span>
+                            </div>
+                            <div class="destination-info" data-index="01">
+                                <h3 data-i18n="dest.whiteDune.title">Đồi Cát Trắng</h3>
+                                <p data-i18n="dest.whiteDune.desc">Vast white sand dunes stretching to the horizon — a
+                                    Sahara-like landscape perfect for sunrise adventures and unforgettable photos.</p>
+                            </div>
+                        </div>
+                        <!-- Red Sand Dune -->
+                        <div class="destination-card" data-dest="1">
+                            <div class="destination-img-wrap">
+                                <img src="assets/images/destinations/red-sand-dune.webp"
+                                    alt="Đồi Cát Đỏ" loading="lazy" width="600" height="400" />
+                                <span class="dest-counter">2 / 4</span>
+                            </div>
+                            <div class="destination-info" data-index="02">
+                                <h3 data-i18n="dest.redDune.title">Đồi Cát Đỏ</h3>
+                                <p data-i18n="dest.redDune.desc">Crimson-colored dunes glowing at golden hour — the most
+                                    iconic sunset viewpoint in Mũi Né, ideal for sand sliding and panoramic views.</p>
+                            </div>
+                        </div>
+                    <!-- Fishing Village -->
+                        <div class="destination-card" data-dest="2">
+                            <div class="destination-img-wrap">
+                                <img src="assets/images/destinations/fishing-village.webp"
+                                    alt="Làng Chài Mũi Né" loading="lazy" width="600" height="400" />
+                                <span class="dest-counter">3 / 4</span>
+                            </div>
+                            <div class="destination-info" data-index="03">
+                                <h3 data-i18n="dest.fishVillage.title">Làng Chài Mũi Né</h3>
+                                <p data-i18n="dest.fishVillage.desc">A vibrant, traditional fishing village where
+                                    hundreds of colorful boats dot the turquoise bay — a window into authentic coastal
+                                    Vietnamese life.</p>
+                            </div>
+                        </div>
+                        <!-- Fairy Stream -->
+                        <div class="destination-card" data-dest="3">
+                            <div class="destination-img-wrap">
+                                <img src="assets/images/destinations/fairy-stream.webp"
+                                    alt="Suối Tiên" loading="lazy" width="600" height="400" />
+                                <span class="dest-counter">4 / 4</span>
+                            </div>
+                            <div class="destination-info" data-index="04">
+                                <h3 data-i18n="dest.fairyStream.title">Suối Tiên</h3>
+                                <p data-i18n="dest.fairyStream.desc">A magical shallow stream winding through red and
+                                    white sandstone canyons surrounded by lush bamboo — wade barefoot through this
+                                    natural wonderland.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dest-dots" id="destDots">
+                        <button class="dest-dot active" data-idx="0"></button>
+                        <button class="dest-dot" data-idx="1"></button>
+                        <button class="dest-dot" data-idx="2"></button>
+                        <button class="dest-dot" data-idx="3"></button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -710,6 +799,7 @@
                     <ul>
                         <li><a href="#home" data-i18n="nav.home">Home</a></li>
                         <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+                        <li><a href="#destinations" data-i18n="nav.destinations">Destinations</a></li>
                         <li><a href="#tours" data-i18n="nav.tours">Our Tours</a></li>
                         <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
                         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>

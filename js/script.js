@@ -26,6 +26,7 @@
     vi: {
       'nav.home': 'Trang Chủ',
       'nav.about': 'Giới Thiệu',
+      'nav.destinations': 'Điểm Đến',
       'nav.tours': 'Jeep Tours',
       'nav.gallery': 'Thư Viện',
       'nav.contact': 'Liên Hệ',
@@ -40,6 +41,18 @@
       'about.title1': 'Trải Nghiệm Dịch Vụ',
       'about.titleGold': 'Chuẩn 5 Sao',
       'about.subtitle': 'Chúng tôi kết hợp chuyên môn địa phương với sự thoải mái cao cấp, biến mỗi đồi cát và bờ biển thành ký ức khó quên.',
+      'dest.eyebrow': 'Khám Phá Các Điểm Đến',
+      'dest.title1': 'Điểm Đến',
+      'dest.titleGold': 'Tuyệt Đẹp',
+      'dest.subtitle': 'Khám phá những địa điểm ngoạn mục bạn sẽ ghé thăm trong tour Jeep — từ đồi cát hùng vĩ đến suối tiên huyền bí.',
+      'dest.whiteDune.title': 'Đồi Cát Trắng',
+      'dest.whiteDune.desc': 'Những đồi cát trắng mênh mông trải dài đến tận chân trời — phong cảnh hoang sơ như sa mạc Sahara, lý tưởng để ngắm bình minh và chụp ảnh để đời.',
+      'dest.redDune.title': 'Đồi Cát Đỏ',
+      'dest.redDune.desc': 'Đồi cát đỏ rực rỡ dưới ánh hoàng hôn — điểm ngắm cảnh hoàng hôn mang tính biểu tượng nhất Mũi Né, lý tưởng để trượt cát và ngắm toàn cảnh.',
+      'dest.fishVillage.title': 'Làng Chài Mũi Né',
+      'dest.fishVillage.desc': 'Làng chài truyền thống sôi động với hàng trăm thuyền thúng nhiều màu sắc trên vịnh biển xanh ngọc — cánh cửa sổ nhìn vào cuộc sống ven biển đích thực của Việt Nam.',
+      'dest.fairyStream.title': 'Suối Tiên',
+      'dest.fairyStream.desc': 'Dòng suối nông kỳ diệu uốn lượn qua những vách đá sa thạch đỏ trắng bao quanh bởi rừng tre xanh mát — lội chân trần qua xứ sở thần tiên thiên nhiên này.',
       'tours.eyebrow': 'Trải Nghiệm Thượng Lưu',
       'tours.title1': 'Jeep Tours',
       'tours.titleGold': 'Đẳng Cấp',
@@ -196,6 +209,7 @@
     en: {
       'nav.home': 'Home',
       'nav.about': 'About',
+      'nav.destinations': 'Destinations',
       'nav.tours': 'Jeep Tours',
       'nav.gallery': 'Gallery',
       'nav.contact': 'Contact',
@@ -210,6 +224,18 @@
       'about.title1': 'Experience',
       'about.titleGold': '5-Star Service',
       'about.subtitle': 'We combine local expertise with premium comfort, making every dune and coastline an unforgettable memory.',
+      'dest.eyebrow': 'Explore Our Destinations',
+      'dest.title1': 'Stunning',
+      'dest.titleGold': 'Destinations',
+      'dest.subtitle': 'Discover the breathtaking places you\'ll visit on our Jeep tours — from towering sand dunes to hidden fairy streams.',
+      'dest.whiteDune.title': 'White Sand Dune',
+      'dest.whiteDune.desc': 'Vast white sand dunes stretching to the horizon — a Sahara-like landscape perfect for sunrise adventures and unforgettable photos.',
+      'dest.redDune.title': 'Red Sand Dune',
+      'dest.redDune.desc': 'Crimson-colored dunes glowing at golden hour — the most iconic sunset viewpoint in Mũi Né, ideal for sand sliding and panoramic views.',
+      'dest.fishVillage.title': 'Mũi Né Fishing Village',
+      'dest.fishVillage.desc': 'A vibrant, traditional fishing village where hundreds of colorful boats dot the turquoise bay — a window into authentic coastal Vietnamese life.',
+      'dest.fairyStream.title': 'Fairy Stream',
+      'dest.fairyStream.desc': 'A magical shallow stream winding through red and white sandstone canyons surrounded by lush bamboo — wade barefoot through this natural wonderland.',
       'tours.eyebrow': 'Premium Experience',
       'tours.title1': 'Jeep Tours',
       'tours.titleGold': 'Luxury',
@@ -366,6 +392,7 @@
     ru: {
       'nav.home': 'Главная',
       'nav.about': 'О Нас',
+      'nav.destinations': 'Направления',
       'nav.tours': 'Джип-туры',
       'nav.gallery': 'Галерея',
       'nav.contact': 'Контакты',
@@ -380,6 +407,18 @@
       'about.title1': 'Испытайте сервис',
       'about.titleGold': '5-звездочный',
       'about.subtitle': 'Мы сочетаем местную экспертизу с премиальным комфортом, превращая каждую дюну и берег в незабываемое воспоминание.',
+      'dest.eyebrow': 'Наши Направления',
+      'dest.title1': 'Потрясающие',
+      'dest.titleGold': 'Направления',
+      'dest.subtitle': 'Откройте для себя захватывающие места, которые вы посетите в наших джип-турах — от величественных песчаных дюн до скрытых волшебных ручьёв.',
+      'dest.whiteDune.title': 'Белые Песчаные Дюны',
+      'dest.whiteDune.desc': 'Бескрайние белые дюны, простирающиеся до горизонта — пейзаж, напоминающий Сахару, идеально подходящий для встречи рассвета и незабываемых фотографий.',
+      'dest.redDune.title': 'Красные Песчаные Дюны',
+      'dest.redDune.desc': 'Багряные дюны, сияющие в лучах заходящего солнца — самая знаменитая смотровая площадка Муй Не, идеальная для катания по песку и панорамных видов.',
+      'dest.fishVillage.title': 'Рыбацкая Деревня Муй Не',
+      'dest.fishVillage.desc': 'Яркая традиционная рыбацкая деревня, где сотни разноцветных лодок украшают бирюзовый залив — окно в настоящую прибрежную жизнь Вьетнама.',
+      'dest.fairyStream.title': 'Ручей Фей',
+      'dest.fairyStream.desc': 'Волшебный мелкий ручей, петляющий через красно-белые каньоны из песчаника в окружении пышного бамбука — пройдитесь босиком по этому природному чуду.',
       'tours.eyebrow': 'Премиум Опыт',
       'tours.title1': 'Джип-туры',
       'tours.titleGold': 'Лучшие',
@@ -535,6 +574,7 @@
     zh: {
       'nav.home': '首页',
       'nav.about': '关于我们',
+      'nav.destinations': '目的地',
       'nav.tours': '吉普游',
       'nav.gallery': '照片集',
       'nav.contact': '联系我们',
@@ -549,6 +589,18 @@
       'about.title1': '体验',
       'about.titleGold': '5星级服务',
       'about.subtitle': '我们将当地专业知识与高端舒适体验相结合，让每一片沙丘和海岸线都成为难忘的记忆。',
+      'dest.eyebrow': '探索目的地',
+      'dest.title1': '绝美',
+      'dest.titleGold': '目的地',
+      'dest.subtitle': '探索吉普之旅中您将造访的壮丽景点——从巍峨沙丘到隐秘仙溪。',
+      'dest.whiteDune.title': '白沙丘',
+      'dest.whiteDune.desc': '一望无际的白色沙丘延伸至地平线——宛如撒哈拉般的壮观景色，是欣赏日出和拍摄难忘照片的绝佳之地。',
+      'dest.redDune.title': '红沙丘',
+      'dest.redDune.desc': '金色时分闪耀着绯红光芒的沙丘——美奈最具标志性的日落观景点，是滑沙和欣赏全景的理想之地。',
+      'dest.fishVillage.title': '美奈渔村',
+      'dest.fishVillage.desc': '一个充满活力的传统渔村，数百艘色彩缤纷的渔船点缀在碧绿的海湾中——一扇通往越南真实海岸生活的窗口。',
+      'dest.fairyStream.title': '仙女溪',
+      'dest.fairyStream.desc': '一条神奇的浅溪蜿蜒穿过红白相间的砂岩峡谷，四周环绕着茂密的竹林——赤脚漫步在这片自然仙境中。',
       'tours.eyebrow': '豪华吉普游',
       'tours.title1': '吉普游',
       'tours.titleGold': '奢华',
@@ -704,6 +756,7 @@
     ko: {
       'nav.home': '홈',
       'nav.about': '소개',
+      'nav.destinations': '여행지',
       'nav.tours': '지프 투어',
       'nav.gallery': '갤러리',
       'nav.contact': '연락처',
@@ -718,6 +771,18 @@
       'about.title1': '경험',
       'about.titleGold': '5성급 서비스',
       'about.subtitle': '현지 전문 지식과 프리미엄 편안함을 결합하여 모든 모래 언덕과 해안선을 잊지 못할 추억으로 만듭니다.',
+      'dest.eyebrow': '여행지 탐험',
+      'dest.title1': '멋진',
+      'dest.titleGold': '여행지',
+      'dest.subtitle': '지프 투어에서 방문할 놀라운 장소들을 만나보세요 — 우뚝 솟은 모래 언덕부터 숨겨진 요정 개울까지.',
+      'dest.whiteDune.title': '화이트 샌드듄',
+      'dest.whiteDune.desc': '지평선까지 펼쳐진 광활한 흰 모래 언덕 — 사하라를 연상시키는 풍경으로, 일출 모험과 잊지 못할 사진 촬영에 완벽한 장소입니다.',
+      'dest.redDune.title': '레드 샌드듄',
+      'dest.redDune.desc': '골든 아워에 붉게 빛나는 모래 언덕 — 무이네에서 가장 상징적인 일몰 전망대로, 모래 슬라이딩과 파노라마 뷰를 즐기기에 이상적입니다.',
+      'dest.fishVillage.title': '무이네 어촌 마을',
+      'dest.fishVillage.desc': '수백 척의 알록달록한 배가 청록색 만에 떠 있는 활기찬 전통 어촌 마을 — 진정한 베트남 해안 생활을 엿볼 수 있는 창입니다.',
+      'dest.fairyStream.title': '요정 개울',
+      'dest.fairyStream.desc': '울창한 대나무 숲으로 둘러싸인 붉은색과 흰색 사암 협곡을 따라 흐르는 신비로운 얕은 개울 — 이 자연의 원더랜드를 맨발로 걸어보세요.',
       'tours.eyebrow': '프리미엄 경험',
       'tours.title1': '지프 투어',
       'tours.titleGold': '럭셔리',
@@ -873,6 +938,7 @@
     de: {
       'nav.home': 'Start',
       'nav.about': 'Über Uns',
+      'nav.destinations': 'Reiseziele',
       'nav.tours': 'Jeep-Touren',
       'nav.gallery': 'Galerie',
       'nav.contact': 'Kontakt',
@@ -887,6 +953,18 @@
       'about.title1': 'Erleben Sie',
       'about.titleGold': '5-Sterne-Service',
       'about.subtitle': 'Wir verbinden lokales Know-how mit Premium-Komfort und machen jede Düne und Küste zu einer unvergesslichen Erinnerung.',
+      'dest.eyebrow': 'Unsere Reiseziele',
+      'dest.title1': 'Atemberaubende',
+      'dest.titleGold': 'Reiseziele',
+      'dest.subtitle': 'Entdecken Sie die atemberaubenden Orte, die Sie auf unseren Jeep-Touren besuchen — von majestätischen Sanddünen bis zu verborgenen Feenbächen.',
+      'dest.whiteDune.title': 'Weiße Sanddüne',
+      'dest.whiteDune.desc': 'Weitläufige weiße Sanddünen, die sich bis zum Horizont erstrecken — eine Sahara-ähnliche Landschaft, perfekt für Sonnenaufgangsabenteuer und unvergessliche Fotos.',
+      'dest.redDune.title': 'Rote Sanddüne',
+      'dest.redDune.desc': 'Karmesinrote Dünen, die zur goldenen Stunde leuchten — der ikonischste Aussichtspunkt für Sonnenuntergänge in Mũi Né, ideal zum Sandrutschen und für Panoramablicke.',
+      'dest.fishVillage.title': 'Fischerdorf Mũi Né',
+      'dest.fishVillage.desc': 'Ein lebhaftes, traditionelles Fischerdorf, in dem Hunderte bunter Boote die türkisfarbene Bucht zieren — ein Fenster in das authentische vietnamesische Küstenleben.',
+      'dest.fairyStream.title': 'Feenbach',
+      'dest.fairyStream.desc': 'Ein magischer flacher Bach, der sich durch rot-weiße Sandsteinschluchten schlängelt, umgeben von üppigem Bambus — waten Sie barfuß durch dieses Naturwunderland.',
       'tours.eyebrow': 'Premium-Erlebnis',
       'tours.title1': 'Jeep-Touren',
       'tours.titleGold': 'Luxus',
@@ -1320,6 +1398,262 @@
   const linkStyle = document.createElement('style');
   linkStyle.textContent = '.nav-link.active{color:var(--color-gold)!important}.nav-link.active::after{width:100%!important}';
   document.head.appendChild(linkStyle);
+
+})();
+
+
+/* ============================================================
+   DESTINATIONS — Stacked Card Swiper
+   Touch/drag to swipe top card away; arrows & dots navigate.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var MOBILE_BP = 680;
+
+  /* Check if we are on desktop (split-hero layout mode) */
+  function isDesktop() {
+    return window.innerWidth > MOBILE_BP;
+  }
+
+  var stack = document.getElementById('destStack');
+  var dotsWrap = document.getElementById('destDots');
+  if (!stack || !dotsWrap) return;
+
+  var cards = Array.from(stack.querySelectorAll('.destination-card'));
+  var dots = Array.from(dotsWrap.querySelectorAll('.dest-dot'));
+  var btnPrev = document.querySelector('.dest-arrow-prev');
+  var btnNext = document.querySelector('.dest-arrow-next');
+  var total = cards.length;
+  var order = []; // indices into cards[] describing front→back order
+  var animating = false;
+
+  /* Build initial order: [0, 1, 2, 3] */
+  for (var i = 0; i < total; i++) order.push(i);
+
+  /* Apply stacked positions based on current order */
+  function applyPositions() {
+    for (var p = 0; p < total; p++) {
+      var card = cards[order[p]];
+      // Skip card that is mid-swipe — its animation is driven by the swipe class
+      var isSwiping = card.classList.contains('dest-swipe-left') ||
+                      card.classList.contains('dest-swipe-right');
+      if (isSwiping) continue;
+      // Remove all position classes
+      card.className = card.className
+        .replace(/dest-pos-\d/g, '')
+        .replace(/dest-swipe-\w+/g, '')
+        .replace(/dest-dragging/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      card.classList.add('dest-pos-' + Math.min(p, 3));
+      card.style.transform = '';
+      card.style.opacity = '';
+    }
+    // Update dots
+    dots.forEach(function (d, di) {
+      d.classList.toggle('active', di === order[0]);
+    });
+  }
+
+  var SWIPE_MS = 450; // matches CSS 0.45s
+
+  /* Navigate: card flies LEFT, next card flies in from RIGHT (next arrow ►) */
+  function goNext() {
+    if (animating || isDesktop()) return;
+    animating = true;
+    var topCard = cards[order[0]];
+    // Reorder: move front card to back
+    order.push(order.shift());
+    // The incoming card (new front)
+    var incoming = cards[order[0]];
+    // Clean incoming classes and place it off-screen RIGHT (no transition)
+    incoming.className = incoming.className
+      .replace(/dest-pos-\d/g, '')
+      .replace(/dest-swipe-\w+/g, '')
+      .replace(/dest-dragging/g, '')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+    incoming.style.transition = 'none';
+    incoming.style.transform = 'translateX(120%) rotate(8deg)';
+    incoming.style.opacity = '0';
+    incoming.classList.add('dest-pos-0');
+    // Force reflow so the off-screen position is rendered
+    void incoming.offsetWidth;
+    // Animate old card out to the left
+    topCard.classList.add('dest-swipe-left');
+    // Animate incoming card to front position
+    incoming.style.transition = '';
+    incoming.style.transform = '';
+    incoming.style.opacity = '';
+    // Update the rest of the stack (push down)
+    applyPositions();
+    // After animation finishes, clean up
+    setTimeout(function () {
+      topCard.classList.remove('dest-swipe-left');
+      topCard.style.transition = 'none';
+      applyPositions();
+      void topCard.offsetWidth;
+      topCard.style.transition = '';
+      animating = false;
+    }, SWIPE_MS);
+  }
+
+  /* Navigate: card flies RIGHT, prev card flies in from LEFT (prev arrow ◄) */
+  function goPrev() {
+    if (animating || isDesktop()) return;
+    animating = true;
+    var topCard = cards[order[0]];
+    // The card that will come to front is the last in order (previously swiped away)
+    var incoming = cards[order[order.length - 1]];
+    // Move it to front of order
+    order.unshift(order.pop());
+    // Place incoming card off-screen LEFT (no transition) so it can fly in
+    incoming.className = incoming.className
+      .replace(/dest-pos-\d/g, '')
+      .replace(/dest-swipe-\w+/g, '')
+      .replace(/dest-dragging/g, '')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+    incoming.style.transition = 'none';
+    incoming.style.transform = 'translateX(-120%) rotate(-8deg)';
+    incoming.style.opacity = '0';
+    incoming.classList.add('dest-pos-0');
+    // Force reflow so the off-screen position is rendered before animating in
+    void incoming.offsetWidth;
+    // Animate old card out to the RIGHT
+    topCard.classList.add('dest-swipe-right');
+    // Animate incoming card to front position
+    incoming.style.transition = '';
+    incoming.style.transform = '';
+    incoming.style.opacity = '';
+    // Update the rest of the stack (push down)
+    applyPositions();
+    // After animation finishes, clean up
+    setTimeout(function () {
+      topCard.classList.remove('dest-swipe-right');
+      topCard.style.transition = 'none';
+      applyPositions();
+      void topCard.offsetWidth;
+      topCard.style.transition = '';
+      animating = false;
+    }, SWIPE_MS);
+  }
+
+  /* Jump to a specific card index (always swipe right for forward steps) */
+  function goToIndex(idx) {
+    if (animating || order[0] === idx) return;
+    var posInOrder = order.indexOf(idx);
+    var steps = posInOrder;
+    (function step(n) {
+      if (n <= 0) return;
+      goNext();
+      setTimeout(function () { step(n - 1); }, SWIPE_MS + 40);
+    })(steps);
+  }
+
+  /* Arrow buttons */
+  if (btnNext) btnNext.addEventListener('click', goNext);
+  if (btnPrev) btnPrev.addEventListener('click', goPrev);
+
+  /* Dot buttons */
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      var idx = parseInt(dot.getAttribute('data-idx'), 10);
+      goToIndex(idx);
+    });
+  });
+
+  /* ── Touch / mouse drag on top card ── */
+  var startX = 0, currentX = 0, isDragging = false;
+
+  function onPointerDown(e) {
+    if (animating || isDesktop()) return;
+    var topCard = cards[order[0]];
+    if (!topCard.contains(e.target)) return;
+    isDragging = true;
+    startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+    currentX = startX;
+    topCard.classList.add('dest-dragging');
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    // Prevent browser from scrolling / zooming while dragging a card
+    if (e.cancelable) e.preventDefault();
+    currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    var dx = currentX - startX;
+    var topCard = cards[order[0]];
+    var rot = dx * 0.06;
+    topCard.style.transform = 'translateX(' + dx + 'px) rotate(' + rot + 'deg)';
+    topCard.style.opacity = Math.max(0.3, 1 - Math.abs(dx) / 400);
+  }
+
+  function onPointerUp() {
+    if (!isDragging) return;
+    isDragging = false;
+    var topCard = cards[order[0]];
+    topCard.classList.remove('dest-dragging');
+    var dx = currentX - startX;
+    if (Math.abs(dx) > 70) {
+      dx < 0 ? goNext() : goPrev();
+    } else {
+      // Snap back
+      topCard.style.transform = '';
+      topCard.style.opacity = '';
+    }
+  }
+
+  stack.addEventListener('mousedown', onPointerDown);
+  stack.addEventListener('touchstart', onPointerDown, { passive: true });
+  document.addEventListener('mousemove', onPointerMove);
+  document.addEventListener('touchmove', onPointerMove, { passive: false });
+  document.addEventListener('mouseup', onPointerUp);
+  document.addEventListener('touchend', onPointerUp);
+
+  /* Set stack container height based on first card + stacking offset */
+  function setStackHeight() {
+    if (isDesktop()) {
+      stack.style.height = '';
+      return;
+    }
+    // Temporarily make the first card relative to measure
+    var firstCard = cards[0];
+    firstCard.style.position = 'relative';
+    var cardH = firstCard.offsetHeight;
+    firstCard.style.position = '';
+    stack.style.height = (cardH + 72) + 'px'; // 72px = max stacking offset
+  }
+
+  /* Init */
+  function initDest() {
+    if (isDesktop()) {
+      // Desktop: Split-hero layout — remove stacked classes, clear inline styles
+      cards.forEach(function (card) {
+        card.className = card.className
+          .replace(/dest-pos-\d/g, '')
+          .replace(/dest-swipe-\w+/g, '')
+          .replace(/dest-dragging/g, '')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        card.style.transform = '';
+        card.style.opacity = '';
+        card.style.zIndex = '';
+        card.style.transition = '';
+        card.style.position = '';
+      });
+      stack.style.height = '';
+      return;
+    }
+    // Mobile: stacked card swiper
+    setStackHeight();
+    applyPositions();
+  }
+
+  initDest();
+  window.addEventListener('resize', function () {
+    initDest();
+  });
 
 })();
 
