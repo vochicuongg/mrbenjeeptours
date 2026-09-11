@@ -130,7 +130,7 @@
       'tour.any.desc': 'Bạn không quan tâm đến màu sắc xe? Hãy chọn mục này, chúng tôi sẽ sắp xếp chiếc xe tốt nhất hiện có cho chuyến đi của bạn.',
       'booking.pricePrivate': 'Tour Riêng Tư',
       'booking.priceGroup': 'Tour Ghép',
-      'booking.pricePrivateValue': '450,000₫',
+      'booking.pricePrivateValue': '500,000₫',
       'booking.priceGroupValue': '150,000₫',
       'booking.labelName': 'Họ và Tên',
       'booking.formTitle': 'Đặt Tour',
@@ -313,7 +313,7 @@
       'tour.any.desc': 'Don\'t have a color preference? Choose this option and we will arrange the best available Jeep for your journey.',
       'booking.pricePrivate': 'Private Tour',
       'booking.priceGroup': 'Group Tour',
-      'booking.pricePrivateValue': '$450,000',
+      'booking.pricePrivateValue': '$500,000',
       'booking.priceGroupValue': '$150,000',
       'booking.labelName': 'Full Name',
       'booking.formTitle': 'Book Tour',
@@ -1834,7 +1834,7 @@
   'use strict';
 
   /* ── Prices (VND, raw numbers) ── */
-  var PRICE_PRIVATE = 450000;
+  var PRICE_PRIVATE = 500000;
   var PRICE_GROUP = 150000;
 
   /* ── State ── */
@@ -1895,7 +1895,7 @@
     dtInput.value = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
   }
 
-  var ADDON_PRICE_PER_VEHICLE = 900000; /* 900k per vehicle for sand dune */
+  var ADDON_PRICE_PER_VEHICLE = 950000; /* 950k per vehicle for sand dune */
   var HOLIDAY_SURCHARGE_RATE = 0.3; /* 30% surcharge for 27/8 – 2/9 */
 
   /* Check if selected date falls within holiday period (27 Aug – 2 Sep, any year) */

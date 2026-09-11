@@ -57,11 +57,11 @@
 - Mỗi thẻ tour: thời lượng (4h), sức chứa (4-6 người), khung giờ (bình minh/hoàng hôn), loại (riêng tư/ghép)
 
 ### 📋 Hệ Thống Đặt Tour
-- **Loại tour**: Tour Riêng Tư (450,000₫/xe) | Tour Ghép (150,000₫/người)
+- **Loại tour**: Tour Riêng Tư (500,000₫/xe) | Tour Ghép (150,000₫/người)
 - **Lịch chọn ngày tùy chỉnh** – Custom calendar picker, smart slot disabling
 - **Chọn giờ**: Bình Minh (04:30) | Hoàng Hôn (13:30)
 - **Số lượng xe/người**: Stepper +/- buttons
-- **Addon – Gói Đồi Cát**: Leo đồi cát trắng bằng xe Jeep (900,000₫/xe)
+- **Addon – Gói Đồi Cát**: Leo đồi cát trắng bằng xe Jeep (950,000₫/xe)
 - **Chọn khách sạn**: Searchable dropdown 100+ khách sạn/resort Mũi Né kèm địa chỉ tự động
 - **Tùy chỉnh lộ trình**: Custom route 4 điểm dừng
 - **Bảng giá chi tiết**: Loại tour, số lượng, addon, phụ thu lễ, tổng tiền
