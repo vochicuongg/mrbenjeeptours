@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "TravelAgency",
+      "@type": ["TravelAgency", "LocalBusiness"],
       "@id": "https://mrbenjeeptours.com/#travelagency",
       "name": "Mr. Ben Jeep Tours Mũi Né",
       "alternateName": "Mr. Ben Jeep Tours",
