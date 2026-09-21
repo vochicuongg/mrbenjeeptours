@@ -24,6 +24,8 @@
   /* ─── i18n Translations ───────────────────────────────────── */
   const TRANSLATIONS = {
     vi: {
+      '_meta.title': 'Mr. Ben Jeep Tours Mũi Né | Thuê Xe Jeep Tour Bình Minh & Hoàng Hôn',
+      '_meta.description': 'Mr. Ben Jeep Tours – Thuê xe Jeep Mũi Né uy tín. Tour bình minh & hoàng hôn Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên, Làng Chài. Tour riêng tư & ghép, đón tận khách sạn. ☎ 0913 140 196',
       'nav.home': 'Trang Chủ',
       'nav.about': 'Giới Thiệu',
       'nav.destinations': 'Điểm Đến',
@@ -207,6 +209,8 @@
       'booking.hotelNoResult': 'Không tìm thấy khách sạn',
     },
     en: {
+      '_meta.title': 'Mr. Ben Jeep Tours Mũi Né | Best Mui Ne Jeep Tour – Sunrise & Sunset',
+      '_meta.description': 'Mr. Ben Jeep Tours – Best Mui Ne jeep tour. Sunrise & sunset tours to White Sand Dunes, Red Sand Dunes, Fairy Stream. Book private or group jeep tour in Mũi Né, Phan Thiết. ☎ +84 913 140 196',
       'nav.home': 'Home',
       'nav.about': 'About',
       'nav.destinations': 'Destinations',
@@ -390,6 +394,8 @@
       'booking.hotelNoResult': 'No hotel found',
     },
     ru: {
+      '_meta.title': 'Mr. Ben Jeep Tours Муйне | Лучший джип-тур Муйне – Рассвет и Закат',
+      '_meta.description': 'Mr. Ben Jeep Tours – лучший джип-тур в Муйне. Рассветные и закатные туры на Белые и Красные дюны, Ручей Фей. Частные и групповые туры. ☎ +84 913 140 196',
       'nav.home': 'Главная',
       'nav.about': 'О Нас',
       'nav.destinations': 'Направления',
@@ -572,6 +578,8 @@
       'booking.hotelNoResult': 'Отель не найден',
     },
     zh: {
+      '_meta.title': 'Mr. Ben Jeep Tours 美奈 | 最佳美奈吉普車之旅 – 日出與日落',
+      '_meta.description': 'Mr. Ben Jeep Tours – 最佳美奈吉普車之旅。日出和日落之旅前往白沙丘、紅沙丘、仙女溪。私人和拼團旅遊。☎ +84 913 140 196',
       'nav.home': '首页',
       'nav.about': '关于我们',
       'nav.destinations': '目的地',
@@ -754,6 +762,8 @@
       'booking.hotelNoResult': '未找到酒店',
     },
     ko: {
+      '_meta.title': 'Mr. Ben Jeep Tours 무이네 | 최고의 무이네 지프 투어 – 일출 & 일몰',
+      '_meta.description': 'Mr. Ben Jeep Tours – 최고의 무이네 지프 투어. 화이트 샌드듄, 레드 샌드듄, 요정의 시냇물로 일출 및 일몰 투어. 프라이빗 & 그룹 투어. ☎ +84 913 140 196',
       'nav.home': '홈',
       'nav.about': '소개',
       'nav.destinations': '여행지',
@@ -936,6 +946,8 @@
       'booking.hotelNoResult': '호텔을 찾을 수 없습니다',
     },
     de: {
+      '_meta.title': 'Mr. Ben Jeep Tours Mũi Né | Beste Jeep-Tour Mui Ne – Sonnenaufgang & Sonnenuntergang',
+      '_meta.description': 'Mr. Ben Jeep Tours – Beste Jeep-Tour in Mui Ne. Sonnenaufgangs- und Sonnenuntergangstouren zu den Weißen und Roten Sanddünen, Feenbach. Private und Gruppentouren. ☎ +84 913 140 196',
       'nav.home': 'Start',
       'nav.about': 'Über Uns',
       'nav.destinations': 'Reiseziele',
@@ -1140,6 +1152,15 @@
     });
     /* Update <html lang> attribute for accessibility */
     document.documentElement.lang = lang;
+
+    /* Update <title> and <meta name="description"> for SEO */
+    if (t['_meta.title']) {
+      document.title = t['_meta.title'];
+    }
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && t['_meta.description']) {
+      metaDesc.setAttribute('content', t['_meta.description']);
+    }
   }
 
   /* ─── Language Switcher ───────────────────────────────────── */

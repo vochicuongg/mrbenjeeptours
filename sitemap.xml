@@ -4,7 +4,7 @@
   <!-- Main English Homepage (Default) -->
   <url>
     <loc>https://mrbenjeeptours.com/</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     
@@ -21,7 +21,15 @@
   <!-- Vietnamese version -->
   <url>
     <loc>https://mrbenjeeptours.com/?lang=vi</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- English version -->
+  <url>
+    <loc>https://mrbenjeeptours.com/?lang=en</loc>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -29,7 +37,7 @@
   <!-- Russian version -->
   <url>
     <loc>https://mrbenjeeptours.com/?lang=ru</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -37,7 +45,7 @@
   <!-- Chinese version -->
   <url>
     <loc>https://mrbenjeeptours.com/?lang=zh</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -45,7 +53,7 @@
   <!-- Korean version -->
   <url>
     <loc>https://mrbenjeeptours.com/?lang=ko</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -53,7 +61,7 @@
   <!-- German version -->
   <url>
     <loc>https://mrbenjeeptours.com/?lang=de</loc>
-    <lastmod>2026-08-09</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
