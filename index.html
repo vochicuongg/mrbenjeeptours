@@ -89,6 +89,12 @@
     }
     </script>
 
+    <!-- Comprehensive Schema.org Structured Data (TravelAgency, TouristTrip, Pickup Locations) -->
+    <script>
+    // Inject JSON-LD structured data from external file (Google supports dynamically inserted JSON-LD)
+    fetch('schema-jeeptour.json').then(r=>r.text()).then(t=>{const s=document.createElement('script');s.type='application/ld+json';s.textContent=t;document.head.appendChild(s)}).catch(()=>{});
+    </script>
+
     <!-- Preload Critical LCP Assets -->
     <link rel="preload" as="image" href="assets/images/background/background.jpg" type="image/jpeg"
         fetchpriority="high" />

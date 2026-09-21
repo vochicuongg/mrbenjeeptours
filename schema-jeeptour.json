@@ -1,0 +1,3976 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "@id": "https://mrbenjeeptours.com/#travelagency",
+      "name": "Mr. Ben Jeep Tours Mũi Né",
+      "alternateName": "Mr. Ben Jeep Tours",
+      "url": "https://mrbenjeeptours.com/",
+      "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+      "image": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+      "description": "Dịch vụ tour xe Jeep Mũi Né uy tín – Ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên, Làng Chài. Đưa đón tận nơi tại hơn 100+ khách sạn, resort và homestay.",
+      "telephone": "+84913140196",
+      "priceRange": "150,000₫ – 500,000₫",
+      "currenciesAccepted": "VND",
+      "paymentAccepted": "Cash, Bank Transfer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phan Thiết",
+        "addressRegion": "Bình Thuận",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.9333,
+        "longitude": 108.2833
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Phan Thiết",
+          "sameAs": "https://en.wikipedia.org/wiki/Phan_Thi%E1%BA%BFt"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Mũi Né",
+          "sameAs": "https://en.wikipedia.org/wiki/M%C5%A9i_N%C3%A9"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Phú Hài, Phan Thiết"
+        }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "04:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://web.facebook.com/binh.jeep",
+        "https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
+        "https://zalo.me/84913140196",
+        "https://www.tiktok.com/@mr.ben.jeep.tour"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "128",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "makesOffer": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@id": "https://mrbenjeeptours.com/#touristtrip"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dịch vụ Tour Jeep Mũi Né",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Tour Bình Minh Mũi Né",
+            "description": "Tour xe Jeep ngắm bình minh tại Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên, Làng Chài Mũi Né. Đưa đón tận nơi."
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Tour Hoàng Hôn Mũi Né",
+            "description": "Tour xe Jeep ngắm hoàng hôn tại Đồi Cát Đỏ, Đồi Cát Trắng Phan Thiết. Đưa đón tận nơi."
+          }
+        ]
+      }
+    },
+    {
+      "@type": "TouristTrip",
+      "@id": "https://mrbenjeeptours.com/#touristtrip",
+      "name": "Tour Xe Jeep Mũi Né – Ngắm Bình Minh & Hoàng Hôn",
+      "description": "Tour xe Jeep khám phá Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên và Làng Chài Mũi Né. Đưa đón tận nơi tại hơn 100+ khách sạn, resort, homestay khu vực Mũi Né – Phan Thiết.",
+      "url": "https://mrbenjeeptours.com/#tours",
+      "touristType": [
+        "Couples",
+        "Families",
+        "Solo Travelers",
+        "Group Travelers",
+        "Adventure Seekers"
+      ],
+      "provider": {
+        "@id": "https://mrbenjeeptours.com/#travelagency"
+      },
+      "itinerary": {
+        "@type": "ItemList",
+        "name": "Lộ trình Tour Jeep Mũi Né",
+        "numberOfItems": 4,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Đồi Cát Trắng (White Sand Dunes)",
+              "description": "Đồi Cát Trắng Bàu Trắng – Điểm ngắm bình minh tuyệt đẹp tại Mũi Né với những cồn cát trắng mênh mông.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Hòa Thắng, Bắc Bình",
+                "addressRegion": "Bình Thuận",
+                "addressCountry": "VN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 11.0622,
+                "longitude": 108.4137
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Đồi Cát Đỏ (Red Sand Dunes)",
+              "description": "Đồi Cát Đỏ Mũi Né – Đồi cát màu đỏ cam đặc trưng, điểm ngắm hoàng hôn lý tưởng tại Phan Thiết.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mũi Né, Phan Thiết",
+                "addressRegion": "Bình Thuận",
+                "addressCountry": "VN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 10.9485,
+                "longitude": 108.3082
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Suối Tiên (Fairy Stream)",
+              "description": "Suối Tiên Mũi Né – Dòng suối chảy giữa vách đá sa thạch đỏ cam kỳ vĩ, trải nghiệm đi chân trần dưới suối.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mũi Né, Phan Thiết",
+                "addressRegion": "Bình Thuận",
+                "addressCountry": "VN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 10.9471,
+                "longitude": 108.3015
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "TouristAttraction",
+              "name": "Làng Chài Mũi Né (Mui Ne Fishing Village)",
+              "description": "Làng Chài Mũi Né – Làng chài truyền thống với hàng trăm thuyền thúng đầy sắc màu, nét văn hóa biển đặc sắc.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mũi Né, Phan Thiết",
+                "addressRegion": "Bình Thuận",
+                "addressCountry": "VN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 10.9399,
+                "longitude": 108.2879
+              }
+            }
+          }
+        ]
+      },
+      "subjectOf": {
+        "@id": "https://mrbenjeeptours.com/#pickup-locations"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://mrbenjeeptours.com/#pickup-locations",
+      "name": "Danh sách điểm đón khách – Mr. Ben Jeep Tours Mũi Né",
+      "description": "Hơn 100+ khách sạn, resort và homestay tại Mũi Né – Phan Thiết được Mr. Ben Jeep Tours đưa đón tận nơi miễn phí.",
+      "numberOfItems": 251,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "3B MAISON Homestay & Villa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "124 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Adachi Homestay Phan Thiết",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "86/3 Nguyễn Công Hoan",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Allezboo Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "8 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ananda Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "148 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Anantara Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "12A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "An Vinh - Analog House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu dân cư Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Apec Mandala Cham Bay Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Đường ĐT716",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Areca Muine Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hẻm 251 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Aroma Beach Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu 5",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Asteria Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "8 Xuân Thủy, Khu phố 5",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Aurora Mũi Né Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Đường Bùi Xuân Phái",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ẩn Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "121 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bamboo Village Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "38 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bao Quynh Bungalow Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "26 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bao Tram Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "66 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bình Yên Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "165 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Blue Bay Mui Ne Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố Suối Nước",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Blue Ocean Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "54 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Blue Shell Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 5",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bonnie Homestay - Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "201/5 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bon Bien Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "30 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Bọt Biển Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Đường Nguyễn Hữu Thọ",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cà Ty Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "6 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Canary Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "60 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cat Tien Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "59 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cargo Remote Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "201/88 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Centara Mirage Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cesar Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "124 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cham Charm Home Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "157 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cham Villas Boutique Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "32 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Champa Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "2 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Charm Hon Rom Villas Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "75 Nguyễn Cơ Thạch",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Coco Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "58 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Coco Cottage Beachfront Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "48 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Coconut Garden Villas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "230/1 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cocosand Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "119 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Connect Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "151 Chế Lan Viên",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Coral Sea Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "76 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Cozy Garden Mui Ne Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu 2C Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "De' Tuva Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Delight Hotel Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "109B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Diem Lien Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "85 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Du Parc Resort Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Xuân Thuy",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Dynasty Mui Ne Beach Resort - Hoang Trieu",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "140A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Đen Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "248 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Đồi Dừa Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "St thôn Hồ Quang Cảnh",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Eva Hut Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "202 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Fairy Hills Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "129/16 Chế Lan Viên",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Full Moon Village",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "86/153 Nguyễn Cơ Thạch",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Four Oceans Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Gem's House Homestay&Villa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "201/4 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Gia An Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "100 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Gió - Homestay and Coffee",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 15, Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Góc Biển Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "153 Chế Lan Viên",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Goldsand Hill Villa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Grace Boutique Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "144A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Green Star Premium Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Nguyễn Cơ Thạch, khu phố Long Sơn",
+              "addressLocality": "phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hà Anh Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "91A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hải Âu Mui Ne Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "32 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "HAI GIA RESORT",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "72A Huỳnh Thúc Kháng, khu phố 4",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 61,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hải Yên Family Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 62,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hiep Hoa Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "80 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 63,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hill Lodge Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "E6 Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 64,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hill Villa - Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "201/88 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 65,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hoang Kim Golden Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "97 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 66,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hoàng Lai Hotel Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "139/19A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 67,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hoàng Ngọc Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "152 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 68,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Homestay 211 Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "211 Tô Hiệu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 69,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Homestay BONO Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "200 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 70,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hon Rom Central Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố Long Sơn",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 71,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hòn Rơm 1 Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Long Sơn",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 72,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hung Phuc Mui Ne Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "55 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 73,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "I Hostel Muine",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hẻm 188 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 74,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "iHome Backpacker Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Quarter 2 City, Hòa Bình, Street Ward",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 75,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "IRINI Boutique Homestay Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "148 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 76,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Joe's Cafe & Garden Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "86 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 77,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Khách sạn Bảo Tiên",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "56 Huỳnh Tấn Phát",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 78,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Khách sạn MiNhon",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "210/5 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 79,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Khách sạn Pacific Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "138A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 80,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Khách sạn Phạm Gia - Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "371B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 81,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Kim Village Mũi Né Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 82,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Kiwi's Homestay & Cafe",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "114 Nguyễn Hữu Thọ",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 83,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Lạc House Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "149A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 84,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "La Mer Bali Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "124 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 85,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "La Mer Hotel Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "168 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 86,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Lang Chai Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "230/2 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 87,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Lavender Mui Ne Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "17B Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 88,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Le Huynh Mui Ne Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "135 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 89,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Le' VIVA Resort Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 90,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Little Mui Ne Cottages Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10B Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 91,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Little Paris Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 92,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "LoiLoi's Home",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hẻm 177 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 93,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Long Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "130 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 94,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "LOTUS GARDEN RESORT",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "200 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 95,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Lotus Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu 5",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 96,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Maidi Homestay Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "151 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 97,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "MANA Muine Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "20B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 98,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Manila Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 99,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "MAY Bungalow Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "246/2 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 100,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Melon Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 5",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 101,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Meraki Oasis Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "150 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 102,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mi Nhon Em Hotel Mui Ne (Mignonne Em)",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "202 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 103,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mia Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "24 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 104,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Min's Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "233 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 105,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Minh Hùng Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "147 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 106,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Minh Ngoc Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "72 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 107,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Minh Tam Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "130C Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 108,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Moonbeam Homestay & Mini-resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "16 Bùi Xuân Phái",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 109,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mon Villa Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "199 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 110,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Morocco Villa Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 1 Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 111,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mộc Villa Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hồ Quang Cảnh",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 112,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mũi Đá Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 113,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "MUI NE ALENA BUNGALOW HOTEL",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "265/5 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 114,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Backpacker Village",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "137 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 115,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Beach Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "285 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 116,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Hills Bliss Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "69B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 117,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Hills Budget Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "69 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 118,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Lodge",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "90A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 119,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Ocean House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "177 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 120,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mũi Né Paradise Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "130D Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 121,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mũi Né Sport Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 122,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Village Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "189 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 123,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mui Ne Xanh Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "31 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 124,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Muine Bay Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 14",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 125,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Muine de Century Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 126,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Muine Ocean Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 127,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Mường Thanh Holiday Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "54 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 128,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Myla Havana Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "126A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 129,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Na's homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hẻm 177 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 130,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nam Chau Boutique Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 5",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 131,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nam Hai Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "21 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 132,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Năm Thọ Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 133,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Né Chill House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "63 Tô Ngọc Lâm",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 134,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ngoc Sang Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "12A Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 135,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà của Síu Síu",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "8 Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 136,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Anh Linh",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "103 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 137,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ BiBo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "119 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 138,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Biển Nguồn",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "97 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 139,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Châu Linh",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "93 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 140,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Duy Vũ",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "131 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 141,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Đồng Ngân",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "45/7D Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 142,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Đồng Phát",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "79 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 143,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Đức Thảo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "81 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 144,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Gấu Trúc",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "25 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 145,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Gió Biển",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "117 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 146,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Hoàng Nga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "43 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 147,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Hồng Di",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "70 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 148,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Hùng An",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "116 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 149,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Hùng Hà",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "229 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 150,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Huyền Trân",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 151,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Ken",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "225 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 152,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Lử Hoàng",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "106 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 153,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Minh Kha",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "109A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 154,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Minh Khôi",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "149 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 155,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Nam Khải",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "107 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 156,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Nhật Quang",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "46 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 157,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Nhật Thi",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "115 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 158,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Sứ Trắng",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 159,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Tám Ù",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 160,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Thanh Duy",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "243 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 161,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Thành Quang",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "13 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 162,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Thắng KenG",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "185 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 163,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Thiên Sơn",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "102 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 164,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Nhà Nghỉ Vườn Xoài",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "5 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 165,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "NOOI Homestay Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "172 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 166,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Novela Mui Ne Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "96A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 167,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ocean Front Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "11 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 168,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ocean Place Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "192/2 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 169,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ocean Star Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "22 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 170,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ocean Valley Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "187 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 171,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Palado Hotel Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "98B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 172,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Palette Muine Boutique Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "21 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 173,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Palmira Beach Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "14 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 174,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Pandanus Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3 Nguyễn Hữu Thọ",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 175,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Pandora Beach Mui Ne Retreat",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "6/1 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 176,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Pandora Sand Hill Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "13/1 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 177,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Peace Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Xuân Thủy, Khu phố Suối Nước",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 178,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Pharos Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "89 Hòa Bình",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 179,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Phú Hải Beach Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu 5",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 180,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Phuong Tay Guest House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "8 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 181,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Phương Nhung Hotel & Coffee",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "283C Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 182,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Poshanu Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 5",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 183,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "QT Villa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Chế Lan Viên",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 184,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Quoc Dinh Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "123 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 185,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Radisson Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "16 Nguyễn Cơ Thạch",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 186,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Rang Garden Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "128A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 187,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ravenala MuiNe Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "146 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 188,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Resort Đỗ Khoa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "126B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 189,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Ripple house",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "67 Hòa Bình",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 190,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Riva Resort Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "94 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 191,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Romana Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Km 8",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 192,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sabina Boutique Hotel & Villa Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "165 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 193,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sài Gòn - Mũi Né Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "56-97 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 194,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sailing Club Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "24 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 195,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sand Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "128 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 196,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sand Garden Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "7-9 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 197,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sandunes Beach Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu phố 5",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 198,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sea Links Beach Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Km 9, Nguyễn Thông",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 199,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sea Lion Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "12 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 200,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Seahorse Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Xuân Thủy",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 201,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sea Winds Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "139 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 202,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Second House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "157/10 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 203,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Serenity by the Sea",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "88 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 204,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "SiLa House – Garden Room",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "199/10 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 205,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Son Tra Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "87B Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 206,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Song Anh Mui Ne Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 207,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sóng Biển Xanh Mũi Né Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "26 Xuân Thủy, Long Sơn",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 208,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sun & Sands Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 209,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sunny Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "64-66 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 210,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sunny Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "141 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 211,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sunrise Oceanfront Mui Ne - V Ruby",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ĐT716",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 212,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sunrise Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "72 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 213,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Sunsea Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "50 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 214,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Suối Hồng Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Nguyễn Hữu Thọ",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 215,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Suri Mũi Né Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "251/2 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 216,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Swiss Village Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "44 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 217,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Terracotta Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "28 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 218,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Thái Hòa Mũi Né Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "56 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 219,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Thao Ha Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "115 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 220,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Anam Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "18 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 221,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Clay Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 222,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Cliff Resort & Residences",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khu 5",
+              "addressLocality": "Phường Phú Hài",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 223,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Happy Ride Glamping Mũi Né",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hẻm 7 Xuân Thủy",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 224,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Legend Coco Beach",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hòa Bình, Street, Quarter 2",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 225,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Little Garden Mui Ne Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "233A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 226,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "144 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 227,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Sailing Bay Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "107 Hồ Xuân Hương",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 228,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Sky Homestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "66/5 Nguyễn Công Hoan",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 229,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "The Thousand Village",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "66 Nguyễn Hữu Thọ",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 230,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Thiện Trung Minihouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "93 Trần Khát Chân",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 231,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Tien Dat Resort & Spa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "94A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 232,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Tony's House Mũi Né Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "18C Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 233,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Tuong Vy Boutique Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "193 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 234,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Unique Mui Ne Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "20B Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 235,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Venus MuiNe Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "202 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 236,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Victoria Phan Thiet Beach Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Km 9",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 237,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Viet's Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 238,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Villa Aria Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "60A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 239,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Villa Wabisabi",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "251/9 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 240,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "VitaSea Mũi Né Homestay & Pool",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "149 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 241,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Vinh Sương Seaside Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "46 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 242,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Vipol Hotel Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "29A Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 243,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "VIVA BEACH RESORT Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "134 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 244,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Vivian Hotel Villa Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "173 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 245,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Volga Apartment Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "219 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 246,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Vuon Tra Resort",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "146 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 247,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Wanderlust garden inn",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "375/3 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 248,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Wanderlust Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "375 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 249,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Wiki Villa Mui Ne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "2C Nguyễn Tấn Định",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 250,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Windy Hills Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "299 Huỳnh Thúc Kháng",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 251,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Xin Chào Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "129 Nguyễn Đình Chiểu",
+              "addressLocality": "Phường Mũi Né",
+              "addressRegion": "Bình Thuận",
+              "addressCountry": "VN"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
