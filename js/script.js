@@ -1808,11 +1808,49 @@
     }
   }
 
+  /* ─── Silk-smooth rAF scroll for mobile (zero latency, momentum feel) ─── */
+  var scrollAnimId = null;
+
+  function smoothScrollTo(element, targetLeft, duration) {
+    if (scrollAnimId) cancelAnimationFrame(scrollAnimId);
+
+    var startLeft = element.scrollLeft;
+    var distance = targetLeft - startLeft;
+
+    if (Math.abs(distance) < 1) {
+      element.scrollLeft = targetLeft;
+      return;
+    }
+
+    var startTime = performance.now();
+
+    function step(now) {
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      // Cubic ease-out: smooth, elegant deceleration matching classic feel
+      var ease = 1 - Math.pow(1 - progress, 3);
+
+      element.scrollLeft = startLeft + distance * ease;
+
+      if (progress < 1) {
+        scrollAnimId = requestAnimationFrame(step);
+      } else {
+        element.scrollLeft = targetLeft;
+        scrollAnimId = null;
+      }
+    }
+
+    scrollAnimId = requestAnimationFrame(step);
+  }
+
   /* ─── Scroll to card by index ────────────────────────────── */
-  function goTo(idx, instant, dir) {
+  function goTo(idx, instant, dir, customDuration) {
     clearTimeout(loopTimeout);
     var card = cards[idx];
     if (!card) return;
+
+    var isMobile = cardsPerView() === 1;
+    var duration = customDuration || (isMobile ? 420 : 500);
 
     /* Block observer from overriding is-active during programmatic scroll */
     programmaticScroll = true;
@@ -1821,26 +1859,28 @@
     /* Mark active cards */
     updateUI(idx);
 
-    var isMobile = cardsPerView() === 1;
-
-    /* Temporarily disable scroll-snap so it can't fight the smooth scroll.
-       Re-enable after the scroll has finished settling. */
-    if (!isMobile) grid.style.scrollSnapType = 'none';
-
     var scrollTarget = card.offsetLeft;
-    grid.scrollTo({
-      left: scrollTarget,
-      behavior: instant ? 'instant' : 'smooth'
-    });
 
-    /* Re-enable snap after scroll completes (~500ms for smooth) */
-    if (!isMobile) {
+    if (isMobile) {
+      if (instant) {
+        if (scrollAnimId) cancelAnimationFrame(scrollAnimId);
+        grid.scrollLeft = scrollTarget;
+      } else {
+        smoothScrollTo(grid, scrollTarget, duration);
+      }
+    } else {
+      /* Temporarily disable scroll-snap on desktop */
+      grid.style.scrollSnapType = 'none';
+      grid.scrollTo({
+        left: scrollTarget,
+        behavior: instant ? 'instant' : 'smooth'
+      });
       setTimeout(function () {
         grid.style.scrollSnapType = '';
       }, instant ? 50 : 500);
-    }
 
-    if (!instant) animateActiveCards(idx, dir || 'next');
+      if (!instant) animateActiveCards(idx, dir || 'next');
+    }
   }
 
   /* ─── Arrow clicks – group-aware loop ───────────────────── */
@@ -1875,8 +1915,8 @@
     if (!('IntersectionObserver' in window)) return;
 
     const observer = new IntersectionObserver((entries) => {
-      /* Skip observer updates during programmatic (button/dot) scrolls */
-      if (programmaticScroll) return;
+      /* Skip observer updates during programmatic scrolls or active touch drag */
+      if (programmaticScroll || isDragging) return;
 
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1902,32 +1942,182 @@
     cards.forEach(card => observer.observe(card));
   }
 
-  /* ─── Mobile touch swipe on tours grid ─── */
+  /* ─── Mobile touch drag & swipe with preview ─────────────── */
   var touchStartX = 0;
   var touchStartY = 0;
+  var touchStartTime = 0;
+  var touchCurrentX = 0;
+  var dragStartIdx = 0;
+  var isDragging = false;
+  var isLocked = false;
+  var isRejected = false;
+  var baseScrollLeft = 0;
+  var draggedFar = false;
 
-  grid.addEventListener('touchstart', function (e) {
+  function onDragStart(clientX, clientY) {
     if (cardsPerView() !== 1) return;
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
+    if (scrollAnimId) {
+      cancelAnimationFrame(scrollAnimId);
+      scrollAnimId = null;
+    }
+    grid.style.transition = '';
+    grid.style.transform = '';
+    touchStartX = clientX;
+    touchStartY = clientY;
+    touchStartTime = performance.now();
+    touchCurrentX = touchStartX;
+    dragStartIdx = currentIdx;
+    isDragging = true;
+    isLocked = false;
+    isRejected = false;
+    baseScrollLeft = grid.scrollLeft;
+    programmaticScroll = false;
+  }
 
-  grid.addEventListener('touchend', function (e) {
-    if (cardsPerView() !== 1) return;
-    var touchEndX = e.changedTouches[0].clientX;
-    var touchEndY = e.changedTouches[0].clientY;
-    var dx = touchEndX - touchStartX;
-    var dy = touchEndY - touchStartY;
+  function onDragMove(clientX, clientY, e) {
+    if (!isDragging || isRejected || cardsPerView() !== 1) return;
 
-    /* Detect clear horizontal swipe: dx > dy and swipe distance > 40px */
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-      if (dx < 0) {
-        btnNext.click(); // Next card
+    if (!isLocked) {
+      var adx = Math.abs(clientX - touchStartX);
+      var ady = Math.abs(clientY - touchStartY);
+      if (adx < 8 && ady < 8) return; // 8px dead-zone before decision
+
+      if (ady >= adx) {
+        // Vertical scroll dominates -> pass through to page
+        isRejected = true;
+        isDragging = false;
+        return;
+      }
+
+      isLocked = true;
+      draggedFar = true;
+    }
+
+    // Horizontal drag locked: prevent vertical page scroll
+    if (e && e.cancelable) e.preventDefault();
+
+    touchCurrentX = clientX;
+    var dx = touchCurrentX - touchStartX;
+    var maxIdx = cards.length - 1;
+
+    // Resistance / rubberband at outer boundaries of whole slider
+    if (dragStartIdx === 0 && dx > 0) {
+      grid.scrollLeft = 0;
+      grid.style.transform = 'translateX(' + (dx * 0.22) + 'px)';
+    } else if (dragStartIdx === maxIdx && dx < 0) {
+      grid.scrollLeft = cards[maxIdx].offsetLeft;
+      grid.style.transform = 'translateX(' + (dx * 0.22) + 'px)';
+    } else {
+      // Clamped strictly to adjacent cards: user can preview next or prev, NEVER jump over 2 cards
+      var minScroll = (dragStartIdx > 0 && cards[dragStartIdx - 1]) ? cards[dragStartIdx - 1].offsetLeft : 0;
+      var maxScroll = (dragStartIdx < maxIdx && cards[dragStartIdx + 1]) ? cards[dragStartIdx + 1].offsetLeft : cards[maxIdx].offsetLeft;
+      var rawScroll = baseScrollLeft - dx;
+
+      if (rawScroll < minScroll) {
+        var excessR = minScroll - rawScroll;
+        grid.scrollLeft = minScroll;
+        grid.style.transform = 'translateX(' + (excessR * 0.15) + 'px)';
+      } else if (rawScroll > maxScroll) {
+        var excessL = rawScroll - maxScroll;
+        grid.scrollLeft = maxScroll;
+        grid.style.transform = 'translateX(' + (-excessL * 0.15) + 'px)';
       } else {
-        btnPrev.click(); // Previous card
+        grid.style.transform = '';
+        grid.scrollLeft = rawScroll;
       }
     }
+  }
+
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    // Restore any rubberband transform smoothly
+    if (grid.style.transform) {
+      grid.style.transition = 'transform 0.35s ease';
+      grid.style.transform = '';
+      setTimeout(function () {
+        grid.style.transition = '';
+      }, 360);
+    }
+
+    if (!isLocked) {
+      draggedFar = false;
+      return;
+    }
+
+    setTimeout(function () {
+      draggedFar = false;
+    }, 200);
+
+    var elapsed = performance.now() - touchStartTime;
+    var dx = touchCurrentX - touchStartX;
+    var maxIdx = cards.length - 1;
+    var velocity = Math.abs(dx) / (elapsed || 1); // px/ms
+
+    // Fast flick: released within 350ms, velocity > 0.20 px/ms, moved at least 15px
+    var isFlick = elapsed < 350 && velocity > 0.20 && Math.abs(dx) > 15;
+    // Normal drag commit threshold: 40px
+    var isDragCommit = Math.abs(dx) > 40;
+
+    if (dx < 0 && (isFlick || isDragCommit)) {
+      // Swiped left -> Next card relative to the card we started dragging from
+      var next = dragStartIdx + 1;
+      if (next > maxIdx) next = 0;
+      goTo(next, false, 'next');
+    } else if (dx > 0 && (isFlick || isDragCommit)) {
+      // Swiped right -> Previous card relative to the card we started dragging from
+      var prev = dragStartIdx - 1;
+      if (prev < 0) prev = maxIdx;
+      goTo(prev, false, 'prev');
+    } else {
+      // Didn't reach threshold -> snap back smoothly to starting card
+      goTo(dragStartIdx, false);
+    }
+  }
+
+  /* Mobile touch listeners */
+  grid.addEventListener('touchstart', function (e) {
+    if (e.touches && e.touches[0]) {
+      onDragStart(e.touches[0].clientX, e.touches[0].clientY);
+    }
   }, { passive: true });
+
+  grid.addEventListener('touchmove', function (e) {
+    if (e.touches && e.touches[0]) {
+      onDragMove(e.touches[0].clientX, e.touches[0].clientY, e);
+    }
+  }, { passive: false });
+
+  grid.addEventListener('touchend', onDragEnd, { passive: true });
+  grid.addEventListener('touchcancel', onDragEnd, { passive: true });
+
+  /* Mouse drag listeners (supports desktop emulation of mobile) */
+  grid.addEventListener('mousedown', function (e) {
+    if (cardsPerView() !== 1 || e.button !== 0) return;
+    onDragStart(e.clientX, e.clientY);
+
+    function onMouseMove(me) {
+      onDragMove(me.clientX, me.clientY, me);
+    }
+
+    function onMouseUp() {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+      onDragEnd();
+    }
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+  });
+
+  /* Block accidental button clicks when user was dragging */
+  grid.addEventListener('click', function (e) {
+    if (draggedFar) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
 
   /* ─── Init ───────────────────────────────────────────────── */
   function init() {
@@ -1938,6 +2128,15 @@
     if (cardsPerView() === 1) {
       setupObserver();
     }
+
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        buildDots();
+        updateUI(currentIdx);
+      }, 150);
+    });
 
     /* Block horizontal trackpad/wheel scroll on desktop;
        let vertical scroll pass through to the page */
@@ -4141,8 +4340,16 @@
 
   if (!video || !toggleBtn || !pauseIcon || !playIcon) return;
 
+  /* ─── Ensure video properties for strict autoplay compliance ─── */
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
   /* ─── State ─────────────────────────────────────────────── */
-  var isPlaying = true; // Video autoplays
+  var isPlaying = false;
 
   function showPause() {
     pauseIcon.style.display = '';
@@ -4158,6 +4365,28 @@
     toggleBtn.classList.remove('is-playing');
   }
 
+  function markReady() {
+    video.classList.add('is-ready');
+  }
+
+  function playVideo() {
+    video.muted = true;
+    var playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.then(function () {
+        isPlaying = true;
+        showPause();
+        markReady();
+      }).catch(function () {
+        /* Autoplay was restricted by browser policy */
+        isPlaying = false;
+        showPlay();
+        // Still reveal the video frame/poster so there is no blank color
+        markReady();
+      });
+    }
+  }
+
   /* ─── Toggle handler ────────────────────────────────────── */
   toggleBtn.addEventListener('click', function () {
     if (isPlaying) {
@@ -4165,32 +4394,63 @@
       isPlaying = false;
       showPlay();
     } else {
-      video.play().catch(function () { /* autoplay blocked – ignore */ });
-      isPlaying = true;
-      showPause();
+      video.muted = true;
+      video.play().then(function () {
+        isPlaying = true;
+        showPause();
+        markReady();
+      }).catch(function () { /* ignore */ });
     }
   });
 
-  /* ─── Fade-in video once it is actually rendering frames ── */
-  video.addEventListener('playing', function onFirstPlay() {
-    video.removeEventListener('playing', onFirstPlay);
+  /* ─── Video readiness event hooks ────────────────────────── */
+  video.addEventListener('playing', function () {
     isPlaying = true;
     showPause();
-    video.classList.add('is-ready');
+    markReady();
   });
 
-  /* ─── Always autoplay on page load ─────────────────────── */
-  var playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise.then(function () {
+  video.addEventListener('loadeddata', markReady);
+  video.addEventListener('canplay', markReady);
+  video.addEventListener('timeupdate', function onTime() {
+    if (video.currentTime > 0) {
+      markReady();
+      video.removeEventListener('timeupdate', onTime);
+    }
+  });
+
+  /* If already decoding or playing before this script was executed */
+  if (video.readyState >= 2 || video.currentTime > 0 || !video.paused) {
+    markReady();
+    if (!video.paused) {
       isPlaying = true;
       showPause();
-    }).catch(function () {
-      /* Autoplay was blocked — show play button */
-      isPlaying = false;
-      showPlay();
+    }
+  }
+
+  /* ─── Attempt autoplay immediately ───────────────────────── */
+  playVideo();
+
+  /* ─── Fallback: start video on first user interaction ────── */
+  function onFirstInteraction() {
+    if (video.paused) {
+      playVideo();
+    }
+    ['touchstart', 'touchend', 'click', 'scroll', 'keydown'].forEach(function (evt) {
+      window.removeEventListener(evt, onFirstInteraction, { passive: true });
     });
   }
+
+  ['touchstart', 'touchend', 'click', 'scroll', 'keydown'].forEach(function (evt) {
+    window.addEventListener(evt, onFirstInteraction, { passive: true, once: true });
+  });
+
+  /* Resume video when tab regains focus */
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && isPlaying && video.paused) {
+      playVideo();
+    }
+  });
 
   /* ─── Count-Up Animation for Trust Badges ──────────────── */
   (function initCountUp() {

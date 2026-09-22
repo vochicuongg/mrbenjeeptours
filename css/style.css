@@ -351,7 +351,7 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: #1A0F0A;
+    background: #1A0F0A url('../assets/images/background/background.jpg') center/cover no-repeat;
     overflow: hidden;
 }
 
@@ -2354,6 +2354,7 @@ button {
         /* JS manages horizontal scroll on mobile; allow vertical page scroll */
         overscroll-behavior-x: contain;
         touch-action: pan-y;
+        will-change: scroll-position;
     }
 
     .tours-grid::-webkit-scrollbar {
@@ -2369,6 +2370,19 @@ button {
         overflow: hidden;
         box-sizing: border-box;
         overscroll-behavior-x: contain;
+        opacity: 0.82;
+        transform: scale(0.98);
+        user-select: none;
+        -webkit-user-select: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), border-color 0.35s var(--ease);
+        will-change: opacity, transform;
+    }
+
+    .tour-card.is-active {
+        opacity: 1;
+        transform: scale(1);
+        border-color: rgba(212, 175, 55, 0.3);
     }
 
     .tour-body {
@@ -5050,7 +5064,7 @@ button {
     z-index: 0;
     /* Start hidden – fade in once the video is actually playing */
     opacity: 0;
-    transition: opacity 1.2s ease;
+    transition: opacity 0.8s ease;
 }
 
 .hero-video.is-ready {
