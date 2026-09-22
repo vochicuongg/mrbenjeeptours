@@ -1463,11 +1463,17 @@
       // Remove all position classes
       card.className = card.className
         .replace(/dest-pos-\d/g, '')
+        .replace(/dest-pos-hidden/g, '')
         .replace(/dest-swipe-\w+/g, '')
         .replace(/dest-dragging/g, '')
         .replace(/\s{2,}/g, ' ')
         .trim();
-      card.classList.add('dest-pos-' + Math.min(p, 3));
+      // Top 4 cards get visible positions, rest are hidden
+      if (p <= 3) {
+        card.classList.add('dest-pos-' + p);
+      } else {
+        card.classList.add('dest-pos-hidden');
+      }
       card.style.transform = '';
       card.style.opacity = '';
     }
@@ -1479,37 +1485,19 @@
 
   var SWIPE_MS = 450; // matches CSS 0.45s
 
-  /* Navigate: card flies LEFT, next card flies in from RIGHT (next arrow ►) */
+  /* Navigate: top card flies out LEFT, cards behind promote up (next ►) */
   function goNext() {
     if (animating || isDesktop()) return;
     animating = true;
     var topCard = cards[order[0]];
+    // Remove position class so it doesn't conflict, then swipe out
+    topCard.className = topCard.className.replace(/dest-pos-\d/g, '').trim();
+    topCard.classList.add('dest-swipe-left');
     // Reorder: move front card to back
     order.push(order.shift());
-    // The incoming card (new front)
-    var incoming = cards[order[0]];
-    // Clean incoming classes and place it off-screen RIGHT (no transition)
-    incoming.className = incoming.className
-      .replace(/dest-pos-\d/g, '')
-      .replace(/dest-swipe-\w+/g, '')
-      .replace(/dest-dragging/g, '')
-      .replace(/\s{2,}/g, ' ')
-      .trim();
-    incoming.style.transition = 'none';
-    incoming.style.transform = 'translateX(120%) rotate(8deg)';
-    incoming.style.opacity = '0';
-    incoming.classList.add('dest-pos-0');
-    // Force reflow so the off-screen position is rendered
-    void incoming.offsetWidth;
-    // Animate old card out to the left
-    topCard.classList.add('dest-swipe-left');
-    // Animate incoming card to front position
-    incoming.style.transition = '';
-    incoming.style.transform = '';
-    incoming.style.opacity = '';
-    // Update the rest of the stack (push down)
+    // Cards behind naturally promote up via CSS transition (pos-1→pos-0, etc.)
     applyPositions();
-    // After animation finishes, clean up
+    // After swipe animation finishes, reset the swiped card
     setTimeout(function () {
       topCard.classList.remove('dest-swipe-left');
       topCard.style.transition = 'none';
@@ -1520,43 +1508,15 @@
     }, SWIPE_MS);
   }
 
-  /* Navigate: card flies RIGHT, prev card flies in from LEFT (prev arrow ◄) */
+  /* Navigate: last card comes to front, top card sinks to back (prev ◄ / lùi) */
   function goPrev() {
     if (animating || isDesktop()) return;
     animating = true;
-    var topCard = cards[order[0]];
-    // The card that will come to front is the last in order (previously swiped away)
-    var incoming = cards[order[order.length - 1]];
-    // Move it to front of order
+    // Reorder: move last card to front (reverse of goNext)
     order.unshift(order.pop());
-    // Place incoming card off-screen LEFT (no transition) so it can fly in
-    incoming.className = incoming.className
-      .replace(/dest-pos-\d/g, '')
-      .replace(/dest-swipe-\w+/g, '')
-      .replace(/dest-dragging/g, '')
-      .replace(/\s{2,}/g, ' ')
-      .trim();
-    incoming.style.transition = 'none';
-    incoming.style.transform = 'translateX(-120%) rotate(-8deg)';
-    incoming.style.opacity = '0';
-    incoming.classList.add('dest-pos-0');
-    // Force reflow so the off-screen position is rendered before animating in
-    void incoming.offsetWidth;
-    // Animate old card out to the RIGHT
-    topCard.classList.add('dest-swipe-right');
-    // Animate incoming card to front position
-    incoming.style.transition = '';
-    incoming.style.transform = '';
-    incoming.style.opacity = '';
-    // Update the rest of the stack (push down)
+    // Top card becomes pos-0, old top sinks down via CSS transition
     applyPositions();
-    // After animation finishes, clean up
     setTimeout(function () {
-      topCard.classList.remove('dest-swipe-right');
-      topCard.style.transition = 'none';
-      applyPositions();
-      void topCard.offsetWidth;
-      topCard.style.transition = '';
       animating = false;
     }, SWIPE_MS);
   }
@@ -1586,43 +1546,136 @@
   });
 
   /* ── Touch / mouse drag on top card ── */
-  var startX = 0, currentX = 0, isDragging = false;
+  var startX = 0, startY = 0, currentX = 0, isDragging = false;
+  var dragCardIdx = -1; // index in cards[] of the card being dragged
+  var dragPreview = null; // 'next', 'prev', or null
+  var orderSnapshot = null; // order[] snapshot taken at drag start
+  var dragLocked = false; // true once horizontal swipe is confirmed
+  var dragRejected = false; // true if vertical scroll detected first
 
   function onPointerDown(e) {
     if (animating || isDesktop()) return;
     var topCard = cards[order[0]];
     if (!topCard.contains(e.target)) return;
     isDragging = true;
+    dragLocked = false;
+    dragRejected = false;
+    dragCardIdx = order[0];
+    orderSnapshot = order.slice();
+    dragPreview = null;
     startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+    startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
     currentX = startX;
-    topCard.classList.add('dest-dragging');
   }
 
   function onPointerMove(e) {
-    if (!isDragging) return;
-    // Prevent browser from scrolling / zooming while dragging a card
+    if (!isDragging || dragRejected) return;
+    var cx = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    var cy = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+
+    // Phase 1: determine swipe direction (horizontal vs vertical)
+    if (!dragLocked) {
+      var adx = Math.abs(cx - startX);
+      var ady = Math.abs(cy - startY);
+      // Need at least 10px movement to decide
+      if (adx < 10 && ady < 10) return;
+      if (ady > adx) {
+        // Vertical scroll — release control, let browser scroll
+        dragRejected = true;
+        isDragging = false;
+        return;
+      }
+      // Horizontal swipe confirmed — lock drag
+      dragLocked = true;
+      cards[dragCardIdx].classList.add('dest-dragging');
+    }
+
+    // Phase 2: horizontal drag active — prevent scroll
     if (e.cancelable) e.preventDefault();
-    currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    currentX = cx;
     var dx = currentX - startX;
-    var topCard = cards[order[0]];
+    var dragCard = cards[dragCardIdx];
     var rot = dx * 0.06;
-    topCard.style.transform = 'translateX(' + dx + 'px) rotate(' + rot + 'deg)';
-    topCard.style.opacity = Math.max(0.3, 1 - Math.abs(dx) / 400);
+    dragCard.style.transform = 'translateX(' + dx + 'px) rotate(' + rot + 'deg)';
+    dragCard.style.opacity = Math.max(0.3, 1 - Math.abs(dx) / 400);
+
+    // Determine which preview is needed
+    var needed = null;
+    if (dx < -30) needed = 'next';
+    else if (dx > 30) needed = 'prev';
+
+    if (needed !== dragPreview) {
+      dragPreview = needed;
+      // Build the background order that matches what will happen after release
+      // Start from original snapshot, simulate the reorder, then remove dragged card
+      var simOrder = orderSnapshot.slice();
+      if (needed === 'next') {
+        simOrder.push(simOrder.shift()); // goNext: front → back
+      } else if (needed === 'prev') {
+        simOrder.unshift(simOrder.pop()); // goPrev: back → front
+      }
+      // Remove the dragged card from simulated order
+      var bgOrder = [];
+      for (var i = 0; i < simOrder.length; i++) {
+        if (simOrder[i] !== dragCardIdx) bgOrder.push(simOrder[i]);
+      }
+      // Reset ALL non-dragged cards first (clear stale positions)
+      for (var i = 0; i < total; i++) {
+        if (i === dragCardIdx) continue;
+        var card = cards[i];
+        card.className = card.className
+          .replace(/dest-pos-\d/g, '')
+          .replace(/dest-pos-hidden/g, '')
+          .replace(/dest-swipe-\w+/g, '')
+          .replace(/dest-dragging/g, '')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+      }
+      // Apply new positions to background cards
+      for (var p = 0; p < bgOrder.length; p++) {
+        var card = cards[bgOrder[p]];
+        var posIdx = p + 1; // +1 because pos-0 is the dragged card visually on top
+        if (posIdx <= 3) {
+          card.classList.add('dest-pos-' + posIdx);
+        } else {
+          card.classList.add('dest-pos-hidden');
+        }
+        card.style.transform = '';
+        card.style.opacity = '';
+      }
+    }
   }
 
   function onPointerUp() {
     if (!isDragging) return;
     isDragging = false;
-    var topCard = cards[order[0]];
-    topCard.classList.remove('dest-dragging');
+
+    // If drag was never locked (no horizontal swipe detected), just clean up
+    if (!dragLocked) {
+      dragCardIdx = -1;
+      dragPreview = null;
+      orderSnapshot = null;
+      return;
+    }
+
+    var dragCard = cards[dragCardIdx];
+    dragCard.classList.remove('dest-dragging');
+    dragCard.style.transform = '';
+    dragCard.style.opacity = '';
     var dx = currentX - startX;
+
+    // Restore original order — goNext/goPrev will do their own reorder
+    order = orderSnapshot.slice();
+    dragPreview = null;
+    orderSnapshot = null;
+
     if (Math.abs(dx) > 70) {
       dx < 0 ? goNext() : goPrev();
     } else {
       // Snap back
-      topCard.style.transform = '';
-      topCard.style.opacity = '';
+      applyPositions();
     }
+    dragCardIdx = -1;
   }
 
   stack.addEventListener('mousedown', onPointerDown);
@@ -1700,6 +1753,7 @@
   let cards = [];
   let currentIdx = 0;
   let loopTimeout = null;
+  let programmaticScroll = false; // guard: prevent observer from overriding goTo()
 
   /* ─── Build dots ─────────────────────────────────────────── */
   function buildDots() {
@@ -1742,27 +1796,50 @@
     var perView = cardsPerView();
     var animName = dir === 'prev' ? 'tourCardInPrev' : 'tourCardInNext';
     for (var i = idx; i < idx + perView; i++) {
-      var card = cards[i];
-      if (!card) continue;
-      card.style.animation = 'none';
-      requestAnimationFrame(function () {
+      (function (c) {
+        if (!c) return;
+        c.style.animation = 'none';
         requestAnimationFrame(function () {
-          card.style.animation = animName + ' 0.42s cubic-bezier(0.25,0.46,0.45,0.94) both';
+          requestAnimationFrame(function () {
+            c.style.animation = animName + ' 0.42s cubic-bezier(0.25,0.46,0.45,0.94) both';
+          });
         });
-      });
+      })(cards[i]);
     }
   }
 
   /* ─── Scroll to card by index ────────────────────────────── */
   function goTo(idx, instant, dir) {
     clearTimeout(loopTimeout);
-    const card = cards[idx];
+    var card = cards[idx];
     if (!card) return;
+
+    /* Block observer from overriding is-active during programmatic scroll */
+    programmaticScroll = true;
+    setTimeout(function () { programmaticScroll = false; }, 600);
+
+    /* Mark active cards */
+    updateUI(idx);
+
+    var isMobile = cardsPerView() === 1;
+
+    /* Temporarily disable scroll-snap so it can't fight the smooth scroll.
+       Re-enable after the scroll has finished settling. */
+    if (!isMobile) grid.style.scrollSnapType = 'none';
+
+    var scrollTarget = card.offsetLeft;
     grid.scrollTo({
-      left: card.offsetLeft - grid.offsetLeft,
+      left: scrollTarget,
       behavior: instant ? 'instant' : 'smooth'
     });
-    updateUI(idx);
+
+    /* Re-enable snap after scroll completes (~500ms for smooth) */
+    if (!isMobile) {
+      setTimeout(function () {
+        grid.style.scrollSnapType = '';
+      }, instant ? 50 : 500);
+    }
+
     if (!instant) animateActiveCards(idx, dir || 'next');
   }
 
@@ -1798,6 +1875,9 @@
     if (!('IntersectionObserver' in window)) return;
 
     const observer = new IntersectionObserver((entries) => {
+      /* Skip observer updates during programmatic (button/dot) scrolls */
+      if (programmaticScroll) return;
+
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           /* Add is-active to the intersecting card */
@@ -1822,15 +1902,41 @@
     cards.forEach(card => observer.observe(card));
   }
 
+  /* ─── Mobile touch swipe on tours grid ─── */
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  grid.addEventListener('touchstart', function (e) {
+    if (cardsPerView() !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  grid.addEventListener('touchend', function (e) {
+    if (cardsPerView() !== 1) return;
+    var touchEndX = e.changedTouches[0].clientX;
+    var touchEndY = e.changedTouches[0].clientY;
+    var dx = touchEndX - touchStartX;
+    var dy = touchEndY - touchStartY;
+
+    /* Detect clear horizontal swipe: dx > dy and swipe distance > 40px */
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) {
+        btnNext.click(); // Next card
+      } else {
+        btnPrev.click(); // Previous card
+      }
+    }
+  }, { passive: true });
+
   /* ─── Init ───────────────────────────────────────────────── */
   function init() {
     cards = Array.from(grid.querySelectorAll('.tour-card'));
     buildDots();
+    updateUI(0);
 
     if (cardsPerView() === 1) {
       setupObserver();
-    } else {
-      updateUI(0);
     }
 
     /* Block horizontal trackpad/wheel scroll on desktop;

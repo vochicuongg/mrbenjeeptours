@@ -668,11 +668,20 @@ button {
     pointer-events: none;
 }
 
+/* Cards beyond position 3 — completely hidden at bottom of stack */
+.destination-card.dest-pos-hidden {
+    z-index: 0;
+    transform: translateY(72px) scale(0.82);
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* Swiping animation */
 .destination-card.dest-swipe-left {
     transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
     transform: translateX(-120%) rotate(-8deg) !important;
     opacity: 0 !important;
+    z-index: 5;
     pointer-events: none;
 }
 
@@ -680,6 +689,7 @@ button {
     transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
     transform: translateX(120%) rotate(8deg) !important;
     opacity: 0 !important;
+    z-index: 5;
     pointer-events: none;
 }
 
@@ -1057,10 +1067,11 @@ button {
 
 /* ── Tours grid: horizontal scroll slider (all screen sizes) ── */
 .tours-grid {
+    position: relative;
     display: flex;
     flex-direction: row;
     gap: 24px;
-    overflow-x: hidden;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
@@ -2333,16 +2344,16 @@ button {
     .tours-grid {
         display: flex;
         flex-direction: row;
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: hidden;
-        scroll-snap-type: x mandatory;
+        scroll-snap-type: none;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 0;
         padding: 0;
-        /* Contain horizontal scroll inside slider; allow vertical page scroll */
+        /* JS manages horizontal scroll on mobile; allow vertical page scroll */
         overscroll-behavior-x: contain;
-        touch-action: pan-x pan-y;
+        touch-action: pan-y;
     }
 
     .tours-grid::-webkit-scrollbar {
@@ -2350,11 +2361,11 @@ button {
     }
 
     .tour-card {
-        flex: 0 0 calc(100vw - 48px);
-        width: calc(100vw - 48px);
+        flex: 0 0 100%;
+        width: 100%;
         scroll-snap-align: start;
-        max-width: 420px;
-        margin: 0 8px;
+        max-width: none;
+        margin: 0;
         overflow: hidden;
         box-sizing: border-box;
         overscroll-behavior-x: contain;
@@ -2362,7 +2373,7 @@ button {
 
     .tour-body {
         overflow: hidden;
-        touch-action: pan-x pan-y;
+        touch-action: pan-y;
     }
 
     /* Fix image overflow inside slider card */
@@ -2399,11 +2410,6 @@ button {
 
     .tour-price {
         justify-content: center;
-    }
-
-    /* Tours: mobile card = 100% so exactly 1 card shows, no peeking */
-    .tour-card {
-        flex: 0 0 100%;
     }
 
     /* Remove desktop side padding; keep overflow clipping */
