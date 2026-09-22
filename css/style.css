@@ -351,7 +351,7 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: #1A0F0A url('../../assets/images/background/background.jpg') center/cover no-repeat;
+    background: #1A0F0A;
     overflow: hidden;
 }
 
@@ -5042,13 +5042,6 @@ button {
     height: auto;
     object-fit: cover;
     z-index: 0;
-    /* Start hidden – fade in once the video is ready to play */
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.hero-video.is-ready {
-    opacity: 1;
 }
 
 /* ── Video Play/Pause Toggle Button ─────────────────────────── */
