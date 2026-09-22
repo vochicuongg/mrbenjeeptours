@@ -4036,7 +4036,7 @@
   if (!video || !toggleBtn || !pauseIcon || !playIcon) return;
 
   /* ─── State ─────────────────────────────────────────────── */
-  var isPlaying = true; // Video autoplays
+  var isPlaying = false; // Video starts paused, plays after ready
 
   function showPause() {
     pauseIcon.style.display = '';
@@ -4065,18 +4065,41 @@
     }
   });
 
-  /* ─── Always autoplay on page load ─────────────────────── */
-  var playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise.then(function () {
-      isPlaying = true;
-      showPause();
-    }).catch(function () {
-      /* Autoplay was blocked — show play button */
-      isPlaying = false;
-      showPlay();
+  /* ─── Fade-in video & autoplay once buffered enough ────── */
+  function startVideoPlayback() {
+    var playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.then(function () {
+        isPlaying = true;
+        showPause();
+        // Fade in: add .is-ready so CSS transition kicks in
+        video.classList.add('is-ready');
+      }).catch(function () {
+        /* Autoplay was blocked — show play button, still show video */
+        isPlaying = false;
+        showPlay();
+        video.classList.add('is-ready');
+      });
+    }
+  }
+
+  // If the video already has enough data (cached), start immediately
+  if (video.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+    startVideoPlayback();
+  } else {
+    video.addEventListener('canplaythrough', function onReady() {
+      video.removeEventListener('canplaythrough', onReady);
+      startVideoPlayback();
     });
   }
+
+  // Fallback: if canplaythrough hasn't fired within 8s, start anyway
+  // (handles slow networks where poster image is still better than nothing)
+  setTimeout(function () {
+    if (!video.classList.contains('is-ready')) {
+      startVideoPlayback();
+    }
+  }, 8000);
 
   /* ─── Count-Up Animation for Trust Badges ──────────────── */
   (function initCountUp() {
