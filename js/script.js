@@ -4065,6 +4065,14 @@
     }
   });
 
+  /* ─── Fade-in video once it is actually rendering frames ── */
+  video.addEventListener('playing', function onFirstPlay() {
+    video.removeEventListener('playing', onFirstPlay);
+    isPlaying = true;
+    showPause();
+    video.classList.add('is-ready');
+  });
+
   /* ─── Always autoplay on page load ─────────────────────── */
   var playPromise = video.play();
   if (playPromise !== undefined) {
