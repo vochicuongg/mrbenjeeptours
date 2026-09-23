@@ -58,18 +58,27 @@
     padding: 0;
 }
 
-/* Remove browser default blue focus outline on click */
-button:focus,
-button:focus-visible,
+/* Remove browser default blue focus outline on click, preserve keyboard focus */
+button:focus:not(:focus-visible),
 button:active,
-a:focus,
+a:focus:not(:focus-visible),
 a:active,
-input:focus,
-select:focus,
-textarea:focus {
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
     outline: none;
     box-shadow: none;
     -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible focus ring for keyboard navigation (accessibility) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
 }
 
 /* Remove tap highlight on ALL elements for mobile */
@@ -1794,7 +1803,8 @@ button {
    ============================================================ */
 .cta-banner {
     position: relative;
-    background: url('https://images.unsplash.com/photo-1473496169904-658ba7574b0d?auto=format&fit=crop&w=1920&q=80') center 60% / cover no-repeat;
+    /* Optimized: reduced Unsplash quality for faster mobile load */
+    background: url('https://images.unsplash.com/photo-1473496169904-658ba7574b0d?auto=format&fit=crop&w=1200&q=60') center 60% / cover no-repeat;
     padding: 120px 0;
 }
 
@@ -1997,7 +2007,7 @@ button {
 }
 
 /* ── Columns ── */
-.footer-col h4 {
+.footer-col h3 {
     font-family: var(--font-serif);
     font-size: 1rem;
     font-weight: 600;
@@ -2007,7 +2017,7 @@ button {
     position: relative;
 }
 
-.footer-col h4::after {
+.footer-col h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2081,7 +2091,7 @@ button {
     padding-top: 0;
 }
 
-.footer-map h4 {
+.footer-map h3 {
     font-family: var(--font-serif);
     font-size: 1rem;
     font-weight: 600;
@@ -2091,7 +2101,7 @@ button {
     position: relative;
 }
 
-.footer-map h4::after {
+.footer-map h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2625,7 +2635,7 @@ button {
         border-radius: 10px;
     }
 
-    .footer-map h4 {
+    .footer-map h3 {
         font-size: 0.92rem;
         margin-bottom: 16px;
         padding-bottom: 10px;

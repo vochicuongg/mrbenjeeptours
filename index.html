@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description"
-        content="Mr. Ben Jeep Tours – Best Mui Ne jeep tour. Sunrise & sunset tours to White Sand Dunes, Red Sand Dunes, Fairy Stream. Book private or group jeep tour in Mũi Né, Phan Thiết. ☎ +84 913 140 196" />
+        content="Mr. Ben Jeep Tours – Best Mui Ne jeep tour. Sunrise & sunset tours to White Sand Dunes, Red Sand Dunes, Fairy Stream. Book now! ☎ +84 913 140 196" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' https://mrbenjeeptours.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://*.workers.dev https://*.make.com; media-src 'self'; frame-src https://www.google.com; frame-ancestors 'none';" />
@@ -13,7 +13,8 @@
     <meta name="keywords"
         content="jeep tour mui ne, mui ne jeep tour, jeep tour mũi né, mr ben jeep tours, best mui ne jeep tour, sunrise tour mui ne, sunset tour phan thiet, white sand dunes mui ne, red sand dunes mui ne, fairy stream mui ne, xe jeep mũi né, thuê xe jeep mũi né, booking jeep tour, tour mũi né, đồi cát trắng, đồi cát đỏ, mr ben tours, tour bình minh mũi né, tour hoàng hôn phan thiết" />
     <meta name="google-site-verification" content="DJOV9EOVjAO9STvi8BuNcy-SfQA98gXiSK6qxDSrH34" />
-    <title>Mr. Ben Jeep Tours Mũi Né | Best Mui Ne Jeep Tour – Sunrise & Sunset</title>
+    <title>Mr. Ben Jeep Tours Mũi Né | Best Mui Ne Jeep Tour</title>
+    <meta name="theme-color" content="#1A0F0A" />
 
     <!-- Favicon & Touch Icons (Optimized for Google Search) -->
     <link rel="icon" type="image/png" sizes="48x48"
@@ -30,7 +31,7 @@
     <!-- Open Graph / Facebook / Zalo Metadata -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mrbenjeeptours.com/" />
-    <meta property="og:title" content="Mr. Ben Jeep Tours Mũi Né | Best Mui Ne Jeep Tour – Sunrise & Sunset" />
+    <meta property="og:title" content="Mr. Ben Jeep Tours Mũi Né | Best Mui Ne Jeep Tour" />
     <meta property="og:description"
         content="Best Mui Ne jeep tour. Sunrise & sunset tours to White Sand Dunes, Red Sand Dunes, Fairy Stream. Private & group tours from 150,000₫. ☎ +84 913 140 196" />
     <meta property="og:image" content="https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp" />
@@ -120,9 +121,9 @@
     </script>
 
     <!-- Comprehensive Schema.org Structured Data (TravelAgency, TouristTrip, Pickup Locations) -->
-    <script>
+    <script defer>
     // Inject JSON-LD structured data from external file (Google supports dynamically inserted JSON-LD)
-    fetch('schema-jeeptour.json').then(r=>r.text()).then(t=>{const s=document.createElement('script');s.type='application/ld+json';s.textContent=t;document.head.appendChild(s)}).catch(()=>{});
+    document.addEventListener('DOMContentLoaded',function(){fetch('schema-jeeptour.json').then(function(r){return r.text()}).then(function(t){var s=document.createElement('script');s.type='application/ld+json';s.textContent=t;document.head.appendChild(s)}).catch(function(){})});
     </script>
 
     <!-- FAQPage Structured Data for Rich Results -->
@@ -221,12 +222,20 @@
     <link rel="preload" as="image" href="assets/images/background/background.jpg" type="image/jpeg"
         fetchpriority="high" />
 
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" />
+    </noscript>
 
     <!-- Font Awesome CDN (Deferred for Performance) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style"
@@ -336,7 +345,7 @@
         <section class="hero" id="home">
             <!-- Video Background -->
             <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline
-                poster="assets/images/background/background.jpg" preload="auto">
+                poster="assets/images/background/background.jpg" preload="metadata">
                 <source src="assets/images/background/background.webm" type="video/webm">
             </video>
             <div class="hero-overlay"></div>
@@ -497,10 +506,10 @@
                     </div>
 
                     <div class="dest-dots" id="destDots">
-                        <button class="dest-dot active" data-idx="0"></button>
-                        <button class="dest-dot" data-idx="1"></button>
-                        <button class="dest-dot" data-idx="2"></button>
-                        <button class="dest-dot" data-idx="3"></button>
+                        <button class="dest-dot active" data-idx="0" aria-label="Slide 1"></button>
+                        <button class="dest-dot" data-idx="1" aria-label="Slide 2"></button>
+                        <button class="dest-dot" data-idx="2" aria-label="Slide 3"></button>
+                        <button class="dest-dot" data-idx="3" aria-label="Slide 4"></button>
                     </div>
                 </div>
 
@@ -888,6 +897,7 @@
                 </div>
             </div>
         </section>
+    </main>
 
         <!-- ===================== FOOTER ===================== -->
         <footer class="footer">
@@ -897,7 +907,7 @@
                     <a href="#home" class="footer-logo-link">
                         <div class="footer-logo-text">
                             <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours"
-                                class="footer-logo-img" />
+                                class="footer-logo-img" loading="lazy" width="60" height="60" />
                             <span class="footer-logo-name">MR. BEN</span>
                             <span class="footer-logo-sub">JEEP TOURS</span>
                         </div>
@@ -926,7 +936,7 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <h3 data-i18n="footer.quickLinks">Quick Links</h3>
                     <ul>
                         <li><a href="#home" data-i18n="nav.home">Home</a></li>
                         <li><a href="#about" data-i18n="nav.about">About Us</a></li>
@@ -938,7 +948,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 data-i18n="footer.contactInfo">Contact Info</h4>
+                    <h3 data-i18n="footer.contactInfo">Contact Info</h3>
                     <ul class="footer-contact">
                         <li><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/7CF1KAZfZNa7NjnP6"
                                 target="_blank">329 Nguyễn Đình Chiểu, Mũi Né, Lâm Đồng</a></li>
@@ -950,7 +960,7 @@
 
                 <!-- Google Maps -->
                 <div class="footer-map">
-                    <h4 data-i18n="footer.findUs">Find Us</h4>
+                    <h3 data-i18n="footer.findUs">Find Us</h3>
                     <div class="footer-map-wrap">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.2!2d108.2423205!3d10.9546982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768f003792ad01%3A0x3fbd5b9fe044b996!2sMr.%20Ben%20Jeep%20Tours%20M%C5%A9i%20N%C3%A9%20-%20Booking%20Jeep%20Tours%20Luxury!5e0!3m2!1svi!2svn!4v1700000000000"
@@ -1008,7 +1018,7 @@
 
                     <!-- Name -->
                     <div class="bf-group">
-                        <label class="bf-label"><span data-i18n="booking.labelName">Họ và Tên</span> <span
+                        <label class="bf-label" for="bfName"><span data-i18n="booking.labelName">Họ và Tên</span> <span
                                 class="bf-req">*</span></label>
                         <input class="bf-input" id="bfName" type="text" placeholder="Nhập tên của bạn"
                             data-i18n-placeholder="booking.placeholderName" autocomplete="name" />
@@ -1016,7 +1026,7 @@
 
                     <!-- Phone -->
                     <div class="bf-group">
-                        <label class="bf-label"><span data-i18n="booking.labelPhone">Số Điện Thoại</span> <span
+                        <label class="bf-label" for="bfPhone"><span data-i18n="booking.labelPhone">Số Điện Thoại</span> <span
                                 class="bf-req">*</span></label>
                         <div class="bf-phone-row">
                             <div class="bf-phone-code-wrap">
@@ -1080,7 +1090,7 @@
 
                     <!-- Hotel Name -->
                     <div class="bf-group">
-                        <label class="bf-label" data-i18n="booking.labelHotel">Tên Khách Sạn / Resort</label>
+                        <label class="bf-label" for="bfHotelName" data-i18n="booking.labelHotel">Tên Khách Sạn / Resort</label>
                         <div class="bf-hotel-wrap" id="bfHotelWrap">
                             <div class="bf-hotel-input-row">
                                 <i class="fas fa-hotel bf-hotel-icon"></i>
@@ -1096,15 +1106,15 @@
 
                     <!-- Custom hotel name (shown only when "Khách sạn khác" is selected) -->
                     <div class="bf-group" id="bfHotelCustomGroup" style="display:none;">
-                        <label class="bf-label" data-i18n="booking.labelCustomHotel">Tên Khách Sạn Của Bạn</label>
+                        <label class="bf-label" for="bfHotelCustomName" data-i18n="booking.labelCustomHotel">Tên Khách Sạn Của Bạn</label>
                         <input class="bf-input" id="bfHotelCustomName" type="text" placeholder="Nhập tên khách sạn..."
                             data-i18n-placeholder="booking.placeholderCustomHotel" autocomplete="off" />
                     </div>
 
                     <!-- Hotel Address -->
                     <div class="bf-group" id="bfHotelAddressGroup">
-                        <label class="bf-label" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn</label>
-                        <div class="bf-hotel-wrap" id="bfHotelWrap">
+                        <label class="bf-label" for="bfHotelAddress" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn</label>
+                        <div class="bf-hotel-wrap" id="bfHotelAddressWrap">
                             <div class="bf-hotel-input-row">
                                 <i class="fas fa-map-marker-alt bf-hotel-icon"></i>
                                 <input class="bf-input bf-hotel-input" id="bfHotelAddress" type="text"
@@ -1132,9 +1142,9 @@
                     <div class="bf-group" id="bfVehicleGroup" style="display:none;">
                         <label class="bf-label" data-i18n="booking.labelVehicles">Số Lượng Xe</label>
                         <div class="bf-counter-row">
-                            <button class="bf-counter-btn" id="bfVehicleMinus">−</button>
+                            <button class="bf-counter-btn" id="bfVehicleMinus" aria-label="Giảm số xe">−</button>
                             <span class="bf-counter-val" id="bfVehicleVal">1</span>
-                            <button class="bf-counter-btn" id="bfVehiclePlus">+</button>
+                            <button class="bf-counter-btn" id="bfVehiclePlus" aria-label="Tăng số xe">+</button>
                         </div>
                     </div>
 
@@ -1142,9 +1152,9 @@
                     <div class="bf-group" id="bfGuestGroup" style="display:none;">
                         <label class="bf-label" data-i18n="booking.labelGuests">Số Người</label>
                         <div class="bf-counter-row">
-                            <button class="bf-counter-btn" id="bfMinus">−</button>
+                            <button class="bf-counter-btn" id="bfMinus" aria-label="Giảm số người">−</button>
                             <span class="bf-counter-val" id="bfGuestVal">1</span>
-                            <button class="bf-counter-btn" id="bfPlus">+</button>
+                            <button class="bf-counter-btn" id="bfPlus" aria-label="Tăng số người">+</button>
                         </div>
                     </div>
 
@@ -1302,7 +1312,7 @@
 
                     <!-- Notes -->
                     <div class="bf-group">
-                        <label class="bf-label" data-i18n="booking.labelNotes">Ghi Chú</label>
+                        <label class="bf-label" for="bfNotes" data-i18n="booking.labelNotes">Ghi Chú</label>
                         <textarea class="bf-input bf-textarea" id="bfNotes" rows="2"
                             placeholder="Điểm đón, yêu cầu đặc biệt..."
                             data-i18n-placeholder="booking.placeholderNotes"></textarea>
@@ -1310,7 +1320,7 @@
 
                     <!-- Total -->
                     <div class="bf-total-row">
-                        <h4 class="bf-total-title" data-i18n="booking.priceBreakdown">Chi tiết giá</h4>
+                        <h3 class="bf-total-title" data-i18n="booking.priceBreakdown">Chi tiết giá</h3>
 
                         <!-- Tour Type Row -->
                         <div class="bf-price-item" id="bfPriceTourType" style="display:none;">
@@ -1381,7 +1391,7 @@
                 <div class="bf-confirm-card">
                     <div class="bf-confirm-header">
                         <h3 data-i18n="booking.confirmTitle">Xác nhận đặt xe</h3>
-                        <button class="booking-close" id="bfConfirmClose">×</button>
+                        <button class="booking-close" id="bfConfirmClose" aria-label="Close confirm">×</button>
                     </div>
                     <div class="bf-confirm-body">
                         <ul class="bf-confirm-list" id="bfConfirmList">
