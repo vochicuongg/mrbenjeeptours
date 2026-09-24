@@ -4,8 +4,12 @@
     {
       "@type": ["TravelAgency", "LocalBusiness"],
       "@id": "https://mrbenjeeptours.com/#travelagency",
-      "name": "Mr. Ben Jeep Tours Mũi Né",
-      "alternateName": "Mr. Ben Jeep Tours",
+      "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
+      "alternateName": [
+        "Mr. Ben Jeep Tours",
+        "Mr Ben Jeep Tours",
+        "Mr. Ben Jeep Tours Mũi Né"
+      ],
       "url": "https://mrbenjeeptours.com/",
       "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
       "image": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
@@ -16,15 +20,17 @@
       "paymentAccepted": "Cash, Bank Transfer",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Phan Thiết",
+        "streetAddress": "Phường Mũi Né",
+        "addressLocality": "Thành phố Phan Thiết",
         "addressRegion": "Bình Thuận",
         "addressCountry": "VN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 10.9333,
-        "longitude": 108.2833
+        "latitude": 10.9546982,
+        "longitude": 108.2444825
       },
+      "hasMap": "https://www.google.com/maps?cid=4592942468307409302",
       "areaServed": [
         {
           "@type": "City",
@@ -56,8 +62,9 @@
         "closes": "21:00"
       },
       "sameAs": [
+        "https://www.google.com/maps?cid=4592942468307409302",
         "https://web.facebook.com/binh.jeep",
-        "https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
+        "https://www.tripadvisor.com.vn/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
         "https://zalo.me/84913140196",
         "https://www.tiktok.com/@mr.ben.jeep.tour"
       ],

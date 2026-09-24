@@ -16,7 +16,15 @@
   "brand": {
     "@type": "Brand",
     "name": "Mr. Ben Jeep Tours",
-    "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp"
+    "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+    "sameAs": "https://www.google.com/maps?cid=4592942468307409302"
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "@id": "https://mrbenjeeptours.com/#travelagency",
+    "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
+    "url": "https://mrbenjeeptours.com/",
+    "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
   },
   "sku": "MRBEN-JEEP-MUINE-01",
   "mpn": "MRBEN-TOUR-2026",
@@ -32,6 +40,13 @@
     "availability": "https://schema.org/InStock",
     "validFrom": "2026-01-01",
     "priceValidUntil": "2026-12-31",
+    "seller": {
+      "@type": "TravelAgency",
+      "@id": "https://mrbenjeeptours.com/#travelagency",
+      "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
+      "url": "https://mrbenjeeptours.com/",
+      "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
+    },
     "offers": [
       {
         "@type": "Offer",
@@ -58,8 +73,8 @@
     "ratingValue": "5.0",
     "bestRating": "5",
     "worstRating": "1",
-    "reviewCount": "48",
-    "ratingCount": "48"
+    "reviewCount": "26",
+    "ratingCount": "26"
   },
   "review": [
     {

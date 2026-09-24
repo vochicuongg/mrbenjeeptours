@@ -67,27 +67,37 @@
     }
     </script>
 
-    <!-- Structured Data for Local Business (TravelAgency) with sameAs -->
+    <!-- Structured Data for Local Business (TravelAgency) — Entity Reconciliation with Google Maps -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": ["TravelAgency", "LocalBusiness"],
-      "name": "Mr. Ben Jeep Tours",
+      "@id": "https://mrbenjeeptours.com/#travelagency",
+      "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
+      "alternateName": [
+        "Mr. Ben Jeep Tours",
+        "Mr Ben Jeep Tours",
+        "Mr. Ben Jeep Tours Mũi Né"
+      ],
       "url": "https://mrbenjeeptours.com/",
       "image": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
-      "description": "Mr. Ben Jeep Tours – Best Mui Ne jeep tour. Sunrise & sunset tours to White Sand Dunes, Red Sand Dunes, Fairy Stream, Fishing Village. Private & group tours with hotel pickup. Thuê xe Jeep Mũi Né uy tín, giá rẻ.",
+      "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+      "description": "Mr. Ben Jeep Tours – Best Mui Né jeep tour. Sunrise & sunset tours to White Sand Dunes, Red Sand Dunes, Fairy Stream, Fishing Village. Private & group tours with hotel pickup. Thuê xe Jeep Mũi Né uy tín, giá rẻ.",
       "telephone": "+84913140196",
+      "priceRange": "150,000₫ – 500,000₫",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Phan Thiết",
+        "streetAddress": "Phường Mũi Né",
+        "addressLocality": "Thành phố Phan Thiết",
         "addressRegion": "Bình Thuận",
         "addressCountry": "VN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 10.9333,
-        "longitude": 108.2833
+        "latitude": 10.9546982,
+        "longitude": 108.2444825
       },
+      "hasMap": "https://www.google.com/maps?cid=4592942468307409302",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -95,14 +105,12 @@
         "closes": "21:00"
       },
       "sameAs": [
-  "https://www.google.com/maps?cid=4592942468307409302",
-  "https://web.facebook.com/binh.jeep",
-  "https://www.tripadvisor.com.vn/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
-  "https://zalo.me/84913140196",
-  "https://www.tiktok.com/@mr.ben.jeep.tour"
-],
-      "priceRange": "150,000₫ – 500,000₫",
-      "hasMap": "https://maps.app.goo.gl/7CF1KAZfZNa7NjnP6",
+        "https://www.google.com/maps?cid=4592942468307409302",
+        "https://web.facebook.com/binh.jeep",
+        "https://www.tripadvisor.com.vn/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
+        "https://zalo.me/84913140196",
+        "https://www.tiktok.com/@mr.ben.jeep.tour"
+      ],
       "areaServed": {
         "@type": "City",
         "name": "Phan Thiết",
@@ -135,7 +143,15 @@
       "brand": {
         "@type": "Brand",
         "name": "Mr. Ben Jeep Tours",
-        "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp"
+        "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+        "sameAs": "https://www.google.com/maps?cid=4592942468307409302"
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "@id": "https://mrbenjeeptours.com/#travelagency",
+        "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
+        "url": "https://mrbenjeeptours.com/",
+        "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
       },
       "sku": "MRBEN-JEEP-MUINE-01",
       "mpn": "MRBEN-TOUR-2026",
@@ -151,6 +167,13 @@
         "availability": "https://schema.org/InStock",
         "validFrom": "2026-01-01",
         "priceValidUntil": "2026-12-31",
+        "seller": {
+          "@type": "TravelAgency",
+          "@id": "https://mrbenjeeptours.com/#travelagency",
+          "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
+          "url": "https://mrbenjeeptours.com/",
+          "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
+        },
         "offers": [
           {
             "@type": "Offer",
@@ -173,12 +196,13 @@
         ]
       },
       "aggregateRating": {
-  "@type": "AggregateRating",
-  "ratingValue": "5.0",
-  "bestRating": "5",
-  "worstRating": "1",
-  "reviewCount": "26"
-},
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "26",
+        "ratingCount": "26"
+      },
       "review": [
         {
           "@type": "Review",
