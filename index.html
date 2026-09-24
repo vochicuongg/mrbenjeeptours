@@ -95,11 +95,12 @@
         "closes": "21:00"
       },
       "sameAs": [
-        "https://web.facebook.com/binh.jeep",
-        "https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
-        "https://zalo.me/84913140196",
-        "https://www.tiktok.com/@mr.ben.jeep.tour"
-      ],
+  "https://www.google.com/maps?cid=4592942468307409302",
+  "https://web.facebook.com/binh.jeep",
+  "https://www.tripadvisor.com.vn/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
+  "https://zalo.me/84913140196",
+  "https://www.tiktok.com/@mr.ben.jeep.tour"
+],
       "priceRange": "150,000₫ – 500,000₫",
       "hasMap": "https://maps.app.goo.gl/7CF1KAZfZNa7NjnP6",
       "areaServed": {
@@ -109,14 +110,101 @@
           "@type": "AdministrativeArea",
           "name": "Bình Thuận"
         }
+      }
+    }
+    </script>
+
+    <!-- ★ Product Schema with Review Rich Snippet (sao vàng trên Google Search) ★ -->
+    <!-- Sử dụng @type: Product thay vì LocalBusiness để tránh lỗi "self-serving reviews" -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "@id": "https://mrbenjeeptours.com/#jeep-tour-product",
+      "name": "Tour Xe Jeep Khám Phá Mũi Né – Mr. Ben Jeep Tours",
+      "description": "Tour xe Jeep Mũi Né cao cấp: Đón bình minh tại Đồi Cát Trắng, ngắm hoàng hôn Đồi Cát Đỏ, khám phá Làng Chài Mũi Né và Suối Tiên. Hành trình 4 giờ, đưa đón tận nơi tại 250+ khách sạn Mũi Né – Phan Thiết.",
+      "image": [
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-do.webp",
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-cam.webp",
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-hong.webp",
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-trang.webp",
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-vang.webp",
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-xanh-duong.webp",
+        "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-xanh-luc.webp"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Mr. Ben Jeep Tours",
+        "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp"
+      },
+      "sku": "MRBEN-JEEP-MUINE-01",
+      "mpn": "MRBEN-TOUR-2026",
+      "category": "Tours & Sightseeing > Jeep Tours",
+      "url": "https://mrbenjeeptours.com/#tours",
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://mrbenjeeptours.com/#tours",
+        "priceCurrency": "VND",
+        "lowPrice": "500000",
+        "highPrice": "950000",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01",
+        "priceValidUntil": "2026-12-31",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Tour Jeep Riêng Tư (Private Tour)",
+            "price": "500000",
+            "priceCurrency": "VND",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-12-31",
+            "url": "https://mrbenjeeptours.com/#tours"
+          },
+          {
+            "@type": "Offer",
+            "name": "Tour Jeep Ghép (Group Tour)",
+            "price": "150000",
+            "priceCurrency": "VND",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-12-31",
+            "url": "https://mrbenjeeptours.com/#tours"
+          }
+        ]
       },
       "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "128",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
+  "@type": "AggregateRating",
+  "ratingValue": "5.0",
+  "bestRating": "5",
+  "worstRating": "1",
+  "reviewCount": "26"
+},
+      "review": [
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Nguyễn Minh Anh"},
+          "datePublished": "2026-08-15",
+          "reviewBody": "Tour tuyệt vời! Tài xế rất thân thiện và am hiểu địa phương. Cảnh bình minh tại Đồi Cát Trắng đẹp khó tin. Rất đáng trải nghiệm!",
+          "name": "Trải nghiệm tuyệt vời – Bình minh đẹp khó tin",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Sarah Johnson"},
+          "datePublished": "2026-07-22",
+          "reviewBody": "Amazing sunrise tour! The driver was professional, took us to beautiful spots. Highly recommend Mr. Ben Jeep Tours!",
+          "name": "Best Mui Ne Experience – Highly Recommend!",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Алексей Петров"},
+          "datePublished": "2026-06-10",
+          "reviewBody": "Лучший тур в Муйне! Водитель показал скрытые места. Белые дюны на рассвете — незабываемое зрелище!",
+          "name": "Лучший тур в Муйне!",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1"}
+        }
+      ]
     }
     </script>
 

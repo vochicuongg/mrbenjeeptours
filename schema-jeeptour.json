@@ -61,13 +61,6 @@
         "https://zalo.me/84913140196",
         "https://www.tiktok.com/@mr.ben.jeep.tour"
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "128",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
       "makesOffer": {
         "@type": "Offer",
         "itemOffered": {
