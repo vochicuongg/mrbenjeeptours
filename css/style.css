@@ -249,7 +249,6 @@ button {
     max-width: var(--container);
     margin-inline: auto;
     padding-inline: 24px;
-    gap: 24px;
 }
 
 /* Logo */
@@ -3795,8 +3794,21 @@ button {
     max-width: 260px;
     display: block;
     margin: 0 auto;
-    cursor: pointer;
+    cursor: grab;
     overflow: visible;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.bf-clock-svg.is-dragging {
+    cursor: grabbing;
+}
+
+.bf-clock-svg.is-dragging .bf-clock-hand,
+.bf-clock-svg.is-dragging .bf-clock-sel-ring,
+.bf-clock-svg.is-dragging .bf-clock-sel-dot {
+    transition: none !important;
 }
 
 /* SVG clock elements */
@@ -3832,8 +3844,20 @@ button {
     transition: fill 0.15s;
 }
 
-.bf-clock-num:hover {
+.bf-clock-num:hover:not(.bf-clock-disabled) {
     fill: rgba(255, 255, 255, 0.9);
+}
+
+.bf-clock-num.bf-clock-disabled {
+    fill: rgba(255, 255, 255, 0.18) !important;
+    cursor: not-allowed !important;
+    font-weight: 400 !important;
+}
+
+.bf-clock-num.bf-clock-num--inner.bf-clock-disabled {
+    opacity: 0.22 !important;
+    fill: rgba(255, 255, 255, 0.15) !important;
+    cursor: not-allowed !important;
 }
 
 .bf-clock-num.bf-clock-active {
@@ -3864,6 +3888,13 @@ button {
     cursor: pointer;
     border: none;
     transition: filter var(--dur), transform var(--dur);
+}
+
+.bf-tp-confirm:disabled {
+    opacity: 0.35 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    filter: grayscale(0.8) !important;
 }
 
 .bf-tp-confirm:hover {
@@ -4499,6 +4530,763 @@ button {
     }
 }
 
+
+/* ============================================================
+   SERVICE TABS  (Jeep Tour  |  Xe Đưa Đón)
+   ============================================================ */
+
+.svc-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.svc-tabs.svc-tabs--visible {
+    display: flex;
+}
+
+.svc-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border: 2px solid rgba(212, 175, 55, .25);
+    border-radius: 60px;
+    background: rgba(26, 15, 10, .6);
+    color: rgba(255, 255, 255, .65);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    cursor: pointer;
+    transition: all .35s ease;
+    position: relative;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.svc-tab i {
+    font-size: 1.15em;
+    transition: color .35s ease;
+}
+
+.svc-tab:hover {
+    border-color: var(--color-gold);
+    color: #fff;
+    background: rgba(212, 175, 55, .08);
+}
+
+.svc-tab--active {
+    border-color: var(--color-gold);
+    background: linear-gradient(135deg, rgba(212, 175, 55, .18), rgba(212, 175, 55, .06));
+    color: var(--color-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, .15),
+                inset 0 1px 0 rgba(212, 175, 55, .2);
+    pointer-events: none;
+}
+
+.svc-tab--active i {
+    color: var(--color-gold);
+}
+
+/* "Mới" badge on tab */
+.svc-tab-new {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: .65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #1A0F0A;
+    background: var(--color-gold);
+    border-radius: 20px;
+    line-height: 1.5;
+    animation: svcBadgePulse 2s ease-in-out infinite;
+}
+
+@keyframes svcBadgePulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.12); }
+}
+
+/* ── Panels ─────────────────────────────────────────────────── */
+.svc-panel {
+    display: none;
+    animation: svcFadeIn .45s ease;
+}
+
+.svc-panel--active {
+    display: block;
+}
+
+@keyframes svcFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive tabs ────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .svc-tabs {
+        gap: 8px;
+        margin-bottom: 28px;
+    }
+    .svc-tab {
+        padding: 11px 18px;
+        font-size: .88rem;
+        gap: 7px;
+    }
+    .svc-tab-new {
+        font-size: .58rem;
+        padding: 1px 6px;
+    }
+}
+
+
+/* ============================================================
+   PRIVATE CAR TRANSFER SECTION  (inside panel 2)
+   ============================================================ */
+
+/* ── Highlights Grid ─────────────────────────────────────── */
+.tf-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+}
+
+.tf-highlight-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.tf-highlight-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-border-hover);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
+}
+
+.tf-highlight-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    border: 1px solid var(--color-border);
+}
+
+.tf-highlight-icon i {
+    font-size: 22px;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tf-highlight-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.tf-highlight-item p {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* ── Vehicle Cards / Transfer Grid — shared .tours-grid layout ── */
+/* Transfer has 2 cards; on desktop (>=681px) make them 50% width and hide slider arrows/dots */
+@media (min-width: 681px) {
+    #svcPanelTransfer .tour-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+    #svcPanelTransfer .tours-arrow,
+    #svcPanelTransfer .tours-dots {
+        display: none !important;
+    }
+}
+
+/* On mobile (<=680px), each card is 100% width full slider card identical to Jeep Tour */
+@media (max-width: 680px) {
+    #svcPanelTransfer .tour-card {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+}
+
+.tf-badge-gas {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    color: #1A0F0A;
+}
+
+.tf-badge-ev {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+}
+
+/* ── Pricing Table ───────────────────────────────────────── */
+.tf-pricing {
+    margin-bottom: 56px;
+}
+
+.tf-pricing-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.tf-pricing-title i {
+    color: var(--color-gold);
+    margin-right: 8px;
+}
+
+.tf-pricing-table {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.tf-pricing-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+}
+
+.tf-pricing-table thead th {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.04));
+    color: var(--color-gold);
+    font-weight: 600;
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+}
+
+.tf-pricing-table tbody td {
+    padding: 12px 16px;
+    text-align: center;
+    color: var(--color-text);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background var(--dur) var(--ease);
+}
+
+.tf-pricing-table tbody tr {
+    cursor: default;
+}
+
+.tf-pricing-table tbody tr:hover td {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.tf-pricing-table tbody td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.tf-pricing-table .tf-price-cell {
+    font-weight: 600;
+    color: var(--color-gold);
+    white-space: nowrap;
+}
+
+.tf-price-cell-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.tf-btn-table-book {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tf-btn-table-book:hover {
+    background: var(--color-gold);
+    color: #0c0805;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ── CTA Booking Block / Transfer Booking CTA (equivalent to .jeep-booking-cta) ── */
+.transfer-booking-cta,
+.jeep-booking-cta--transfer,
+.tf-cta {
+    max-width: 640px;
+    margin: 48px auto 0;
+    padding: 0 16px;
+    scroll-margin-top: 90px;
+}
+
+.transfer-booking-cta-inner,
+.transfer-booking-cta .tf-cta-inner,
+.transfer-booking-cta .jbc-inner,
+.tf-cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(56, 32, 16, 0.85), rgba(26, 15, 10, 0.95));
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 20px;
+    padding: 40px 36px 36px;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.35),
+        0 0 60px rgba(212, 175, 55, 0.08) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.transfer-booking-cta-inner::before,
+.transfer-booking-cta .tf-cta-inner::before,
+.transfer-booking-cta .jbc-inner::before,
+.tf-cta-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-light), var(--color-gold), var(--color-gold-light), transparent);
+}
+
+.transfer-booking-cta .tf-cta-icon,
+.tf-cta-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(200, 75, 17, 0.15));
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+}
+
+.transfer-booking-cta .tf-cta-icon i,
+.tf-cta-icon i {
+    font-size: 26px;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.transfer-booking-cta .tf-cta-title,
+.tf-cta-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.transfer-booking-cta .tf-cta-desc,
+.tf-cta-desc {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+/* ── Selector Groups ─────────────────────────────────────── */
+.tf-selector-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.tf-selector-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+
+.tf-selector-label i {
+    color: var(--color-gold);
+    margin-right: 4px;
+    width: 16px;
+    text-align: center;
+}
+
+.tf-req {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+/* ── Form Inputs ─────────────────────────────────────────── */
+.tf-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    box-sizing: border-box;
+}
+
+.tf-input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.tf-input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.65;
+}
+
+.tf-input.tf-input-error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.tf-textarea {
+    resize: vertical;
+    min-height: 68px;
+}
+
+.tf-input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+.tf-form-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 28px 0 20px;
+    color: var(--color-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.tf-form-divider::before,
+.tf-form-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.tf-form-divider span {
+    padding: 0 14px;
+}
+
+/* ── Custom Route Dropdown ───────────────────────────────── */
+.tf-custom-select {
+    position: relative;
+}
+
+.tf-custom-select-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease);
+}
+
+.tf-custom-select-trigger:hover,
+.tf-custom-select-trigger:focus {
+    border-color: var(--color-border-hover);
+    outline: none;
+}
+
+.tf-custom-select-arrow {
+    font-size: 0.7rem;
+    color: var(--color-gold);
+    transition: transform 0.25s ease;
+}
+
+.tf-custom-select.tf-open .tf-custom-select-arrow {
+    transform: rotate(180deg);
+}
+
+.tf-custom-select-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border-hover);
+    border-radius: 10px;
+    list-style: none;
+    padding: 6px 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    z-index: 50;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tf-custom-select.tf-open .tf-custom-select-list {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.tf-custom-select-list li {
+    padding: 10px 16px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.tf-custom-select-list li:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.tf-custom-select-list li.tf-route-active {
+    color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.08);
+}
+
+/* ── Vehicle Radio Options ───────────────────────────────── */
+.tf-vehicle-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tf-vehicle-option {
+    flex: 1 1 calc(50% - 6px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.tf-vehicle-option:hover {
+    border-color: var(--color-border-hover);
+}
+
+.tf-vehicle-option.tf-vopt-active {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.06);
+}
+
+.tf-vehicle-option .tf-vopt-radio {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color var(--dur) var(--ease);
+}
+
+.tf-vehicle-option.tf-vopt-active .tf-vopt-radio {
+    border-color: var(--color-gold);
+}
+
+.tf-vehicle-option.tf-vopt-active .tf-vopt-radio::after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-gold);
+}
+
+.tf-vopt-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tf-vopt-name {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.tf-vopt-sub {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+}
+
+/* ── Price Display ───────────────────────────────────────── */
+.tf-price-display {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.03));
+    border: 1px solid var(--color-border-hover);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    text-align: center;
+}
+
+.tf-price-route {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 6px;
+}
+
+.tf-price-amount {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Transfer Booking Actions ────────────────────────────── */
+.tf-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tf-zalo-btn {
+    width: 100%;
+    padding: 15px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background: #0068ff;
+    color: #fff !important;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.tf-zalo-btn:hover {
+    background: #0055d4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 104, 255, 0.35);
+}
+
+/* ── Form Pulse Glow on Scroll ───────────────────────────── */
+@keyframes tfPulseGlow {
+    0%   { box-shadow: 0 0 0 rgba(212, 175, 55, 0); border-color: var(--color-border); }
+    50%  { box-shadow: 0 0 40px rgba(212, 175, 55, 0.55); border-color: var(--color-gold); }
+    100% { box-shadow: 0 0 0 rgba(212, 175, 55, 0); border-color: var(--color-border); }
+}
+
+.tf-form-pulse {
+    animation: tfPulseGlow 1.4s ease;
+}
+
+/* ── Transfer Responsive ─────────────────────────────────── */
+@media (max-width: 1024px) {
+    .tf-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .tf-highlights {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .tf-highlight-item {
+        padding: 24px 20px;
+    }
+
+
+    .tf-pricing-table {
+        font-size: 0.8rem;
+    }
+
+    .tf-pricing-table thead th,
+    .tf-pricing-table tbody td {
+        padding: 10px 10px;
+    }
+}
+
+/* ── Book Button ─────────────────────────────────────────── */
+.tf-book-btn {
+    width: 100%;
+    padding: 16px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+.tf-book-btn i {
+    margin-right: 8px;
+}
+
+.tf-vehicle-spec {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tf-vehicle-spec i {
+    font-size: 0.68rem;
+    color: var(--color-gold);
+}
+
 /* ── Addon sub-counter (sand dune vehicles) ── */
 .bf-addon-sub {
     margin-top: 12px;
@@ -4699,6 +5487,18 @@ button {
 .bf-custom-select-list li.is-active {
     background: rgba(212, 175, 55, 0.18);
     color: var(--color-gold);
+}
+
+.bf-custom-select-list li.is-disabled {
+    opacity: 0.35 !important;
+    cursor: not-allowed !important;
+    color: var(--color-text-muted) !important;
+    background: transparent !important;
+}
+
+.bf-custom-select-list li.is-disabled:hover {
+    background: transparent !important;
+    color: var(--color-text-muted) !important;
 }
 
 /* Guest counter */
@@ -5203,4 +6003,124 @@ button {
         height: 40px;
         font-size: 0.8rem;
     }
+}
+
+/* ============================================================
+   TRANSFER BOOKING – Pickup / Dropoff Row
+   ============================================================ */
+.bf-pickup-dropoff-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select {
+    flex: 1;
+    min-width: 0;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-trigger {
+    position: relative;
+    padding-left: 36px;
+    padding-right: 28px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+}
+
+.bf-pickup-dropoff-row .bf-pd-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bf-pickup-dropoff-row .bf-pd-icon--pickup {
+    color: #4CAF50;
+}
+
+.bf-pickup-dropoff-row .bf-pd-icon--dropoff {
+    color: #FF5722;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-val.is-placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.25s ease;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select.open .bf-custom-select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.bf-custom-select-trigger.bf-error {
+    border-color: #e74c3c !important;
+    background: rgba(231, 76, 60, 0.05) !important;
+}
+
+.bf-pd-swap {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bf-pd-swap:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--color-gold);
+    transform: rotate(180deg);
+}
+
+.bf-pd-swap:active {
+    transform: rotate(180deg) scale(0.92);
+}
+
+@media (max-width: 420px) {
+    .bf-pickup-dropoff-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .bf-pickup-dropoff-row .bf-custom-select {
+        width: 100%;
+    }
+
+    .bf-pd-swap {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+
+    .bf-pd-swap:hover {
+        transform: rotate(270deg);
+    }
+}
+
+/* ============================================================
+   CLOCK PICKER – Container & layout
+   ============================================================ */
+.bf-clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 16px 14px;
 }
