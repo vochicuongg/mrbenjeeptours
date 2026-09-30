@@ -240,7 +240,7 @@
       "@id": "https://mrbenjeeptours.com/#transfer-service",
       "name": "Mr. Ben – Xe Riêng Đưa Đón Sân Bay & Liên Tỉnh",
       "alternateName": ["Mr. Ben Private Car Transfer", "Xe Riêng Mr. Ben Mũi Né"],
-      "description": "Dịch vụ xe riêng đưa đón sân bay và liên tỉnh: Mũi Né – TP.HCM (Tân Sơn Nhất), Mũi Né – Nha Trang, Nha Trang – TP.HCM. Xe 7 chỗ xăng & điện, tài xế chuyên nghiệp, đón tận nơi.",
+      "description": "Dịch vụ xe riêng đưa đón sân bay và liên tỉnh: Mũi Né – TP.HCM (Tân Sơn Nhất), Mũi Né – Nha Trang, Nha Trang – TP.HCM. Xe 7 chỗ (xăng & điện) và xe 16 chỗ, tài xế chuyên nghiệp, đón tận nơi.",
       "url": "https://mrbenjeeptours.com/#transfer",
       "provider": {
         "@type": "TravelAgency",
@@ -275,6 +275,14 @@
             "@type": "Offer",
             "name": "Nha Trang ⇄ TP.HCM (Sân bay Tân Sơn Nhất) – Xe 7 chỗ",
             "price": "3500000",
+            "priceCurrency": "VND",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-12-31"
+          },
+          {
+            "@type": "Offer",
+            "name": "Nha Trang ⇄ TP.HCM (Sân bay Tân Sơn Nhất) – Xe 16 chỗ",
+            "price": "5300000",
             "priceCurrency": "VND",
             "availability": "https://schema.org/InStock",
             "priceValidUntil": "2026-12-31"
@@ -947,33 +955,90 @@
                         <button class="tours-arrow tours-arrow-next tf-arrow-next" aria-label="Tiếp theo">
                             <i class="fas fa-chevron-right"></i>
                         </button>
-                        <div class="tours-grid" id="tfVehicles"></div>
+                        <div class="tours-grid" id="tfVehicles">
+                            <!-- Xe Xăng 7 Chỗ -->
+                            <div class="tour-card is-active" data-vehicle-id="gas7" style="cursor:pointer;">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-7c.webp" alt="Xe Xăng 7 Chỗ" loading="lazy" decoding="async" width="634" height="475">
+                                    <span class="tour-badge tf-badge-gas" data-i18n="transfer.badge.gas">Tiết Kiệm</span>
+                                </div>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats7">7 chỗ</span></span>
+                                        <span><i class="fas fa-gas-pump"></i> <span data-i18n="transfer.spec.gas">Xăng</span></span>
+                                        <span><i class="fas fa-suitcase"></i> <span data-i18n="transfer.spec.luggage">Hành lý</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="transfer.vehicle.gas7">Xe Xăng 7 Chỗ</h3>
+                                    <p class="tour-desc" data-i18n="transfer.vehicle.gas7Desc">Xe 7 chỗ xăng rộng rãi, phù hợp gia đình 4-6 người, hành lý lớn.</p>
+                                </div>
+                            </div>
+                            <!-- Xe Điện 7 Chỗ -->
+                            <div class="tour-card is-active" data-vehicle-id="ev7" style="cursor:pointer;">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-7c-dien.webp" alt="Xe Điện 7 Chỗ" loading="lazy" decoding="async" width="634" height="475">
+                                    <span class="tour-badge tf-badge-ev" data-i18n="transfer.badge.ev">Bảo Vệ Môi Trường</span>
+                                </div>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats7">7 chỗ</span></span>
+                                        <span><i class="fas fa-bolt"></i> <span data-i18n="transfer.spec.ev">Điện</span></span>
+                                        <span><i class="fas fa-suitcase"></i> <span data-i18n="transfer.spec.luggage">Hành lý</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="transfer.vehicle.ev7">Xe Điện 7 Chỗ</h3>
+                                    <p class="tour-desc" data-i18n="transfer.vehicle.ev7Desc">Xe điện 7 chỗ êm ái, bảo vệ môi trường, tiện nghi cao cấp.</p>
+                                </div>
+                            </div>
+                            <!-- Xe 16 Chỗ -->
+                            <div class="tour-card is-active" data-vehicle-id="gas16" style="cursor:pointer;">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-16c.webp" alt="Xe 16 Chỗ" loading="lazy" decoding="async" width="634" height="475">
+                                    <span class="tour-badge tf-badge-gas16" data-i18n="transfer.badge.gas16">Đoàn Lớn</span>
+                                </div>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats16">16 chỗ</span></span>
+                                        <span><i class="fas fa-gas-pump"></i> <span data-i18n="transfer.spec.gas">Xăng</span></span>
+                                        <span><i class="fas fa-suitcase"></i> <span data-i18n="transfer.spec.luggage">Hành lý</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="transfer.vehicle.gas16">Xe 16 Chỗ</h3>
+                                    <p class="tour-desc" data-i18n="transfer.vehicle.gas16Desc">Xe 16 chỗ rộng rãi, phù hợp cho đoàn đông, gia đình lớn hoặc nhóm bạn.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Dots indicator -->
                     <div class="tours-dots" id="tfDots" role="tablist" aria-label="Transfer vehicle navigation"></div>
 
                     <div class="tf-pricing">
-                        <h3 class="tf-pricing-title" data-i18n="transfer.pricingTitle"><i class="fas fa-tags"></i> Bảng Giá Niêm Yết</h3>
-                        <div class="tf-pricing-table" id="tfPricingTable"></div>
+                        <div class="tf-pricing-header-wrap">
+                            <h3 class="tf-pricing-title" data-i18n="transfer.pricingTitle"><i class="fas fa-tags"></i> Bảng Giá Niêm Yết</h3>
+                            <div class="tf-pricing-scroll-hint">
+                                <i class="fas fa-arrows-left-right"></i>
+                                <span data-i18n="transfer.scrollHint">Vuốt ngang để so sánh giá các loại xe</span>
+                            </div>
+                        </div>
+                        <div class="tf-pricing-table-container">
+                            <div class="tf-pricing-table" id="tfPricingTable"></div>
+                        </div>
+                        <div class="tf-pricing-footer">
+                            <div class="tf-pricing-tap-hint">
+                                <i class="fas fa-hand-pointer"></i>
+                                <span data-i18n="transfer.pricingTapHint">Nhấn 'Đặt xe' trên bảng giá để đặt nhanh</span>
+                            </div>
+                            <div class="tf-pricing-inclusions">
+                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span data-i18n="transfer.inc.allIn">Giá trọn gói niêm yết</span></div>
+                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span data-i18n="transfer.inc.toll">Bao gồm xăng & phí cao tốc</span></div>
+                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span data-i18n="transfer.inc.driver">Tài xế đón tận nơi</span></div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- ── Booking CTA (unified, same style as Jeep) ── -->
                     <div class="jeep-booking-cta" id="tfBookingCta">
                         <div class="jbc-inner">
                             <div class="jbc-icon"><i class="fas fa-car-side"></i></div>
-                            <h3 class="jbc-title" data-i18n="transfer.ctaTitle">Đặt Xe Đưa Đón 7 Chỗ</h3>
-                            <div class="jbc-prices">
-                                <div class="jbc-price-item">
-                                    <span class="jbc-price-label" data-i18n="transfer.vehicle.gas7">Xe Xăng 7 Chỗ</span>
-                                    <strong class="jbc-price-val">1.750.000₫</strong>
-                                </div>
-                                <div class="jbc-price-divider"></div>
-                                <div class="jbc-price-item">
-                                    <span class="jbc-price-label" data-i18n="transfer.vehicle.ev7">Xe Điện 7 Chỗ</span>
-                                    <strong class="jbc-price-val">1.750.000₫</strong>
-                                </div>
-                            </div>
+                            <h3 class="jbc-title" data-i18n="transfer.ctaTitle">Đặt Xe Đưa Đón</h3>
                             <p class="jbc-hint">
                                 <i class="fas fa-route"></i>
                                 <span data-i18n="transfer.ctaDesc">Giá tuỳ tuyến đường. Nhấn đặt xe để chọn tuyến, loại xe và điền thông tin.</span>
@@ -1328,6 +1393,43 @@
                         </div>
                     </div>
 
+                    <!-- Tour Type / Vehicle Type -->
+                    <div class="bf-group">
+                        <label class="bf-label" data-i18n="booking.labelTourType">Loại Tour</label>
+                        <div class="bf-toggle-row">
+                            <button class="bf-toggle" id="bfTypePrivate" data-type="private">
+                                <i class="fas fa-user-shield"></i> <span data-i18n="booking.typePrivate">Tour Riêng
+                                    Tư</span>
+                            </button>
+                            <button class="bf-toggle" id="bfTypeGroup" data-type="group">
+                                <i class="fas fa-users"></i> <span data-i18n="booking.typeGroup">Tour Ghép</span>
+                            </button>
+                            <button class="bf-toggle bf-transfer-only" id="bfType16" data-type="gas16" style="display:none;">
+                                <i class="fas fa-shuttle-van"></i> <span data-i18n="transfer.vehicle16">Xe 16 Chỗ</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Quantity -->
+                    <div class="bf-group" id="bfVehicleGroup" style="display:none;">
+                        <label class="bf-label" data-i18n="booking.labelVehicles">Số Lượng Xe</label>
+                        <div class="bf-counter-row">
+                            <button class="bf-counter-btn" id="bfVehicleMinus" aria-label="Giảm số xe">−</button>
+                            <span class="bf-counter-val" id="bfVehicleVal">1</span>
+                            <button class="bf-counter-btn" id="bfVehiclePlus" aria-label="Tăng số xe">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Guests (group only) -->
+                    <div class="bf-group" id="bfGuestGroup" style="display:none;">
+                        <label class="bf-label" data-i18n="booking.labelGuests">Số Người</label>
+                        <div class="bf-counter-row">
+                            <button class="bf-counter-btn" id="bfMinus" aria-label="Giảm số người">−</button>
+                            <span class="bf-counter-val" id="bfGuestVal">1</span>
+                            <button class="bf-counter-btn" id="bfPlus" aria-label="Tăng số người">+</button>
+                        </div>
+                    </div>
+
                     <!-- Transfer: Pickup / Dropoff (hidden by default, shown in transfer mode) -->
                     <div class="bf-group bf-transfer-only" id="bfTransferRouteGroup" style="display:none;">
                         <label class="bf-label"><span data-i18n="transfer.labelPickup">Điểm đón</span> &amp; <span data-i18n="transfer.labelDropoff">Điểm trả</span> <span class="bf-req">*</span></label>
@@ -1342,6 +1444,7 @@
                                     <li data-val="muine" data-i18n="transfer.city.muine">Mũi Né</li>
                                     <li data-val="sgn" data-i18n="transfer.city.sgn">Sân bay Tân Sơn Nhất (SGN)</li>
                                     <li data-val="nhatrang" data-i18n="transfer.city.nhatrang">Nha Trang</li>
+                                    <li data-val="phanrang" data-i18n="transfer.city.phanrang">Biển Phan Rang</li>
                                 </ul>
                                 <input type="hidden" id="bfTfPickup" name="pickup" value="" />
                             </div>
@@ -1360,9 +1463,24 @@
                                     <li data-val="muine" data-i18n="transfer.city.muine">Mũi Né</li>
                                     <li data-val="sgn" data-i18n="transfer.city.sgn">Sân bay Tân Sơn Nhất (SGN)</li>
                                     <li data-val="nhatrang" data-i18n="transfer.city.nhatrang">Nha Trang</li>
+                                    <li data-val="phanrang" data-i18n="transfer.city.phanrang">Biển Phan Rang</li>
+                                    <li data-val="tacu" data-i18n="transfer.city.tacu">Tà Cú</li>
+                                    <li data-val="kega" data-i18n="transfer.city.kega">Kê Gà</li>
+                                    <li data-val="cothach" data-i18n="transfer.city.cothach">Chùa Cổ Thạch</li>
                                 </ul>
                                 <input type="hidden" id="bfTfDropoff" name="dropoff" value="" />
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Transfer Itinerary (shown when route is selected, transfer-only) -->
+                    <div class="bf-group bf-transfer-only" id="bfTransferItineraryGroup" style="display:none;">
+                        <label class="bf-label">
+                            <i class="fas fa-route"></i>
+                            <span data-i18n="transfer.itineraryLabel">Lộ trình chi tiết</span>
+                        </label>
+                        <div class="bf-transfer-itinerary" id="bfTransferItinerary">
+                            <!-- Populated dynamically by JS -->
                         </div>
                     </div>
 
@@ -1401,41 +1519,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="bf-group">
-                        <label class="bf-label" data-i18n="booking.labelTourType">Loại Tour</label>
-                        <div class="bf-toggle-row">
-                            <button class="bf-toggle" id="bfTypePrivate" data-type="private">
-                                <i class="fas fa-user-shield"></i> <span data-i18n="booking.typePrivate">Tour Riêng
-                                    Tư</span>
-                            </button>
-                            <button class="bf-toggle" id="bfTypeGroup" data-type="group">
-                                <i class="fas fa-users"></i> <span data-i18n="booking.typeGroup">Tour Ghép</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Vehicle Quantity -->
-                    <div class="bf-group" id="bfVehicleGroup" style="display:none;">
-                        <label class="bf-label" data-i18n="booking.labelVehicles">Số Lượng Xe</label>
-                        <div class="bf-counter-row">
-                            <button class="bf-counter-btn" id="bfVehicleMinus" aria-label="Giảm số xe">−</button>
-                            <span class="bf-counter-val" id="bfVehicleVal">1</span>
-                            <button class="bf-counter-btn" id="bfVehiclePlus" aria-label="Tăng số xe">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Guests (group only) -->
-                    <div class="bf-group" id="bfGuestGroup" style="display:none;">
-                        <label class="bf-label" data-i18n="booking.labelGuests">Số Người</label>
-                        <div class="bf-counter-row">
-                            <button class="bf-counter-btn" id="bfMinus" aria-label="Giảm số người">−</button>
-                            <span class="bf-counter-val" id="bfGuestVal">1</span>
-                            <button class="bf-counter-btn" id="bfPlus" aria-label="Tăng số người">+</button>
-                        </div>
-                    </div>
-
 
                     <!-- Optional addon: Sand dune -->
                     <div class="bf-group">
@@ -1533,9 +1616,6 @@
                                             <!-- Numbers will be rendered by JS -->
                                         </svg>
                                     </div>
-                                    <button class="bf-tp-confirm" id="bfClockConfirm" type="button" data-i18n="booking.clockConfirm">
-                                        <i class="fas fa-check"></i> Xác nhận
-                                    </button>
                                 </div>
                             </div>
                         </div>

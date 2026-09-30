@@ -227,10 +227,14 @@
       'transfer.vehicle.gas7Desc': 'Xe 7 chỗ xăng rộng rãi, phù hợp gia đình 4-6 người, hành lý lớn.',
       'transfer.vehicle.ev7': 'Xe Điện 7 Chỗ',
       'transfer.vehicle.ev7Desc': 'Xe điện êm ái, tiết kiệm, thân thiện môi trường. Trải nghiệm cao cấp.',
+      'transfer.vehicle.gas16': 'Xe 16 Chỗ',
+      'transfer.vehicle.gas16Desc': 'Xe 16 chỗ rộng rãi, phù hợp cho đoàn đông, gia đình lớn hoặc nhóm bạn.',
       'transfer.badge.gas': 'Phổ Biến',
       'transfer.badge.ev': 'Eco Friendly',
+      'transfer.badge.gas16': 'Đoàn Lớn',
       'transfer.card.private': 'Xe Riêng',
       'transfer.spec.seats7': '7 chỗ',
+      'transfer.spec.seats16': '16 chỗ',
       'transfer.spec.gas': 'Động cơ xăng',
       'transfer.spec.ev': 'Động cơ điện',
       'transfer.spec.luggage': 'Hành lý lớn',
@@ -238,13 +242,30 @@
       'transfer.city.muine': 'Mũi Né',
       'transfer.city.sgn': 'Sân bay Tân Sơn Nhất (SGN)',
       'transfer.city.nhatrang': 'Nha Trang',
+      'transfer.city.phanrang': 'Biển Phan Rang',
+      'transfer.city.tacu': 'Tà Cú',
+      'transfer.city.kega': 'Kê Gà',
+      'transfer.city.cothach': 'Chùa Cổ Thạch',
       'transfer.route.muineHcm': 'Mũi Né ⇄ Sân bay Tân Sơn Nhất (SGN)',
       'transfer.route.muineNt': 'Mũi Né ⇄ Nha Trang',
       'transfer.route.ntHcm': 'Nha Trang ⇄ Sân bay Tân Sơn Nhất (SGN)',
+      'transfer.route.muinePhanrang': 'Mũi Né ⇄ Biển Phan Rang',
+      'transfer.route.muineTacu': 'Mũi Né → Tà Cú',
+      'transfer.route.muineKega': 'Mũi Né → Kê Gà',
+      'transfer.route.muineCothach': 'Mũi Né → Chùa Cổ Thạch',
+      'transfer.itineraryLabel': 'Lộ trình chi tiết',
+      'transfer.itineraryNote': 'Khứ hồi trong ngày',
+      'transfer.swapBlocked': 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.',
       'transfer.pricingTitle': 'Bảng Giá Niêm Yết',
-      'transfer.ctaTitle': 'Đặt Xe Đưa Đón 7 Chỗ',
+      'transfer.scrollHint': 'Vuốt ngang để so sánh giá các loại xe',
+      'transfer.pricingTapHint': "Nhấn 'Đặt xe' trên bảng giá để đặt nhanh",
+      'transfer.miniBook': 'Đặt xe',
+      'transfer.inc.allIn': 'Giá trọn gói niêm yết',
+      'transfer.inc.toll': 'Bao gồm xăng & phí cao tốc',
+      'transfer.inc.driver': 'Tài xế đón tận nơi',
+      'transfer.ctaTitle': 'Đặt Xe Đưa Đón Mr. Ben',
       'transfer.bookingTitle': 'Đặt Xe Đưa Đón',
-      'transfer.bookingTourName': 'Xe 7 chỗ',
+      'transfer.bookingTourName': 'Xe Đưa Đón với Mr. Ben',
       'transfer.ctaDesc': 'Chọn tuyến đường, loại xe và điền thông tin để đặt xe nhanh chóng.',
       'transfer.bookVehicle': 'Đặt Xe Ngay',
       'transfer.bookRoute': 'Đặt Tuyến Này',
@@ -281,6 +302,7 @@
       'transfer.labelVehicleType': 'Loại Xe',
       'transfer.vehicleGas': 'Xe Xăng',
       'transfer.vehicleEv': 'Xe Điện',
+      'transfer.vehicle16': 'Xe 16 Chỗ',
       'transfer.phNotesTransfer': 'Yêu cầu khác của khách hàng',
       'booking.clockSelectHour': 'CHỌN GIỜ',
       'booking.clockSelectMin': 'CHỌN PHÚT',
@@ -490,10 +512,14 @@
       'transfer.vehicle.gas7Desc': 'Spacious 7-seat gasoline car, ideal for families of 4-6 with large luggage.',
       'transfer.vehicle.ev7': '7-Seat Electric Car',
       'transfer.vehicle.ev7Desc': 'Smooth, eco-friendly electric car. Premium travel experience.',
+      'transfer.vehicle.gas16': '16-Seat Car',
+      'transfer.vehicle.gas16Desc': 'Spacious 16-seat vehicle, ideal for large groups and families.',
       'transfer.badge.gas': 'Popular',
       'transfer.badge.ev': 'Eco Friendly',
+      'transfer.badge.gas16': 'Large Group',
       'transfer.card.private': 'Private Car',
       'transfer.spec.seats7': '7 seats',
+      'transfer.spec.seats16': '16 seats',
       'transfer.spec.gas': 'Gasoline engine',
       'transfer.spec.ev': 'Electric motor',
       'transfer.spec.luggage': 'Large luggage',
@@ -501,13 +527,30 @@
       'transfer.city.muine': 'Mui Ne',
       'transfer.city.sgn': 'Tan Son Nhat Airport (SGN)',
       'transfer.city.nhatrang': 'Nha Trang',
-      'transfer.route.muineHcm': 'Mui Ne ⇄→ Tan Son Nhat Airport (SGN)',
+      'transfer.city.phanrang': 'Phan Rang Beach',
+      'transfer.city.tacu': 'Ta Cu',
+      'transfer.city.kega': 'Ke Ga',
+      'transfer.city.cothach': 'Co Thach Pagoda',
+      'transfer.route.muineHcm': 'Mui Ne ⇄ Tan Son Nhat Airport (SGN)',
       'transfer.route.muineNt': 'Mui Ne ⇄ Nha Trang',
       'transfer.route.ntHcm': 'Nha Trang ⇄ Tan Son Nhat Airport (SGN)',
+      'transfer.route.muinePhanrang': 'Mui Ne ⇄ Phan Rang Beach',
+      'transfer.route.muineTacu': 'Mui Ne → Ta Cu',
+      'transfer.route.muineKega': 'Mui Ne → Ke Ga',
+      'transfer.route.muineCothach': 'Mui Ne → Co Thach Pagoda',
+      'transfer.itineraryLabel': 'Detailed Itinerary',
+      'transfer.itineraryNote': 'Round trip',
+      'transfer.swapBlocked': 'This location is drop-off only and cannot be selected as pickup.',
       'transfer.pricingTitle': 'Price List',
-      'transfer.ctaTitle': '7-Seater Private Transfer Booking',
+      'transfer.scrollHint': 'Swipe horizontally to compare vehicle prices',
+      'transfer.pricingTapHint': "Tap 'Book' on the price list to book quickly",
+      'transfer.miniBook': 'Book',
+      'transfer.inc.allIn': 'All-inclusive fixed price',
+      'transfer.inc.toll': 'Includes fuel & highway tolls',
+      'transfer.inc.driver': 'Door-to-door professional driver',
+      'transfer.ctaTitle': 'Private Transfer Booking Mr. Ben',
       'transfer.bookingTitle': 'Book Private Transfer',
-      'transfer.bookingTourName': '7-Seater Car',
+      'transfer.bookingTourName': 'Private Transfer with Mr. Ben',
       'transfer.ctaDesc': 'Choose route, vehicle type and enter details to book quickly.',
       'transfer.bookVehicle': 'Book Vehicle Now',
       'transfer.bookRoute': 'Book This Route',
@@ -544,6 +587,7 @@
       'transfer.labelVehicleType': 'Vehicle Type',
       'transfer.vehicleGas': 'Gasoline',
       'transfer.vehicleEv': 'Electric',
+      'transfer.vehicle16': '16-Seat',
       'transfer.phNotesTransfer': 'Other requests from the customer',
       'booking.clockSelectHour': 'SELECT HOUR',
       'booking.clockSelectMin': 'SELECT MINUTE',
@@ -752,10 +796,14 @@
       'transfer.vehicle.gas7Desc': 'Просторный 7-местный авто, идеален для семьи 4-6 человек с большим багажом.',
       'transfer.vehicle.ev7': '7-местный Электрический',
       'transfer.vehicle.ev7Desc': 'Тихий, экологичный электромобиль. Премиальный комфорт.',
+      'transfer.vehicle.gas16': '16-местный Автомобиль',
+      'transfer.vehicle.gas16Desc': 'Просторный 16-местный авто, идеален для больших групп и семей.',
       'transfer.badge.gas': 'Популярный',
       'transfer.badge.ev': 'Эко-авто',
+      'transfer.badge.gas16': 'Большая группа',
       'transfer.card.private': 'Индивидуально',
       'transfer.spec.seats7': '7 мест',
+      'transfer.spec.seats16': '16 мест',
       'transfer.spec.gas': 'Бензиновый двигатель',
       'transfer.spec.ev': 'Электродвигатель',
       'transfer.spec.luggage': 'Большой багаж',
@@ -763,13 +811,30 @@
       'transfer.city.muine': 'Муйне',
       'transfer.city.sgn': 'Аэропорт Таншоннят (SGN)',
       'transfer.city.nhatrang': 'Нячанг',
+      'transfer.city.phanrang': 'Пляж Фанранг',
+      'transfer.city.tacu': 'Та Ку',
+      'transfer.city.kega': 'Ке Га',
+      'transfer.city.cothach': 'Пагода Ко Тхать',
       'transfer.route.muineHcm': 'Муйне ⇄ Аэропорт Таншоннят (SGN)',
       'transfer.route.muineNt': 'Муйне ⇄ Нячанг',
       'transfer.route.ntHcm': 'Нячанг ⇄ Аэропорт Таншоннят (SGN)',
+      'transfer.route.muinePhanrang': 'Муйне ⇄ Пляж Фанранг',
+      'transfer.route.muineTacu': 'Муйне → Та Ку',
+      'transfer.route.muineKega': 'Муйне → Ке Га',
+      'transfer.route.muineCothach': 'Муйне → Пагода Ко Тхать',
+      'transfer.itineraryLabel': 'Подробный маршрут',
+      'transfer.itineraryNote': 'туда и обратно',
+      'transfer.swapBlocked': 'Эта точка только для высадки, её нельзя выбрать как место посадки.',
       'transfer.pricingTitle': 'Прайс-лист',
-      'transfer.ctaTitle': 'Бронирование 7-местного трансфера',
+      'transfer.scrollHint': 'Проведите пальцем для сравнения цен',
+      'transfer.pricingTapHint': "Нажмите 'Заказ' в таблице для быстрого заказа",
+      'transfer.miniBook': 'Заказ',
+      'transfer.inc.allIn': 'Фиксированная цена всё включено',
+      'transfer.inc.toll': 'Включая топливо и платные дороги',
+      'transfer.inc.driver': 'Водитель от двери до двери',
+      'transfer.ctaTitle': 'Бронирование трансфера Mr. Ben',
       'transfer.bookingTitle': 'Бронирование трансфера',
-      'transfer.bookingTourName': '7-местный авто',
+      'transfer.bookingTourName': 'Трансфер с Mr. Ben',
       'transfer.ctaDesc': 'Выберите маршрут, тип авто и заполните данные для быстрого заказа.',
       'transfer.bookVehicle': 'Забронировать авто',
       'transfer.bookRoute': 'Выбрать этот маршрут',
@@ -806,6 +871,7 @@
       'transfer.labelVehicleType': 'Тип авто',
       'transfer.vehicleGas': 'Бензин',
       'transfer.vehicleEv': 'Электро',
+      'transfer.vehicle16': '16-мест',
       'transfer.phNotesTransfer': 'Другие пожелания клиента',
       'booking.clockSelectHour': 'ВЫБЕРИТЕ ЧАС',
       'booking.clockSelectMin': 'ВЫБЕРИТЕ МИНУТУ',
@@ -1014,10 +1080,14 @@
       'transfer.vehicle.gas7Desc': '宽敞的7座汽油车，适合4-6人家庭，可放大件行李。',
       'transfer.vehicle.ev7': '7座电动车',
       'transfer.vehicle.ev7Desc': '安静、环保的电动汽车，高端出行体验。',
+      'transfer.vehicle.gas16': '16座车',
+      'transfer.vehicle.gas16Desc': '宽敞的16座车，适合大型团队和家庭出行。',
       'transfer.badge.gas': '热门推荐',
       'transfer.badge.ev': '环保电车',
+      'transfer.badge.gas16': '大团体',
       'transfer.card.private': '包车',
       'transfer.spec.seats7': '7座',
+      'transfer.spec.seats16': '16座',
       'transfer.spec.gas': '汽油发动机',
       'transfer.spec.ev': '电动马达',
       'transfer.spec.luggage': '大件行李',
@@ -1025,13 +1095,30 @@
       'transfer.city.muine': '美奈',
       'transfer.city.sgn': '新山一机场 (SGN)',
       'transfer.city.nhatrang': '芽庄',
+      'transfer.city.phanrang': '潘朗海滩',
+      'transfer.city.tacu': '达固',
+      'transfer.city.kega': '科加',
+      'transfer.city.cothach': '古石寺',
       'transfer.route.muineHcm': '美奈 ⇄ 新山一机场 (SGN)',
       'transfer.route.muineNt': '美奈 ⇄ 芽庄',
       'transfer.route.ntHcm': '芽庄 ⇄ 新山一机场 (SGN)',
+      'transfer.route.muinePhanrang': '美奈 ⇄ 潘朗海滩',
+      'transfer.route.muineTacu': '美奈 → 达固',
+      'transfer.route.muineKega': '美奈 → 科加',
+      'transfer.route.muineCothach': '美奈 → 古石寺',
+      'transfer.itineraryLabel': '详细行程',
+      'transfer.itineraryNote': '往返',
+      'transfer.swapBlocked': '此地点仅为下车点，无法选择为上车点。',
       'transfer.pricingTitle': '价格表',
-      'transfer.ctaTitle': '7座专车接送预订表单',
+      'transfer.scrollHint': '左右滑动对比各车型价格',
+      'transfer.pricingTapHint': "点击价格表中的'预订'即可快速订车",
+      'transfer.miniBook': '预订',
+      'transfer.inc.allIn': '全包一口价',
+      'transfer.inc.toll': '包含燃油及高速过路费',
+      'transfer.inc.driver': '专业司机上门接送',
+      'transfer.ctaTitle': '专车接送预订 Mr. Ben',
       'transfer.bookingTitle': '专车接送预订',
-      'transfer.bookingTourName': '7座车',
+      'transfer.bookingTourName': '专车接送服务',
       'transfer.ctaDesc': '选择路线、车型并填写信息，轻松快速预订。',
       'transfer.bookVehicle': '立即订车',
       'transfer.bookRoute': '预订此路线',
@@ -1068,6 +1155,7 @@
       'transfer.labelVehicleType': '车辆类型',
       'transfer.vehicleGas': '汽油车',
       'transfer.vehicleEv': '电动车',
+      'transfer.vehicle16': '16座',
       'transfer.phNotesTransfer': '客户的其他要求',
       'booking.clockSelectHour': '选择小时',
       'booking.clockSelectMin': '选择分钟',
@@ -1276,10 +1364,14 @@
       'transfer.vehicle.gas7Desc': '넓은 7인승 가솔린 차량, 4-6인 가족과 대형 짐에 적합.',
       'transfer.vehicle.ev7': '7인승 전기 차량',
       'transfer.vehicle.ev7Desc': '조용하고 친환경 전기차. 프리미엄 여행 경험.',
+      'transfer.vehicle.gas16': '16인승 차량',
+      'transfer.vehicle.gas16Desc': '넓은 16인승 차량, 대규모 그룹과 가족 여행에 적합.',
       'transfer.badge.gas': '인기 차종',
       'transfer.badge.ev': '친환경 전기차',
+      'transfer.badge.gas16': '대형 그룹',
       'transfer.card.private': '단독 차량',
       'transfer.spec.seats7': '7인승',
+      'transfer.spec.seats16': '16인승',
       'transfer.spec.gas': '가솔린 엔진',
       'transfer.spec.ev': '전기 모터',
       'transfer.spec.luggage': '대형 짐',
@@ -1287,13 +1379,30 @@
       'transfer.city.muine': '무이네',
       'transfer.city.sgn': '탄손누트 공항 (SGN)',
       'transfer.city.nhatrang': '나트랑',
+      'transfer.city.phanrang': '판랑 해변',
+      'transfer.city.tacu': '따꾸',
+      'transfer.city.kega': '께가',
+      'transfer.city.cothach': '꼬탁 사원',
       'transfer.route.muineHcm': '무이네 ⇄ 탄손누트 공항 (SGN)',
       'transfer.route.muineNt': '무이네 ⇄ 나트랑',
       'transfer.route.ntHcm': '나트랑 ⇄ 탄손누트 공항 (SGN)',
+      'transfer.route.muinePhanrang': '무이네 ⇄ 판랑 해변',
+      'transfer.route.muineTacu': '무이네 → 따꾸',
+      'transfer.route.muineKega': '무이네 → 께가',
+      'transfer.route.muineCothach': '무이네 → 꼬탁 사원',
+      'transfer.itineraryLabel': '상세 일정',
+      'transfer.itineraryNote': '왕복',
+      'transfer.swapBlocked': '이 위치는 하차 전용이며 탑승 장소로 선택할 수 없습니다.',
       'transfer.pricingTitle': '가격표',
-      'transfer.ctaTitle': '7인승 프라이빗 픽업 예약 양식',
+      'transfer.scrollHint': '좌우로 스크롤하여 차종별 요금 비교',
+      'transfer.pricingTapHint': "요금표의 '예약'을 눌러 빠르게 예약하세요",
+      'transfer.miniBook': '예약',
+      'transfer.inc.allIn': '모든 비용 포함 정찰가',
+      'transfer.inc.toll': '유류비 및 고속도로 통행료 포함',
+      'transfer.inc.driver': '전문 기사 도어투도어 픽업',
+      'transfer.ctaTitle': '프라이빗 픽업 예약 Mr. Ben',
       'transfer.bookingTitle': '픽업 차량 예약',
-      'transfer.bookingTourName': '7인승 차량',
+      'transfer.bookingTourName': '픽업 차량 서비스',
       'transfer.ctaDesc': '노선과 차량을 선택하고 정보를 입력하여 간편하게 예약하세요.',
       'transfer.bookVehicle': '지금 차량 예약',
       'transfer.bookRoute': '이 노선 예약',
@@ -1330,6 +1439,7 @@
       'transfer.labelVehicleType': '차량 유형',
       'transfer.vehicleGas': '가솔린',
       'transfer.vehicleEv': '전기차',
+      'transfer.vehicle16': '16인승',
       'transfer.phNotesTransfer': '고객의 기타 요청 사항',
       'booking.clockSelectHour': '시간 선택',
       'booking.clockSelectMin': '분 선택',
@@ -1538,10 +1648,14 @@
       'transfer.vehicle.gas7Desc': 'Geräumiger 7-Sitzer, ideal für Familien mit 4-6 Personen und großem Gepäck.',
       'transfer.vehicle.ev7': '7-Sitzer Elektro',
       'transfer.vehicle.ev7Desc': 'Leises, umweltfreundliches Elektrofahrzeug. Premium-Reiseerlebnis.',
+      'transfer.vehicle.gas16': '16-Sitzer',
+      'transfer.vehicle.gas16Desc': 'Geräumiger 16-Sitzer, ideal für große Gruppen und Familien.',
       'transfer.badge.gas': 'Beliebt',
       'transfer.badge.ev': 'Umweltfreundlich',
+      'transfer.badge.gas16': 'Große Gruppe',
       'transfer.card.private': 'Privatwagen',
       'transfer.spec.seats7': '7 Sitze',
+      'transfer.spec.seats16': '16 Sitze',
       'transfer.spec.gas': 'Benzinmotor',
       'transfer.spec.ev': 'Elektromotor',
       'transfer.spec.luggage': 'Großes Gepäck',
@@ -1549,13 +1663,30 @@
       'transfer.city.muine': 'Mũi Né',
       'transfer.city.sgn': 'Flughafen Tan Son Nhat (SGN)',
       'transfer.city.nhatrang': 'Nha Trang',
+      'transfer.city.phanrang': 'Phan Rang Strand',
+      'transfer.city.tacu': 'Ta Cu',
+      'transfer.city.kega': 'Ke Ga',
+      'transfer.city.cothach': 'Co Thach Pagode',
       'transfer.route.muineHcm': 'Mũi Né ⇄ Flughafen Tan Son Nhat (SGN)',
       'transfer.route.muineNt': 'Mũi Né ⇄ Nha Trang',
       'transfer.route.ntHcm': 'Nha Trang ⇄ Flughafen Tan Son Nhat (SGN)',
+      'transfer.route.muinePhanrang': 'Mũi Né ⇄ Phan Rang Strand',
+      'transfer.route.muineTacu': 'Mũi Né → Ta Cu',
+      'transfer.route.muineKega': 'Mũi Né → Ke Ga',
+      'transfer.route.muineCothach': 'Mũi Né → Co Thach Pagode',
+      'transfer.itineraryLabel': 'Detaillierte Route',
+      'transfer.itineraryNote': 'Hin- und Rückfahrt',
+      'transfer.swapBlocked': 'Dieser Ort ist nur ein Absetzpunkt und kann nicht als Abholpunkt gewählt werden.',
       'transfer.pricingTitle': 'Preisliste',
-      'transfer.ctaTitle': 'Buchungsformular für 7-Sitzer-Transfer',
+      'transfer.scrollHint': 'Wischen Sie, um Fahrzeugpreise zu vergleichen',
+      'transfer.pricingTapHint': "Tippen Sie in der Preistabelle auf 'Buchen'",
+      'transfer.miniBook': 'Buchen',
+      'transfer.inc.allIn': 'Alles-inklusive Festpreis',
+      'transfer.inc.toll': 'Inklusive Benzin & Autobahngebühren',
+      'transfer.inc.driver': 'Professioneller Fahrer von Tür zu Tür',
+      'transfer.ctaTitle': 'Transfer buchen Mr. Ben',
       'transfer.bookingTitle': 'Transfer buchen',
-      'transfer.bookingTourName': '7-Sitzer Fahrzeug',
+      'transfer.bookingTourName': 'Privattransfer mit Mr. Ben',
       'transfer.ctaDesc': 'Wählen Sie Route und Fahrzeug, füllen Sie die Daten aus für eine schnelle Buchung.',
       'transfer.bookVehicle': 'Jetzt Fahrzeug buchen',
       'transfer.bookRoute': 'Diese Route buchen',
@@ -1592,6 +1723,7 @@
       'transfer.labelVehicleType': 'Fahrzeugtyp',
       'transfer.vehicleGas': 'Benzin',
       'transfer.vehicleEv': 'Elektro',
+      'transfer.vehicle16': '16-Sitzer',
       'transfer.phNotesTransfer': 'Andere Wünsche des Kunden',
       'booking.clockSelectHour': 'STUNDE WÄHLEN',
       'booking.clockSelectMin': 'MINUTE WÄHLEN',
@@ -1776,13 +1908,18 @@
     const navLinks = document.querySelectorAll('.nav-link');
 
     let currentSectionId = '';
-    const scrollPosition = window.scrollY + 100;
+    const scrollPosition = window.scrollY + 120;
 
     sections.forEach(section => {
       if (scrollPosition >= section.offsetTop) {
         currentSectionId = section.getAttribute('id');
       }
     });
+
+    /* Check if scrolled near the bottom of the page */
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+      currentSectionId = 'contact';
+    }
 
     /* If in tours section, distinguish between Jeep Tours and Xe Đưa Đón */
     if (currentSectionId === 'tours') {
@@ -1822,7 +1959,7 @@
     navLockTimeout = setTimeout(function () {
       navLockTimeout = null;
       updateActiveLink();
-    }, 850);
+    }, 1200);
   }
 
   window.__mrbUpdateActiveLink = updateActiveLink;
@@ -1941,18 +2078,6 @@
     style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
     document.head.appendChild(style);
   }
-
-  /* ─── Active Nav Link on Scroll ───────────────────────────── */
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', function () {
-    let current = '';
-    sections.forEach(function (sec) {
-      if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
-    });
-    allNavLinks.forEach(function (link) {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
-  }, { passive: true });
 
   const linkStyle = document.createElement('style');
   linkStyle.textContent = '.nav-link.active{color:var(--color-gold)!important}.nav-link.active::after{width:100%!important}';
@@ -2713,7 +2838,7 @@
   /* ── Transfer mode state ── */
   window.__bookingMode = 'jeep'; // 'jeep' | 'transfer'
   var tfSelectedRoute = null;   // route object from TRANSFER_CONFIG
-  var tfSelectedVehicle = '';   // 'gas7' | 'ev7'
+  var tfSelectedVehicle = '';   // 'gas7' | 'ev7' | 'gas16'
 
   /* ── Element refs ── */
   var overlay = document.getElementById('bookingOverlay');
@@ -2723,6 +2848,7 @@
   var bpbGroup = document.getElementById('bpbGroup');
   var btnPrivate = document.getElementById('bfTypePrivate');
   var btnGroup = document.getElementById('bfTypeGroup');
+  var btn16 = document.getElementById('bfType16');
   var addonSandDune = document.getElementById('bfAddonSandDune');
   var addonSandDuneSelected = false;
 
@@ -2790,6 +2916,10 @@
     if (s === 'muine' || /m[uũ]i\s*n[eé]|phan\s*thi[eế]t|муйне|美奈|무이네/i.test(s)) return 'muine';
     if (s === 'sgn' || /h[cồ]m|s[aà]i\s*g[oò]n|sgn|t[aâ]n\s*s[oơ]n|tan\s*son|airport|flughafen|хошимин|таншон|胡志明|新山一|호치민|탄손/i.test(s)) return 'sgn';
     if (s === 'nhatrang' || /nha\s*trang|нячанг|芽庄|나트랑/i.test(s)) return 'nhatrang';
+    if (s === 'phanrang' || /phan\s*rang|фанранг|潘朗|판랑/i.test(s)) return 'phanrang';
+    if (s === 'tacu' || /t[aà]\s*c[uú]|та\s*ку|达固|따꾸/i.test(s)) return 'tacu';
+    if (s === 'kega' || /k[eê]\s*g[aà]|ке\s*га|科加|께가/i.test(s)) return 'kega';
+    if (s === 'cothach' || /c[oổ]\s*th[aạ]ch|ch[uù]a\s*c[oổ]\s*th[aạ]ch|ко\s*тхать|古石|꼬탁/i.test(s)) return 'cothach';
     return s;
   }
 
@@ -2800,8 +2930,15 @@
     if (c === 'muine') return t['transfer.city.muine'] || 'Mũi Né';
     if (c === 'sgn') return t['transfer.city.sgn'] || 'Sân bay Tân Sơn Nhất (SGN)';
     if (c === 'nhatrang') return t['transfer.city.nhatrang'] || 'Nha Trang';
+    if (c === 'phanrang') return t['transfer.city.phanrang'] || 'Biển Phan Rang';
+    if (c === 'tacu') return t['transfer.city.tacu'] || 'Tà Cú';
+    if (c === 'kega') return t['transfer.city.kega'] || 'Kê Gà';
+    if (c === 'cothach') return t['transfer.city.cothach'] || 'Chùa Cổ Thạch';
     return code || '';
   }
+
+  /* ── Cities allowed as pickup point ── */
+  var TRANSFER_PICKUP_ALLOWED = { muine: true, sgn: true, nhatrang: true, phanrang: true };
 
   /* ── Transfer dropdown disabled state updater ── */
   function updateTransferDropdownDisabledStates() {
@@ -2849,6 +2986,11 @@
     var dIn = document.getElementById('bfTfDropoff');
     var currentDropoff = dIn ? normalizeTransferCity(dIn.value) : '';
     var normCity = normalizeTransferCity(city);
+
+    /* Guard: block non-pickup cities */
+    if (normCity && !TRANSFER_PICKUP_ALLOWED[normCity]) {
+      return;
+    }
 
     if (normCity && currentDropoff && normCity === currentDropoff) {
       setTransferDropoff('');
@@ -2993,6 +3135,22 @@
       }
     }
 
+    /* 16-seat button: show only in transfer mode */
+    if (btn16) {
+      if (isTransfer) {
+        btn16.style.display = '';
+        var btn16Icon = btn16.querySelector('i');
+        var btn16Span = btn16.querySelector('span');
+        if (btn16Icon) btn16Icon.className = 'fas fa-shuttle-van';
+        if (btn16Span) btn16Span.textContent = t['transfer.vehicle16'] || 'Xe 16 Chỗ';
+        btn16.setAttribute('data-type', 'gas16');
+        btn16.classList.toggle('active', tfSelectedVehicle === 'gas16');
+      } else {
+        btn16.style.display = 'none';
+        btn16.classList.remove('active');
+      }
+    }
+
     /* Hide Vehicle Quantity + Guest counter in transfer mode (no need) */
     if (isTransfer) {
       if (vehicleGroup) vehicleGroup.style.display = 'none';
@@ -3006,6 +3164,10 @@
     /* Itinerary: hide in transfer mode */
     var itinGroup = document.getElementById('bfItineraryGroup');
     if (itinGroup) itinGroup.style.display = isTransfer ? 'none' : '';
+
+    /* Transfer itinerary: hide in jeep mode, reset in transfer mode */
+    var tfItinGroup = document.getElementById('bfTransferItineraryGroup');
+    if (tfItinGroup) tfItinGroup.style.display = 'none';
 
     /* Hotel section: in jeep mode always shown, in transfer mode shown only when both pickup & dropoff chosen */
     updateTransferDropdownDisabledStates();
@@ -3030,7 +3192,7 @@
     /* Booking tour / vehicle subtitle */
     var tourNameEl = document.getElementById('bookingTourName');
     if (tourNameEl && isTransfer) {
-      tourNameEl.textContent = t['transfer.bookingTourName'] || 'Xe 7 chỗ';
+      tourNameEl.textContent = t['transfer.bookingTourName'] || 'Xe Đưa Đón';
     }
 
     updatePrice();
@@ -3128,12 +3290,17 @@
         if (tfSelectedVehicle) {
           tfVehRow.style.display = 'flex';
           var isEv = (tfSelectedVehicle === 'ev7');
+          var is16 = (tfSelectedVehicle === 'gas16');
           var vehIcon = document.getElementById('bfPriceTransferVehicleIcon');
-          if (vehIcon) vehIcon.className = isEv ? 'fas fa-bolt' : 'fas fa-car-side';
-          tfVehLbl.textContent = isEv
-            ? (t['transfer.vehicleEv'] || 'Xe Điện')
-            : (t['transfer.vehicleGas'] || 'Xe Xăng');
-          tfVehVal.textContent = t['transfer.spec.seats7'] || '7 Chỗ';
+          if (vehIcon) vehIcon.className = is16 ? 'fas fa-shuttle-van' : (isEv ? 'fas fa-bolt' : 'fas fa-car-side');
+          tfVehLbl.textContent = is16
+            ? (t['transfer.vehicle16'] || 'Xe 16 Chỗ')
+            : (isEv
+              ? (t['transfer.vehicleEv'] || 'Xe Điện')
+              : (t['transfer.vehicleGas'] || 'Xe Xăng'));
+          tfVehVal.textContent = is16
+            ? (t['transfer.spec.seats16'] || '16 Chỗ')
+            : (t['transfer.spec.seats7'] || '7 Chỗ');
         } else {
           tfVehRow.style.display = 'none';
         }
@@ -3213,18 +3380,25 @@
   function setTourType(type) {
     var isTransfer = (window.__bookingMode === 'transfer');
     if (isTransfer) {
-      /* Transfer mode: type is 'gas7' or 'ev7' or '' */
+      /* Transfer mode: type is 'gas7' or 'ev7' or 'gas16' or '' */
       tfSelectedVehicle = type || '';
       tourType = ''; // not used in transfer mode
       if (tfSelectedVehicle === 'gas7') {
         btnPrivate.classList.add('active');
         btnGroup.classList.remove('active');
+        if (btn16) btn16.classList.remove('active');
       } else if (tfSelectedVehicle === 'ev7') {
         btnGroup.classList.add('active');
         btnPrivate.classList.remove('active');
+        if (btn16) btn16.classList.remove('active');
+      } else if (tfSelectedVehicle === 'gas16') {
+        if (btn16) btn16.classList.add('active');
+        btnPrivate.classList.remove('active');
+        btnGroup.classList.remove('active');
       } else {
         btnPrivate.classList.remove('active');
         btnGroup.classList.remove('active');
+        if (btn16) btn16.classList.remove('active');
       }
       /* No vehicle/guest counters in transfer mode */
       if (vehicleGroup) vehicleGroup.style.display = 'none';
@@ -3260,6 +3434,13 @@
   /* Expose for external use */
   window.__setTourType = setTourType;
 
+  /* ── Transfer itinerary stops data ── */
+  var TRANSFER_ITINERARIES = {
+    'muine-tacu': ['Mũi Né', 'Tháp Chàm', 'Xương Cá Ông', 'Tà Cú', 'Mũi Né'],
+    'muine-cothach': ['Mũi Né', 'Chùa Cổ Thạch', 'Mũi Né'],
+    'muine-kega': ['Mũi Né', 'Kê Gà', 'Mũi Né']
+  };
+
   /* ── Auto-detect transfer route from pickup/dropoff text ── */
   function autoDetectTransferRoute() {
     var pIn = document.getElementById('bfTfPickup');
@@ -3270,12 +3451,14 @@
     if (!pickup || !dropoff || pickup === dropoff) {
       tfSelectedRoute = null;
       updatePrice();
+      updateTransferItinerary(null);
       return;
     }
 
     var cfg = window.__TRANSFER_CONFIG;
     if (!cfg || !cfg.routes) {
       updatePrice();
+      updateTransferItinerary(null);
       return;
     }
 
@@ -3295,10 +3478,58 @@
         tfSelectedRoute = cfg.routes.find(function (r) { return r.id === 'muine-nhatrang'; }) || null;
       } else if ((pickup === 'nhatrang' && dropoff === 'sgn') || (pickup === 'sgn' && dropoff === 'nhatrang')) {
         tfSelectedRoute = cfg.routes.find(function (r) { return r.id === 'nhatrang-hcm'; }) || null;
+      } else if ((pickup === 'muine' && dropoff === 'phanrang') || (pickup === 'phanrang' && dropoff === 'muine')) {
+        tfSelectedRoute = cfg.routes.find(function (r) { return r.id === 'muine-phanrang'; }) || null;
+      } else if (pickup === 'muine' && dropoff === 'tacu') {
+        tfSelectedRoute = cfg.routes.find(function (r) { return r.id === 'muine-tacu'; }) || null;
+      } else if (pickup === 'muine' && dropoff === 'kega') {
+        tfSelectedRoute = cfg.routes.find(function (r) { return r.id === 'muine-kega'; }) || null;
+      } else if (pickup === 'muine' && dropoff === 'cothach') {
+        tfSelectedRoute = cfg.routes.find(function (r) { return r.id === 'muine-cothach'; }) || null;
       }
     }
 
+    updateTransferItinerary(tfSelectedRoute);
     updatePrice();
+  }
+
+  /* ── Transfer itinerary display ── */
+  function updateTransferItinerary(route) {
+    var group = document.getElementById('bfTransferItineraryGroup');
+    var container = document.getElementById('bfTransferItinerary');
+    if (!group || !container) return;
+
+    if (!route || !route.id || !TRANSFER_ITINERARIES[route.id]) {
+      group.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+
+    var stops = TRANSFER_ITINERARIES[route.id];
+    if (!stops || stops.length === 0) {
+      group.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var t = (window.__MRB_TRANS || {})[lang] || {};
+
+    var html = '';
+    stops.forEach(function (stop, i) {
+      html += '<span class="bf-ti-stop">' + stop + '</span>';
+      if (i < stops.length - 1) {
+        html += '<span class="bf-ti-arrow">→</span>';
+      }
+    });
+
+    if (route.roundTrip) {
+      var noteText = t['transfer.itineraryNote'] || 'khứ hồi trong ngày';
+      html += '<span class="bf-ti-note">' + noteText + '</span>';
+    }
+
+    container.innerHTML = html;
+    group.style.display = '';
   }
 
   /* Expose for external use */
@@ -3376,6 +3607,7 @@
     tourType = '';           /* không có mặc định, người dùng phải chọn */
     if (btnPrivate) { btnPrivate.classList.remove('active'); btnPrivate.classList.remove('bf-error'); }
     if (btnGroup) { btnGroup.classList.remove('active'); btnGroup.classList.remove('bf-error'); }
+    if (btn16) { btn16.classList.remove('active'); btn16.classList.remove('bf-error'); }
     /* Ẩn cả hai trường Số lượng xe và Số người khi chưa chọn loại tour */
     if (guestGroup) guestGroup.style.display = 'none';
     if (vehicleGroup) vehicleGroup.style.display = 'none';
@@ -3488,6 +3720,12 @@
     setTourType(t);
     refreshWALink();
   });
+  if (btn16) {
+    btn16.addEventListener('click', function () {
+      setTourType('gas16');
+      refreshWALink();
+    });
+  }
 
   /* ── Guest counter ── */
   minusBtn.addEventListener('click', function () {
@@ -3539,6 +3777,25 @@
     }
   }
   window.__closeRouteDropdowns = closeRouteDropdowns;
+
+  /* ── Toast for blocked swap ── */
+  function showSwapBlockedToast(msg) {
+    var existing = document.getElementById('bfSwapBlockedToast');
+    if (existing) existing.remove();
+    var toast = document.createElement('div');
+    toast.id = 'bfSwapBlockedToast';
+    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);'
+      + 'background:rgba(220,53,69,0.95);color:#fff;padding:12px 24px;border-radius:10px;'
+      + 'font-size:0.9rem;z-index:99999;box-shadow:0 4px 20px rgba(0,0,0,0.3);'
+      + 'animation:bfFadeIn 0.3s ease;max-width:90vw;text-align:center;';
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(function () {
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.4s ease';
+      setTimeout(function () { toast.remove(); }, 400);
+    }, 3000);
+  }
 
   if (tfPickupTrigger) {
     tfPickupTrigger.addEventListener('click', function (e) {
@@ -3600,6 +3857,15 @@
       if (!curP && !curD) return;
       if (curP && curD && curP.toLowerCase() === curD.toLowerCase()) {
         setTransferDropoff('');
+        return;
+      }
+      /* Block swap if the current dropoff is a dropoff-only city (cannot become pickup) */
+      var normD = normalizeTransferCity(curD);
+      if (normD && !TRANSFER_PICKUP_ALLOWED[normD]) {
+        var lang = localStorage.getItem('mrben-lang') || 'vi';
+        var t = (window.__MRB_TRANS || {})[lang] || {};
+        var msg = t['transfer.swapBlocked'] || 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.';
+        showSwapBlockedToast(msg);
         return;
       }
       setTransferPickup(curD);
@@ -3724,7 +3990,9 @@
       var formTitleEl = document.querySelector('[data-i18n="booking.formTitle"]');
       if (formTitleEl) formTitleEl.textContent = tr['transfer.bookingTitle'] || 'Đặt Xe Đưa Đón';
       var tourNameEl = document.getElementById('bookingTourName');
-      if (tourNameEl) tourNameEl.textContent = tr['transfer.bookingTourName'] || 'Xe 7 chỗ';
+      if (tourNameEl) tourNameEl.textContent = tr['transfer.bookingTourName'] || 'Xe Đưa Đón';
+      /* Re-sync vehicle type toggle labels */
+      if (typeof configureBookingMode === 'function') configureBookingMode('transfer');
     }
     if (typeof updatePrice === 'function') updatePrice();
   });
@@ -3780,12 +4048,16 @@
     notes = notes.trim();
     if (isHtml) notes = notes.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-    var vehTypeStr = tfSelectedVehicle === 'ev7'
-      ? (t['transfer.vehicleEv'] || 'Xe Điện')
-      : (tfSelectedVehicle === 'gas7' ? (t['transfer.vehicleGas'] || 'Xe Xăng') : '—');
-    var vehTypeStrVi = tfSelectedVehicle === 'ev7'
-      ? 'Xe Điện (7 chỗ)'
-      : (tfSelectedVehicle === 'gas7' ? 'Xe Xăng (7 chỗ)' : '—');
+    var vehTypeStr = tfSelectedVehicle === 'gas16'
+      ? (t['transfer.vehicle16'] || 'Xe 16 Chỗ')
+      : (tfSelectedVehicle === 'ev7'
+        ? (t['transfer.vehicleEv'] || 'Xe Điện')
+        : (tfSelectedVehicle === 'gas7' ? (t['transfer.vehicleGas'] || 'Xe Xăng') : '—'));
+    var vehTypeStrVi = tfSelectedVehicle === 'gas16'
+      ? 'Xe 16 Chỗ'
+      : (tfSelectedVehicle === 'ev7'
+        ? 'Xe Điện (7 chỗ)'
+        : (tfSelectedVehicle === 'gas7' ? 'Xe Xăng (7 chỗ)' : '—'));
 
     var routeName = '';
     var routeNameVi = '';
@@ -4463,15 +4735,19 @@
     // Check Tour Type (must have one active button)
     var btnPriv = document.getElementById('bfTypePrivate');
     var btnGrp = document.getElementById('bfTypeGroup');
+    var btn16v = document.getElementById('bfType16');
     if (btnPriv && btnGrp) {
-      if (!btnPriv.classList.contains('active') && !btnGrp.classList.contains('active')) {
+      var hasActive = btnPriv.classList.contains('active') || btnGrp.classList.contains('active') || (btn16v && btn16v.classList.contains('active'));
+      if (!hasActive) {
         btnPriv.classList.add('bf-error');
         btnGrp.classList.add('bf-error');
+        if (btn16v && btn16v.style.display !== 'none') btn16v.classList.add('bf-error');
         isValid = false;
         if (!firstErr) firstErr = btnPriv;
       } else {
         btnPriv.classList.remove('bf-error');
         btnGrp.classList.remove('bf-error');
+        if (btn16v) btn16v.classList.remove('bf-error');
       }
     }
 
@@ -4574,6 +4850,7 @@
   var dtTrigger = document.getElementById('bfDtTrigger');
   var dtDisplay = document.getElementById('bfDtDisplay');
   var dtHidden = document.getElementById('bfDatetime');
+  var dtPanel = document.getElementById('bfDtPanel');
 
   var calView = document.getElementById('bfCalView');
   var tpView = document.getElementById('bfTpView');
@@ -4605,12 +4882,73 @@
   var clockSvg = document.getElementById('bfClockSvg');
   var clockSelRing = document.getElementById('bfClockSelRing');
   var clockHand = document.getElementById('bfClockHand');
-  var clockConfirm = document.getElementById('bfClockConfirm');
 
   var clockMode = 'hour'; // 'hour' | 'minute'
   var clockHour = 8;
   var clockMin = 0;
   var clockAutoSwitchTimer = null;
+  var clockAutoConfirmTimer = null;
+
+  function scheduleClockAutoConfirm() {
+    clearTimeout(clockAutoConfirmTimer);
+    clockAutoConfirmTimer = setTimeout(function () {
+      confirmClockTime();
+    }, 260);
+  }
+
+  /* ── Smooth View Transitions (Calendar <-> Clock <-> TimeSlot) ── */
+  var isPickerTransitioning = false;
+  var pickerTransitionTimer = null;
+  var pickerHeightTimer = null;
+
+  function transitionView(fromView, toView, direction, onMidpoint, onComplete) {
+    if (!fromView || !toView) {
+      if (fromView) fromView.style.display = 'none';
+      if (toView) toView.style.display = '';
+      if (typeof onMidpoint === 'function') onMidpoint();
+      if (typeof onComplete === 'function') onComplete();
+      return;
+    }
+
+    isPickerTransitioning = true;
+    clearTimeout(pickerTransitionTimer);
+    clearTimeout(pickerHeightTimer);
+
+    [calView, clockView, tpView].forEach(function (v) {
+      if (v) v.classList.remove('bf-view-exit-left', 'bf-view-exit-right', 'bf-view-enter-left', 'bf-view-enter-right');
+    });
+
+    var isForward = (direction === 'forward');
+    var exitClass = isForward ? 'bf-view-exit-left' : 'bf-view-exit-right';
+    var enterClass = isForward ? 'bf-view-enter-right' : 'bf-view-enter-left';
+
+    if (dtPanel) {
+      dtPanel.style.height = dtPanel.offsetHeight + 'px';
+    }
+
+    fromView.classList.add(exitClass);
+
+    pickerTransitionTimer = setTimeout(function () {
+      fromView.style.display = 'none';
+      fromView.classList.remove(exitClass);
+
+      toView.style.display = '';
+      if (typeof onMidpoint === 'function') onMidpoint();
+      toView.classList.add(enterClass);
+
+      if (dtPanel) {
+        var targetH = toView.offsetHeight;
+        dtPanel.style.height = targetH + 'px';
+      }
+
+      pickerHeightTimer = setTimeout(function () {
+        toView.classList.remove(enterClass);
+        if (dtPanel) dtPanel.style.height = '';
+        isPickerTransitioning = false;
+        if (typeof onComplete === 'function') onComplete();
+      }, 300);
+    }, 170);
+  }
 
   function isSelectedDateToday() {
     if (!selDate) return false;
@@ -4818,6 +5156,7 @@
 
   function setClockMode(mode) {
     clearTimeout(clockAutoSwitchTimer);
+    clearTimeout(clockAutoConfirmTimer);
     clockMode = mode;
     ensureValidClockTime();
     var lang = localStorage.getItem('mrben-lang') || 'vi';
@@ -4851,6 +5190,7 @@
     clockMin = m;
     if (clockMinBlock) clockMinBlock.textContent = pad(clockMin);
     updateClockActiveState();
+    scheduleClockAutoConfirm();
   }
 
   function confirmClockTime() {
@@ -4872,16 +5212,26 @@
     dtHidden.dispatchEvent(new Event('input'));
   }
 
-  if (clockHourBlock) clockHourBlock.addEventListener('click', function () { setClockMode('hour'); });
-  if (clockMinBlock) clockMinBlock.addEventListener('click', function () { setClockMode('minute'); });
+  if (clockHourBlock) clockHourBlock.addEventListener('click', function () {
+    setClockMode('hour');
+    centerPickerInView(clockView);
+  });
+  if (clockMinBlock) clockMinBlock.addEventListener('click', function () {
+    setClockMode('minute');
+    centerPickerInView(clockView);
+  });
   if (clockBack) {
     clockBack.addEventListener('click', function () {
-      if (clockView) clockView.style.display = 'none';
-      if (calView) calView.style.display = '';
-      renderCalendar();
+      if (isPickerTransitioning) return;
+      clearTimeout(clockAutoSwitchTimer);
+      clearTimeout(clockAutoConfirmTimer);
+      transitionView(clockView, calView, 'backward', function () {
+        renderCalendar();
+      }, function () {
+        centerPickerInView(calView);
+      });
     });
   }
-  if (clockConfirm) clockConfirm.addEventListener('click', confirmClockTime);
 
   /* ── Draggable Clock Hands & Pointer Interactions ── */
   var isClockDragging = false;
@@ -4939,6 +5289,9 @@
         if (clockMinBlock) clockMinBlock.textContent = pad(min);
         updateClockActiveState();
       }
+      if (isRelease) {
+        scheduleClockAutoConfirm();
+      }
     }
   }
 
@@ -4950,6 +5303,7 @@
         clockSvg.setPointerCapture(e.pointerId);
       } catch (err) {}
       clearTimeout(clockAutoSwitchTimer);
+      clearTimeout(clockAutoConfirmTimer);
       handleClockPointer(e, false);
     });
 
@@ -5033,7 +5387,11 @@
       if (isToday) el.classList.add('today');
       if (selDate && dt.getTime() === selDate.getTime()) el.classList.add('selected');
       if (!el.classList.contains('disabled')) {
-        (function (date) { el.addEventListener('click', function () { pickDate(date); }); })(dt);
+        (function (date, dayEl) {
+          dayEl.addEventListener('click', function () {
+            pickDate(date, dayEl);
+          });
+        })(dt, el);
       }
       calDays.appendChild(el);
     }
@@ -5047,49 +5405,129 @@
     }
   }
 
-  function pickDate(date) {
-    selDate = date;
-    calView.style.display = 'none';
+  /* ── Center Date/Clock Picker in Viewport ── */
+  var centerPickerTimer = null;
+  function centerPickerInView(viewElement) {
+    clearTimeout(centerPickerTimer);
+    var body = document.querySelector('.booking-body');
+    if (!body) return;
+    var target = viewElement || document.getElementById('bfDtPanel') || dtWrap;
+    if (!target) return;
 
-    if (window.__bookingMode === 'transfer') {
-      if (tpView) tpView.style.display = 'none';
-      if (clockView) {
-        clockView.style.display = '';
-        if (clockDate) clockDate.textContent = date.getDate() + ' ' + getMonths()[date.getMonth()];
-        ensureValidClockTime();
-        setClockMode('hour');
-        if (clockHourBlock) clockHourBlock.textContent = pad(clockHour);
-        if (clockMinBlock) clockMinBlock.textContent = pad(clockMin);
-        renderClockFace();
+    centerPickerTimer = setTimeout(function () {
+      if (!dtWrap || !dtWrap.classList.contains('open')) return;
+
+      var bodyRect = body.getBoundingClientRect();
+      var targetRect = target.getBoundingClientRect();
+      if (!targetRect.height || !bodyRect.height) return;
+
+      // Screen vertical center
+      var screenCenter = window.innerHeight / 2;
+      var targetCenter = targetRect.top + targetRect.height / 2;
+      var diff = targetCenter - screenCenter;
+
+      // Ensure the top of the target doesn't scroll beneath the sticky booking header
+      var projectedTop = targetRect.top - diff;
+      var minAllowedTop = bodyRect.top + 8;
+      if (projectedTop < minAllowedTop && targetRect.height <= bodyRect.height) {
+        var bodyCenter = bodyRect.top + bodyRect.height / 2;
+        diff = targetCenter - bodyCenter;
       }
-      return;
+
+      if (Math.abs(diff) > 4) {
+        body.scrollBy({
+          top: diff,
+          behavior: 'smooth'
+        });
+      }
+    }, 80);
+  }
+
+  function pickDate(date, clickedDayEl) {
+    if (isPickerTransitioning) return;
+    selDate = date;
+
+    var isMobile = (window.innerWidth <= 768) || ('ontouchstart' in window && window.innerWidth <= 1024);
+
+    if (clickedDayEl) {
+      calDays.querySelectorAll('.bf-cal-day.selected').forEach(function (d) {
+        d.classList.remove('selected', 'bf-day-pulse');
+      });
+      clickedDayEl.classList.add('selected');
+      if (!isMobile) {
+        clickedDayEl.classList.add('bf-day-pulse');
+      }
     }
 
-    if (clockView) clockView.style.display = 'none';
-    tpView.style.display = '';
-    tpDate.textContent = date.getDate() + ' ' + getMonths()[date.getMonth()];
-    // Reset slot selection UI
-    [sunriseBtn, sunsetBtn].forEach(function (b) { b && b.classList.remove('selected'); });
-    // Re-highlight the previously selected slot
-    if (selHour === 4 && selMin === 30) { sunriseBtn && sunriseBtn.classList.add('selected'); }
-    if (selHour === 13 && selMin === 30) { sunsetBtn && sunsetBtn.classList.add('selected'); }
+    var delayBeforeTransition = (clickedDayEl && !isMobile) ? 130 : 0;
 
-    /* If today is selected, disable slots whose time has already passed */
-    var isToday = date.getTime() === todayDate.getTime();
-    var nm = isToday ? nowMinutes() : -1;
-    if (sunriseBtn) sunriseBtn.disabled = isToday && nm >= SUNRISE_MINS;
-    if (sunsetBtn) sunsetBtn.disabled = isToday && nm >= SUNSET_MINS;
+    setTimeout(function () {
+      if (window.__bookingMode === 'transfer') {
+        if (tpView) tpView.style.display = 'none';
+        transitionView(calView, clockView, 'forward', function () {
+          if (clockDate) clockDate.textContent = date.getDate() + ' ' + getMonths()[date.getMonth()];
+          ensureValidClockTime();
+          setClockMode('hour');
+          if (clockHourBlock) clockHourBlock.textContent = pad(clockHour);
+          if (clockMinBlock) clockMinBlock.textContent = pad(clockMin);
+          renderClockFace();
+
+          var clockContainer = document.getElementById('bfClockContainer');
+          if (clockContainer) {
+            clockContainer.classList.remove('bf-clock-dial-bloom');
+            void clockContainer.offsetWidth;
+            clockContainer.classList.add('bf-clock-dial-bloom');
+          }
+          var tpDisplay = clockView ? clockView.querySelector('.bf-tp-display') : null;
+          if (tpDisplay) {
+            tpDisplay.classList.remove('bf-clock-header-enter');
+            void tpDisplay.offsetWidth;
+            tpDisplay.classList.add('bf-clock-header-enter');
+          }
+        }, function () {
+          centerPickerInView(clockView);
+        });
+        return;
+      }
+
+      if (clockView) clockView.style.display = 'none';
+      transitionView(calView, tpView, 'forward', function () {
+        tpDate.textContent = date.getDate() + ' ' + getMonths()[date.getMonth()];
+        // Reset slot selection UI
+        [sunriseBtn, sunsetBtn].forEach(function (b) { b && b.classList.remove('selected'); });
+        // Re-highlight the previously selected slot
+        if (selHour === 4 && selMin === 30) { sunriseBtn && sunriseBtn.classList.add('selected'); }
+        if (selHour === 13 && selMin === 30) { sunsetBtn && sunsetBtn.classList.add('selected'); }
+
+        /* If today is selected, disable slots whose time has already passed */
+        var isToday = date.getTime() === todayDate.getTime();
+        var nm = isToday ? nowMinutes() : -1;
+        if (sunriseBtn) sunriseBtn.disabled = isToday && nm >= SUNRISE_MINS;
+        if (sunsetBtn) sunsetBtn.disabled = isToday && nm >= SUNSET_MINS;
+      }, function () {
+        centerPickerInView(tpView);
+      });
+    }, delayBeforeTransition);
   }
 
   calPrev.addEventListener('click', function () {
-    if (--curMonth < 0) { curMonth = 11; curYear--; } renderCalendar();
+    if (--curMonth < 0) { curMonth = 11; curYear--; }
+    renderCalendar();
+    centerPickerInView(calView);
   });
   calNext.addEventListener('click', function () {
-    if (++curMonth > 11) { curMonth = 0; curYear++; } renderCalendar();
+    if (++curMonth > 11) { curMonth = 0; curYear++; }
+    renderCalendar();
+    centerPickerInView(calView);
   });
 
   tpBack.addEventListener('click', function () {
-    tpView.style.display = 'none'; calView.style.display = ''; renderCalendar();
+    if (isPickerTransitioning) return;
+    transitionView(tpView, calView, 'backward', function () {
+      renderCalendar();
+    }, function () {
+      centerPickerInView(calView);
+    });
   });
 
   /* ── Time slot buttons ── */
@@ -5128,12 +5566,36 @@
   /* ── Open / Close ── */
   function openPicker() {
     dtWrap.classList.add('open');
+    var body = document.querySelector('.booking-body');
+    if (body) body.classList.add('picker-open');
+    isPickerTransitioning = false;
+    clearTimeout(pickerTransitionTimer);
+    clearTimeout(pickerHeightTimer);
+    if (dtPanel) dtPanel.style.height = '';
+    [calView, clockView, tpView].forEach(function (v) {
+      if (v) v.classList.remove('bf-view-exit-left', 'bf-view-exit-right', 'bf-view-enter-left', 'bf-view-enter-right');
+    });
     calView.style.display = '';
     tpView.style.display = 'none';
     if (clockView) clockView.style.display = 'none';
     renderCalendar();
+    centerPickerInView(calView);
   }
-  function closePicker() { dtWrap.classList.remove('open'); }
+  function closePicker() {
+    clearTimeout(centerPickerTimer);
+    clearTimeout(clockAutoSwitchTimer);
+    clearTimeout(clockAutoConfirmTimer);
+    clearTimeout(pickerTransitionTimer);
+    clearTimeout(pickerHeightTimer);
+    isPickerTransitioning = false;
+    if (dtPanel) dtPanel.style.height = '';
+    [calView, clockView, tpView].forEach(function (v) {
+      if (v) v.classList.remove('bf-view-exit-left', 'bf-view-exit-right', 'bf-view-enter-left', 'bf-view-enter-right');
+    });
+    dtWrap.classList.remove('open');
+    var body = document.querySelector('.booking-body');
+    if (body) body.classList.remove('picker-open');
+  }
 
   dtTrigger.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -5143,8 +5605,30 @@
     if (dtWrap && !dtWrap.contains(e.target)) closePicker();
   });
 
+  window.addEventListener('resize', function () {
+    if (dtWrap && dtWrap.classList.contains('open')) {
+      var activeView = (clockView && clockView.style.display !== 'none') ? clockView :
+                       (tpView && tpView.style.display !== 'none') ? tpView : calView;
+      centerPickerInView(activeView);
+    }
+  });
+
+  var bookingOverlay = document.getElementById('bookingOverlay');
+  if (bookingOverlay) {
+    bookingOverlay.addEventListener('click', function (e) {
+      if (e.target === bookingOverlay) closePicker();
+    });
+  }
+  var bookingClose = document.getElementById('bookingClose');
+  if (bookingClose) {
+    bookingClose.addEventListener('click', function () {
+      closePicker();
+    });
+  }
+
   /* ── Reset: show placeholder (no pre-filled date) ── */
   function setDefault() {
+    closePicker();
     selDate = null;
     selHour = null; selMin = null;   /* no slot pre-selected */
     curYear = todayDate.getFullYear(); curMonth = todayDate.getMonth();
@@ -6432,10 +6916,6 @@
         history.pushState(null, '', '#tours');
         if (window.__mrbSetActiveNavLink) window.__mrbSetActiveNavLink('tours');
       }
-
-      /* scroll to section top */
-      var sec = document.getElementById('tours');
-      if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     function scrollToServiceSection() {
@@ -6540,12 +7020,27 @@
           { icon: 'fas fa-bolt', labelI18n: 'transfer.spec.ev' },
           { icon: 'fas fa-suitcase', labelI18n: 'transfer.spec.luggage' }
         ]
+      },
+      {
+        id: 'gas16', icon: 'fas fa-shuttle-van', badgeClass: 'tf-badge-gas16',
+        badgeI18n: 'transfer.badge.gas16', nameI18n: 'transfer.vehicle.gas16',
+        descI18n: 'transfer.vehicle.gas16Desc',
+        image: 'assets/images/produtcs/xe-16c.webp',
+        specs: [
+          { icon: 'fas fa-users', labelI18n: 'transfer.spec.seats16' },
+          { icon: 'fas fa-gas-pump', labelI18n: 'transfer.spec.gas' },
+          { icon: 'fas fa-suitcase', labelI18n: 'transfer.spec.luggage' }
+        ]
       }
     ],
     routes: [
-      { id: 'muine-hcm', from: 'muine', to: 'sgn', nameI18n: 'transfer.route.muineHcm', distance: '~200 km', duration: '~4h', prices: { gas7: 1750000, ev7: 1750000 } },
-      { id: 'muine-nhatrang', from: 'muine', to: 'nhatrang', nameI18n: 'transfer.route.muineNt', distance: '~250 km', duration: '~4.5h', prices: { gas7: 1750000, ev7: 1750000 } },
-      { id: 'nhatrang-hcm', from: 'nhatrang', to: 'sgn', nameI18n: 'transfer.route.ntHcm', distance: '~430 km', duration: '~7.5h', prices: { gas7: 3500000, ev7: 3500000 } }
+      { id: 'muine-hcm', from: 'muine', to: 'sgn', nameI18n: 'transfer.route.muineHcm', distance: '~200 km', duration: '~4h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 } },
+      { id: 'muine-nhatrang', from: 'muine', to: 'nhatrang', nameI18n: 'transfer.route.muineNt', distance: '~250 km', duration: '~4.5h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 } },
+      { id: 'nhatrang-hcm', from: 'nhatrang', to: 'sgn', nameI18n: 'transfer.route.ntHcm', distance: '~430 km', duration: '~7.5h', prices: { gas7: 3500000, ev7: 3500000, gas16: 5300000 } },
+      { id: 'muine-phanrang', from: 'muine', to: 'phanrang', nameI18n: 'transfer.route.muinePhanrang', distance: '~110 km', duration: '~2h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 } },
+      { id: 'muine-tacu', from: 'muine', to: 'tacu', nameI18n: 'transfer.route.muineTacu', distance: '~30 km', duration: '~1h', prices: { gas7: 1300000, ev7: 1300000, gas16: 1900000 }, roundTrip: true },
+      { id: 'muine-kega', from: 'muine', to: 'kega', nameI18n: 'transfer.route.muineKega', distance: '~50 km', duration: '~1.5h', prices: { gas7: 1300000, ev7: 1300000, gas16: 1900000 }, roundTrip: true },
+      { id: 'muine-cothach', from: 'muine', to: 'cothach', nameI18n: 'transfer.route.muineCothach', distance: '~80 km', duration: '~2h', prices: { gas7: 1900000, ev7: 1900000, gas16: 2700000 }, roundTrip: true }
     ]
   };
   /* Expose for booking modal auto-detect */
@@ -6571,8 +7066,12 @@
       v.specs.forEach(function (s) {
         metaHtml += '<span><i class="' + s.icon + '"></i> <span data-i18n="' + s.labelI18n + '">' + t(s.labelI18n) + '</span></span>';
       });
+      var badgeHtml = (v.badgeI18n && t(v.badgeI18n))
+        ? '<span class="tour-badge ' + (v.badgeClass || '') + '" data-i18n="' + v.badgeI18n + '">' + t(v.badgeI18n) + '</span>'
+        : '';
       var imgHtml = v.image
-        ? '<div class="tour-img-wrap"><img src="' + v.image + '" alt="' + t(v.nameI18n) + '" loading="lazy" / decoding="async" width="634" height="475">'
+        ? '<div class="tour-img-wrap"><img src="' + v.image + '" alt="' + t(v.nameI18n) + '" loading="lazy" decoding="async" width="634" height="475">'
+          + badgeHtml
           + '</div>'
         : '';
       h += '<div class="tour-card" data-vehicle-id="' + v.id + '" style="cursor:pointer;">'
@@ -6589,25 +7088,41 @@
 
   function renderPricingTable() {
     var c = document.getElementById('tfPricingTable'); if (!c) return;
-    var th = '<thead><tr><th data-i18n="transfer.th.route">' + t('transfer.th.route') + '</th>';
-    TRANSFER_CONFIG.vehicleTypes.forEach(function (v) { th += '<th data-i18n="' + v.nameI18n + '">' + t(v.nameI18n) + '</th>'; });
+    var th = '<thead><tr><th class="tf-th-route" data-i18n="transfer.th.route"><i class="fas fa-route"></i> <span>' + t('transfer.th.route') + '</span></th>';
+    TRANSFER_CONFIG.vehicleTypes.forEach(function (v) {
+      th += '<th class="tf-th-vehicle tf-th-' + v.id + '" data-i18n="' + v.nameI18n + '"><i class="' + v.icon + '"></i> <span>' + t(v.nameI18n) + '</span></th>';
+    });
     th += '</tr></thead>';
     var tb = '<tbody>';
     TRANSFER_CONFIG.routes.forEach(function (r) {
+      var rtBadge = r.roundTrip
+        ? ' <span class="tf-meta-badge-rt"><i class="fas fa-sync-alt"></i> ' + (t('transfer.itineraryNote') || '(khứ hồi)') + '</span>'
+        : '';
       tb += '<tr class="tf-pricing-row" data-route-id="' + r.id + '">'
-        + '<td data-i18n="' + r.nameI18n + '"><strong>' + t(r.nameI18n) + '</strong><br><small style="color:var(--color-text-muted)">' + r.distance + ' · ' + r.duration + '</small></td>';
+        + '<td class="tf-td-route" data-route-id="' + r.id + '" data-from="' + r.from + '" data-to="' + r.to + '">'
+        + '<div class="tf-route-cell-wrap">'
+        + '<span class="tf-route-name" data-i18n="' + r.nameI18n + '">' + t(r.nameI18n) + '</span>'
+        + '<div class="tf-route-meta">'
+        + '<span class="tf-meta-pill"><i class="fas fa-road"></i> ' + r.distance + '</span>'
+        + '<span class="tf-meta-dot">·</span>'
+        + '<span class="tf-meta-pill"><i class="fas fa-clock"></i> ' + r.duration + '</span>'
+        + rtBadge
+        + '</div>'
+        + '</div>'
+        + '</td>';
       TRANSFER_CONFIG.vehicleTypes.forEach(function (v) {
         var p = r.prices[v.id];
-        tb += '<td class="tf-price-cell" data-vehicle-id="' + v.id + '">'
+        tb += '<td class="tf-price-cell" data-route-id="' + r.id + '" data-vehicle-id="' + v.id + '">'
           + '<div class="tf-price-cell-wrap">'
           + '<span class="tf-price-val">' + (p ? fmtVND(p) : '—') + '</span>'
+          + (p ? '<button type="button" class="tf-price-book-mini" data-vehicle-id="' + v.id + '" data-from="' + r.from + '" data-to="' + r.to + '" aria-label="' + t('transfer.miniBook') + ' ' + t(r.nameI18n) + '"><i class="fa-solid fa-calendar-days"></i> <span data-i18n="transfer.miniBook">' + t('transfer.miniBook') + '</span></button>' : '')
           + '</div>'
           + '</td>';
       });
       tb += '</tr>';
     });
     tb += '</tbody>';
-    c.innerHTML = '<table>' + th + tb + '</table>';
+    c.innerHTML = '<table class="tf-table">' + th + tb + '</table>';
   }
 
   /* ─── Transfer Slider (mirrors Jeep Tours slider) ─── */
@@ -6615,7 +7130,8 @@
   var tfCurrentIdx = 0;
 
   function tfCardsPerView() {
-    return window.innerWidth >= 680 ? 2 : 1;
+    if (window.innerWidth > 960) return 3;
+    return window.innerWidth > 680 ? 2 : 1;
   }
 
   function tfBuildDots() {
@@ -6632,8 +7148,11 @@
   }
 
   function tfUpdateUI(idx) {
-    tfCurrentIdx = idx;
     var perView = tfCardsPerView();
+    var maxIdx = Math.max(0, tfCards.length - perView);
+    if (idx > maxIdx) idx = maxIdx;
+    if (idx < 0) idx = 0;
+    tfCurrentIdx = idx;
     var dotsEl = document.getElementById('tfDots');
     if (dotsEl) {
       dotsEl.querySelectorAll('.tours-dot').forEach(function (d, i) {
@@ -6729,7 +7248,7 @@
     if (!overlay) return;
     if (window.__configureBookingMode) window.__configureBookingMode('transfer');
     var tourNameEl = document.getElementById('bookingTourName');
-    if (tourNameEl) tourNameEl.textContent = t('transfer.bookingTourName') || 'Xe 7 chỗ';
+    if (tourNameEl) tourNameEl.textContent = t('transfer.bookingTourName') || 'Xe Đưa Đón';
 
     var vId = (opts && opts.vehicleId) ? opts.vehicleId : '';
     if (window.__setTourType) {
@@ -6737,15 +7256,23 @@
     } else {
       var btnG = document.getElementById('bfTypeGroup');
       var btnP = document.getElementById('bfTypePrivate');
+      var btn16f = document.getElementById('bfType16');
       if (vId === 'ev7') {
         if (btnG) btnG.classList.add('active');
         if (btnP) btnP.classList.remove('active');
+        if (btn16f) btn16f.classList.remove('active');
       } else if (vId === 'gas7') {
         if (btnP) btnP.classList.add('active');
+        if (btnG) btnG.classList.remove('active');
+        if (btn16f) btn16f.classList.remove('active');
+      } else if (vId === 'gas16') {
+        if (btn16f) btn16f.classList.add('active');
+        if (btnP) btnP.classList.remove('active');
         if (btnG) btnG.classList.remove('active');
       } else {
         if (btnP) btnP.classList.remove('active');
         if (btnG) btnG.classList.remove('active');
+        if (btn16f) btn16f.classList.remove('active');
       }
     }
 
@@ -6779,6 +7306,38 @@
         if (!card) return;
         var vId = card.getAttribute('data-vehicle-id');
         openTransferBooking({ vehicleId: vId });
+      });
+    }
+
+    /* ── Pricing Table: only clicking button .tf-price-book-mini opens booking modal ── */
+    var pricingWrap = document.getElementById('tfPricingTable');
+    if (pricingWrap) {
+      pricingWrap.addEventListener('click', function (e) {
+        var bookBtn = e.target.closest('.tf-price-book-mini');
+        if (!bookBtn) return;
+        e.preventDefault();
+
+        var isMobile = (window.innerWidth <= 768) || ('ontouchstart' in window && window.innerWidth <= 1024);
+        var vId = bookBtn.getAttribute('data-vehicle-id');
+        var from = bookBtn.getAttribute('data-from');
+        var to = bookBtn.getAttribute('data-to');
+
+        if (isMobile) {
+          openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
+          return;
+        }
+
+        /* Trigger glowing pulse effect on desktop only */
+        bookBtn.classList.remove('tf-btn-glow');
+        void bookBtn.offsetWidth;
+        bookBtn.classList.add('tf-btn-glow');
+        setTimeout(function () {
+          bookBtn.classList.remove('tf-btn-glow');
+        }, 500);
+
+        setTimeout(function () {
+          openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
+        }, 160);
       });
     }
 

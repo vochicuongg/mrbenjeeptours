@@ -306,11 +306,13 @@ button {
     transition: width var(--dur) var(--ease);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: var(--color-gold);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
 
@@ -3053,6 +3055,13 @@ button {
     flex: 1;
     overflow-y: auto;
     scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+/* Ensure enough scrollable bottom room so calendar/clock can be perfectly centered on all screen sizes */
+.booking-body:has(.bf-dt-wrap.open),
+.booking-body.picker-open {
+    padding-bottom: calc(280px + env(safe-area-inset-bottom, 0px)) !important;
 }
 
 .booking-body::-webkit-scrollbar {
@@ -3488,7 +3497,7 @@ button {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
-    transition: opacity 0.25s, transform 0.25s;
+    transition: opacity 0.25s, transform 0.25s, height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 200;
     box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7);
 }
@@ -3591,6 +3600,26 @@ button {
     color: #1A0A02;
     font-weight: 700;
     transform: scale(1.1);
+}
+
+.bf-cal-day.bf-day-pulse {
+    animation: bfCalDayPulse 0.32s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+    z-index: 2;
+}
+
+@keyframes bfCalDayPulse {
+    0% {
+        transform: scale(0.92);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.85);
+    }
+    45% {
+        transform: scale(1.18);
+        box-shadow: 0 0 18px rgba(212, 175, 55, 0.95), 0 0 0 4px rgba(212, 175, 55, 0.4);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
+    }
 }
 
 .bf-cal-day.disabled {
@@ -3822,12 +3851,12 @@ button {
     stroke: var(--color-gold);
     stroke-width: 2;
     stroke-linecap: round;
-    transition: x2 0.2s, y2 0.2s;
+    transition: x2 0.3s cubic-bezier(0.16, 1, 0.3, 1), y2 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bf-clock-sel-dot {
     fill: var(--color-gold);
-    transition: cx 0.2s, cy 0.2s;
+    transition: cx 0.3s cubic-bezier(0.16, 1, 0.3, 1), cy 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bf-clock-center-dot {
@@ -3867,7 +3896,129 @@ button {
 
 .bf-clock-sel-ring {
     fill: var(--color-gold);
-    transition: cx 0.2s, cy 0.2s;
+    transition: cx 0.3s cubic-bezier(0.16, 1, 0.3, 1), cy 0.3s cubic-bezier(0.16, 1, 0.3, 1), r 0.2s ease;
+}
+
+/* ── Date & Clock View Transitions ── */
+.bf-view-exit-left {
+    animation: bfViewExitLeft 0.18s cubic-bezier(0.4, 0, 0.7, 1) forwards;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.bf-view-enter-right {
+    animation: bfViewEnterRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+.bf-view-exit-right {
+    animation: bfViewExitRight 0.18s cubic-bezier(0.4, 0, 0.7, 1) forwards;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.bf-view-enter-left {
+    animation: bfViewEnterLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes bfViewExitLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.96);
+    }
+}
+
+@keyframes bfViewEnterRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes bfViewExitRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.96);
+    }
+}
+
+@keyframes bfViewEnterLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* ── Clock Face Bloom & Radiant Pulse on Entrance ── */
+.bf-clock-dial-bloom {
+    animation: bfClockDialBloom 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity, filter;
+    transform-origin: center center;
+}
+
+@keyframes bfClockDialBloom {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) rotate(-10deg);
+        filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+    }
+    45% {
+        filter: drop-shadow(0 0 22px rgba(212, 175, 55, 0.7));
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+    }
+}
+
+.bf-clock-header-enter {
+    animation: bfClockHeaderEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes bfClockHeaderEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bf-view-exit-left,
+    .bf-view-enter-right,
+    .bf-view-exit-right,
+    .bf-view-enter-left,
+    .bf-clock-dial-bloom,
+    .bf-clock-header-enter,
+    .bf-cal-day.bf-day-pulse {
+        animation: none !important;
+        transform: none !important;
+    }
+    .bf-dt-panel {
+        transition: opacity 0.25s, transform 0.25s !important;
+    }
 }
 
 /* Confirm button */
@@ -4342,10 +4493,12 @@ button {
 .bf-toggle-row {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .bf-toggle {
     flex: 1;
+    min-width: 0;
     padding: 10px 12px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.04);
@@ -4705,14 +4858,44 @@ button {
 }
 
 /* ── Vehicle Cards / Transfer Grid — shared .tours-grid layout ── */
-/* Transfer has 2 cards; on desktop (>=681px) make them 50% width and hide slider arrows/dots */
-@media (min-width: 681px) {
+/* On desktop / laptop (>=961px), display all 3 vehicle cards side by side in full view */
+@media (min-width: 961px) {
     #svcPanelTransfer .tour-card {
-        flex: 0 0 calc(50% - 12px);
+        flex: 0 0 calc(33.333% - 16px);
+        max-width: calc(33.333% - 16px);
+        opacity: 1;
+        transform: scale(1);
+    }
+    #svcPanelTransfer .tour-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        border-color: var(--color-gold);
+    }
+    #svcPanelTransfer .tour-card:hover .tour-img-wrap img {
+        transform: scale(1.08);
     }
     #svcPanelTransfer .tours-arrow,
     #svcPanelTransfer .tours-dots {
         display: none !important;
+    }
+    #svcPanelTransfer .tours-slider-wrapper {
+        padding: 0;
+    }
+}
+
+/* On tablet (681px - 960px), display 2 cards per view with slider navigation to reach the 3rd */
+@media (min-width: 681px) and (max-width: 960px) {
+    #svcPanelTransfer .tour-card {
+        flex: 0 0 calc(50% - 12px);
+        max-width: calc(50% - 12px);
+    }
+    #svcPanelTransfer .tours-arrow {
+        display: flex;
+    }
+    #svcPanelTransfer .tours-dots {
+        display: flex;
+    }
+    #svcPanelTransfer .tours-slider-wrapper {
+        padding: 0 52px;
     }
 }
 
@@ -4736,17 +4919,28 @@ button {
     color: #ffffff;
 }
 
+.tf-badge-gas16 {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
+}
+
 /* ── Pricing Table ───────────────────────────────────────── */
 .tf-pricing {
     margin-bottom: 56px;
 }
 
+.tf-pricing-header-wrap {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
 .tf-pricing-title {
     font-family: var(--font-serif);
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     color: var(--color-text);
-    text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .tf-pricing-title i {
@@ -4754,21 +4948,73 @@ button {
     margin-right: 8px;
 }
 
+.tf-pricing-scroll-hint {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px dashed rgba(212, 175, 55, 0.32);
+    border-radius: 20px;
+    padding: 6px 16px;
+    width: fit-content;
+    margin: 4px auto 0;
+}
+
+.tf-pricing-scroll-hint i {
+    animation: tfSwipeHint 2s infinite ease-in-out;
+}
+
+@keyframes tfSwipeHint {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+.tf-pricing-table-container {
+    position: relative;
+    border-radius: 14px;
+    background: rgba(20, 12, 8, 0.7);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+}
+
 .tf-pricing-table {
     overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.35) transparent;
+}
+
+.tf-pricing-table::-webkit-scrollbar {
+    height: 6px;
+}
+
+.tf-pricing-table::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tf-pricing-table::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.35);
+    border-radius: 4px;
 }
 
 .tf-pricing-table table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     font-family: var(--font-sans);
     font-size: 0.88rem;
 }
 
 .tf-pricing-table thead th {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.04));
+    background: #1e130c;
     color: var(--color-gold);
     font-weight: 600;
     padding: 14px 16px;
@@ -4777,61 +5023,283 @@ button {
     white-space: nowrap;
 }
 
+.tf-pricing-table thead th.tf-th-route {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    background: #1c110b;
+    text-align: left;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.45);
+    min-width: 180px;
+}
+
 .tf-pricing-table tbody td {
-    padding: 12px 16px;
+    padding: 14px 16px;
     text-align: center;
     color: var(--color-text);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: background var(--dur) var(--ease);
 }
 
-.tf-pricing-table tbody tr {
+.tf-pricing-table tbody td.tf-td-route {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #170e08;
+    text-align: left;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.45);
     cursor: default;
+    transition: background var(--dur) var(--ease);
+}
+
+.tf-pricing-table tbody tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
+.tf-pricing-table tbody tr:nth-child(even) td.tf-td-route {
+    background-color: #1a0f0a;
 }
 
 .tf-pricing-table tbody tr:hover td {
-    background: rgba(212, 175, 55, 0.05);
+    background-color: rgba(212, 175, 55, 0.06);
 }
 
-.tf-pricing-table tbody td:first-child {
-    text-align: left;
-    font-weight: 500;
-    color: var(--color-text);
+.tf-pricing-table tbody tr:hover td.tf-td-route {
+    background-color: #24150d;
 }
 
-.tf-pricing-table .tf-price-cell {
-    font-weight: 600;
+.tf-pricing-table tbody tr:hover .tf-route-name {
     color: var(--color-gold);
+}
+
+.tf-th-vehicle {
+    min-width: 120px;
+}
+
+.tf-th-vehicle i {
+    margin-right: 6px;
+    font-size: 0.95rem;
+}
+
+.tf-th-gas7 i {
+    color: #f59e0b;
+}
+
+.tf-th-ev7 i {
+    color: #10b981;
+}
+
+.tf-th-gas16 i {
+    color: #3b82f6;
+}
+
+.tf-route-cell-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tf-route-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.88rem;
+    line-height: 1.35;
+    transition: color var(--dur) var(--ease);
+}
+
+.tf-route-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.tf-meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     white-space: nowrap;
+}
+
+.tf-meta-pill i {
+    font-size: 0.7rem;
+    opacity: 0.75;
+}
+
+.tf-meta-dot {
+    opacity: 0.4;
+}
+
+.tf-meta-badge-rt {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.tf-price-cell {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .tf-price-cell-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 5px;
 }
 
-.tf-btn-table-book {
+.tf-price-val {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-gold);
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+.tf-price-book-mini {
+    appearance: none;
+    -webkit-appearance: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
-    padding: 5px 12px;
-    background: rgba(212, 175, 55, 0.12);
-    border: 1px solid var(--color-gold);
-    color: var(--color-gold);
+    padding: 3px 10px;
+    font-family: inherit;
     font-size: 0.72rem;
     font-weight: 600;
-    border-radius: 20px;
+    line-height: 1.3;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    white-space: nowrap;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
-.tf-btn-table-book:hover {
-    background: var(--color-gold);
-    color: #0c0805;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+.tf-price-book-mini i {
+    color: #ffffff;
+    font-size: 0.68rem;
+    transition: color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .tf-price-book-mini:hover {
+        background: #ffffff;
+        color: #1a0f0a;
+        border-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.35);
+        transform: translateY(-1px);
+    }
+
+    .tf-price-book-mini:hover i {
+        color: #1a0f0a;
+    }
+
+    .tf-price-book-mini:active {
+        transform: scale(0.94);
+        background: #ffffff !important;
+        color: #1a0f0a !important;
+        border-color: #ffffff !important;
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.95), 0 0 32px rgba(212, 175, 55, 0.8) !important;
+    }
+
+    .tf-price-book-mini:active i {
+        color: #1a0f0a !important;
+    }
+}
+
+/* ── Button Click Radiant Glow Effect ── */
+@keyframes tfBtnGlow {
+    0% {
+        transform: scale(0.94);
+        background: #ffffff;
+        color: #1a0f0a;
+        border-color: #ffffff;
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.95), 0 0 18px rgba(255, 255, 255, 1), 0 0 32px rgba(212, 175, 55, 0.85);
+    }
+    35% {
+        transform: scale(1.06);
+        background: #ffffff;
+        color: #1a0f0a;
+        border-color: #ffffff;
+        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.45), 0 0 24px rgba(255, 255, 255, 1), 0 0 42px rgba(212, 175, 55, 0.95);
+    }
+    100% {
+        transform: scale(1);
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.45);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.tf-price-book-mini.tf-btn-glow {
+    animation: tfBtnGlow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+}
+
+.tf-price-book-mini.tf-btn-glow i {
+    color: #1a0f0a !important;
+}
+
+.tf-pricing-footer {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tf-pricing-tap-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--color-gold);
+    opacity: 0.9;
+    text-align: center;
+}
+
+.tf-pricing-tap-hint i {
+    font-size: 0.85rem;
+}
+
+.tf-pricing-inclusions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 24px;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tf-inc-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+}
+
+.tf-inc-item i {
+    color: #10b981;
+    font-size: 0.85rem;
 }
 
 /* ── CTA Booking Block / Transfer Booking CTA (equivalent to .jeep-booking-cta) ── */
@@ -5234,6 +5702,66 @@ button {
     }
 }
 
+@media (max-width: 768px) {
+    .tf-pricing-scroll-hint {
+        display: inline-flex;
+    }
+
+    /* Disable button click glow/active animation on mobile */
+    .tf-price-book-mini,
+    .tf-price-book-mini:hover,
+    .tf-price-book-mini.tf-btn-glow {
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+        border-color: rgba(255, 255, 255, 0.45) !important;
+        box-shadow: none !important;
+        transform: none !important;
+        animation: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .tf-price-book-mini i,
+    .tf-price-book-mini:hover i,
+    .tf-price-book-mini:active i,
+    .tf-price-book-mini.tf-btn-glow i {
+        color: #ffffff !important;
+    }
+
+    /* Disable day pulse pop animation on mobile */
+    .bf-cal-day.bf-day-pulse {
+        animation: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .tf-price-book-mini,
+    .tf-price-book-mini:hover,
+    .tf-price-book-mini.tf-btn-glow {
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+        border-color: rgba(255, 255, 255, 0.45) !important;
+        box-shadow: none !important;
+        transform: none !important;
+        animation: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .tf-price-book-mini i,
+    .tf-price-book-mini:hover i,
+    .tf-price-book-mini:active i,
+    .tf-price-book-mini.tf-btn-glow i {
+        color: #ffffff !important;
+    }
+
+    .bf-cal-day.bf-day-pulse {
+        animation: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
 @media (max-width: 640px) {
     .tf-highlights {
         grid-template-columns: 1fr;
@@ -5244,14 +5772,105 @@ button {
         padding: 24px 20px;
     }
 
+    .tf-pricing {
+        margin-bottom: 40px;
+    }
 
-    .tf-pricing-table {
+    .tf-pricing-title {
+        font-size: 1.25rem;
+        margin-bottom: 6px;
+    }
+
+    .tf-pricing-table table {
+        min-width: 510px;
         font-size: 0.8rem;
     }
 
-    .tf-pricing-table thead th,
+    .tf-pricing-table thead th {
+        padding: 10px 8px;
+        font-size: 0.78rem;
+    }
+
+    .tf-pricing-table thead th.tf-th-route,
+    .tf-pricing-table tbody td.tf-td-route {
+        width: 142px;
+        min-width: 142px;
+        max-width: 152px;
+        padding: 10px 8px;
+    }
+
+    .tf-route-name {
+        font-size: 0.8rem;
+    }
+
+    .tf-route-meta {
+        font-size: 0.68rem;
+        gap: 3px 4px;
+    }
+
+    .tf-meta-badge-rt {
+        font-size: 0.64rem;
+        padding: 1px 4px;
+    }
+
     .tf-pricing-table tbody td {
-        padding: 10px 10px;
+        padding: 8px 6px;
+    }
+
+    .tf-price-cell {
+        min-width: 105px;
+        width: 105px;
+    }
+
+    .tf-price-val {
+        font-size: 0.88rem;
+    }
+
+    .tf-price-book-mini {
+        font-size: 0.68rem;
+        padding: 3px 8px;
+    }
+
+    .tf-pricing-inclusions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 420px) {
+    .tf-pricing-table table {
+        min-width: 460px;
+    }
+
+    .tf-pricing-table thead th.tf-th-route,
+    .tf-pricing-table tbody td.tf-td-route {
+        width: 128px;
+        min-width: 128px;
+        max-width: 138px;
+        padding: 8px 6px;
+    }
+
+    .tf-route-name {
+        font-size: 0.75rem;
+    }
+
+    .tf-price-cell {
+        min-width: 92px;
+        width: 92px;
+    }
+
+    .tf-price-val {
+        font-size: 0.82rem;
+    }
+
+    .tf-pricing-tap-hint {
+        font-size: 0.75rem;
+    }
+
+    .tf-inc-item {
+        font-size: 0.75rem;
     }
 }
 
@@ -5499,6 +6118,41 @@ button {
 .bf-custom-select-list li.is-disabled:hover {
     background: transparent !important;
     color: var(--color-text-muted) !important;
+}
+
+/* ── Transfer Itinerary Stops ── */
+.bf-transfer-itinerary {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 4px;
+    padding: 12px 16px;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 10px;
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.bf-transfer-itinerary .bf-ti-stop {
+    font-weight: 600;
+    color: var(--color-gold, #d4af37);
+}
+
+.bf-transfer-itinerary .bf-ti-arrow {
+    color: var(--color-text-muted);
+    font-size: 0.8em;
+    margin: 0 2px;
+}
+
+.bf-transfer-itinerary .bf-ti-note {
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    font-style: italic;
 }
 
 /* Guest counter */
@@ -6122,5 +6776,5 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 16px 14px;
+    padding: 4px 16px 20px;
 }
