@@ -4882,6 +4882,7 @@
   var clockSvg = document.getElementById('bfClockSvg');
   var clockSelRing = document.getElementById('bfClockSelRing');
   var clockHand = document.getElementById('bfClockHand');
+  var clockConfirm = document.getElementById('bfClockConfirm');
 
   var clockMode = 'hour'; // 'hour' | 'minute'
   var clockHour = 8;
@@ -5421,20 +5422,29 @@
       var targetRect = target.getBoundingClientRect();
       if (!targetRect.height || !bodyRect.height) return;
 
-      // Screen vertical center
-      var screenCenter = window.innerHeight / 2;
+      // Center target vertically within the visible booking-body area
+      var bodyCenter = bodyRect.top + bodyRect.height / 2;
       var targetCenter = targetRect.top + targetRect.height / 2;
-      var diff = targetCenter - screenCenter;
+      var diff = targetCenter - bodyCenter;
 
-      // Ensure the top of the target doesn't scroll beneath the sticky booking header
-      var projectedTop = targetRect.top - diff;
+      // Ensure top of target doesn't scroll beneath sticky booking header
       var minAllowedTop = bodyRect.top + 8;
-      if (projectedTop < minAllowedTop && targetRect.height <= bodyRect.height) {
-        var bodyCenter = bodyRect.top + bodyRect.height / 2;
-        diff = targetCenter - bodyCenter;
+      if (targetRect.top - diff < minAllowedTop) {
+        diff = targetRect.top - minAllowedTop;
       }
 
-      if (Math.abs(diff) > 4) {
+      // If target fits within visible body, ensure bottom isn't clipped by bottom edge
+      var maxAllowedBottom = bodyRect.bottom - 12;
+      if (targetRect.height <= (bodyRect.height - 20) && (targetRect.bottom - diff > maxAllowedBottom)) {
+        diff = targetRect.bottom - maxAllowedBottom;
+      }
+
+      // Re-verify top doesn't hide under header
+      if (targetRect.top - diff < minAllowedTop) {
+        diff = targetRect.top - minAllowedTop;
+      }
+
+      if (Math.abs(diff) > 2) {
         body.scrollBy({
           top: diff,
           behavior: 'smooth'
@@ -7356,10 +7366,3 @@
   }
 
 })();
-
-
-
-
-
-
-
