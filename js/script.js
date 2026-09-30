@@ -255,6 +255,7 @@
       'transfer.route.muineCothach': 'Mũi Né → Chùa Cổ Thạch',
       'transfer.itineraryLabel': 'Lộ trình chi tiết',
       'transfer.itineraryNote': 'Khứ hồi trong ngày',
+      'transfer.oneWayNote': 'Không khứ hồi',
       'transfer.swapBlocked': 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.',
       'transfer.pricingTitle': 'Bảng Giá Niêm Yết',
       'transfer.scrollHint': 'Vuốt ngang để so sánh giá các loại xe',
@@ -540,6 +541,7 @@
       'transfer.route.muineCothach': 'Mui Ne → Co Thach Pagoda',
       'transfer.itineraryLabel': 'Detailed Itinerary',
       'transfer.itineraryNote': 'Round trip',
+      'transfer.oneWayNote': 'One-way',
       'transfer.swapBlocked': 'This location is drop-off only and cannot be selected as pickup.',
       'transfer.pricingTitle': 'Price List',
       'transfer.scrollHint': 'Swipe horizontally to compare vehicle prices',
@@ -824,6 +826,7 @@
       'transfer.route.muineCothach': 'Муйне → Пагода Ко Тхать',
       'transfer.itineraryLabel': 'Подробный маршрут',
       'transfer.itineraryNote': 'туда и обратно',
+      'transfer.oneWayNote': 'В одну сторону',
       'transfer.swapBlocked': 'Эта точка только для высадки, её нельзя выбрать как место посадки.',
       'transfer.pricingTitle': 'Прайс-лист',
       'transfer.scrollHint': 'Проведите пальцем для сравнения цен',
@@ -1108,6 +1111,7 @@
       'transfer.route.muineCothach': '美奈 → 古石寺',
       'transfer.itineraryLabel': '详细行程',
       'transfer.itineraryNote': '往返',
+      'transfer.oneWayNote': '单程',
       'transfer.swapBlocked': '此地点仅为下车点，无法选择为上车点。',
       'transfer.pricingTitle': '价格表',
       'transfer.scrollHint': '左右滑动对比各车型价格',
@@ -1392,6 +1396,7 @@
       'transfer.route.muineCothach': '무이네 → 꼬탁 사원',
       'transfer.itineraryLabel': '상세 일정',
       'transfer.itineraryNote': '왕복',
+      'transfer.oneWayNote': '편도',
       'transfer.swapBlocked': '이 위치는 하차 전용이며 탑승 장소로 선택할 수 없습니다.',
       'transfer.pricingTitle': '가격표',
       'transfer.scrollHint': '좌우로 스크롤하여 차종별 요금 비교',
@@ -1676,6 +1681,7 @@
       'transfer.route.muineCothach': 'Mũi Né → Co Thach Pagode',
       'transfer.itineraryLabel': 'Detaillierte Route',
       'transfer.itineraryNote': 'Hin- und Rückfahrt',
+      'transfer.oneWayNote': 'Einfache Fahrt',
       'transfer.swapBlocked': 'Dieser Ort ist nur ein Absetzpunkt und kann nicht als Abholpunkt gewählt werden.',
       'transfer.pricingTitle': 'Preisliste',
       'transfer.scrollHint': 'Wischen Sie, um Fahrzeugpreise zu vergleichen',
@@ -3670,12 +3676,23 @@
     updatePrice();
     refreshWALink();
 
+    if (window.__recordModalOpenTime) window.__recordModalOpenTime();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.dispatchEvent(new CustomEvent('mrben-booking-open'));
   }
 
+  /* ── Modal backdrop click protection ── */
+  var modalOpenTime = 0;
+  var overlayPointerDownOnBackdrop = false;
+
+  window.__recordModalOpenTime = function () {
+    modalOpenTime = Date.now();
+    overlayPointerDownOnBackdrop = false;
+  };
+
   function closeBooking() {
+    overlayPointerDownOnBackdrop = false;
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
@@ -3702,9 +3719,23 @@
 
   /* ── Close ── */
   closeBtn.addEventListener('click', closeBooking);
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeBooking();
+
+  overlay.addEventListener('pointerdown', function (e) {
+    overlayPointerDownOnBackdrop = (e.target === overlay);
   });
+
+  overlay.addEventListener('touchstart', function (e) {
+    overlayPointerDownOnBackdrop = (e.target === overlay);
+  }, { passive: true });
+
+  overlay.addEventListener('click', function (e) {
+    if (!overlayPointerDownOnBackdrop) return;
+    if (Date.now() - modalOpenTime < 400) return;
+    if (e.target === overlay) {
+      closeBooking();
+    }
+  });
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeBooking();
   });
@@ -7044,10 +7075,10 @@
       }
     ],
     routes: [
-      { id: 'muine-hcm', from: 'muine', to: 'sgn', nameI18n: 'transfer.route.muineHcm', distance: '~200 km', duration: '~4h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 } },
-      { id: 'muine-nhatrang', from: 'muine', to: 'nhatrang', nameI18n: 'transfer.route.muineNt', distance: '~250 km', duration: '~4.5h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 } },
-      { id: 'nhatrang-hcm', from: 'nhatrang', to: 'sgn', nameI18n: 'transfer.route.ntHcm', distance: '~430 km', duration: '~7.5h', prices: { gas7: 3500000, ev7: 3500000, gas16: 5300000 } },
-      { id: 'muine-phanrang', from: 'muine', to: 'phanrang', nameI18n: 'transfer.route.muinePhanrang', distance: '~110 km', duration: '~2h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 } },
+      { id: 'muine-hcm', from: 'muine', to: 'sgn', nameI18n: 'transfer.route.muineHcm', distance: '~200 km', duration: '~4h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 }, roundTrip: false },
+      { id: 'muine-nhatrang', from: 'muine', to: 'nhatrang', nameI18n: 'transfer.route.muineNt', distance: '~250 km', duration: '~4.5h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 }, roundTrip: false },
+      { id: 'nhatrang-hcm', from: 'nhatrang', to: 'sgn', nameI18n: 'transfer.route.ntHcm', distance: '~430 km', duration: '~7.5h', prices: { gas7: 3500000, ev7: 3500000, gas16: 5300000 }, roundTrip: false },
+      { id: 'muine-phanrang', from: 'muine', to: 'phanrang', nameI18n: 'transfer.route.muinePhanrang', distance: '~110 km', duration: '~2h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 }, roundTrip: false },
       { id: 'muine-tacu', from: 'muine', to: 'tacu', nameI18n: 'transfer.route.muineTacu', distance: '~30 km', duration: '~1h', prices: { gas7: 1300000, ev7: 1300000, gas16: 1900000 }, roundTrip: true },
       { id: 'muine-kega', from: 'muine', to: 'kega', nameI18n: 'transfer.route.muineKega', distance: '~50 km', duration: '~1.5h', prices: { gas7: 1300000, ev7: 1300000, gas16: 1900000 }, roundTrip: true },
       { id: 'muine-cothach', from: 'muine', to: 'cothach', nameI18n: 'transfer.route.muineCothach', distance: '~80 km', duration: '~2h', prices: { gas7: 1900000, ev7: 1900000, gas16: 2700000 }, roundTrip: true }
@@ -7106,8 +7137,8 @@
     var tb = '<tbody>';
     TRANSFER_CONFIG.routes.forEach(function (r) {
       var rtBadge = r.roundTrip
-        ? ' <span class="tf-meta-badge-rt"><i class="fas fa-sync-alt"></i> ' + (t('transfer.itineraryNote') || '(khứ hồi)') + '</span>'
-        : '';
+        ? ' <span class="tf-meta-badge-rt tf-badge-roundtrip"><i class="fas fa-sync-alt"></i> <span data-i18n="transfer.itineraryNote">' + (t('transfer.itineraryNote') || 'Khứ hồi trong ngày') + '</span></span>'
+        : ' <span class="tf-meta-badge-rt tf-badge-oneway"><i class="fas fa-arrow-right"></i> <span data-i18n="transfer.oneWayNote">' + (t('transfer.oneWayNote') || 'Không khứ hồi') + '</span></span>';
       tb += '<tr class="tf-pricing-row" data-route-id="' + r.id + '">'
         + '<td class="tf-td-route" data-route-id="' + r.id + '" data-from="' + r.from + '" data-to="' + r.to + '">'
         + '<div class="tf-route-cell-wrap">'
@@ -7289,6 +7320,7 @@
     if (window.__setTransferPickup) window.__setTransferPickup(opts.pickup || '');
     if (window.__setTransferDropoff) window.__setTransferDropoff(opts.dropoff || '');
 
+    if (window.__recordModalOpenTime) window.__recordModalOpenTime();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.dispatchEvent(new CustomEvent('mrben-booking-open'));
@@ -7326,14 +7358,20 @@
         var bookBtn = e.target.closest('.tf-price-book-mini');
         if (!bookBtn) return;
         e.preventDefault();
+        e.stopPropagation();
 
-        var isMobile = (window.innerWidth <= 768) || ('ontouchstart' in window && window.innerWidth <= 1024);
+        var isMobile = (window.innerWidth <= 768) ||
+          ('ontouchstart' in window && window.innerWidth <= 1024) ||
+          (window.matchMedia && (window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.matchMedia('(max-width: 768px)').matches));
         var vId = bookBtn.getAttribute('data-vehicle-id');
         var from = bookBtn.getAttribute('data-from');
         var to = bookBtn.getAttribute('data-to');
 
         if (isMobile) {
-          openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
+          bookBtn.blur();
+          setTimeout(function () {
+            openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
+          }, 80);
           return;
         }
 

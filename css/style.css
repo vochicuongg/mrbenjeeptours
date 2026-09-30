@@ -5060,16 +5060,18 @@ button {
     background-color: #1a0f0a;
 }
 
-.tf-pricing-table tbody tr:hover td {
-    background-color: rgba(212, 175, 55, 0.06);
-}
+@media (hover: hover) and (pointer: fine) {
+    .tf-pricing-table tbody tr:hover td {
+        background-color: rgba(212, 175, 55, 0.06);
+    }
 
-.tf-pricing-table tbody tr:hover td.tf-td-route {
-    background-color: #24150d;
-}
+    .tf-pricing-table tbody tr:hover td.tf-td-route {
+        background-color: #24150d;
+    }
 
-.tf-pricing-table tbody tr:hover .tf-route-name {
-    color: var(--color-gold);
+    .tf-pricing-table tbody tr:hover .tf-route-name {
+        color: var(--color-gold);
+    }
 }
 
 .tf-th-vehicle {
@@ -5144,6 +5146,12 @@ button {
     border: 1px solid rgba(245, 158, 11, 0.3);
     border-radius: 4px;
     white-space: nowrap;
+}
+
+.tf-meta-badge-rt.tf-badge-roundtrip {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
 }
 
 .tf-price-cell {
@@ -5710,6 +5718,10 @@ button {
     /* Disable button click glow/active animation on mobile */
     .tf-price-book-mini,
     .tf-price-book-mini:hover,
+    .tf-price-book-mini:active,
+    .tf-price-book-mini:focus,
+    .tf-price-book-mini:focus-visible,
+    .tf-price-book-mini:focus-within,
     .tf-price-book-mini.tf-btn-glow {
         background: rgba(255, 255, 255, 0.08) !important;
         color: #ffffff !important;
@@ -5717,14 +5729,33 @@ button {
         box-shadow: none !important;
         transform: none !important;
         animation: none !important;
+        transition: none !important;
+        outline: none !important;
         -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        user-select: none !important;
     }
 
     .tf-price-book-mini i,
     .tf-price-book-mini:hover i,
     .tf-price-book-mini:active i,
+    .tf-price-book-mini:focus i,
+    .tf-price-book-mini:focus-visible i,
+    .tf-price-book-mini:focus-within i,
     .tf-price-book-mini.tf-btn-glow i {
         color: #ffffff !important;
+        transition: none !important;
+    }
+
+    .tf-price-book-mini span,
+    .tf-price-book-mini:hover span,
+    .tf-price-book-mini:active span,
+    .tf-price-book-mini:focus span,
+    .tf-price-book-mini:focus-visible span,
+    .tf-price-book-mini:focus-within span,
+    .tf-price-book-mini.tf-btn-glow span {
+        color: #ffffff !important;
+        transition: none !important;
     }
 
     /* Disable day pulse pop animation on mobile */
@@ -5738,6 +5769,10 @@ button {
 @media (hover: none) and (pointer: coarse) {
     .tf-price-book-mini,
     .tf-price-book-mini:hover,
+    .tf-price-book-mini:active,
+    .tf-price-book-mini:focus,
+    .tf-price-book-mini:focus-visible,
+    .tf-price-book-mini:focus-within,
     .tf-price-book-mini.tf-btn-glow {
         background: rgba(255, 255, 255, 0.08) !important;
         color: #ffffff !important;
@@ -5745,14 +5780,33 @@ button {
         box-shadow: none !important;
         transform: none !important;
         animation: none !important;
+        transition: none !important;
+        outline: none !important;
         -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        user-select: none !important;
     }
 
     .tf-price-book-mini i,
     .tf-price-book-mini:hover i,
     .tf-price-book-mini:active i,
+    .tf-price-book-mini:focus i,
+    .tf-price-book-mini:focus-visible i,
+    .tf-price-book-mini:focus-within i,
     .tf-price-book-mini.tf-btn-glow i {
         color: #ffffff !important;
+        transition: none !important;
+    }
+
+    .tf-price-book-mini span,
+    .tf-price-book-mini:hover span,
+    .tf-price-book-mini:active span,
+    .tf-price-book-mini:focus span,
+    .tf-price-book-mini:focus-visible span,
+    .tf-price-book-mini:focus-within span,
+    .tf-price-book-mini.tf-btn-glow span {
+        color: #ffffff !important;
+        transition: none !important;
     }
 
     .bf-cal-day.bf-day-pulse {
