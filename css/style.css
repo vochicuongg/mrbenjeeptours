@@ -5193,7 +5193,7 @@ button {
     border-radius: 12px;
     white-space: nowrap;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     outline: none;
@@ -5205,13 +5205,20 @@ button {
     transition: color 0.2s ease;
 }
 
+.tf-price-book-mini:active,
+.tf-price-book-mini:focus,
+.tf-price-book-mini:focus-visible {
+    transform: none !important;
+    outline: none !important;
+    animation: none !important;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .tf-price-book-mini:hover {
         background: #ffffff;
         color: #1a0f0a;
         border-color: #ffffff;
         box-shadow: 0 2px 10px rgba(255, 255, 255, 0.35);
-        transform: translateY(-1px);
     }
 
     .tf-price-book-mini:hover i {
@@ -5219,49 +5226,17 @@ button {
     }
 
     .tf-price-book-mini:active {
-        transform: scale(0.94);
         background: #ffffff !important;
         color: #1a0f0a !important;
         border-color: #ffffff !important;
-        box-shadow: 0 0 16px rgba(255, 255, 255, 0.95), 0 0 32px rgba(212, 175, 55, 0.8) !important;
+        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.35) !important;
+        transform: none !important;
+        animation: none !important;
     }
 
     .tf-price-book-mini:active i {
         color: #1a0f0a !important;
     }
-}
-
-/* ── Button Click Radiant Glow Effect ── */
-@keyframes tfBtnGlow {
-    0% {
-        transform: scale(0.94);
-        background: #ffffff;
-        color: #1a0f0a;
-        border-color: #ffffff;
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.95), 0 0 18px rgba(255, 255, 255, 1), 0 0 32px rgba(212, 175, 55, 0.85);
-    }
-    35% {
-        transform: scale(1.06);
-        background: #ffffff;
-        color: #1a0f0a;
-        border-color: #ffffff;
-        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.45), 0 0 24px rgba(255, 255, 255, 1), 0 0 42px rgba(212, 175, 55, 0.95);
-    }
-    100% {
-        transform: scale(1);
-        background: rgba(255, 255, 255, 0.08);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.45);
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
-    }
-}
-
-.tf-price-book-mini.tf-btn-glow {
-    animation: tfBtnGlow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
-}
-
-.tf-price-book-mini.tf-btn-glow i {
-    color: #1a0f0a !important;
 }
 
 .tf-pricing-footer {
@@ -5715,14 +5690,13 @@ button {
         display: inline-flex;
     }
 
-    /* Disable button click glow/active animation on mobile */
+    /* Disable button active animation on mobile */
     .tf-price-book-mini,
     .tf-price-book-mini:hover,
     .tf-price-book-mini:active,
     .tf-price-book-mini:focus,
     .tf-price-book-mini:focus-visible,
-    .tf-price-book-mini:focus-within,
-    .tf-price-book-mini.tf-btn-glow {
+    .tf-price-book-mini:focus-within {
         background: rgba(255, 255, 255, 0.08) !important;
         color: #ffffff !important;
         border-color: rgba(255, 255, 255, 0.45) !important;
@@ -5741,8 +5715,7 @@ button {
     .tf-price-book-mini:active i,
     .tf-price-book-mini:focus i,
     .tf-price-book-mini:focus-visible i,
-    .tf-price-book-mini:focus-within i,
-    .tf-price-book-mini.tf-btn-glow i {
+    .tf-price-book-mini:focus-within i {
         color: #ffffff !important;
         transition: none !important;
     }
@@ -5752,8 +5725,7 @@ button {
     .tf-price-book-mini:active span,
     .tf-price-book-mini:focus span,
     .tf-price-book-mini:focus-visible span,
-    .tf-price-book-mini:focus-within span,
-    .tf-price-book-mini.tf-btn-glow span {
+    .tf-price-book-mini:focus-within span {
         color: #ffffff !important;
         transition: none !important;
     }
@@ -5772,8 +5744,7 @@ button {
     .tf-price-book-mini:active,
     .tf-price-book-mini:focus,
     .tf-price-book-mini:focus-visible,
-    .tf-price-book-mini:focus-within,
-    .tf-price-book-mini.tf-btn-glow {
+    .tf-price-book-mini:focus-within {
         background: rgba(255, 255, 255, 0.08) !important;
         color: #ffffff !important;
         border-color: rgba(255, 255, 255, 0.45) !important;
@@ -5792,8 +5763,7 @@ button {
     .tf-price-book-mini:active i,
     .tf-price-book-mini:focus i,
     .tf-price-book-mini:focus-visible i,
-    .tf-price-book-mini:focus-within i,
-    .tf-price-book-mini.tf-btn-glow i {
+    .tf-price-book-mini:focus-within i {
         color: #ffffff !important;
         transition: none !important;
     }
@@ -5803,8 +5773,7 @@ button {
     .tf-price-book-mini:active span,
     .tf-price-book-mini:focus span,
     .tf-price-book-mini:focus-visible span,
-    .tf-price-book-mini:focus-within span,
-    .tf-price-book-mini.tf-btn-glow span {
+    .tf-price-book-mini:focus-within span {
         color: #ffffff !important;
         transition: none !important;
     }
@@ -6181,7 +6150,6 @@ button {
     flex-wrap: wrap;
     gap: 6px 4px;
     padding: 12px 16px;
-    background: rgba(212, 175, 55, 0.06);
     border: 1px solid rgba(212, 175, 55, 0.18);
     border-radius: 10px;
     font-size: 0.92rem;
@@ -6193,6 +6161,7 @@ button {
     font-weight: 600;
     color: var(--color-gold, #d4af37);
 }
+
 
 .bf-transfer-itinerary .bf-ti-arrow {
     color: var(--color-text-muted);
@@ -6735,6 +6704,7 @@ button {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 8px;
+    transition: border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
 }
 
 .bf-pickup-dropoff-row .bf-pd-icon {
@@ -6745,6 +6715,7 @@ button {
     font-size: 0.85rem;
     pointer-events: none;
     z-index: 1;
+    transition: filter 0.25s ease;
 }
 
 .bf-pickup-dropoff-row .bf-pd-icon--pickup {
@@ -6765,16 +6736,133 @@ button {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    transition: transform 0.25s ease;
+    transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .bf-pickup-dropoff-row .bf-custom-select.open .bf-custom-select-arrow {
     transform: translateY(-50%) rotate(180deg);
 }
 
-.bf-custom-select-trigger.bf-error {
+/* ── Hiển thị khung theo màu Điểm đón (#4CAF50) ── */
+#bfTfPickupSelect .bf-custom-select-trigger:hover,
+#bfTfPickupSelect.open .bf-custom-select-trigger {
+    border-color: #4CAF50 !important;
+    background: rgba(76, 175, 80, 0.1) !important;
+    box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.3), 0 3px 12px rgba(76, 175, 80, 0.2) !important;
+}
+
+#bfTfPickupSelect .bf-custom-select-trigger:hover .bf-custom-select-arrow,
+#bfTfPickupSelect.open .bf-custom-select-arrow {
+    color: #4CAF50 !important;
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-trigger,
+#bfTfPickupTrigger.is-selected,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-custom-select-trigger {
+    border-color: #4CAF50 !important;
+    background: rgba(76, 175, 80, 0.08) !important;
+    box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.28), 0 2px 10px rgba(76, 175, 80, 0.18) !important;
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-val,
+#bfTfPickupTrigger.is-selected .bf-custom-select-val,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-custom-select-val {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-arrow,
+#bfTfPickupTrigger.is-selected .bf-custom-select-arrow,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-custom-select-arrow {
+    color: #4CAF50;
+}
+
+#bfTfPickupSelect.is-selected .bf-pd-icon--pickup,
+#bfTfPickupTrigger.is-selected .bf-pd-icon--pickup,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-pd-icon--pickup {
+    filter: drop-shadow(0 0 6px rgba(76, 175, 80, 0.5));
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-trigger:hover,
+#bfTfPickupSelect.is-selected.open .bf-custom-select-trigger {
+    border-color: #66bb6a !important;
+    background: rgba(76, 175, 80, 0.14) !important;
+    box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.4), 0 4px 14px rgba(76, 175, 80, 0.28) !important;
+}
+
+#bfTfPickupList li:hover {
+    background: rgba(76, 175, 80, 0.12) !important;
+    color: #81c784 !important;
+}
+
+#bfTfPickupList li.is-active {
+    background: rgba(76, 175, 80, 0.22) !important;
+    color: #4CAF50 !important;
+    font-weight: 600;
+}
+
+/* ── Hiển thị khung theo màu Điểm trả (#FF5722) ── */
+#bfTfDropoffSelect .bf-custom-select-trigger:hover,
+#bfTfDropoffSelect.open .bf-custom-select-trigger {
+    border-color: #FF5722 !important;
+    background: rgba(255, 87, 34, 0.1) !important;
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.3), 0 3px 12px rgba(255, 87, 34, 0.2) !important;
+}
+
+#bfTfDropoffSelect .bf-custom-select-trigger:hover .bf-custom-select-arrow,
+#bfTfDropoffSelect.open .bf-custom-select-arrow {
+    color: #FF5722 !important;
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-trigger,
+#bfTfDropoffTrigger.is-selected,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-custom-select-trigger {
+    border-color: #FF5722 !important;
+    background: rgba(255, 87, 34, 0.08) !important;
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.28), 0 2px 10px rgba(255, 87, 34, 0.18) !important;
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-val,
+#bfTfDropoffTrigger.is-selected .bf-custom-select-val,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-custom-select-val {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-arrow,
+#bfTfDropoffTrigger.is-selected .bf-custom-select-arrow,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-custom-select-arrow {
+    color: #FF5722;
+}
+
+#bfTfDropoffSelect.is-selected .bf-pd-icon--dropoff,
+#bfTfDropoffTrigger.is-selected .bf-pd-icon--dropoff,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-pd-icon--dropoff {
+    filter: drop-shadow(0 0 6px rgba(255, 87, 34, 0.5));
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-trigger:hover,
+#bfTfDropoffSelect.is-selected.open .bf-custom-select-trigger {
+    border-color: #ff7043 !important;
+    background: rgba(255, 87, 34, 0.14) !important;
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.4), 0 4px 14px rgba(255, 87, 34, 0.28) !important;
+}
+
+#bfTfDropoffList li:hover {
+    background: rgba(255, 87, 34, 0.12) !important;
+    color: #ff8a65 !important;
+}
+
+#bfTfDropoffList li.is-active {
+    background: rgba(255, 87, 34, 0.22) !important;
+    color: #FF5722 !important;
+    font-weight: 600;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-trigger.bf-error {
     border-color: #e74c3c !important;
     background: rgba(231, 76, 60, 0.05) !important;
+    box-shadow: 0 0 0 1px rgba(231, 76, 60, 0.3) !important;
 }
 
 .bf-pd-swap {
@@ -6801,6 +6889,19 @@ button {
 
 .bf-pd-swap:active {
     transform: rotate(180deg) scale(0.92);
+}
+
+/* Nút hoán đổi khi cả Điểm đón và Điểm trả đã được chọn */
+.bf-pickup-dropoff-row.has-both-selected .bf-pd-swap {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.16) 0%, rgba(255, 87, 34, 0.16) 100%);
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.18);
+}
+
+.bf-pickup-dropoff-row.has-both-selected .bf-pd-swap:hover {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.26) 0%, rgba(255, 87, 34, 0.26) 100%);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
 }
 
 @media (max-width: 420px) {
@@ -6849,4 +6950,73 @@ button {
     align-items: center;
     justify-content: center;
     padding: 4px 16px 14px;
+}
+
+/* ── Thông báo chặn điểm trả làm điểm đón (Vị trí Center) ── */
+#bfSwapBlockedToast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(22, 13, 10, 0.96);
+    color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(255, 87, 34, 0.45);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 87, 34, 0.22);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.45;
+    z-index: 999999;
+    max-width: min(90vw, 420px);
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    animation: bfToastCenterIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#bfSwapBlockedToast.is-hiding {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scale(0.92) !important;
+}
+
+#bfSwapBlockedToast .bf-toast-icon {
+    font-size: 1.25rem;
+    color: #ff5722;
+    flex-shrink: 0;
+}
+
+#bfSwapBlockedToast .bf-toast-text {
+    flex: 1;
+}
+
+@keyframes bfToastCenterIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -46%) scale(0.92);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes bfToastCenterShake {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    20%, 60% {
+        transform: translate(-52%, -50%);
+    }
+    40%, 80% {
+        transform: translate(-48%, -50%);
+    }
 }

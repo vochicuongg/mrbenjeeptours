@@ -243,15 +243,17 @@
       'transfer.city.sgn': 'Sân bay Tân Sơn Nhất (SGN)',
       'transfer.city.nhatrang': 'Nha Trang',
       'transfer.city.phanrang': 'Biển Phan Rang',
-      'transfer.city.tacu': 'Tà Cú',
-      'transfer.city.kega': 'Kê Gà',
+      'transfer.city.tacu': 'Núi Tà Cú',
+      'transfer.city.kega': 'Mũi Kê Gà',
       'transfer.city.cothach': 'Chùa Cổ Thạch',
+      'transfer.stop.poshanu': 'Tháp Chàm',
+      'transfer.stop.caong': 'Xương Cá Ông',
       'transfer.route.muineHcm': 'Mũi Né ⇄ Sân bay Tân Sơn Nhất (SGN)',
       'transfer.route.muineNt': 'Mũi Né ⇄ Nha Trang',
       'transfer.route.ntHcm': 'Nha Trang ⇄ Sân bay Tân Sơn Nhất (SGN)',
       'transfer.route.muinePhanrang': 'Mũi Né ⇄ Biển Phan Rang',
-      'transfer.route.muineTacu': 'Mũi Né → Tà Cú',
-      'transfer.route.muineKega': 'Mũi Né → Kê Gà',
+      'transfer.route.muineTacu': 'Mũi Né → Núi Tà Cú',
+      'transfer.route.muineKega': 'Mũi Né → Mũi Kê Gà',
       'transfer.route.muineCothach': 'Mũi Né → Chùa Cổ Thạch',
       'transfer.itineraryLabel': 'Lộ trình chi tiết',
       'transfer.itineraryNote': 'Khứ hồi trong ngày',
@@ -529,15 +531,17 @@
       'transfer.city.sgn': 'Tan Son Nhat Airport (SGN)',
       'transfer.city.nhatrang': 'Nha Trang',
       'transfer.city.phanrang': 'Phan Rang Beach',
-      'transfer.city.tacu': 'Ta Cu',
-      'transfer.city.kega': 'Ke Ga',
+      'transfer.city.tacu': 'Ta Cu Mountain',
+      'transfer.city.kega': 'Ke Ga Cape',
       'transfer.city.cothach': 'Co Thach Pagoda',
+      'transfer.stop.poshanu': 'Cham Towers',
+      'transfer.stop.caong': 'Whale Temple',
       'transfer.route.muineHcm': 'Mui Ne ⇄ Tan Son Nhat Airport (SGN)',
       'transfer.route.muineNt': 'Mui Ne ⇄ Nha Trang',
       'transfer.route.ntHcm': 'Nha Trang ⇄ Tan Son Nhat Airport (SGN)',
       'transfer.route.muinePhanrang': 'Mui Ne ⇄ Phan Rang Beach',
-      'transfer.route.muineTacu': 'Mui Ne → Ta Cu',
-      'transfer.route.muineKega': 'Mui Ne → Ke Ga',
+      'transfer.route.muineTacu': 'Mui Ne → Ta Cu Mountain',
+      'transfer.route.muineKega': 'Mui Ne → Ke Ga Cape',
       'transfer.route.muineCothach': 'Mui Ne → Co Thach Pagoda',
       'transfer.itineraryLabel': 'Detailed Itinerary',
       'transfer.itineraryNote': 'Round trip',
@@ -814,15 +818,17 @@
       'transfer.city.sgn': 'Аэропорт Таншоннят (SGN)',
       'transfer.city.nhatrang': 'Нячанг',
       'transfer.city.phanrang': 'Пляж Фанранг',
-      'transfer.city.tacu': 'Та Ку',
-      'transfer.city.kega': 'Ке Га',
+      'transfer.city.tacu': 'Гора Та Ку',
+      'transfer.city.kega': 'Мыс Ке Га',
       'transfer.city.cothach': 'Пагода Ко Тхать',
+      'transfer.stop.poshanu': 'Чамские башни',
+      'transfer.stop.caong': 'Храм кита',
       'transfer.route.muineHcm': 'Муйне ⇄ Аэропорт Таншоннят (SGN)',
       'transfer.route.muineNt': 'Муйне ⇄ Нячанг',
       'transfer.route.ntHcm': 'Нячанг ⇄ Аэропорт Таншоннят (SGN)',
       'transfer.route.muinePhanrang': 'Муйне ⇄ Пляж Фанранг',
-      'transfer.route.muineTacu': 'Муйне → Та Ку',
-      'transfer.route.muineKega': 'Муйне → Ке Га',
+      'transfer.route.muineTacu': 'Муйне → Гора Та Ку',
+      'transfer.route.muineKega': 'Муйне → Мыс Ке Га',
       'transfer.route.muineCothach': 'Муйне → Пагода Ко Тхать',
       'transfer.itineraryLabel': 'Подробный маршрут',
       'transfer.itineraryNote': 'туда и обратно',
@@ -1099,15 +1105,17 @@
       'transfer.city.sgn': '新山一机场 (SGN)',
       'transfer.city.nhatrang': '芽庄',
       'transfer.city.phanrang': '潘朗海滩',
-      'transfer.city.tacu': '达固',
-      'transfer.city.kega': '科加',
+      'transfer.city.tacu': '达固山',
+      'transfer.city.kega': '科加海角',
       'transfer.city.cothach': '古石寺',
+      'transfer.stop.poshanu': '占婆塔',
+      'transfer.stop.caong': '鲸鱼庙',
       'transfer.route.muineHcm': '美奈 ⇄ 新山一机场 (SGN)',
       'transfer.route.muineNt': '美奈 ⇄ 芽庄',
       'transfer.route.ntHcm': '芽庄 ⇄ 新山一机场 (SGN)',
       'transfer.route.muinePhanrang': '美奈 ⇄ 潘朗海滩',
-      'transfer.route.muineTacu': '美奈 → 达固',
-      'transfer.route.muineKega': '美奈 → 科加',
+      'transfer.route.muineTacu': '美奈 → 达固山',
+      'transfer.route.muineKega': '美奈 → 科加海角',
       'transfer.route.muineCothach': '美奈 → 古石寺',
       'transfer.itineraryLabel': '详细行程',
       'transfer.itineraryNote': '往返',
@@ -1384,15 +1392,17 @@
       'transfer.city.sgn': '탄손누트 공항 (SGN)',
       'transfer.city.nhatrang': '나트랑',
       'transfer.city.phanrang': '판랑 해변',
-      'transfer.city.tacu': '따꾸',
-      'transfer.city.kega': '께가',
+      'transfer.city.tacu': '따꾸산',
+      'transfer.city.kega': '께가 곶',
       'transfer.city.cothach': '꼬탁 사원',
+      'transfer.stop.poshanu': '참탑',
+      'transfer.stop.caong': '고래 사원',
       'transfer.route.muineHcm': '무이네 ⇄ 탄손누트 공항 (SGN)',
       'transfer.route.muineNt': '무이네 ⇄ 나트랑',
       'transfer.route.ntHcm': '나트랑 ⇄ 탄손누트 공항 (SGN)',
       'transfer.route.muinePhanrang': '무이네 ⇄ 판랑 해변',
-      'transfer.route.muineTacu': '무이네 → 따꾸',
-      'transfer.route.muineKega': '무이네 → 께가',
+      'transfer.route.muineTacu': '무이네 → 따꾸산',
+      'transfer.route.muineKega': '무이네 → 께가 곶',
       'transfer.route.muineCothach': '무이네 → 꼬탁 사원',
       'transfer.itineraryLabel': '상세 일정',
       'transfer.itineraryNote': '왕복',
@@ -1669,15 +1679,17 @@
       'transfer.city.sgn': 'Flughafen Tan Son Nhat (SGN)',
       'transfer.city.nhatrang': 'Nha Trang',
       'transfer.city.phanrang': 'Phan Rang Strand',
-      'transfer.city.tacu': 'Ta Cu',
-      'transfer.city.kega': 'Ke Ga',
+      'transfer.city.tacu': 'Berg Ta Cu',
+      'transfer.city.kega': 'Kap Ke Ga',
       'transfer.city.cothach': 'Co Thach Pagode',
+      'transfer.stop.poshanu': 'Cham-Türme',
+      'transfer.stop.caong': 'Wal-Tempel',
       'transfer.route.muineHcm': 'Mũi Né ⇄ Flughafen Tan Son Nhat (SGN)',
       'transfer.route.muineNt': 'Mũi Né ⇄ Nha Trang',
       'transfer.route.ntHcm': 'Nha Trang ⇄ Flughafen Tan Son Nhat (SGN)',
       'transfer.route.muinePhanrang': 'Mũi Né ⇄ Phan Rang Strand',
-      'transfer.route.muineTacu': 'Mũi Né → Ta Cu',
-      'transfer.route.muineKega': 'Mũi Né → Ke Ga',
+      'transfer.route.muineTacu': 'Mũi Né → Berg Ta Cu',
+      'transfer.route.muineKega': 'Mũi Né → Kap Ke Ga',
       'transfer.route.muineCothach': 'Mũi Né → Co Thach Pagode',
       'transfer.itineraryLabel': 'Detaillierte Route',
       'transfer.itineraryNote': 'Hin- und Rückfahrt',
@@ -2937,8 +2949,8 @@
     if (c === 'sgn') return t['transfer.city.sgn'] || 'Sân bay Tân Sơn Nhất (SGN)';
     if (c === 'nhatrang') return t['transfer.city.nhatrang'] || 'Nha Trang';
     if (c === 'phanrang') return t['transfer.city.phanrang'] || 'Biển Phan Rang';
-    if (c === 'tacu') return t['transfer.city.tacu'] || 'Tà Cú';
-    if (c === 'kega') return t['transfer.city.kega'] || 'Kê Gà';
+    if (c === 'tacu') return t['transfer.city.tacu'] || 'Núi Tà Cú';
+    if (c === 'kega') return t['transfer.city.kega'] || 'Mũi Kê Gà';
     if (c === 'cothach') return t['transfer.city.cothach'] || 'Chùa Cổ Thạch';
     return code || '';
   }
@@ -2995,6 +3007,10 @@
 
     /* Guard: block non-pickup cities */
     if (normCity && !TRANSFER_PICKUP_ALLOWED[normCity]) {
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      var t = (window.__MRB_TRANS || {})[lang] || {};
+      var msg = t['transfer.swapBlocked'] || 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.';
+      showSwapBlockedToast(msg);
       return;
     }
 
@@ -3015,7 +3031,14 @@
         pValEl.classList.add('is-placeholder');
       }
     }
-    if (pTrigger) pTrigger.classList.remove('bf-error');
+    var pSelect = document.getElementById('bfTfPickupSelect');
+    if (pTrigger) {
+      pTrigger.classList.remove('bf-error');
+      pTrigger.classList.toggle('is-selected', Boolean(normCity));
+    }
+    if (pSelect) {
+      pSelect.classList.toggle('is-selected', Boolean(normCity));
+    }
     if (pList) {
       var items = pList.querySelectorAll('li');
       items.forEach(function (li) {
@@ -3023,6 +3046,13 @@
         li.classList.toggle('is-active', Boolean(normCity && v === normCity));
       });
     }
+
+    var pdRow = document.querySelector('.bf-pickup-dropoff-row');
+    if (pdRow) {
+      var dVal = dIn ? normalizeTransferCity(dIn.value) : '';
+      pdRow.classList.toggle('has-both-selected', Boolean(normCity && dVal));
+    }
+
     updateTransferDropdownDisabledStates();
     checkTransferHotelVisibility();
     if (window.__bookingMode === 'transfer') {
@@ -3035,6 +3065,7 @@
     var dIn = document.getElementById('bfTfDropoff');
     var dValEl = document.getElementById('bfTfDropoffVal');
     var dTrigger = document.getElementById('bfTfDropoffTrigger');
+    var dSelect = document.getElementById('bfTfDropoffSelect');
     var dList = document.getElementById('bfTfDropoffList');
 
     var pIn = document.getElementById('bfTfPickup');
@@ -3058,7 +3089,13 @@
         dValEl.classList.add('is-placeholder');
       }
     }
-    if (dTrigger) dTrigger.classList.remove('bf-error');
+    if (dTrigger) {
+      dTrigger.classList.remove('bf-error');
+      dTrigger.classList.toggle('is-selected', Boolean(normCity));
+    }
+    if (dSelect) {
+      dSelect.classList.toggle('is-selected', Boolean(normCity));
+    }
     if (dList) {
       var items = dList.querySelectorAll('li');
       items.forEach(function (li) {
@@ -3066,6 +3103,13 @@
         li.classList.toggle('is-active', Boolean(normCity && v === normCity));
       });
     }
+
+    var pdRow = document.querySelector('.bf-pickup-dropoff-row');
+    if (pdRow) {
+      var pVal = pIn ? normalizeTransferCity(pIn.value) : '';
+      pdRow.classList.toggle('has-both-selected', Boolean(pVal && normCity));
+    }
+
     updateTransferDropdownDisabledStates();
     checkTransferHotelVisibility();
     if (window.__bookingMode === 'transfer') {
@@ -3091,6 +3135,16 @@
     if (!isTransfer) {
       tfSelectedVehicle = '';
       tfSelectedRoute = null;
+      var pTrig = document.getElementById('bfTfPickupTrigger');
+      var dTrig = document.getElementById('bfTfDropoffTrigger');
+      var pSel = document.getElementById('bfTfPickupSelect');
+      var dSel = document.getElementById('bfTfDropoffSelect');
+      var pdRow = document.querySelector('.bf-pickup-dropoff-row');
+      if (pTrig) pTrig.classList.remove('is-selected');
+      if (dTrig) dTrig.classList.remove('is-selected');
+      if (pSel) pSel.classList.remove('is-selected');
+      if (dSel) dSel.classList.remove('is-selected');
+      if (pdRow) pdRow.classList.remove('has-both-selected');
     }
 
     /* Pickup/Dropoff row */
@@ -3442,9 +3496,9 @@
 
   /* ── Transfer itinerary stops data ── */
   var TRANSFER_ITINERARIES = {
-    'muine-tacu': ['Mũi Né', 'Tháp Chàm', 'Xương Cá Ông', 'Tà Cú', 'Mũi Né'],
-    'muine-cothach': ['Mũi Né', 'Chùa Cổ Thạch', 'Mũi Né'],
-    'muine-kega': ['Mũi Né', 'Kê Gà', 'Mũi Né']
+    'muine-tacu': ['transfer.city.muine', 'transfer.stop.poshanu', 'transfer.stop.caong', 'transfer.city.tacu', 'transfer.city.muine'],
+    'muine-cothach': ['transfer.city.muine', 'transfer.city.cothach', 'transfer.city.muine'],
+    'muine-kega': ['transfer.city.muine', 'transfer.city.kega', 'transfer.city.muine']
   };
 
   /* ── Auto-detect transfer route from pickup/dropoff text ── */
@@ -3523,7 +3577,11 @@
 
     var html = '';
     stops.forEach(function (stop, i) {
-      html += '<span class="bf-ti-stop">' + stop + '</span>';
+      var stopName = t[stop] || stop;
+      var cls = 'bf-ti-stop';
+      if (i === 0) cls += ' bf-ti-stop--pickup';
+      else if (i === stops.length - 1) cls += ' bf-ti-stop--dropoff';
+      html += '<span class="' + cls + '">' + stopName + '</span>';
       if (i < stops.length - 1) {
         html += '<span class="bf-ti-arrow">→</span>';
       }
@@ -3809,24 +3867,60 @@
   }
   window.__closeRouteDropdowns = closeRouteDropdowns;
 
-  /* ── Toast for blocked swap ── */
+  /* ── Toast for blocked swap (Center screen) ── */
+  var swapToastTimer = null;
   function showSwapBlockedToast(msg) {
     var existing = document.getElementById('bfSwapBlockedToast');
-    if (existing) existing.remove();
+    if (existing) {
+      if (swapToastTimer) clearTimeout(swapToastTimer);
+      var textEl = existing.querySelector('.bf-toast-text');
+      if (textEl) textEl.textContent = msg;
+      existing.classList.remove('is-hiding');
+      existing.style.animation = 'none';
+      void existing.offsetWidth;
+      existing.style.animation = 'bfToastCenterShake 0.35s ease';
+      swapToastTimer = setTimeout(function () {
+        dismissSwapToast(existing);
+      }, 3200);
+      return;
+    }
+
     var toast = document.createElement('div');
     toast.id = 'bfSwapBlockedToast';
-    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);'
-      + 'background:rgba(220,53,69,0.95);color:#fff;padding:12px 24px;border-radius:10px;'
-      + 'font-size:0.9rem;z-index:99999;box-shadow:0 4px 20px rgba(0,0,0,0.3);'
-      + 'animation:bfFadeIn 0.3s ease;max-width:90vw;text-align:center;';
-    toast.textContent = msg;
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+
+    var icon = document.createElement('i');
+    icon.className = 'fa-solid fa-circle-exclamation bf-toast-icon';
+
+    var span = document.createElement('span');
+    span.className = 'bf-toast-text';
+    span.textContent = msg;
+
+    toast.appendChild(icon);
+    toast.appendChild(span);
+
+    toast.addEventListener('click', function () {
+      dismissSwapToast(toast);
+    });
+
     document.body.appendChild(toast);
-    setTimeout(function () {
-      toast.style.opacity = '0';
-      toast.style.transition = 'opacity 0.4s ease';
-      setTimeout(function () { toast.remove(); }, 400);
-    }, 3000);
+
+    if (swapToastTimer) clearTimeout(swapToastTimer);
+    swapToastTimer = setTimeout(function () {
+      dismissSwapToast(toast);
+    }, 3200);
   }
+
+  function dismissSwapToast(toast) {
+    if (!toast || !toast.parentNode) return;
+    toast.classList.add('is-hiding');
+    setTimeout(function () {
+      if (toast && toast.parentNode) toast.remove();
+    }, 320);
+  }
+  window.__showSwapBlockedToast = showSwapBlockedToast;
+
 
   if (tfPickupTrigger) {
     tfPickupTrigger.addEventListener('click', function (e) {
@@ -7360,32 +7454,11 @@
         e.preventDefault();
         e.stopPropagation();
 
-        var isMobile = (window.innerWidth <= 768) ||
-          ('ontouchstart' in window && window.innerWidth <= 1024) ||
-          (window.matchMedia && (window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.matchMedia('(max-width: 768px)').matches));
         var vId = bookBtn.getAttribute('data-vehicle-id');
         var from = bookBtn.getAttribute('data-from');
         var to = bookBtn.getAttribute('data-to');
 
-        if (isMobile) {
-          bookBtn.blur();
-          setTimeout(function () {
-            openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
-          }, 80);
-          return;
-        }
-
-        /* Trigger glowing pulse effect on desktop only */
-        bookBtn.classList.remove('tf-btn-glow');
-        void bookBtn.offsetWidth;
-        bookBtn.classList.add('tf-btn-glow');
-        setTimeout(function () {
-          bookBtn.classList.remove('tf-btn-glow');
-        }, 500);
-
-        setTimeout(function () {
-          openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
-        }, 160);
+        openTransferBooking({ vehicleId: vId, pickup: from, dropoff: to });
       });
     }
 

@@ -294,8 +294,8 @@
 
     <!-- Comprehensive Schema.org Structured Data (TravelAgency, TouristTrip, Pickup Locations) -->
     <script defer>
-    // Inject JSON-LD structured data from external file (Google supports dynamically inserted JSON-LD)
-    document.addEventListener('DOMContentLoaded',function(){fetch('schema-jeeptour.json').then(function(r){return r.text()}).then(function(t){var s=document.createElement('script');s.type='application/ld+json';s.textContent=t;document.head.appendChild(s)}).catch(function(){})});
+        // Inject JSON-LD structured data from external file (Google supports dynamically inserted JSON-LD)
+        document.addEventListener('DOMContentLoaded', function () { fetch('schema-jeeptour.json').then(function (r) { return r.text() }).then(function (t) { var s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = t; document.head.appendChild(s) }).catch(function () { }) });
     </script>
 
     <!-- FAQPage Structured Data for Rich Results -->
@@ -608,6 +608,68 @@
             </div>
         </section>
 
+        <!-- ===================== REVIEWS / TESTIMONIALS ===================== -->
+        <section class="section reviews" id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow" data-i18n="reviews.eyebrow">Khách Hàng Nói Gì</p>
+                    <h2 class="section-title"><span data-i18n="reviews.title1">Đánh Giá</span> <span class="gold-text"
+                            data-i18n="reviews.titleGold">Từ Khách Hàng</span></h2>
+                    <p class="section-subtitle" data-i18n="reviews.subtitle">Hơn 128 đánh giá 5 sao từ du khách khắp nơi
+                        trên thế giới.</p>
+                </div>
+                <div class="trust-badges">
+                    <div class="trust-badge"><i class="fas fa-calendar-check"></i>
+                        <div><strong><span class="count-up" data-count-target="15">0</span><span
+                                    class="count-suffix">+</span> <span class="count-unit"
+                                    data-i18n="trust.yearsUnit">Năm</span></strong><span
+                                data-i18n="trust.yearsDesc">Kinh nghiệm xe Jeep</span></div>
+                    </div>
+                    <div class="trust-badge"><i class="fas fa-users"></i>
+                        <div><strong><span class="count-up" data-count-target="2000">0</span><span
+                                    class="count-suffix">+</span></strong><span data-i18n="trust.happyGuests">Khách hài
+                                lòng</span></div>
+                    </div>
+                    <div class="trust-badge"><i class="fas fa-star"></i>
+                        <div><strong><span class="count-up" data-count-target="5" data-count-decimals="1">0</span><span
+                                    class="count-suffix">/5</span></strong><span data-i18n="trust.ratingDesc">Google
+                                Maps & TripAdvisor</span></div>
+                    </div>
+                    <div class="trust-badge"><i class="fas fa-shield-halved"></i>
+                        <div><strong><span class="count-up" data-count-target="100">0</span><span
+                                    class="count-suffix">%</span></strong><span data-i18n="trust.safetyDesc">Độ an
+                                toàn</span></div>
+                    </div>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text" data-i18n="review.1.text">"Tour tuyệt vời! Tài xế thân thiện, cảnh bình
+                            minh đồi cát trắng đẹp khó tin."</p>
+                        <div class="review-author"><strong data-i18n="review.1.name">Nguyễn Minh Anh</strong><span
+                                data-i18n="review.1.origin">Hà Nội, Việt Nam</span></div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text" data-i18n="review.2.text">"Amazing sunrise tour! The driver was
+                            professional. Highly recommend Mr. Ben!"</p>
+                        <div class="review-author"><strong data-i18n="review.2.name">Sarah Johnson</strong><span
+                                data-i18n="review.2.origin">London, UK</span></div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="review-text" data-i18n="review.3.text">"Лучший тур в Муйне! Водитель показал скрытые
+                            места. Поеду снова!"</p>
+                        <div class="review-author"><strong data-i18n="review.3.name">Алексей Петров</strong><span
+                                data-i18n="review.3.origin">Москва, Россия</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===================== DESTINATIONS ===================== -->
         <section class="section destinations" id="destinations">
             <div class="container">
@@ -631,8 +693,8 @@
                         <!-- White Sand Dune -->
                         <div class="destination-card" data-dest="0">
                             <div class="destination-img-wrap">
-                                <img src="assets/images/destinations/white-sand-dune.webp"
-                                    alt="Đồi Cát Trắng" loading="lazy" width="600" height="400" />
+                                <img src="assets/images/destinations/white-sand-dune.webp" alt="Đồi Cát Trắng"
+                                    loading="lazy" width="600" height="400" />
                                 <span class="dest-counter">1 / 4</span>
                             </div>
                             <div class="destination-info" data-index="01">
@@ -644,8 +706,8 @@
                         <!-- Red Sand Dune -->
                         <div class="destination-card" data-dest="1">
                             <div class="destination-img-wrap">
-                                <img src="assets/images/destinations/red-sand-dune.webp"
-                                    alt="Đồi Cát Đỏ" loading="lazy" width="600" height="400" />
+                                <img src="assets/images/destinations/red-sand-dune.webp" alt="Đồi Cát Đỏ" loading="lazy"
+                                    width="600" height="400" />
                                 <span class="dest-counter">2 / 4</span>
                             </div>
                             <div class="destination-info" data-index="02">
@@ -654,11 +716,11 @@
                                     iconic sunset viewpoint in Mũi Né, ideal for sand sliding and panoramic views.</p>
                             </div>
                         </div>
-                    <!-- Fishing Village -->
+                        <!-- Fishing Village -->
                         <div class="destination-card" data-dest="2">
                             <div class="destination-img-wrap">
-                                <img src="assets/images/destinations/fishing-village.webp"
-                                    alt="Làng Chài Mũi Né" loading="lazy" width="600" height="400" />
+                                <img src="assets/images/destinations/fishing-village.webp" alt="Làng Chài Mũi Né"
+                                    loading="lazy" width="600" height="400" />
                                 <span class="dest-counter">3 / 4</span>
                             </div>
                             <div class="destination-info" data-index="03">
@@ -671,8 +733,8 @@
                         <!-- Fairy Stream -->
                         <div class="destination-card" data-dest="3">
                             <div class="destination-img-wrap">
-                                <img src="assets/images/destinations/fairy-stream.webp"
-                                    alt="Suối Tiên" loading="lazy" width="600" height="400" />
+                                <img src="assets/images/destinations/fairy-stream.webp" alt="Suối Tiên" loading="lazy"
+                                    width="600" height="400" />
                                 <span class="dest-counter">4 / 4</span>
                             </div>
                             <div class="destination-info" data-index="04">
@@ -697,13 +759,16 @@
 
         <!-- ===================== FEATURED TOURS & TRANSFER ===================== -->
         <section class="section tours" id="tours">
-            <span id="transfer" class="svc-scroll-anchor" style="position: absolute; top: 0; scroll-margin-top: 80px;"></span>
+            <span id="transfer" class="svc-scroll-anchor"
+                style="position: absolute; top: 0; scroll-margin-top: 80px;"></span>
             <div class="container">
                 <div class="section-header" id="svcSectionHeader">
                     <p class="section-eyebrow" id="svcEyebrow" data-i18n="tours.eyebrow">Our Signature Experiences</p>
-                    <h2 class="section-title" id="svcTitle"><span id="svcTitle1" data-i18n="tours.title1">Featured</span> <span class="gold-text"
-                            id="svcTitleGold" data-i18n="tours.titleGold">Tours</span></h2>
-                    <p class="section-subtitle" id="svcSubtitle" data-i18n="tours.subtitle">Handcrafted itineraries that showcase the
+                    <h2 class="section-title" id="svcTitle"><span id="svcTitle1"
+                            data-i18n="tours.title1">Featured</span> <span class="gold-text" id="svcTitleGold"
+                            data-i18n="tours.titleGold">Tours</span></h2>
+                    <p class="section-subtitle" id="svcSubtitle" data-i18n="tours.subtitle">Handcrafted itineraries that
+                        showcase the
                         very
                         best of Mũi Né and Phan
                         Thiết.</p>
@@ -725,192 +790,204 @@
                 <!-- ══ PANEL 1: JEEP TOUR ══ -->
                 <div class="svc-panel svc-panel--active" id="svcPanelJeep">
 
-                <div class="tours-slider-wrapper">
-                    <button class="tours-arrow tours-arrow-prev" aria-label="Trước">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="tours-arrow tours-arrow-next" aria-label="Tiếp theo">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="tours-grid" id="toursGrid">
+                    <div class="tours-slider-wrapper">
+                        <button class="tours-arrow tours-arrow-prev" aria-label="Trước">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="tours-arrow tours-arrow-next" aria-label="Tiếp theo">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="tours-grid" id="toursGrid">
 
-                        <!-- Xe Jeep Đỏ -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-do.webp" alt="Xe Jeep Đỏ" loading="lazy" /
-                                    decoding="async" width="634" height="475">
-                                <span class="tour-badge">Best Seller</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                            <!-- Xe Jeep Đỏ -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-do.webp" alt="Xe Jeep Đỏ" loading="lazy" /
+                                        decoding="async" width="634" height="475">
+                                    <span class="tour-badge">Best Seller</span>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.red.title">Xe Jeep Đỏ</h3>
-                                <p class="tour-desc" data-i18n="tour.red.desc">Chiếc Jeep đỏ rực nổi bật giữa những đồi
-                                    cát
-                                    — lựa chọn hoàn hảo cho chuyến khám phá bình minh và hoàng hôn tuyệt đẹp.</p>
-                            </div>
-                        </div>
-
-                        <!-- Xe Jeep Cam -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-cam.webp" alt="Xe Jeep Cam" loading="lazy" /
-                                    decoding="async" width="634" height="475">
-                                <span class="tour-badge sunset-badge">Popular</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.red.title">Xe Jeep Đỏ</h3>
+                                    <p class="tour-desc" data-i18n="tour.red.desc">Chiếc Jeep đỏ rực nổi bật giữa những
+                                        đồi
+                                        cát
+                                        — lựa chọn hoàn hảo cho chuyến khám phá bình minh và hoàng hôn tuyệt đẹp.</p>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.orange.title">Xe Jeep Cam</h3>
-                                <p class="tour-desc" data-i18n="tour.orange.desc">Màu cam rực rỡ như ánh hoàng hôn —
-                                    cùng
-                                    chiếc Jeep cam chinh phục cồn cát đỏ và khung cảnh ven biển hùng vĩ.</p>
                             </div>
-                        </div>
 
-                        <!-- Xe Jeep Hồng -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-hong.webp" alt="Xe Jeep Hồng" loading="lazy" /
-                                    decoding="async" width="634" height="475">
-                                <span class="tour-badge sunset-badge">Popular</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                            <!-- Xe Jeep Cam -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-cam.webp" alt="Xe Jeep Cam" loading="lazy"
+                                        / decoding="async" width="634" height="475">
+                                    <span class="tour-badge sunset-badge">Popular</span>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.pink.title">Xe Jeep Hồng</h3>
-                                <p class="tour-desc" data-i18n="tour.pink.desc">Phong cách, cá tính và đầy màu sắc —
-                                    chuyến
-                                    hành trình trên Jeep hồng sẽ cho bạn những bức ảnh cực chất.</p>
-                            </div>
-                        </div>
-
-                        <!-- Xe Jeep Trắng -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-trang.webp" alt="Xe Jeep Trắng" loading="lazy"
-                                    / decoding="async" width="634" height="475">
-                                <span class="tour-badge">Premium</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.orange.title">Xe Jeep Cam</h3>
+                                    <p class="tour-desc" data-i18n="tour.orange.desc">Màu cam rực rỡ như ánh hoàng hôn —
+                                        cùng
+                                        chiếc Jeep cam chinh phục cồn cát đỏ và khung cảnh ven biển hùng vĩ.</p>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.white.title">Xe Jeep Trắng</h3>
-                                <p class="tour-desc" data-i18n="tour.white.desc">Thanh lịch và tinh tế — chiếc Jeep
-                                    trắng
-                                    cao cấp đưa bạn qua tất cả điểm đến nổi bật: Đồi Cát Trắng, Suối Tiên, Hải Đăng.</p>
                             </div>
-                        </div>
 
-                        <!-- Xe Jeep Vàng -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-vang.webp" alt="Xe Jeep Vàng" loading="lazy" /
-                                    decoding="async" width="634" height="475">
-                                <span class="tour-badge sunset-badge">Popular</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                            <!-- Xe Jeep Hồng -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-hong.webp" alt="Xe Jeep Hồng"
+                                        loading="lazy" / decoding="async" width="634" height="475">
+                                    <span class="tour-badge sunset-badge">Popular</span>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.gold.title">Xe Jeep Vàng</h3>
-                                <p class="tour-desc" data-i18n="tour.gold.desc">Màu vàng rực rỡ tượng trưng cho ánh nắng
-                                    Mũi
-                                    Né — trải nghiệm biểu tượng không thể bỏ qua khi đến Phan Thiết.</p>
-                            </div>
-                        </div>
-
-                        <!-- Xe Jeep Xanh Dương -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-xanh-duong.webp" alt="Xe Jeep Xanh Dương"
-                                    loading="lazy" / decoding="async" width="634" height="475">
-                                <span class="tour-badge sunset-badge">Popular</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.pink.title">Xe Jeep Hồng</h3>
+                                    <p class="tour-desc" data-i18n="tour.pink.desc">Phong cách, cá tính và đầy màu sắc —
+                                        chuyến
+                                        hành trình trên Jeep hồng sẽ cho bạn những bức ảnh cực chất.</p>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.blue.title">Xe Jeep Xanh Dương</h3>
-                                <p class="tour-desc" data-i18n="tour.blue.desc">Màu xanh biển mát mắt — cùng Jeep xanh
-                                    dương
-                                    khám phá làng chài, bãi biển và những con đường ven đồi cát thơ mộng.</p>
                             </div>
-                        </div>
 
-                        <!-- Xe Jeep Xanh Lục -->
-                        <div class="tour-card">
-                            <div class="tour-img-wrap">
-                                <img src="assets/images/produtcs/xe-jeep-xanh-luc.webp" alt="Xe Jeep Xanh Lục"
-                                    loading="lazy" / decoding="async" width="634" height="475">
-                                <span class="tour-badge">Premium</span>
-                            </div>
-                            <div class="tour-body">
-                                <div class="tour-meta">
-                                    <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
-                                            Giờ</span></span>
-                                    <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
-                                            Người</span></span>
-                                    <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình minh/Hoàng
-                                            hôn</span></span>
-                                    <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
-                                            tư/Ghép</span></span>
+                            <!-- Xe Jeep Trắng -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-trang.webp" alt="Xe Jeep Trắng"
+                                        loading="lazy" / decoding="async" width="634" height="475">
+                                    <span class="tour-badge">Premium</span>
                                 </div>
-                                <h3 class="tour-title" data-i18n="tour.green.title">Xe Jeep Xanh Lục</h3>
-                                <p class="tour-desc" data-i18n="tour.green.desc">Hoà mình vào thiên nhiên cùng Jeep xanh
-                                    lục
-                                    — vượt qua địa hình đồi cát, rừng dương và những cung đường hoang dã.</p>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.white.title">Xe Jeep Trắng</h3>
+                                    <p class="tour-desc" data-i18n="tour.white.desc">Thanh lịch và tinh tế — chiếc Jeep
+                                        trắng
+                                        cao cấp đưa bạn qua tất cả điểm đến nổi bật: Đồi Cát Trắng, Suối Tiên, Hải Đăng.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div><!-- /#toursGrid -->
-                </div><!-- /.tours-slider-wrapper -->
+                            <!-- Xe Jeep Vàng -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-vang.webp" alt="Xe Jeep Vàng"
+                                        loading="lazy" / decoding="async" width="634" height="475">
+                                    <span class="tour-badge sunset-badge">Popular</span>
+                                </div>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.gold.title">Xe Jeep Vàng</h3>
+                                    <p class="tour-desc" data-i18n="tour.gold.desc">Màu vàng rực rỡ tượng trưng cho ánh
+                                        nắng
+                                        Mũi
+                                        Né — trải nghiệm biểu tượng không thể bỏ qua khi đến Phan Thiết.</p>
+                                </div>
+                            </div>
+
+                            <!-- Xe Jeep Xanh Dương -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-xanh-duong.webp" alt="Xe Jeep Xanh Dương"
+                                        loading="lazy" / decoding="async" width="634" height="475">
+                                    <span class="tour-badge sunset-badge">Popular</span>
+                                </div>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.blue.title">Xe Jeep Xanh Dương</h3>
+                                    <p class="tour-desc" data-i18n="tour.blue.desc">Màu xanh biển mát mắt — cùng Jeep
+                                        xanh
+                                        dương
+                                        khám phá làng chài, bãi biển và những con đường ven đồi cát thơ mộng.</p>
+                                </div>
+                            </div>
+
+                            <!-- Xe Jeep Xanh Lục -->
+                            <div class="tour-card">
+                                <div class="tour-img-wrap">
+                                    <img src="assets/images/produtcs/xe-jeep-xanh-luc.webp" alt="Xe Jeep Xanh Lục"
+                                        loading="lazy" / decoding="async" width="634" height="475">
+                                    <span class="tour-badge">Premium</span>
+                                </div>
+                                <div class="tour-body">
+                                    <div class="tour-meta">
+                                        <span><i class="fas fa-clock"></i> <span data-i18n="tour.meta.hours">4
+                                                Giờ</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="tour.meta.people">4-6
+                                                Người</span></span>
+                                        <span><i class="fas fa-sun"></i> <span data-i18n="tour.meta.time">Bình
+                                                minh/Hoàng
+                                                hôn</span></span>
+                                        <span><i class="fas fa-user-group"></i> <span data-i18n="tour.meta.type">Riêng
+                                                tư/Ghép</span></span>
+                                    </div>
+                                    <h3 class="tour-title" data-i18n="tour.green.title">Xe Jeep Xanh Lục</h3>
+                                    <p class="tour-desc" data-i18n="tour.green.desc">Hoà mình vào thiên nhiên cùng Jeep
+                                        xanh
+                                        lục
+                                        — vượt qua địa hình đồi cát, rừng dương và những cung đường hoang dã.</p>
+                                </div>
+                            </div>
+
+                        </div><!-- /#toursGrid -->
+                    </div><!-- /.tours-slider-wrapper -->
 
                     <!-- Dots indicator -->
                     <div class="tours-dots" id="toursDots" role="tablist" aria-label="Tour navigation"></div>
@@ -959,49 +1036,67 @@
                             <!-- Xe Xăng 7 Chỗ -->
                             <div class="tour-card is-active" data-vehicle-id="gas7" style="cursor:pointer;">
                                 <div class="tour-img-wrap">
-                                    <img src="assets/images/produtcs/xe-7c.webp" alt="Xe Xăng 7 Chỗ" loading="lazy" decoding="async" width="634" height="475">
-                                    <span class="tour-badge tf-badge-gas" data-i18n="transfer.badge.gas">Tiết Kiệm</span>
+                                    <img src="assets/images/produtcs/xe-7c.webp" alt="Xe Xăng 7 Chỗ" loading="lazy"
+                                        decoding="async" width="634" height="475">
+                                    <span class="tour-badge tf-badge-gas" data-i18n="transfer.badge.gas">Tiết
+                                        Kiệm</span>
                                 </div>
                                 <div class="tour-body">
                                     <div class="tour-meta">
-                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats7">7 chỗ</span></span>
-                                        <span><i class="fas fa-gas-pump"></i> <span data-i18n="transfer.spec.gas">Xăng</span></span>
-                                        <span><i class="fas fa-suitcase"></i> <span data-i18n="transfer.spec.luggage">Hành lý</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats7">7
+                                                chỗ</span></span>
+                                        <span><i class="fas fa-gas-pump"></i> <span
+                                                data-i18n="transfer.spec.gas">Xăng</span></span>
+                                        <span><i class="fas fa-suitcase"></i> <span
+                                                data-i18n="transfer.spec.luggage">Hành lý</span></span>
                                     </div>
                                     <h3 class="tour-title" data-i18n="transfer.vehicle.gas7">Xe Xăng 7 Chỗ</h3>
-                                    <p class="tour-desc" data-i18n="transfer.vehicle.gas7Desc">Xe 7 chỗ xăng rộng rãi, phù hợp gia đình 4-6 người, hành lý lớn.</p>
+                                    <p class="tour-desc" data-i18n="transfer.vehicle.gas7Desc">Xe 7 chỗ xăng rộng rãi,
+                                        phù hợp gia đình 4-6 người, hành lý lớn.</p>
                                 </div>
                             </div>
                             <!-- Xe Điện 7 Chỗ -->
                             <div class="tour-card is-active" data-vehicle-id="ev7" style="cursor:pointer;">
                                 <div class="tour-img-wrap">
-                                    <img src="assets/images/produtcs/xe-7c-dien.webp" alt="Xe Điện 7 Chỗ" loading="lazy" decoding="async" width="634" height="475">
-                                    <span class="tour-badge tf-badge-ev" data-i18n="transfer.badge.ev">Bảo Vệ Môi Trường</span>
+                                    <img src="assets/images/produtcs/xe-7c-dien.webp" alt="Xe Điện 7 Chỗ" loading="lazy"
+                                        decoding="async" width="634" height="475">
+                                    <span class="tour-badge tf-badge-ev" data-i18n="transfer.badge.ev">Bảo Vệ Môi
+                                        Trường</span>
                                 </div>
                                 <div class="tour-body">
                                     <div class="tour-meta">
-                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats7">7 chỗ</span></span>
-                                        <span><i class="fas fa-bolt"></i> <span data-i18n="transfer.spec.ev">Điện</span></span>
-                                        <span><i class="fas fa-suitcase"></i> <span data-i18n="transfer.spec.luggage">Hành lý</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats7">7
+                                                chỗ</span></span>
+                                        <span><i class="fas fa-bolt"></i> <span
+                                                data-i18n="transfer.spec.ev">Điện</span></span>
+                                        <span><i class="fas fa-suitcase"></i> <span
+                                                data-i18n="transfer.spec.luggage">Hành lý</span></span>
                                     </div>
                                     <h3 class="tour-title" data-i18n="transfer.vehicle.ev7">Xe Điện 7 Chỗ</h3>
-                                    <p class="tour-desc" data-i18n="transfer.vehicle.ev7Desc">Xe điện 7 chỗ êm ái, bảo vệ môi trường, tiện nghi cao cấp.</p>
+                                    <p class="tour-desc" data-i18n="transfer.vehicle.ev7Desc">Xe điện 7 chỗ êm ái, bảo
+                                        vệ môi trường, tiện nghi cao cấp.</p>
                                 </div>
                             </div>
                             <!-- Xe 16 Chỗ -->
                             <div class="tour-card is-active" data-vehicle-id="gas16" style="cursor:pointer;">
                                 <div class="tour-img-wrap">
-                                    <img src="assets/images/produtcs/xe-16c.webp" alt="Xe 16 Chỗ" loading="lazy" decoding="async" width="634" height="475">
-                                    <span class="tour-badge tf-badge-gas16" data-i18n="transfer.badge.gas16">Đoàn Lớn</span>
+                                    <img src="assets/images/produtcs/xe-16c.webp" alt="Xe 16 Chỗ" loading="lazy"
+                                        decoding="async" width="634" height="475">
+                                    <span class="tour-badge tf-badge-gas16" data-i18n="transfer.badge.gas16">Đoàn
+                                        Lớn</span>
                                 </div>
                                 <div class="tour-body">
                                     <div class="tour-meta">
-                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats16">16 chỗ</span></span>
-                                        <span><i class="fas fa-gas-pump"></i> <span data-i18n="transfer.spec.gas">Xăng</span></span>
-                                        <span><i class="fas fa-suitcase"></i> <span data-i18n="transfer.spec.luggage">Hành lý</span></span>
+                                        <span><i class="fas fa-users"></i> <span data-i18n="transfer.spec.seats16">16
+                                                chỗ</span></span>
+                                        <span><i class="fas fa-gas-pump"></i> <span
+                                                data-i18n="transfer.spec.gas">Xăng</span></span>
+                                        <span><i class="fas fa-suitcase"></i> <span
+                                                data-i18n="transfer.spec.luggage">Hành lý</span></span>
                                     </div>
                                     <h3 class="tour-title" data-i18n="transfer.vehicle.gas16">Xe 16 Chỗ</h3>
-                                    <p class="tour-desc" data-i18n="transfer.vehicle.gas16Desc">Xe 16 chỗ rộng rãi, phù hợp cho đoàn đông, gia đình lớn hoặc nhóm bạn.</p>
+                                    <p class="tour-desc" data-i18n="transfer.vehicle.gas16Desc">Xe 16 chỗ rộng rãi, phù
+                                        hợp cho đoàn đông, gia đình lớn hoặc nhóm bạn.</p>
                                 </div>
                             </div>
                         </div>
@@ -1012,7 +1107,8 @@
 
                     <div class="tf-pricing">
                         <div class="tf-pricing-header-wrap">
-                            <h3 class="tf-pricing-title" data-i18n="transfer.pricingTitle"><i class="fas fa-tags"></i> Bảng Giá Niêm Yết</h3>
+                            <h3 class="tf-pricing-title" data-i18n="transfer.pricingTitle"><i class="fas fa-tags"></i>
+                                Bảng Giá Niêm Yết</h3>
                             <div class="tf-pricing-scroll-hint">
                                 <i class="fas fa-arrows-left-right"></i>
                                 <span data-i18n="transfer.scrollHint">Vuốt ngang để so sánh giá các loại xe</span>
@@ -1027,9 +1123,12 @@
                                 <span data-i18n="transfer.pricingTapHint">Nhấn 'Đặt xe' trên bảng giá để đặt nhanh</span>
                             </div>
                             <div class="tf-pricing-inclusions">
-                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span data-i18n="transfer.inc.allIn">Giá trọn gói niêm yết</span></div>
-                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span data-i18n="transfer.inc.toll">Bao gồm xăng & phí cao tốc</span></div>
-                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span data-i18n="transfer.inc.driver">Tài xế đón tận nơi</span></div>
+                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span
+                                        data-i18n="transfer.inc.allIn">Giá trọn gói niêm yết</span></div>
+                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span
+                                        data-i18n="transfer.inc.toll">Bao gồm xăng & phí cao tốc</span></div>
+                                <div class="tf-inc-item"><i class="fas fa-check-circle"></i> <span
+                                        data-i18n="transfer.inc.driver">Tài xế đón tận nơi</span></div>
                             </div>
                         </div>
                     </div>
@@ -1041,9 +1140,11 @@
                             <h3 class="jbc-title" data-i18n="transfer.ctaTitle">Đặt Xe Đưa Đón</h3>
                             <p class="jbc-hint">
                                 <i class="fas fa-route"></i>
-                                <span data-i18n="transfer.ctaDesc">Giá tuỳ tuyến đường. Nhấn đặt xe để chọn tuyến, loại xe và điền thông tin.</span>
+                                <span data-i18n="transfer.ctaDesc">Giá tuỳ tuyến đường. Nhấn đặt xe để chọn tuyến, loại
+                                    xe và điền thông tin.</span>
                             </p>
-                            <button class="btn btn-gold jbc-book-btn" id="tfCtaBookBtn" data-i18n="transfer.bookVehicle">Đặt Xe Ngay</button>
+                            <button class="btn btn-gold jbc-book-btn" id="tfCtaBookBtn"
+                                data-i18n="transfer.bookVehicle">Đặt Xe Ngay</button>
                         </div>
                     </div>
 
@@ -1091,7 +1192,7 @@
                         <div class="gallery-overlay"></div>
                     </div>
                     <div class="gallery-item">
-                        <img src="/assets/images/library/lib6.webp" alt="Hải đăng Kê Gà Phan Thiết" loading="lazy" /
+                        <img src="/assets/images/library/lib6.webp" alt="Hải đăng Mũi Kê Gà Phan Thiết" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
                     </div>
@@ -1109,59 +1210,6 @@
                         <img src="/assets/images/library/lib9.webp" alt="Suối Tiên và làng chài Mũi Né" loading="lazy" /
                             decoding="async" width="538" height="670">
                         <div class="gallery-overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== REVIEWS / TESTIMONIALS ===================== -->
-        <section class="section reviews" id="reviews">
-            <div class="container">
-                <div class="section-header">
-                    <p class="section-eyebrow" data-i18n="reviews.eyebrow">Khách Hàng Nói Gì</p>
-                    <h2 class="section-title"><span data-i18n="reviews.title1">Đánh Giá</span> <span class="gold-text"
-                            data-i18n="reviews.titleGold">Từ Khách Hàng</span></h2>
-                    <p class="section-subtitle" data-i18n="reviews.subtitle">Hơn 128 đánh giá 5 sao từ du khách khắp nơi
-                        trên thế giới.</p>
-                </div>
-                <div class="trust-badges">
-                    <div class="trust-badge"><i class="fas fa-calendar-check"></i>
-                        <div><strong><span class="count-up" data-count-target="15">0</span><span class="count-suffix">+</span> <span class="count-unit" data-i18n="trust.yearsUnit">Năm</span></strong><span data-i18n="trust.yearsDesc">Kinh nghiệm xe Jeep</span></div>
-                    </div>
-                    <div class="trust-badge"><i class="fas fa-users"></i>
-                        <div><strong><span class="count-up" data-count-target="2000">0</span><span class="count-suffix">+</span></strong><span data-i18n="trust.happyGuests">Khách hài lòng</span></div>
-                    </div>
-                    <div class="trust-badge"><i class="fas fa-star"></i>
-                        <div><strong><span class="count-up" data-count-target="5" data-count-decimals="1">0</span><span class="count-suffix">/5</span></strong><span data-i18n="trust.ratingDesc">Google Maps & TripAdvisor</span></div>
-                    </div>
-                    <div class="trust-badge"><i class="fas fa-shield-halved"></i>
-                        <div><strong><span class="count-up" data-count-target="100">0</span><span class="count-suffix">%</span></strong><span data-i18n="trust.safetyDesc">Độ an toàn</span></div>
-                    </div>
-                </div>
-                <div class="reviews-grid">
-                    <div class="review-card">
-                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="review-text" data-i18n="review.1.text">"Tour tuyệt vời! Tài xế thân thiện, cảnh bình
-                            minh đồi cát trắng đẹp khó tin."</p>
-                        <div class="review-author"><strong data-i18n="review.1.name">Nguyễn Minh Anh</strong><span
-                                data-i18n="review.1.origin">Hà Nội, Việt Nam</span></div>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="review-text" data-i18n="review.2.text">"Amazing sunrise tour! The driver was
-                            professional. Highly recommend Mr. Ben!"</p>
-                        <div class="review-author"><strong data-i18n="review.2.name">Sarah Johnson</strong><span
-                                data-i18n="review.2.origin">London, UK</span></div>
-                    </div>
-                    <div class="review-card">
-                        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="review-text" data-i18n="review.3.text">"Лучший тур в Муйне! Водитель показал скрытые
-                            места. Поеду снова!"</p>
-                        <div class="review-author"><strong data-i18n="review.3.name">Алексей Петров</strong><span
-                                data-i18n="review.3.origin">Москва, Россия</span></div>
                     </div>
                 </div>
             </div>
@@ -1203,630 +1251,640 @@
         </section>
     </main>
 
-        <!-- ===================== FOOTER ===================== -->
-        <footer class="footer">
-            <div class="footer-top-bar"></div>
-            <div class="container footer-grid">
-                <div class="footer-brand">
-                    <a href="#home" class="footer-logo-link">
-                        <div class="footer-logo-text">
-                            <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours"
-                                class="footer-logo-img" loading="lazy" width="60" height="60" />
-                            <span class="footer-logo-name">MR. BEN</span>
-                            <span class="footer-logo-sub">JEEP TOURS</span>
-                        </div>
-                    </a>
-                    <div class="footer-divider"></div>
-                    <p data-i18n="footer.desc">Your premier partner for luxury off-road adventures across the stunning
-                        landscapes of Mũi Né and Phan Thiết, Vietnam.</p>
-                    <div class="social-links">
-                        <a href="https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html"
-                            target="_blank" aria-label="Tripadvisor"><span class="fa-icon-wrapper"
-                                style="display: inline-flex; align-items: center; justify-content: center; width: 1em; height: 1em;"><svg
-                                    fill="currentColor" width="1em" height="1em" style="display: block;" role="img"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <title>Tripadvisor</title>
-                                    <path
-                                        d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 0 0 4.04 10.43 5.976 5.976 0 0 0 4.075-1.6L12 19.705l1.922-2.09a5.972 5.972 0 0 0 4.072 1.598 6 6 0 0 0 6-5.998 5.982 5.982 0 0 0-1.957-4.432L24 6.648h-4.35a13.573 13.573 0 0 0-7.644-2.353zM12 6.255c1.531 0 3.063.303 4.504.903C13.943 8.138 12 10.43 12 13.1c0-2.671-1.942-4.962-4.504-5.942A11.72 11.72 0 0 1 12 6.256zM6.002 9.157a4.059 4.059 0 1 1 0 8.118 4.059 4.059 0 0 1 0-8.118zm11.992.002a4.057 4.057 0 1 1 .003 8.115 4.057 4.057 0 0 1-.003-8.115zm-11.992 1.93a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256zm11.992 0a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256z" />
-                                </svg></span></a>
-                        <a href="https://web.facebook.com/binh.jeep" target="_blank" aria-label="Facebook"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.tiktok.com/@mr.ben.jeep.tour" target="_blank" aria-label="TikTok"><i
-                                class="fab fa-tiktok"></i></a>
-                        <a href="https://wa.me/84913140196" target="_blank" aria-label="WhatsApp"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="https://zalo.me/84913140196" target="_blank" aria-label="Zalo"><span
-                                class="zalo-iconn">Z</span></a>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-top-bar"></div>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo-link">
+                    <div class="footer-logo-text">
+                        <img src="assets/images/logo/logo-mr.ben.webp" alt="Mr. Ben Jeep Tours" class="footer-logo-img"
+                            loading="lazy" width="60" height="60" />
+                        <span class="footer-logo-name">MR. BEN</span>
+                        <span class="footer-logo-sub">JEEP TOURS</span>
                     </div>
-                </div>
-                <div class="footer-col">
-                    <h3 data-i18n="footer.quickLinks">Quick Links</h3>
-                    <ul>
-                        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                        <li><a href="#about" data-i18n="nav.about">About Us</a></li>
-                        <li><a href="#destinations" data-i18n="nav.destinations">Destinations</a></li>
-                        <li><a href="#tours" data-i18n="nav.tours">Our Tours</a></li>
-                        <li><a href="#transfer" data-i18n="nav.transfer">Xe Đưa Đón</a></li>
-                        <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
-                        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h3 data-i18n="footer.contactInfo">Contact Info</h3>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/7CF1KAZfZNa7NjnP6"
-                                target="_blank">329 Nguyễn Đình Chiểu, Mũi Né, Lâm Đồng</a></li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+84913140196">+84 913 140 196</a></li>
-                        <li><i class="fas fa-clock"></i> <span data-i18n="footer.hours">Open Daily: 4:00 – 21:00</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Google Maps -->
-                <div class="footer-map">
-                    <h3 data-i18n="footer.findUs">Find Us</h3>
-                    <div class="footer-map-wrap">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.2!2d108.2423205!3d10.9546982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768f003792ad01%3A0x3fbd5b9fe044b996!2sMr.%20Ben%20Jeep%20Tours%20M%C5%A9i%20N%C3%A9%20-%20Booking%20Jeep%20Tours%20Luxury!5e0!3m2!1svi!2svn!4v1700000000000"
-                            width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" title="Mr. Ben Jeep Tours Mũi Né - Google Maps">
-                        </iframe>
-                    </div>
+                </a>
+                <div class="footer-divider"></div>
+                <p data-i18n="footer.desc">Your premier partner for luxury off-road adventures across the stunning
+                    landscapes of Mũi Né and Phan Thiết, Vietnam.</p>
+                <div class="social-links">
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html"
+                        target="_blank" aria-label="Tripadvisor"><span class="fa-icon-wrapper"
+                            style="display: inline-flex; align-items: center; justify-content: center; width: 1em; height: 1em;"><svg
+                                fill="currentColor" width="1em" height="1em" style="display: block;" role="img"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Tripadvisor</title>
+                                <path
+                                    d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 0 0 4.04 10.43 5.976 5.976 0 0 0 4.075-1.6L12 19.705l1.922-2.09a5.972 5.972 0 0 0 4.072 1.598 6 6 0 0 0 6-5.998 5.982 5.982 0 0 0-1.957-4.432L24 6.648h-4.35a13.573 13.573 0 0 0-7.644-2.353zM12 6.255c1.531 0 3.063.303 4.504.903C13.943 8.138 12 10.43 12 13.1c0-2.671-1.942-4.962-4.504-5.942A11.72 11.72 0 0 1 12 6.256zM6.002 9.157a4.059 4.059 0 1 1 0 8.118 4.059 4.059 0 0 1 0-8.118zm11.992.002a4.057 4.057 0 1 1 .003 8.115 4.057 4.057 0 0 1-.003-8.115zm-11.992 1.93a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256zm11.992 0a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256z" />
+                            </svg></span></a>
+                    <a href="https://web.facebook.com/binh.jeep" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@mr.ben.jeep.tour" target="_blank" aria-label="TikTok"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/84913140196" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://zalo.me/84913140196" target="_blank" aria-label="Zalo"><span
+                            class="zalo-iconn">Z</span></a>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>
-                    <span data-i18n="footer.copy">© 2026 Mr. Ben Jeep Tours. Designed and developed by</span>
-                    <a href="https://vochicuong.is-a.dev" target="_blank" class="gold-text"
-                        style="font-weight: 600; text-decoration: none;">Võ Chí Cường</a>
-                </p>
+            <div class="footer-col">
+                <h3 data-i18n="footer.quickLinks">Quick Links</h3>
+                <ul>
+                    <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+                    <li><a href="#destinations" data-i18n="nav.destinations">Destinations</a></li>
+                    <li><a href="#tours" data-i18n="nav.tours">Our Tours</a></li>
+                    <li><a href="#transfer" data-i18n="nav.transfer">Xe Đưa Đón</a></li>
+                    <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                </ul>
             </div>
-        </footer>
 
-        <!-- Back to Top -->
-        <button class="back-to-top" id="backToTop" aria-label="Back to top">
-            <i class="fas fa-chevron-up"></i>
-        </button>
+            <div class="footer-col">
+                <h3 data-i18n="footer.contactInfo">Contact Info</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/7CF1KAZfZNa7NjnP6"
+                            target="_blank">329 Nguyễn Đình Chiểu, Mũi Né, Lâm Đồng</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+84913140196">+84 913 140 196</a></li>
+                    <li><i class="fas fa-clock"></i> <span data-i18n="footer.hours">Open Daily: 4:00 – 21:00</span>
+                    </li>
+                </ul>
+            </div>
 
-        <!-- ===================== BOOKING MODAL ===================== -->
-        <div class="booking-overlay" id="bookingOverlay" role="dialog" aria-modal="true" aria-label="Đặt Tour">
-            <div class="booking-modal">
-                <!-- Close -->
-                <button class="booking-close" id="bookingClose" aria-label="Đóng">&times;</button>
+            <!-- Google Maps -->
+            <div class="footer-map">
+                <h3 data-i18n="footer.findUs">Find Us</h3>
+                <div class="footer-map-wrap">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.2!2d108.2423205!3d10.9546982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768f003792ad01%3A0x3fbd5b9fe044b996!2sMr.%20Ben%20Jeep%20Tours%20M%C5%A9i%20N%C3%A9%20-%20Booking%20Jeep%20Tours%20Luxury!5e0!3m2!1svi!2svn!4v1700000000000"
+                        width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Mr. Ben Jeep Tours Mũi Né - Google Maps">
+                    </iframe>
+                </div>
+            </div>
+        </div>
 
-                <!-- Header -->
-                <div class="booking-header">
-                    <h2 class="booking-title"><span data-i18n="booking.formTitle">Đặt Tour</span></h2>
-                    <p class="booking-tour-name" id="bookingTourName">Xe Jeep Mr. Ben</p>
+        <div class="footer-bottom">
+            <p>
+                <span data-i18n="footer.copy">© 2026 Mr. Ben Jeep Tours. Designed and developed by</span>
+                <a href="https://vochicuong.is-a.dev" target="_blank" class="gold-text"
+                    style="font-weight: 600; text-decoration: none;">Võ Chí Cường</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ===================== BOOKING MODAL ===================== -->
+    <div class="booking-overlay" id="bookingOverlay" role="dialog" aria-modal="true" aria-label="Đặt Tour">
+        <div class="booking-modal">
+            <!-- Close -->
+            <button class="booking-close" id="bookingClose" aria-label="Đóng">&times;</button>
+
+            <!-- Header -->
+            <div class="booking-header">
+                <h2 class="booking-title"><span data-i18n="booking.formTitle">Đặt Tour</span></h2>
+                <p class="booking-tour-name" id="bookingTourName">Xe Jeep Mr. Ben</p>
+            </div>
+
+            <!-- Form body (scrollable) -->
+            <div class="booking-body">
+
+                <!-- Price summary bar -->
+                <div class="booking-price-bar">
+                    <div class="bpb-item">
+                        <span class="bpb-label" data-i18n="booking.pricePrivate">Tour Riêng Tư</span>
+                        <strong class="bpb-val" id="bpbPrivate" data-i18n="booking.pricePrivateValue">500,000₫</strong>
+                    </div>
+                    <div class="bpb-divider"></div>
+                    <div class="bpb-item">
+                        <span class="bpb-label" data-i18n="booking.priceGroup">Tour Ghép</span>
+                        <strong class="bpb-val" id="bpbGroup"><span data-i18n="booking.priceGroupValue">150.000₫</span>
+                            <span class="bpb-per" data-i18n="tour.price.per">/người</span></strong>
+                    </div>
                 </div>
 
-                <!-- Form body (scrollable) -->
-                <div class="booking-body">
+                <!-- Name -->
+                <div class="bf-group">
+                    <label class="bf-label" for="bfName"><span data-i18n="booking.labelName">Họ và Tên</span> <span
+                            class="bf-req">*</span></label>
+                    <input class="bf-input" id="bfName" type="text" placeholder="Nhập tên của bạn"
+                        data-i18n-placeholder="booking.placeholderName" autocomplete="name" />
+                </div>
 
-                    <!-- Price summary bar -->
-                    <div class="booking-price-bar">
-                        <div class="bpb-item">
-                            <span class="bpb-label" data-i18n="booking.pricePrivate">Tour Riêng Tư</span>
-                            <strong class="bpb-val" id="bpbPrivate"
-                                data-i18n="booking.pricePrivateValue">500,000₫</strong>
-                        </div>
-                        <div class="bpb-divider"></div>
-                        <div class="bpb-item">
-                            <span class="bpb-label" data-i18n="booking.priceGroup">Tour Ghép</span>
-                            <strong class="bpb-val" id="bpbGroup"><span
-                                    data-i18n="booking.priceGroupValue">150.000₫</span> <span class="bpb-per"
-                                    data-i18n="tour.price.per">/người</span></strong>
-                        </div>
-                    </div>
-
-                    <!-- Name -->
-                    <div class="bf-group">
-                        <label class="bf-label" for="bfName"><span data-i18n="booking.labelName">Họ và Tên</span> <span
-                                class="bf-req">*</span></label>
-                        <input class="bf-input" id="bfName" type="text" placeholder="Nhập tên của bạn"
-                            data-i18n-placeholder="booking.placeholderName" autocomplete="name" />
-                    </div>
-
-                    <!-- Phone -->
-                    <div class="bf-group">
-                        <label class="bf-label" for="bfPhone"><span data-i18n="booking.labelPhone">Số Điện Thoại</span> <span
-                                class="bf-req">*</span></label>
-                        <div class="bf-phone-row">
-                            <div class="bf-phone-code-wrap">
-                                <button class="bf-phone-code" id="bfPhoneCodeBtn" type="button" aria-haspopup="listbox">
-                                    <img src="assets/images/languages/vietnam.webp" alt="VN" class="bf-flag"
-                                        id="bfPhoneFlag" / decoding="async" loading="lazy" width="39" height="39">
-                                    <input type="text" class="bf-phone-code-input" id="bfPhoneCodeText" value="+84"
-                                        readonly />
-                                    <i class="fas fa-chevron-down bf-code-arrow"></i>
-                                </button>
-                                <ul class="bf-phone-dropdown" id="bfPhoneDropdown" role="listbox">
-                                    <li class="bf-phone-opt" data-lang="vi" data-code="+84"
-                                        data-flag="assets/images/languages/vietnam.webp">
-                                        <img src="assets/images/languages/vietnam.webp" class="bf-flag" alt="VN" /
-                                            decoding="async" loading="lazy" width="39" height="39"> Việt Nam
-                                        <span>+84</span>
-                                    </li>
-                                    <li class="bf-phone-opt" data-lang="en" data-code="+1"
-                                        data-flag="assets/images/languages/usa.webp">
-                                        <img src="assets/images/languages/usa.webp" class="bf-flag" alt="US" /
-                                            decoding="async" loading="lazy" width="39" height="39">
-                                        USA <span>+1</span>
-                                    </li>
-                                    <li class="bf-phone-opt" data-lang="ru" data-code="+7"
-                                        data-flag="assets/images/languages/russia.webp">
-                                        <img src="assets/images/languages/russia.webp" class="bf-flag" alt="RU" /
-                                            decoding="async" loading="lazy" width="39" height="39"> Россия
-                                        <span>+7</span>
-                                    </li>
-                                    <li class="bf-phone-opt" data-lang="zh" data-code="+86"
-                                        data-flag="assets/images/languages/china.webp">
-                                        <img src="assets/images/languages/china.webp" class="bf-flag" alt="ZH" /
-                                            decoding="async" loading="lazy" width="39" height="39"> 中国
-                                        <span>+86</span>
-                                    </li>
-                                    <li class="bf-phone-opt" data-lang="ko" data-code="+82"
-                                        data-flag="assets/images/languages/south-korea.webp">
-                                        <img src="assets/images/languages/south-korea.webp" class="bf-flag" alt="KO" /
-                                            decoding="async" loading="lazy" width="39" height="39"> 한국
-                                        <span>+82</span>
-                                    </li>
-                                    <li class="bf-phone-opt" data-lang="de" data-code="+49"
-                                        data-flag="assets/images/languages/germany.webp">
-                                        <img src="assets/images/languages/germany.webp" class="bf-flag" alt="DE" /
-                                            decoding="async" loading="lazy" width="39" height="39">
-                                        Deutschland <span>+49</span>
-                                    </li>
-                                    <li class="bf-phone-opt bf-opt-custom" data-lang="custom" data-code=""
-                                        data-flag="assets/images/languages/united-nation.webp">
-                                        <img src="assets/images/languages/united-nation.webp" class="bf-flag"
-                                            alt="Other" / decoding="async" loading="lazy" width="39" height="39">
-                                        <span data-i18n="booking.phoneOther">Khác</span> <span>...</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <input class="bf-input bf-phone-input" id="bfPhone" type="tel"
-                                placeholder="Nhập số điện thoại" data-i18n-placeholder="booking.placeholderPhone"
-                                autocomplete="tel" />
-                        </div>
-                    </div>
-
-                    <!-- Tour Type / Vehicle Type -->
-                    <div class="bf-group">
-                        <label class="bf-label" data-i18n="booking.labelTourType">Loại Tour</label>
-                        <div class="bf-toggle-row">
-                            <button class="bf-toggle" id="bfTypePrivate" data-type="private">
-                                <i class="fas fa-user-shield"></i> <span data-i18n="booking.typePrivate">Tour Riêng
-                                    Tư</span>
+                <!-- Phone -->
+                <div class="bf-group">
+                    <label class="bf-label" for="bfPhone"><span data-i18n="booking.labelPhone">Số Điện Thoại</span>
+                        <span class="bf-req">*</span></label>
+                    <div class="bf-phone-row">
+                        <div class="bf-phone-code-wrap">
+                            <button class="bf-phone-code" id="bfPhoneCodeBtn" type="button" aria-haspopup="listbox">
+                                <img src="assets/images/languages/vietnam.webp" alt="VN" class="bf-flag"
+                                    id="bfPhoneFlag" / decoding="async" loading="lazy" width="39" height="39">
+                                <input type="text" class="bf-phone-code-input" id="bfPhoneCodeText" value="+84"
+                                    readonly />
+                                <i class="fas fa-chevron-down bf-code-arrow"></i>
                             </button>
-                            <button class="bf-toggle" id="bfTypeGroup" data-type="group">
-                                <i class="fas fa-users"></i> <span data-i18n="booking.typeGroup">Tour Ghép</span>
-                            </button>
-                            <button class="bf-toggle bf-transfer-only" id="bfType16" data-type="gas16" style="display:none;">
-                                <i class="fas fa-shuttle-van"></i> <span data-i18n="transfer.vehicle16">Xe 16 Chỗ</span>
-                            </button>
+                            <ul class="bf-phone-dropdown" id="bfPhoneDropdown" role="listbox">
+                                <li class="bf-phone-opt" data-lang="vi" data-code="+84"
+                                    data-flag="assets/images/languages/vietnam.webp">
+                                    <img src="assets/images/languages/vietnam.webp" class="bf-flag" alt="VN" /
+                                        decoding="async" loading="lazy" width="39" height="39"> Việt Nam
+                                    <span>+84</span>
+                                </li>
+                                <li class="bf-phone-opt" data-lang="en" data-code="+1"
+                                    data-flag="assets/images/languages/usa.webp">
+                                    <img src="assets/images/languages/usa.webp" class="bf-flag" alt="US" /
+                                        decoding="async" loading="lazy" width="39" height="39">
+                                    USA <span>+1</span>
+                                </li>
+                                <li class="bf-phone-opt" data-lang="ru" data-code="+7"
+                                    data-flag="assets/images/languages/russia.webp">
+                                    <img src="assets/images/languages/russia.webp" class="bf-flag" alt="RU" /
+                                        decoding="async" loading="lazy" width="39" height="39"> Россия
+                                    <span>+7</span>
+                                </li>
+                                <li class="bf-phone-opt" data-lang="zh" data-code="+86"
+                                    data-flag="assets/images/languages/china.webp">
+                                    <img src="assets/images/languages/china.webp" class="bf-flag" alt="ZH" /
+                                        decoding="async" loading="lazy" width="39" height="39"> 中国
+                                    <span>+86</span>
+                                </li>
+                                <li class="bf-phone-opt" data-lang="ko" data-code="+82"
+                                    data-flag="assets/images/languages/south-korea.webp">
+                                    <img src="assets/images/languages/south-korea.webp" class="bf-flag" alt="KO" /
+                                        decoding="async" loading="lazy" width="39" height="39"> 한국
+                                    <span>+82</span>
+                                </li>
+                                <li class="bf-phone-opt" data-lang="de" data-code="+49"
+                                    data-flag="assets/images/languages/germany.webp">
+                                    <img src="assets/images/languages/germany.webp" class="bf-flag" alt="DE" /
+                                        decoding="async" loading="lazy" width="39" height="39">
+                                    Deutschland <span>+49</span>
+                                </li>
+                                <li class="bf-phone-opt bf-opt-custom" data-lang="custom" data-code=""
+                                    data-flag="assets/images/languages/united-nation.webp">
+                                    <img src="assets/images/languages/united-nation.webp" class="bf-flag" alt="Other" /
+                                        decoding="async" loading="lazy" width="39" height="39">
+                                    <span data-i18n="booking.phoneOther">Khác</span> <span>...</span>
+                                </li>
+                            </ul>
                         </div>
+                        <input class="bf-input bf-phone-input" id="bfPhone" type="tel" placeholder="Nhập số điện thoại"
+                            data-i18n-placeholder="booking.placeholderPhone" autocomplete="tel" />
                     </div>
+                </div>
 
-                    <!-- Vehicle Quantity -->
-                    <div class="bf-group" id="bfVehicleGroup" style="display:none;">
-                        <label class="bf-label" data-i18n="booking.labelVehicles">Số Lượng Xe</label>
-                        <div class="bf-counter-row">
-                            <button class="bf-counter-btn" id="bfVehicleMinus" aria-label="Giảm số xe">−</button>
-                            <span class="bf-counter-val" id="bfVehicleVal">1</span>
-                            <button class="bf-counter-btn" id="bfVehiclePlus" aria-label="Tăng số xe">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Guests (group only) -->
-                    <div class="bf-group" id="bfGuestGroup" style="display:none;">
-                        <label class="bf-label" data-i18n="booking.labelGuests">Số Người</label>
-                        <div class="bf-counter-row">
-                            <button class="bf-counter-btn" id="bfMinus" aria-label="Giảm số người">−</button>
-                            <span class="bf-counter-val" id="bfGuestVal">1</span>
-                            <button class="bf-counter-btn" id="bfPlus" aria-label="Tăng số người">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Transfer: Pickup / Dropoff (hidden by default, shown in transfer mode) -->
-                    <div class="bf-group bf-transfer-only" id="bfTransferRouteGroup" style="display:none;">
-                        <label class="bf-label"><span data-i18n="transfer.labelPickup">Điểm đón</span> &amp; <span data-i18n="transfer.labelDropoff">Điểm trả</span> <span class="bf-req">*</span></label>
-                        <div class="bf-pickup-dropoff-row">
-                            <div class="bf-custom-select" id="bfTfPickupSelect">
-                                <button type="button" class="bf-custom-select-trigger" id="bfTfPickupTrigger" aria-haspopup="listbox" aria-expanded="false">
-                                    <i class="fas fa-map-marker-alt bf-pd-icon bf-pd-icon--pickup"></i>
-                                    <span class="bf-custom-select-val is-placeholder" id="bfTfPickupVal" data-i18n="transfer.phPickupInput">Chọn điểm đón...</span>
-                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
-                                </button>
-                                <ul class="bf-custom-select-list" id="bfTfPickupList" role="listbox">
-                                    <li data-val="muine" data-i18n="transfer.city.muine">Mũi Né</li>
-                                    <li data-val="sgn" data-i18n="transfer.city.sgn">Sân bay Tân Sơn Nhất (SGN)</li>
-                                    <li data-val="nhatrang" data-i18n="transfer.city.nhatrang">Nha Trang</li>
-                                    <li data-val="phanrang" data-i18n="transfer.city.phanrang">Biển Phan Rang</li>
-                                </ul>
-                                <input type="hidden" id="bfTfPickup" name="pickup" value="" />
-                            </div>
-
-                            <button class="bf-pd-swap" id="bfTfSwap" type="button" aria-label="Hoán đổi điểm đón và trả">
-                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                            </button>
-
-                            <div class="bf-custom-select" id="bfTfDropoffSelect">
-                                <button type="button" class="bf-custom-select-trigger" id="bfTfDropoffTrigger" aria-haspopup="listbox" aria-expanded="false">
-                                    <i class="fas fa-flag-checkered bf-pd-icon bf-pd-icon--dropoff"></i>
-                                    <span class="bf-custom-select-val is-placeholder" id="bfTfDropoffVal" data-i18n="transfer.phDropoff">Chọn điểm trả...</span>
-                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
-                                </button>
-                                <ul class="bf-custom-select-list" id="bfTfDropoffList" role="listbox">
-                                    <li data-val="muine" data-i18n="transfer.city.muine">Mũi Né</li>
-                                    <li data-val="sgn" data-i18n="transfer.city.sgn">Sân bay Tân Sơn Nhất (SGN)</li>
-                                    <li data-val="nhatrang" data-i18n="transfer.city.nhatrang">Nha Trang</li>
-                                    <li data-val="phanrang" data-i18n="transfer.city.phanrang">Biển Phan Rang</li>
-                                    <li data-val="tacu" data-i18n="transfer.city.tacu">Tà Cú</li>
-                                    <li data-val="kega" data-i18n="transfer.city.kega">Kê Gà</li>
-                                    <li data-val="cothach" data-i18n="transfer.city.cothach">Chùa Cổ Thạch</li>
-                                </ul>
-                                <input type="hidden" id="bfTfDropoff" name="dropoff" value="" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Transfer Itinerary (shown when route is selected, transfer-only) -->
-                    <div class="bf-group bf-transfer-only" id="bfTransferItineraryGroup" style="display:none;">
-                        <label class="bf-label">
-                            <i class="fas fa-route"></i>
-                            <span data-i18n="transfer.itineraryLabel">Lộ trình chi tiết</span>
-                        </label>
-                        <div class="bf-transfer-itinerary" id="bfTransferItinerary">
-                            <!-- Populated dynamically by JS -->
-                        </div>
-                    </div>
-
-                    <!-- Hotel Name -->
-                    <div class="bf-group" id="bfHotelNameGroup">
-                        <label class="bf-label" for="bfHotelName" data-i18n="booking.labelHotel">Tên Khách Sạn / Resort</label>
-                        <div class="bf-hotel-wrap" id="bfHotelWrap">
-                            <div class="bf-hotel-input-row">
-                                <i class="fas fa-hotel bf-hotel-icon"></i>
-                                <input class="bf-input bf-hotel-input" id="bfHotelName" type="text"
-                                    placeholder="Tìm tên khách sạn/resort..." data-i18n-placeholder="booking.placeholderHotel"
-                                    autocomplete="off" readonly />
-                                <i class="fas fa-chevron-down bf-hotel-arrow" id="bfHotelArrow"></i>
-                            </div>
-                            <ul class="bf-hotel-dropdown" id="bfHotelDropdown" role="listbox"></ul>
-                        </div>
-                    </div>
-
-
-                    <!-- Custom hotel name (shown only when "Khách sạn khác" is selected) -->
-                    <div class="bf-group" id="bfHotelCustomGroup" style="display:none;">
-                        <label class="bf-label" for="bfHotelCustomName" data-i18n="booking.labelCustomHotel">Tên Khách Sạn Của Bạn</label>
-                        <input class="bf-input" id="bfHotelCustomName" type="text" placeholder="Nhập tên khách sạn..."
-                            data-i18n-placeholder="booking.placeholderCustomHotel" autocomplete="off" />
-                    </div>
-
-                    <!-- Hotel Address -->
-                    <div class="bf-group" id="bfHotelAddressGroup">
-                        <label class="bf-label" for="bfHotelAddress" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn / Resort</label>
-                        <div class="bf-hotel-wrap" id="bfHotelAddressWrap">
-                            <div class="bf-hotel-input-row" style="position: relative;">
-                                <i class="fas fa-map-marker-alt bf-hotel-icon"></i>
-                                <input class="bf-input bf-hotel-input" id="bfHotelAddress" type="text"
-                                    placeholder="Địa chỉ khách sạn/resort của bạn"
-                                    data-i18n-placeholder="booking.placeholderHotelAddress" autocomplete="off" readonly />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Optional addon: Sand dune -->
-                    <div class="bf-group">
-                        <label class="bf-label">
-                            <span data-i18n="booking.labelAddon">Dịch vụ thêm</span>
-                            <span class="bf-opt" data-i18n="booking.optionalBadge">Tuỳ chọn</span>
-                        </label>
-                        <button class="bf-addon-toggle" id="bfAddonSandDune" type="button">
-                            <span class="bf-addon-icon"><i class="fas fa-mountain"></i></span>
-                            <span class="bf-addon-text" data-i18n="booking.addonSandDune">Leo đồi cát trắng bằng xe
-                                Jeep</span>
+                <!-- Tour Type / Vehicle Type -->
+                <div class="bf-group">
+                    <label class="bf-label" data-i18n="booking.labelTourType">Loại Tour</label>
+                    <div class="bf-toggle-row">
+                        <button class="bf-toggle" id="bfTypePrivate" data-type="private">
+                            <i class="fas fa-user-shield"></i> <span data-i18n="booking.typePrivate">Tour Riêng
+                                Tư</span>
+                        </button>
+                        <button class="bf-toggle" id="bfTypeGroup" data-type="group">
+                            <i class="fas fa-users"></i> <span data-i18n="booking.typeGroup">Tour Ghép</span>
+                        </button>
+                        <button class="bf-toggle bf-transfer-only" id="bfType16" data-type="gas16"
+                            style="display:none;">
+                            <i class="fas fa-shuttle-van"></i> <span data-i18n="transfer.vehicle16">Xe 16 Chỗ</span>
                         </button>
                     </div>
+                </div>
 
-                    <!-- Date & Time -->
-                    <div class="bf-group">
-                        <label class="bf-label"><span data-i18n="booking.labelDatetime">Ngày &amp; Giờ Khởi Hành</span>
-                            <span class="bf-req">*</span></label>
-                        <input type="hidden" id="bfDatetime" />
-                        <div class="bf-dt-wrap">
-                            <button class="bf-dt-trigger bf-input" id="bfDtTrigger" type="button">
-                                <i class="fas fa-calendar-star" style="color:var(--color-gold); flex-shrink:0"></i>
-                                <span id="bfDtDisplay" data-i18n="booking.datePlaceholder">Chọn ngày &amp; giờ khởi
-                                    hành</span>
-                                <i class="fas fa-chevron-down bf-dt-arrow" id="bfDtArrow"></i>
-                            </button>
-                            <!-- Picker panel -->
-                            <div class="bf-dt-panel" id="bfDtPanel">
-                                <!-- VIEW 1: Calendar -->
-                                <div id="bfCalView">
-                                    <div class="bf-cal-header">
-                                        <button class="bf-cal-nav" id="bfCalPrev" type="button"><i
-                                                class="fas fa-chevron-left"></i></button>
-                                        <span class="bf-cal-title" id="bfCalTitle"></span>
-                                        <button class="bf-cal-nav" id="bfCalNext" type="button"><i
-                                                class="fas fa-chevron-right"></i></button>
-                                    </div>
-                                    <div class="bf-cal-grid">
-                                        <div class="bf-cal-weekdays">
-                                            <span data-i18n="cal.sun">CN</span><span data-i18n="cal.mon">T2</span><span
-                                                data-i18n="cal.tue">T3</span><span data-i18n="cal.wed">T4</span><span
-                                                data-i18n="cal.thu">T5</span><span data-i18n="cal.fri">T6</span><span
-                                                data-i18n="cal.sat">T7</span>
-                                        </div>
-                                        <div class="bf-cal-days" id="bfCalDays"></div>
-                                    </div>
-                                </div>
-                                <!-- VIEW 2: Time slot picker -->
-                                <div id="bfTpView" style="display:none">
-                                    <div class="bf-cal-header">
-                                        <button class="bf-cal-nav" id="bfTpBack" type="button"><i
-                                                class="fas fa-chevron-left"></i></button>
-                                        <span class="bf-cal-title" id="bfTpDate"></span>
-                                        <div style="width:36px"></div>
-                                    </div>
-                                    <div class="bf-ts-wrap">
-                                        <p class="bf-ts-label" data-i18n="booking.pickupTime">THỜI GIAN ĐÓN</p>
-                                        <div class="bf-ts-grid">
-                                            <button class="bf-ts-card" id="bfTsSunrise" type="button" data-hour="4"
-                                                data-min="30">
-                                                <i class="fas fa-sun bf-ts-icon"></i>
-                                                <span class="bf-ts-name" data-i18n="booking.sunrise">BÌNH MINH</span>
-                                                <span class="bf-ts-time">(04:30)</span>
-                                            </button>
-                                            <button class="bf-ts-card" id="bfTsSunset" type="button" data-hour="13"
-                                                data-min="30">
-                                                <i class="fas fa-cloud-sun bf-ts-icon"></i>
-                                                <span class="bf-ts-name" data-i18n="booking.sunset">HOÀNG HÔN</span>
-                                                <span class="bf-ts-time">(13:30)</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- VIEW 3: Clock picker (transfer mode) -->
-                                <div id="bfClockView" style="display:none">
-                                    <div class="bf-cal-header">
-                                        <button class="bf-cal-nav" id="bfClockBack" type="button"><i class="fas fa-chevron-left"></i></button>
-                                        <span class="bf-cal-title" id="bfClockDate"></span>
-                                        <div style="width:36px"></div>
-                                    </div>
-                                    <!-- HH:MM display -->
-                                    <div class="bf-tp-display">
-                                        <div class="bf-tp-block bf-tp-active" id="bfClockHourBlock">--</div>
-                                        <span class="bf-tp-sep">:</span>
-                                        <div class="bf-tp-block" id="bfClockMinBlock">--</div>
-                                    </div>
-                                    <p class="bf-tp-mode-hint" id="bfClockHint" data-i18n="booking.clockSelectHour">CHỌN GIỜ</p>
-                                    <!-- SVG Clock face -->
-                                    <div class="bf-clock-container" id="bfClockContainer">
-                                        <svg class="bf-clock-svg" id="bfClockSvg" viewBox="0 0 260 260">
-                                            <circle class="bf-clock-face" cx="130" cy="130" r="120"/>
-                                            <circle class="bf-clock-sel-ring" id="bfClockSelRing" cx="130" cy="26" r="18" style="display:none"/>
-                                            <line class="bf-clock-hand" id="bfClockHand" x1="130" y1="130" x2="130" y2="26" style="display:none"/>
-                                            <circle class="bf-clock-center-dot" cx="130" cy="130" r="4"/>
-                                            <!-- Numbers will be rendered by JS -->
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Vehicle Quantity -->
+                <div class="bf-group" id="bfVehicleGroup" style="display:none;">
+                    <label class="bf-label" data-i18n="booking.labelVehicles">Số Lượng Xe</label>
+                    <div class="bf-counter-row">
+                        <button class="bf-counter-btn" id="bfVehicleMinus" aria-label="Giảm số xe">−</button>
+                        <span class="bf-counter-val" id="bfVehicleVal">1</span>
+                        <button class="bf-counter-btn" id="bfVehiclePlus" aria-label="Tăng số xe">+</button>
                     </div>
-                    <div class="bf-group bf-itinerary-group" id="bfItineraryGroup" style="display:none">
-                        <label class="bf-label">
-                            <span data-i18n="booking.labelItinerary">Lộ Trình</span>
-                            <span class="bf-opt" data-i18n="booking.optionalBadge">Tuỳ chọn</span>
-                        </label>
+                </div>
 
-                        <!-- Default route pills -->
-                        <div class="bf-route-default" id="bfRouteDefault">
-                            <span class="bf-route-pill" id="bfStop1Label">Đồi cát trắng</span>
-                            <span class="bf-route-arrow">↓</span>
-                            <span class="bf-route-pill" id="bfStop2Label">Đồi cát đỏ</span>
-                            <span class="bf-route-arrow">↓</span>
-                            <span class="bf-route-pill" id="bfStop3Label">Làng chài</span>
-                            <span class="bf-route-arrow">↓</span>
-                            <span class="bf-route-pill" id="bfStop4Label">Suối tiên</span>
+                <!-- Guests (group only) -->
+                <div class="bf-group" id="bfGuestGroup" style="display:none;">
+                    <label class="bf-label" data-i18n="booking.labelGuests">Số Người</label>
+                    <div class="bf-counter-row">
+                        <button class="bf-counter-btn" id="bfMinus" aria-label="Giảm số người">−</button>
+                        <span class="bf-counter-val" id="bfGuestVal">1</span>
+                        <button class="bf-counter-btn" id="bfPlus" aria-label="Tăng số người">+</button>
+                    </div>
+                </div>
+
+                <!-- Transfer: Pickup / Dropoff (hidden by default, shown in transfer mode) -->
+                <div class="bf-group bf-transfer-only" id="bfTransferRouteGroup" style="display:none;">
+                    <label class="bf-label"><span data-i18n="transfer.labelPickup">Điểm đón</span> &amp; <span
+                            data-i18n="transfer.labelDropoff">Điểm trả</span> <span class="bf-req">*</span></label>
+                    <div class="bf-pickup-dropoff-row">
+                        <div class="bf-custom-select" id="bfTfPickupSelect">
+                            <button type="button" class="bf-custom-select-trigger" id="bfTfPickupTrigger"
+                                aria-haspopup="listbox" aria-expanded="false">
+                                <i class="fas fa-map-marker-alt bf-pd-icon bf-pd-icon--pickup"></i>
+                                <span class="bf-custom-select-val is-placeholder" id="bfTfPickupVal"
+                                    data-i18n="transfer.phPickupInput">Chọn điểm đón...</span>
+                                <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                            </button>
+                            <ul class="bf-custom-select-list" id="bfTfPickupList" role="listbox">
+                                <li data-val="muine" data-i18n="transfer.city.muine">Mũi Né</li>
+                                <li data-val="sgn" data-i18n="transfer.city.sgn">Sân bay Tân Sơn Nhất (SGN)</li>
+                                <li data-val="nhatrang" data-i18n="transfer.city.nhatrang">Nha Trang</li>
+                                <li data-val="phanrang" data-i18n="transfer.city.phanrang">Biển Phan Rang</li>
+                            </ul>
+                            <input type="hidden" id="bfTfPickup" name="pickup" value="" />
                         </div>
 
-                        <!-- Custom dropdowns (toggle) -->
-                        <button class="bf-route-customize-btn" id="bfRouteCustomizeBtn" type="button">
-                            <i class="fas fa-sliders-h"></i>
-                            <span data-i18n="booking.customizeRoute">Tùy chỉnh lộ trình</span>
+                        <button class="bf-pd-swap" id="bfTfSwap" type="button" aria-label="Hoán đổi điểm đón và trả">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
                         </button>
 
-                        <div class="bf-route-dropdowns" id="bfRouteDropdowns" style="display:none">
-                            <div class="bf-route-drop-row">
-                                <span class="bf-route-drop-label">1</span>
-                                <div class="bf-custom-select" id="bfRouteStop1">
-                                    <button class="bf-custom-select-trigger" type="button">
-                                        <span class="bf-custom-select-val"></span>
-                                        <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
-                                    </button>
-                                    <ul class="bf-custom-select-list"></ul>
+                        <div class="bf-custom-select" id="bfTfDropoffSelect">
+                            <button type="button" class="bf-custom-select-trigger" id="bfTfDropoffTrigger"
+                                aria-haspopup="listbox" aria-expanded="false">
+                                <i class="fas fa-flag-checkered bf-pd-icon bf-pd-icon--dropoff"></i>
+                                <span class="bf-custom-select-val is-placeholder" id="bfTfDropoffVal"
+                                    data-i18n="transfer.phDropoff">Chọn điểm trả...</span>
+                                <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                            </button>
+                            <ul class="bf-custom-select-list" id="bfTfDropoffList" role="listbox">
+                                <li data-val="muine" data-i18n="transfer.city.muine">Mũi Né</li>
+                                <li data-val="sgn" data-i18n="transfer.city.sgn">Sân bay Tân Sơn Nhất (SGN)</li>
+                                <li data-val="nhatrang" data-i18n="transfer.city.nhatrang">Nha Trang</li>
+                                <li data-val="phanrang" data-i18n="transfer.city.phanrang">Biển Phan Rang</li>
+                                <li data-val="tacu" data-i18n="transfer.city.tacu">Núi Tà Cú</li>
+                                <li data-val="kega" data-i18n="transfer.city.kega">Mũi Kê Gà</li>
+                                <li data-val="cothach" data-i18n="transfer.city.cothach">Chùa Cổ Thạch</li>
+                            </ul>
+                            <input type="hidden" id="bfTfDropoff" name="dropoff" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transfer Itinerary (shown when route is selected, transfer-only) -->
+                <div class="bf-group bf-transfer-only" id="bfTransferItineraryGroup" style="display:none;">
+                    <label class="bf-label">
+                        <i class="fas fa-route"></i>
+                        <span data-i18n="transfer.itineraryLabel">Lộ trình chi tiết</span>
+                    </label>
+                    <div class="bf-transfer-itinerary" id="bfTransferItinerary">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </div>
+
+                <!-- Hotel Name -->
+                <div class="bf-group" id="bfHotelNameGroup">
+                    <label class="bf-label" for="bfHotelName" data-i18n="booking.labelHotel">Tên Khách Sạn /
+                        Resort</label>
+                    <div class="bf-hotel-wrap" id="bfHotelWrap">
+                        <div class="bf-hotel-input-row">
+                            <i class="fas fa-hotel bf-hotel-icon"></i>
+                            <input class="bf-input bf-hotel-input" id="bfHotelName" type="text"
+                                placeholder="Tìm tên khách sạn/resort..."
+                                data-i18n-placeholder="booking.placeholderHotel" autocomplete="off" readonly />
+                            <i class="fas fa-chevron-down bf-hotel-arrow" id="bfHotelArrow"></i>
+                        </div>
+                        <ul class="bf-hotel-dropdown" id="bfHotelDropdown" role="listbox"></ul>
+                    </div>
+                </div>
+
+
+                <!-- Custom hotel name (shown only when "Khách sạn khác" is selected) -->
+                <div class="bf-group" id="bfHotelCustomGroup" style="display:none;">
+                    <label class="bf-label" for="bfHotelCustomName" data-i18n="booking.labelCustomHotel">Tên Khách Sạn
+                        Của Bạn</label>
+                    <input class="bf-input" id="bfHotelCustomName" type="text" placeholder="Nhập tên khách sạn..."
+                        data-i18n-placeholder="booking.placeholderCustomHotel" autocomplete="off" />
+                </div>
+
+                <!-- Hotel Address -->
+                <div class="bf-group" id="bfHotelAddressGroup">
+                    <label class="bf-label" for="bfHotelAddress" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn
+                        / Resort</label>
+                    <div class="bf-hotel-wrap" id="bfHotelAddressWrap">
+                        <div class="bf-hotel-input-row" style="position: relative;">
+                            <i class="fas fa-map-marker-alt bf-hotel-icon"></i>
+                            <input class="bf-input bf-hotel-input" id="bfHotelAddress" type="text"
+                                placeholder="Địa chỉ khách sạn/resort của bạn"
+                                data-i18n-placeholder="booking.placeholderHotelAddress" autocomplete="off" readonly />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional addon: Sand dune -->
+                <div class="bf-group">
+                    <label class="bf-label">
+                        <span data-i18n="booking.labelAddon">Dịch vụ thêm</span>
+                        <span class="bf-opt" data-i18n="booking.optionalBadge">Tuỳ chọn</span>
+                    </label>
+                    <button class="bf-addon-toggle" id="bfAddonSandDune" type="button">
+                        <span class="bf-addon-icon"><i class="fas fa-mountain"></i></span>
+                        <span class="bf-addon-text" data-i18n="booking.addonSandDune">Leo đồi cát trắng bằng xe
+                            Jeep</span>
+                    </button>
+                </div>
+
+                <!-- Date & Time -->
+                <div class="bf-group">
+                    <label class="bf-label"><span data-i18n="booking.labelDatetime">Ngày &amp; Giờ Khởi Hành</span>
+                        <span class="bf-req">*</span></label>
+                    <input type="hidden" id="bfDatetime" />
+                    <div class="bf-dt-wrap">
+                        <button class="bf-dt-trigger bf-input" id="bfDtTrigger" type="button">
+                            <i class="fas fa-calendar-star" style="color:var(--color-gold); flex-shrink:0"></i>
+                            <span id="bfDtDisplay" data-i18n="booking.datePlaceholder">Chọn ngày &amp; giờ khởi
+                                hành</span>
+                            <i class="fas fa-chevron-down bf-dt-arrow" id="bfDtArrow"></i>
+                        </button>
+                        <!-- Picker panel -->
+                        <div class="bf-dt-panel" id="bfDtPanel">
+                            <!-- VIEW 1: Calendar -->
+                            <div id="bfCalView">
+                                <div class="bf-cal-header">
+                                    <button class="bf-cal-nav" id="bfCalPrev" type="button"><i
+                                            class="fas fa-chevron-left"></i></button>
+                                    <span class="bf-cal-title" id="bfCalTitle"></span>
+                                    <button class="bf-cal-nav" id="bfCalNext" type="button"><i
+                                            class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="bf-cal-grid">
+                                    <div class="bf-cal-weekdays">
+                                        <span data-i18n="cal.sun">CN</span><span data-i18n="cal.mon">T2</span><span
+                                            data-i18n="cal.tue">T3</span><span data-i18n="cal.wed">T4</span><span
+                                            data-i18n="cal.thu">T5</span><span data-i18n="cal.fri">T6</span><span
+                                            data-i18n="cal.sat">T7</span>
+                                    </div>
+                                    <div class="bf-cal-days" id="bfCalDays"></div>
                                 </div>
                             </div>
-                            <div class="bf-route-drop-row">
-                                <span class="bf-route-drop-label">2</span>
-                                <div class="bf-custom-select" id="bfRouteStop2">
-                                    <button class="bf-custom-select-trigger" type="button">
-                                        <span class="bf-custom-select-val"></span>
-                                        <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
-                                    </button>
-                                    <ul class="bf-custom-select-list"></ul>
+                            <!-- VIEW 2: Time slot picker -->
+                            <div id="bfTpView" style="display:none">
+                                <div class="bf-cal-header">
+                                    <button class="bf-cal-nav" id="bfTpBack" type="button"><i
+                                            class="fas fa-chevron-left"></i></button>
+                                    <span class="bf-cal-title" id="bfTpDate"></span>
+                                    <div style="width:36px"></div>
+                                </div>
+                                <div class="bf-ts-wrap">
+                                    <p class="bf-ts-label" data-i18n="booking.pickupTime">THỜI GIAN ĐÓN</p>
+                                    <div class="bf-ts-grid">
+                                        <button class="bf-ts-card" id="bfTsSunrise" type="button" data-hour="4"
+                                            data-min="30">
+                                            <i class="fas fa-sun bf-ts-icon"></i>
+                                            <span class="bf-ts-name" data-i18n="booking.sunrise">BÌNH MINH</span>
+                                            <span class="bf-ts-time">(04:30)</span>
+                                        </button>
+                                        <button class="bf-ts-card" id="bfTsSunset" type="button" data-hour="13"
+                                            data-min="30">
+                                            <i class="fas fa-cloud-sun bf-ts-icon"></i>
+                                            <span class="bf-ts-name" data-i18n="booking.sunset">HOÀNG HÔN</span>
+                                            <span class="bf-ts-time">(13:30)</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bf-route-drop-row">
-                                <span class="bf-route-drop-label">3</span>
-                                <div class="bf-custom-select" id="bfRouteStop3">
-                                    <button class="bf-custom-select-trigger" type="button">
-                                        <span class="bf-custom-select-val"></span>
-                                        <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
-                                    </button>
-                                    <ul class="bf-custom-select-list"></ul>
+                            <!-- VIEW 3: Clock picker (transfer mode) -->
+                            <div id="bfClockView" style="display:none">
+                                <div class="bf-cal-header">
+                                    <button class="bf-cal-nav" id="bfClockBack" type="button"><i
+                                            class="fas fa-chevron-left"></i></button>
+                                    <span class="bf-cal-title" id="bfClockDate"></span>
+                                    <div style="width:36px"></div>
                                 </div>
-                            </div>
-                            <div class="bf-route-drop-row">
-                                <span class="bf-route-drop-label">4</span>
-                                <div class="bf-custom-select" id="bfRouteStop4">
-                                    <button class="bf-custom-select-trigger" type="button">
-                                        <span class="bf-custom-select-val"></span>
-                                        <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
-                                    </button>
-                                    <ul class="bf-custom-select-list"></ul>
+                                <!-- HH:MM display -->
+                                <div class="bf-tp-display">
+                                    <div class="bf-tp-block bf-tp-active" id="bfClockHourBlock">--</div>
+                                    <span class="bf-tp-sep">:</span>
+                                    <div class="bf-tp-block" id="bfClockMinBlock">--</div>
+                                </div>
+                                <p class="bf-tp-mode-hint" id="bfClockHint" data-i18n="booking.clockSelectHour">CHỌN GIỜ
+                                </p>
+                                <!-- SVG Clock face -->
+                                <div class="bf-clock-container" id="bfClockContainer">
+                                    <svg class="bf-clock-svg" id="bfClockSvg" viewBox="0 0 260 260">
+                                        <circle class="bf-clock-face" cx="130" cy="130" r="120" />
+                                        <circle class="bf-clock-sel-ring" id="bfClockSelRing" cx="130" cy="26" r="18"
+                                            style="display:none" />
+                                        <line class="bf-clock-hand" id="bfClockHand" x1="130" y1="130" x2="130" y2="26"
+                                            style="display:none" />
+                                        <circle class="bf-clock-center-dot" cx="130" cy="130" r="4" />
+                                        <!-- Numbers will be rendered by JS -->
+                                    </svg>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="bf-group bf-itinerary-group" id="bfItineraryGroup" style="display:none">
+                    <label class="bf-label">
+                        <span data-i18n="booking.labelItinerary">Lộ Trình</span>
+                        <span class="bf-opt" data-i18n="booking.optionalBadge">Tuỳ chọn</span>
+                    </label>
 
-                        <div class="bf-route-ok-row" id="bfRouteOkRow" style="display: none;">
-                            <button class="bf-route-ok-btn" id="bfRouteOkBtn" type="button"
-                                data-i18n="booking.routeOk">Hoàn tất</button>
+                    <!-- Default route pills -->
+                    <div class="bf-route-default" id="bfRouteDefault">
+                        <span class="bf-route-pill" id="bfStop1Label">Đồi cát trắng</span>
+                        <span class="bf-route-arrow">↓</span>
+                        <span class="bf-route-pill" id="bfStop2Label">Đồi cát đỏ</span>
+                        <span class="bf-route-arrow">↓</span>
+                        <span class="bf-route-pill" id="bfStop3Label">Làng chài</span>
+                        <span class="bf-route-arrow">↓</span>
+                        <span class="bf-route-pill" id="bfStop4Label">Suối tiên</span>
+                    </div>
+
+                    <!-- Custom dropdowns (toggle) -->
+                    <button class="bf-route-customize-btn" id="bfRouteCustomizeBtn" type="button">
+                        <i class="fas fa-sliders-h"></i>
+                        <span data-i18n="booking.customizeRoute">Tùy chỉnh lộ trình</span>
+                    </button>
+
+                    <div class="bf-route-dropdowns" id="bfRouteDropdowns" style="display:none">
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">1</span>
+                            <div class="bf-custom-select" id="bfRouteStop1">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
+                        </div>
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">2</span>
+                            <div class="bf-custom-select" id="bfRouteStop2">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
+                        </div>
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">3</span>
+                            <div class="bf-custom-select" id="bfRouteStop3">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
+                        </div>
+                        <div class="bf-route-drop-row">
+                            <span class="bf-route-drop-label">4</span>
+                            <div class="bf-custom-select" id="bfRouteStop4">
+                                <button class="bf-custom-select-trigger" type="button">
+                                    <span class="bf-custom-select-val"></span>
+                                    <i class="fas fa-chevron-down bf-custom-select-arrow"></i>
+                                </button>
+                                <ul class="bf-custom-select-list"></ul>
+                            </div>
                         </div>
                     </div>
 
-
-
-                    <!-- Notes -->
-                    <div class="bf-group">
-                        <label class="bf-label" for="bfNotes" data-i18n="booking.labelNotes">Ghi Chú</label>
-                        <textarea class="bf-input bf-textarea" id="bfNotes" rows="2"
-                            placeholder="Điểm đón, yêu cầu đặc biệt..."
-                            data-i18n-placeholder="booking.placeholderNotes"></textarea>
+                    <div class="bf-route-ok-row" id="bfRouteOkRow" style="display: none;">
+                        <button class="bf-route-ok-btn" id="bfRouteOkBtn" type="button" data-i18n="booking.routeOk">Hoàn
+                            tất</button>
                     </div>
+                </div>
+
+
+
+                <!-- Notes -->
+                <div class="bf-group">
+                    <label class="bf-label" for="bfNotes" data-i18n="booking.labelNotes">Ghi Chú</label>
+                    <textarea class="bf-input bf-textarea" id="bfNotes" rows="2"
+                        placeholder="Điểm đón, yêu cầu đặc biệt..."
+                        data-i18n-placeholder="booking.placeholderNotes"></textarea>
+                </div>
+
+                <!-- Total -->
+                <div class="bf-total-row">
+                    <h3 class="bf-total-title" data-i18n="booking.priceBreakdown">Chi tiết giá</h3>
+
+                    <!-- Tour Type Row -->
+                    <div class="bf-price-item" id="bfPriceTourType" style="display:none;">
+                        <span class="bf-price-label">
+                            <i class="fas fa-user-shield" id="bfPriceTourTypeIcon"></i>
+                            <span id="bfPriceTourTypeLabel" data-i18n="booking.typePrivate">Tour Riêng Tư</span>
+                        </span>
+                        <span class="bf-price-value" id="bfPriceTourTypeValue">500,000₫</span>
+                    </div>
+
+                    <!-- Transfer Route Price Row (hidden by default) -->
+                    <div class="bf-price-item" id="bfPriceTransferRoute" style="display:none;">
+                        <span class="bf-price-label">
+                            <i class="fas fa-route" id="bfPriceTransferRouteIcon"></i>
+                            <span id="bfPriceTransferRouteLabel" data-i18n="transfer.th.route">Tuyến đường</span>
+                        </span>
+                        <span class="bf-price-value" id="bfPriceTransferRouteValue">—</span>
+                    </div>
+
+                    <!-- Transfer Vehicle Type Row (hidden by default) -->
+                    <div class="bf-price-item" id="bfPriceTransferVehicle" style="display:none;">
+                        <span class="bf-price-label">
+                            <i class="fas fa-car-side" id="bfPriceTransferVehicleIcon"></i>
+                            <span id="bfPriceTransferVehicleLabel" data-i18n="transfer.vehicleGas">Xe Xăng</span>
+                        </span>
+                        <span class="bf-price-value" id="bfPriceTransferVehicleValue">—</span>
+                    </div>
+
+                    <!-- Quantity Row (Vehicles or Guests) -->
+                    <div class="bf-price-item" id="bfPriceQuantity" style="display:none;">
+                        <span class="bf-price-label">
+                            <i class="fas fa-car" id="bfPriceQuantityIcon"></i>
+                            <span id="bfPriceQuantityLabel" data-i18n="booking.labelVehicles">Số Lượng Xe</span>
+                        </span>
+                        <span class="bf-price-value" id="bfPriceQuantityValue">× 1</span>
+                    </div>
+
+                    <!-- Sand Dune Addon -->
+                    <div class="bf-price-item" id="bfPriceAddon" style="display:none;">
+                        <span class="bf-price-label">
+                            <i class="fas fa-mountain"></i>
+                            <span data-i18n="booking.addonSandDune">Leo đồi cát trắng bằng xe Jeep</span>
+                        </span>
+                        <span class="bf-price-value" id="bfPriceAddonValue"></span>
+                    </div>
+
+                    <!-- Holiday Surcharge (27/8 – 2/9) -->
+                    <div class="bf-price-item bf-price-item--holiday" id="bfPriceHoliday" style="display:none;">
+                        <span class="bf-price-label">
+                            <i class="fa-solid fa-umbrella-beach"></i>
+                            <span id="bfPriceHolidayLabel" data-i18n="booking.holidaySurcharge">Phụ Thu Lễ</span>
+                        </span>
+                        <span class="bf-price-value" id="bfPriceHolidayValue"></span>
+                    </div>
+
+                    <div class="bf-price-divider"></div>
 
                     <!-- Total -->
-                    <div class="bf-total-row">
-                        <h3 class="bf-total-title" data-i18n="booking.priceBreakdown">Chi tiết giá</h3>
-
-                        <!-- Tour Type Row -->
-                        <div class="bf-price-item" id="bfPriceTourType" style="display:none;">
-                            <span class="bf-price-label">
-                                <i class="fas fa-user-shield" id="bfPriceTourTypeIcon"></i>
-                                <span id="bfPriceTourTypeLabel" data-i18n="booking.typePrivate">Tour Riêng Tư</span>
-                            </span>
-                            <span class="bf-price-value" id="bfPriceTourTypeValue">500,000₫</span>
-                        </div>
-
-                        <!-- Transfer Route Price Row (hidden by default) -->
-                        <div class="bf-price-item" id="bfPriceTransferRoute" style="display:none;">
-                            <span class="bf-price-label">
-                                <i class="fas fa-route" id="bfPriceTransferRouteIcon"></i>
-                                <span id="bfPriceTransferRouteLabel" data-i18n="transfer.th.route">Tuyến đường</span>
-                            </span>
-                            <span class="bf-price-value" id="bfPriceTransferRouteValue">—</span>
-                        </div>
-
-                        <!-- Transfer Vehicle Type Row (hidden by default) -->
-                        <div class="bf-price-item" id="bfPriceTransferVehicle" style="display:none;">
-                            <span class="bf-price-label">
-                                <i class="fas fa-car-side" id="bfPriceTransferVehicleIcon"></i>
-                                <span id="bfPriceTransferVehicleLabel" data-i18n="transfer.vehicleGas">Xe Xăng</span>
-                            </span>
-                            <span class="bf-price-value" id="bfPriceTransferVehicleValue">—</span>
-                        </div>
-
-                        <!-- Quantity Row (Vehicles or Guests) -->
-                        <div class="bf-price-item" id="bfPriceQuantity" style="display:none;">
-                            <span class="bf-price-label">
-                                <i class="fas fa-car" id="bfPriceQuantityIcon"></i>
-                                <span id="bfPriceQuantityLabel" data-i18n="booking.labelVehicles">Số Lượng Xe</span>
-                            </span>
-                            <span class="bf-price-value" id="bfPriceQuantityValue">× 1</span>
-                        </div>
-
-                        <!-- Sand Dune Addon -->
-                        <div class="bf-price-item" id="bfPriceAddon" style="display:none;">
-                            <span class="bf-price-label">
-                                <i class="fas fa-mountain"></i>
-                                <span data-i18n="booking.addonSandDune">Leo đồi cát trắng bằng xe Jeep</span>
-                            </span>
-                            <span class="bf-price-value" id="bfPriceAddonValue"></span>
-                        </div>
-
-                        <!-- Holiday Surcharge (27/8 – 2/9) -->
-                        <div class="bf-price-item bf-price-item--holiday" id="bfPriceHoliday" style="display:none;">
-                            <span class="bf-price-label">
-                                <i class="fa-solid fa-umbrella-beach"></i>
-                                <span id="bfPriceHolidayLabel" data-i18n="booking.holidaySurcharge">Phụ Thu Lễ</span>
-                            </span>
-                            <span class="bf-price-value" id="bfPriceHolidayValue"></span>
-                        </div>
-
-                        <div class="bf-price-divider"></div>
-
-                        <!-- Total -->
-                        <div class="bf-price-total">
-                            <span class="bf-price-total-label" data-i18n="booking.totalPrice">Tổng Tiền</span>
-                            <strong class="bf-price-total-value" id="bfTotal">500,000₫</strong>
-                        </div>
-                    </div>
-
-                    <!-- Actions -->
-                    <div class="bf-actions">
-                        <a class="bf-btn bf-btn-wa" id="bfWhatsApp" href="https://wa.me/84913140196" target="_blank">
-                            <i class="fab fa-whatsapp"></i> <span data-i18n="booking.bookWhatsapp">Đặt qua
-                                WhatsApp</span>
-                        </a>
-                        <a class="bf-btn bf-btn-zalo" id="bfZalo" href="https://zalo.me/84913140196" target="_blank">
-                            <span class="zalo-icon"
-                                style="width:1.2rem;height:1.2rem;font-size:.8rem;background:#fff;color:#0068FF;">Z</span>
-                            <span data-i18n="booking.bookZalo">Đặt qua Zalo</span>
-                        </a>
-                        <div class="bf-or"><span data-i18n="booking.or">hoặc</span></div>
-                        <a class="bf-btn bf-btn-call" id="bfCall" href="tel:+84913140196">
-                            <i class="fas fa-phone"></i> <span data-i18n="booking.callPhone">Gọi Điện Thoại</span>
-                        </a>
-                    </div>
-
-                </div><!-- /.booking-body -->
-            </div><!-- /.booking-modal -->
-            <!-- Booking Confirm Modal -->
-            <div class="bf-confirm-wrap" id="bfConfirmModal">
-                <div class="bf-confirm-card">
-                    <div class="bf-confirm-header">
-                        <h3 data-i18n="booking.confirmTitle">Xác nhận đặt xe</h3>
-                        <button class="booking-close" id="bfConfirmClose" aria-label="Close confirm">×</button>
-                    </div>
-                    <div class="bf-confirm-body">
-                        <ul class="bf-confirm-list" id="bfConfirmList">
-                            <!-- Filled by JS -->
-                        </ul>
-                    </div>
-                    <div class="bf-confirm-footer">
-                        <button class="bf-btn-outline" id="bfConfirmEdit" data-i18n="booking.confirmEdit">Chỉnh
-                            sửa</button>
-                        <button class="goldx" id="bfConfirmSendNow">
-                            <span data-i18n="booking.confirmSendNow">Gửi luôn</span>&nbsp;(<span
-                                id="bfCountdownNum">30</span>s)
-                        </button>
+                    <div class="bf-price-total">
+                        <span class="bf-price-total-label" data-i18n="booking.totalPrice">Tổng Tiền</span>
+                        <strong class="bf-price-total-value" id="bfTotal">500,000₫</strong>
                     </div>
                 </div>
-            </div>
 
-            <!-- Thank You Modal -->
-            <div class="bf-thank-wrap" id="bfThankModal">
-                <div class="bf-thank-card">
-                    <div class="bf-thank-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 class="bf-thank-title" data-i18n="booking.thankTitle">Cảm Ơn Bạn! 🎉</h3>
-                    <p class="bf-thank-message" data-i18n="booking.thankMessage">Cảm ơn bạn đã đặt tour Jeep với Mr.
-                        Ben! Chúng tôi sẽ liên hệ lại với bạn sớm nhất để xác nhận chuyến đi. Chúc bạn có một chuyến
-                        phiêu lưu tuyệt vời!</p>
-                    <button class="bf-thank-close-btn" id="bfThankClose" data-i18n="booking.thankClose">Đóng</button>
+                <!-- Actions -->
+                <div class="bf-actions">
+                    <a class="bf-btn bf-btn-wa" id="bfWhatsApp" href="https://wa.me/84913140196" target="_blank">
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="booking.bookWhatsapp">Đặt qua
+                            WhatsApp</span>
+                    </a>
+                    <a class="bf-btn bf-btn-zalo" id="bfZalo" href="https://zalo.me/84913140196" target="_blank">
+                        <span class="zalo-icon"
+                            style="width:1.2rem;height:1.2rem;font-size:.8rem;background:#fff;color:#0068FF;">Z</span>
+                        <span data-i18n="booking.bookZalo">Đặt qua Zalo</span>
+                    </a>
+                    <div class="bf-or"><span data-i18n="booking.or">hoặc</span></div>
+                    <a class="bf-btn bf-btn-call" id="bfCall" href="tel:+84913140196">
+                        <i class="fas fa-phone"></i> <span data-i18n="booking.callPhone">Gọi Điện Thoại</span>
+                    </a>
+                </div>
+
+            </div><!-- /.booking-body -->
+        </div><!-- /.booking-modal -->
+        <!-- Booking Confirm Modal -->
+        <div class="bf-confirm-wrap" id="bfConfirmModal">
+            <div class="bf-confirm-card">
+                <div class="bf-confirm-header">
+                    <h3 data-i18n="booking.confirmTitle">Xác nhận đặt xe</h3>
+                    <button class="booking-close" id="bfConfirmClose" aria-label="Close confirm">×</button>
+                </div>
+                <div class="bf-confirm-body">
+                    <ul class="bf-confirm-list" id="bfConfirmList">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+                <div class="bf-confirm-footer">
+                    <button class="bf-btn-outline" id="bfConfirmEdit" data-i18n="booking.confirmEdit">Chỉnh
+                        sửa</button>
+                    <button class="goldx" id="bfConfirmSendNow">
+                        <span data-i18n="booking.confirmSendNow">Gửi luôn</span>&nbsp;(<span
+                            id="bfCountdownNum">30</span>s)
+                    </button>
                 </div>
             </div>
-        </div><!-- /#bookingOverlay -->
+        </div>
 
-        <script src="js/script.js"></script>
+        <!-- Thank You Modal -->
+        <div class="bf-thank-wrap" id="bfThankModal">
+            <div class="bf-thank-card">
+                <div class="bf-thank-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="bf-thank-title" data-i18n="booking.thankTitle">Cảm Ơn Bạn! 🎉</h3>
+                <p class="bf-thank-message" data-i18n="booking.thankMessage">Cảm ơn bạn đã đặt tour Jeep với Mr.
+                    Ben! Chúng tôi sẽ liên hệ lại với bạn sớm nhất để xác nhận chuyến đi. Chúc bạn có một chuyến
+                    phiêu lưu tuyệt vời!</p>
+                <button class="bf-thank-close-btn" id="bfThankClose" data-i18n="booking.thankClose">Đóng</button>
+            </div>
+        </div>
+    </div><!-- /#bookingOverlay -->
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
