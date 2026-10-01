@@ -223,20 +223,16 @@
       'transfer.hl.routesDesc': 'Mũi Né → SGN, Mũi Né → Nha Trang, Nha Trang → SGN.',
       'transfer.hl.safe': 'An Toàn & Chuyên Nghiệp',
       'transfer.hl.safeDesc': 'Tài xế kinh nghiệm, xe đời mới, bảo hiểm đầy đủ.',
-      'transfer.vehicle.gas7': 'Xe Xăng 7 Chỗ',
-      'transfer.vehicle.gas7Desc': 'Xe 7 chỗ xăng rộng rãi, phù hợp gia đình 4-6 người, hành lý lớn.',
-      'transfer.vehicle.ev7': 'Xe Điện 7 Chỗ',
-      'transfer.vehicle.ev7Desc': 'Xe điện êm ái, tiết kiệm, thân thiện môi trường. Trải nghiệm cao cấp.',
+      'transfer.vehicle.gas7': 'Xe 7 Chỗ',
+      'transfer.vehicle.gas7Desc': 'Xe 7 chỗ rộng rãi, phù hợp gia đình 4-6 người, hành lý lớn.',
       'transfer.vehicle.gas16': 'Xe 16 Chỗ',
       'transfer.vehicle.gas16Desc': 'Xe 16 chỗ rộng rãi, phù hợp cho đoàn đông, gia đình lớn hoặc nhóm bạn.',
       'transfer.badge.gas': 'Phổ Biến',
-      'transfer.badge.ev': 'Eco Friendly',
       'transfer.badge.gas16': 'Đoàn Lớn',
       'transfer.card.private': 'Xe Riêng',
       'transfer.spec.seats7': '7 chỗ',
       'transfer.spec.seats16': '16 chỗ',
       'transfer.spec.gas': 'Động cơ xăng',
-      'transfer.spec.ev': 'Động cơ điện',
       'transfer.spec.luggage': 'Hành lý lớn',
       'transfer.th.route': 'Tuyến đường',
       'transfer.city.muine': 'Mũi Né',
@@ -259,6 +255,9 @@
       'transfer.itineraryNote': 'Khứ hồi trong ngày',
       'transfer.oneWayNote': 'Không khứ hồi',
       'transfer.swapBlocked': 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.',
+      'transfer.routeUnavailableNotice': 'Tuyến đường này hiện không khả dụng với điểm đã chọn.',
+      'transfer.customQuote': 'Liên hệ báo giá',
+      'transfer.contactForQuote': 'Liên hệ',
       'transfer.pricingTitle': 'Bảng Giá Niêm Yết',
       'transfer.scrollHint': 'Vuốt ngang để so sánh giá các loại xe',
       'transfer.pricingTapHint': "Nhấn 'Đặt xe' trên bảng giá để đặt nhanh",
@@ -303,8 +302,7 @@
       'transfer.phPickupInput': 'Chọn điểm đón',
       'transfer.phDropoff': 'Chọn điểm trả',
       'transfer.labelVehicleType': 'Loại Xe',
-      'transfer.vehicleGas': 'Xe Xăng',
-      'transfer.vehicleEv': 'Xe Điện',
+      'transfer.vehicleGas': 'Xe 7 Chỗ',
       'transfer.vehicle16': 'Xe 16 Chỗ',
       'transfer.phNotesTransfer': 'Yêu cầu khác của khách hàng',
       'booking.clockSelectHour': 'CHỌN GIỜ',
@@ -511,20 +509,16 @@
       'transfer.hl.routesDesc': 'Mũi Né → SGN, Mũi Né → Nha Trang, Nha Trang → SGN.',
       'transfer.hl.safe': 'Safe & Professional',
       'transfer.hl.safeDesc': 'Experienced drivers, new vehicles, full insurance.',
-      'transfer.vehicle.gas7': '7-Seat Gasoline Car',
-      'transfer.vehicle.gas7Desc': 'Spacious 7-seat gasoline car, ideal for families of 4-6 with large luggage.',
-      'transfer.vehicle.ev7': '7-Seat Electric Car',
-      'transfer.vehicle.ev7Desc': 'Smooth, eco-friendly electric car. Premium travel experience.',
+      'transfer.vehicle.gas7': '7-Seat Car',
+      'transfer.vehicle.gas7Desc': 'Spacious 7-seat car, ideal for families of 4-6 with large luggage.',
       'transfer.vehicle.gas16': '16-Seat Car',
       'transfer.vehicle.gas16Desc': 'Spacious 16-seat vehicle, ideal for large groups and families.',
       'transfer.badge.gas': 'Popular',
-      'transfer.badge.ev': 'Eco Friendly',
       'transfer.badge.gas16': 'Large Group',
       'transfer.card.private': 'Private Car',
       'transfer.spec.seats7': '7 seats',
       'transfer.spec.seats16': '16 seats',
       'transfer.spec.gas': 'Gasoline engine',
-      'transfer.spec.ev': 'Electric motor',
       'transfer.spec.luggage': 'Large luggage',
       'transfer.th.route': 'Route',
       'transfer.city.muine': 'Mui Ne',
@@ -547,6 +541,9 @@
       'transfer.itineraryNote': 'Round trip',
       'transfer.oneWayNote': 'One-way',
       'transfer.swapBlocked': 'This location is drop-off only and cannot be selected as pickup.',
+      'transfer.routeUnavailableNotice': 'This route is not available with the selected location.',
+      'transfer.customQuote': 'Contact for quote',
+      'transfer.contactForQuote': 'Contact us',
       'transfer.pricingTitle': 'Price List',
       'transfer.scrollHint': 'Swipe horizontally to compare vehicle prices',
       'transfer.pricingTapHint': "Tap 'Book' on the price list to book quickly",
@@ -591,8 +588,7 @@
       'transfer.phPickupInput': 'Select pickup point',
       'transfer.phDropoff': 'Select drop-off point',
       'transfer.labelVehicleType': 'Vehicle Type',
-      'transfer.vehicleGas': 'Gasoline',
-      'transfer.vehicleEv': 'Electric',
+      'transfer.vehicleGas': '7-Seat Car',
       'transfer.vehicle16': '16-Seat',
       'transfer.phNotesTransfer': 'Other requests from the customer',
       'booking.clockSelectHour': 'SELECT HOUR',
@@ -798,20 +794,16 @@
       'transfer.hl.routesDesc': 'Муйне → ХCМ, Муйне → Нячанг, Нячанг → ХCМ.',
       'transfer.hl.safe': 'Безопасно и Профессионально',
       'transfer.hl.safeDesc': 'Опытные водители, новые авто, полная страховка.',
-      'transfer.vehicle.gas7': '7-местный Бензиновый',
+      'transfer.vehicle.gas7': '7-местный Автомобиль',
       'transfer.vehicle.gas7Desc': 'Просторный 7-местный авто, идеален для семьи 4-6 человек с большим багажом.',
-      'transfer.vehicle.ev7': '7-местный Электрический',
-      'transfer.vehicle.ev7Desc': 'Тихий, экологичный электромобиль. Премиальный комфорт.',
       'transfer.vehicle.gas16': '16-местный Автомобиль',
       'transfer.vehicle.gas16Desc': 'Просторный 16-местный авто, идеален для больших групп и семей.',
       'transfer.badge.gas': 'Популярный',
-      'transfer.badge.ev': 'Эко-авто',
       'transfer.badge.gas16': 'Большая группа',
       'transfer.card.private': 'Индивидуально',
       'transfer.spec.seats7': '7 мест',
       'transfer.spec.seats16': '16 мест',
       'transfer.spec.gas': 'Бензиновый двигатель',
-      'transfer.spec.ev': 'Электродвигатель',
       'transfer.spec.luggage': 'Большой багаж',
       'transfer.th.route': 'Маршрут',
       'transfer.city.muine': 'Муйне',
@@ -834,6 +826,9 @@
       'transfer.itineraryNote': 'туда и обратно',
       'transfer.oneWayNote': 'В одну сторону',
       'transfer.swapBlocked': 'Эта точка только для высадки, её нельзя выбрать как место посадки.',
+      'transfer.routeUnavailableNotice': 'Этот маршрут недоступен для выбранной точки.',
+      'transfer.customQuote': 'По запросу',
+      'transfer.contactForQuote': 'Связаться',
       'transfer.pricingTitle': 'Прайс-лист',
       'transfer.scrollHint': 'Проведите пальцем для сравнения цен',
       'transfer.pricingTapHint': "Нажмите 'Заказ' в таблице для быстрого заказа",
@@ -878,8 +873,7 @@
       'transfer.phPickupInput': 'Выберите точку посадки',
       'transfer.phDropoff': 'Выберите точку высадки',
       'transfer.labelVehicleType': 'Тип авто',
-      'transfer.vehicleGas': 'Бензин',
-      'transfer.vehicleEv': 'Электро',
+      'transfer.vehicleGas': '7-местный',
       'transfer.vehicle16': '16-мест',
       'transfer.phNotesTransfer': 'Другие пожелания клиента',
       'booking.clockSelectHour': 'ВЫБЕРИТЕ ЧАС',
@@ -1085,20 +1079,16 @@
       'transfer.hl.routesDesc': '美奈 → 胡志明市、美奈 → 芽庄、芽庄 → 胡志明市。',
       'transfer.hl.safe': '安全专业',
       'transfer.hl.safeDesc': '经验丰富的司机，新款车辆，全额保险。',
-      'transfer.vehicle.gas7': '7座汽油车',
-      'transfer.vehicle.gas7Desc': '宽敞的7座汽油车，适合4-6人家庭，可放大件行李。',
-      'transfer.vehicle.ev7': '7座电动车',
-      'transfer.vehicle.ev7Desc': '安静、环保的电动汽车，高端出行体验。',
+      'transfer.vehicle.gas7': '7座车',
+      'transfer.vehicle.gas7Desc': '宽敞的7座车，适合4-6人家庭，可放大件行李。',
       'transfer.vehicle.gas16': '16座车',
       'transfer.vehicle.gas16Desc': '宽敞的16座车，适合大型团队和家庭出行。',
       'transfer.badge.gas': '热门推荐',
-      'transfer.badge.ev': '环保电车',
       'transfer.badge.gas16': '大团体',
       'transfer.card.private': '包车',
       'transfer.spec.seats7': '7座',
       'transfer.spec.seats16': '16座',
       'transfer.spec.gas': '汽油发动机',
-      'transfer.spec.ev': '电动马达',
       'transfer.spec.luggage': '大件行李',
       'transfer.th.route': '路线',
       'transfer.city.muine': '美奈',
@@ -1121,6 +1111,9 @@
       'transfer.itineraryNote': '往返',
       'transfer.oneWayNote': '单程',
       'transfer.swapBlocked': '此地点仅为下车点，无法选择为上车点。',
+      'transfer.routeUnavailableNotice': '所选地点之间暂无此路线。',
+      'transfer.customQuote': '联系报价',
+      'transfer.contactForQuote': '联系我们',
       'transfer.pricingTitle': '价格表',
       'transfer.scrollHint': '左右滑动对比各车型价格',
       'transfer.pricingTapHint': "点击价格表中的'预订'即可快速订车",
@@ -1165,8 +1158,7 @@
       'transfer.phPickupInput': '选择上车地点',
       'transfer.phDropoff': '选择下车地点',
       'transfer.labelVehicleType': '车辆类型',
-      'transfer.vehicleGas': '汽油车',
-      'transfer.vehicleEv': '电动车',
+      'transfer.vehicleGas': '7座车',
       'transfer.vehicle16': '16座',
       'transfer.phNotesTransfer': '客户的其他要求',
       'booking.clockSelectHour': '选择小时',
@@ -1372,20 +1364,16 @@
       'transfer.hl.routesDesc': '무이네 → 호치민, 무이네 → 나트랑, 나트랑 → 호치민.',
       'transfer.hl.safe': '안전 & 전문',
       'transfer.hl.safeDesc': '경험 많은 기사, 신형 차량, 완전 보험.',
-      'transfer.vehicle.gas7': '7인승 가솔린 차량',
-      'transfer.vehicle.gas7Desc': '넓은 7인승 가솔린 차량, 4-6인 가족과 대형 짐에 적합.',
-      'transfer.vehicle.ev7': '7인승 전기 차량',
-      'transfer.vehicle.ev7Desc': '조용하고 친환경 전기차. 프리미엄 여행 경험.',
+      'transfer.vehicle.gas7': '7인승 차량',
+      'transfer.vehicle.gas7Desc': '넓은 7인승 차량, 4-6인 가족과 대형 짐에 적합.',
       'transfer.vehicle.gas16': '16인승 차량',
       'transfer.vehicle.gas16Desc': '넓은 16인승 차량, 대규모 그룹과 가족 여행에 적합.',
       'transfer.badge.gas': '인기 차종',
-      'transfer.badge.ev': '친환경 전기차',
       'transfer.badge.gas16': '대형 그룹',
       'transfer.card.private': '단독 차량',
       'transfer.spec.seats7': '7인승',
       'transfer.spec.seats16': '16인승',
       'transfer.spec.gas': '가솔린 엔진',
-      'transfer.spec.ev': '전기 모터',
       'transfer.spec.luggage': '대형 짐',
       'transfer.th.route': '노선',
       'transfer.city.muine': '무이네',
@@ -1408,6 +1396,9 @@
       'transfer.itineraryNote': '왕복',
       'transfer.oneWayNote': '편도',
       'transfer.swapBlocked': '이 위치는 하차 전용이며 탑승 장소로 선택할 수 없습니다.',
+      'transfer.routeUnavailableNotice': '선택하신 장소 간에는 운행 경로가 없습니다.',
+      'transfer.customQuote': '문의 후 견적',
+      'transfer.contactForQuote': '문의하기',
       'transfer.pricingTitle': '가격표',
       'transfer.scrollHint': '좌우로 스크롤하여 차종별 요금 비교',
       'transfer.pricingTapHint': "요금표의 '예약'을 눌러 빠르게 예약하세요",
@@ -1452,8 +1443,7 @@
       'transfer.phPickupInput': '탑승 장소 선택',
       'transfer.phDropoff': '하차 장소 선택',
       'transfer.labelVehicleType': '차량 유형',
-      'transfer.vehicleGas': '가솔린',
-      'transfer.vehicleEv': '전기차',
+      'transfer.vehicleGas': '7인승',
       'transfer.vehicle16': '16인승',
       'transfer.phNotesTransfer': '고객의 기타 요청 사항',
       'booking.clockSelectHour': '시간 선택',
@@ -1659,20 +1649,16 @@
       'transfer.hl.routesDesc': 'Mũi Né → HCMC, Mũi Né → Nha Trang, Nha Trang → HCMC.',
       'transfer.hl.safe': 'Sicher & Professionell',
       'transfer.hl.safeDesc': 'Erfahrene Fahrer, neue Fahrzeuge, Vollversicherung.',
-      'transfer.vehicle.gas7': '7-Sitzer Benziner',
+      'transfer.vehicle.gas7': '7-Sitzer',
       'transfer.vehicle.gas7Desc': 'Geräumiger 7-Sitzer, ideal für Familien mit 4-6 Personen und großem Gepäck.',
-      'transfer.vehicle.ev7': '7-Sitzer Elektro',
-      'transfer.vehicle.ev7Desc': 'Leises, umweltfreundliches Elektrofahrzeug. Premium-Reiseerlebnis.',
       'transfer.vehicle.gas16': '16-Sitzer',
       'transfer.vehicle.gas16Desc': 'Geräumiger 16-Sitzer, ideal für große Gruppen und Familien.',
       'transfer.badge.gas': 'Beliebt',
-      'transfer.badge.ev': 'Umweltfreundlich',
       'transfer.badge.gas16': 'Große Gruppe',
       'transfer.card.private': 'Privatwagen',
       'transfer.spec.seats7': '7 Sitze',
       'transfer.spec.seats16': '16 Sitze',
       'transfer.spec.gas': 'Benzinmotor',
-      'transfer.spec.ev': 'Elektromotor',
       'transfer.spec.luggage': 'Großes Gepäck',
       'transfer.th.route': 'Route',
       'transfer.city.muine': 'Mũi Né',
@@ -1695,6 +1681,9 @@
       'transfer.itineraryNote': 'Hin- und Rückfahrt',
       'transfer.oneWayNote': 'Einfache Fahrt',
       'transfer.swapBlocked': 'Dieser Ort ist nur ein Absetzpunkt und kann nicht als Abholpunkt gewählt werden.',
+      'transfer.routeUnavailableNotice': 'Diese Route ist mit dem ausgewählten Ort nicht verfügbar.',
+      'transfer.customQuote': 'Preis auf Anfrage',
+      'transfer.contactForQuote': 'Kontakt',
       'transfer.pricingTitle': 'Preisliste',
       'transfer.scrollHint': 'Wischen Sie, um Fahrzeugpreise zu vergleichen',
       'transfer.pricingTapHint': "Tippen Sie in der Preistabelle auf 'Buchen'",
@@ -1739,8 +1728,7 @@
       'transfer.phPickupInput': 'Abholpunkt auswählen',
       'transfer.phDropoff': 'Absetzpunkt auswählen',
       'transfer.labelVehicleType': 'Fahrzeugtyp',
-      'transfer.vehicleGas': 'Benzin',
-      'transfer.vehicleEv': 'Elektro',
+      'transfer.vehicleGas': '7-Sitzer',
       'transfer.vehicle16': '16-Sitzer',
       'transfer.phNotesTransfer': 'Andere Wünsche des Kunden',
       'booking.clockSelectHour': 'STUNDE WÄHLEN',
@@ -2856,7 +2844,7 @@
   /* ── Transfer mode state ── */
   window.__bookingMode = 'jeep'; // 'jeep' | 'transfer'
   var tfSelectedRoute = null;   // route object from TRANSFER_CONFIG
-  var tfSelectedVehicle = '';   // 'gas7' | 'ev7' | 'gas16'
+  var tfSelectedVehicle = '';   // 'gas7' | 'gas16'
 
   /* ── Element refs ── */
   var overlay = document.getElementById('bookingOverlay');
@@ -2958,6 +2946,36 @@
   /* ── Cities allowed as pickup point ── */
   var TRANSFER_PICKUP_ALLOWED = { muine: true, sgn: true, nhatrang: true, phanrang: true };
 
+  /* ── Danh sách tuyến đường đưa đón (dự phòng độc lập) ── */
+  var KNOWN_TRANSFER_ROUTES = [
+    ['muine', 'sgn'],
+    ['muine', 'nhatrang'],
+    ['nhatrang', 'sgn'],
+    ['muine', 'phanrang'],
+    ['muine', 'tacu'],
+    ['muine', 'kega'],
+    ['muine', 'cothach']
+  ];
+
+  /* ── Check if a valid transfer route exists between two cities ── */
+  function hasTransferRoute(cityA, cityB) {
+    if (!cityA || !cityB) return false;
+    var a = normalizeTransferCity(cityA);
+    var b = normalizeTransferCity(cityB);
+    if (!a || !b || a === b) return false;
+    var cfg = window.__TRANSFER_CONFIG;
+    if (cfg && cfg.routes) {
+      return cfg.routes.some(function (r) {
+        var rFrom = normalizeTransferCity(r.from);
+        var rTo = normalizeTransferCity(r.to);
+        return (rFrom === a && rTo === b) || (rTo === a && rFrom === b);
+      });
+    }
+    return KNOWN_TRANSFER_ROUTES.some(function (pair) {
+      return (pair[0] === a && pair[1] === b) || (pair[1] === a && pair[0] === b);
+    });
+  }
+
   /* ── Transfer dropdown disabled state updater ── */
   function updateTransferDropdownDisabledStates() {
     var pIn = document.getElementById('bfTfPickup');
@@ -2971,9 +2989,9 @@
     if (pList) {
       pList.querySelectorAll('li').forEach(function (li) {
         var v = normalizeTransferCity(li.getAttribute('data-val'));
-        var isMatch = Boolean(dVal && v === dVal);
-        li.classList.toggle('is-disabled', isMatch);
-        if (isMatch) {
+        var isDisabled = Boolean(dVal && (v === dVal || !hasTransferRoute(v, dVal)));
+        li.classList.toggle('is-disabled', isDisabled);
+        if (isDisabled) {
           li.setAttribute('aria-disabled', 'true');
         } else {
           li.removeAttribute('aria-disabled');
@@ -2984,9 +3002,9 @@
     if (dList) {
       dList.querySelectorAll('li').forEach(function (li) {
         var v = normalizeTransferCity(li.getAttribute('data-val'));
-        var isMatch = Boolean(pVal && v === pVal);
-        li.classList.toggle('is-disabled', isMatch);
-        if (isMatch) {
+        var isDisabled = Boolean(pVal && (v === pVal || !hasTransferRoute(pVal, v)));
+        li.classList.toggle('is-disabled', isDisabled);
+        if (isDisabled) {
           li.setAttribute('aria-disabled', 'true');
         } else {
           li.removeAttribute('aria-disabled');
@@ -3014,7 +3032,7 @@
       return;
     }
 
-    if (normCity && currentDropoff && normCity === currentDropoff) {
+    if (normCity && currentDropoff && (normCity === currentDropoff || !hasTransferRoute(normCity, currentDropoff))) {
       setTransferDropoff('');
     }
 
@@ -3072,7 +3090,7 @@
     var currentPickup = pIn ? normalizeTransferCity(pIn.value) : '';
     var normCity = normalizeTransferCity(city);
 
-    if (normCity && currentPickup && normCity === currentPickup) {
+    if (normCity && currentPickup && (normCity === currentPickup || !hasTransferRoute(currentPickup, normCity))) {
       setTransferPickup('');
     }
 
@@ -3124,6 +3142,7 @@
   window.__updateTransferDropdownDisabledStates = updateTransferDropdownDisabledStates;
   window.__normalizeTransferCity = normalizeTransferCity;
   window.__getTransferCityName = getTransferCityName;
+  window.__hasTransferRoute = hasTransferRoute;
 
   /* ── Hàm kiểm tra thông minh: Đang đặt Xe Đưa Đón hay Tour Xe Jeep ── */
   function isTransferBooking() {
@@ -3143,12 +3162,12 @@
     var hasRouteVal = (pVal !== '' || dVal !== '');
 
     // 4. Biến tfSelectedVehicle mang giá trị loại xe đưa đón
-    var isTfVehicle = (tfSelectedVehicle === 'gas7' || tfSelectedVehicle === 'ev7' || tfSelectedVehicle === 'gas16');
+    var isTfVehicle = (tfSelectedVehicle === 'gas7' || tfSelectedVehicle === 'gas16');
 
-    // 5. Nút toggle đang active là xe đưa đón (gas7, ev7, gas16)
+    // 5. Nút toggle đang active là xe đưa đón (gas7, gas16)
     var activeToggle = document.querySelector('.bf-toggle-row .bf-toggle.active');
     var dType = activeToggle ? activeToggle.getAttribute('data-type') : '';
-    var isTfToggle = (dType === 'gas7' || dType === 'ev7' || dType === 'gas16');
+    var isTfToggle = (dType === 'gas7' || dType === 'gas16');
 
     // 6. Tiêu đề tour hoặc form đang mang nội dung xe đưa đón
     var tn = document.getElementById('bookingTourName');
@@ -3231,8 +3250,8 @@
       var privateIcon = btnPrivate.querySelector('i');
       var privateSpan = btnPrivate.querySelector('span');
       if (isTransfer) {
-        if (privateIcon) privateIcon.className = 'fas fa-gas-pump';
-        if (privateSpan) privateSpan.textContent = t['transfer.vehicleGas'] || 'Xe Xăng';
+        if (privateIcon) privateIcon.className = 'fas fa-car-side';
+        if (privateSpan) privateSpan.textContent = t['transfer.vehicleGas'] || 'Xe 7 Chỗ';
         btnPrivate.setAttribute('data-type', 'gas7');
         btnPrivate.classList.toggle('active', tfSelectedVehicle === 'gas7');
       } else {
@@ -3246,11 +3265,10 @@
       var groupIcon = btnGroup.querySelector('i');
       var groupSpan = btnGroup.querySelector('span');
       if (isTransfer) {
-        if (groupIcon) groupIcon.className = 'fas fa-bolt';
-        if (groupSpan) groupSpan.textContent = t['transfer.vehicleEv'] || 'Xe Điện';
-        btnGroup.setAttribute('data-type', 'ev7');
-        btnGroup.classList.toggle('active', tfSelectedVehicle === 'ev7');
+        btnGroup.style.display = 'none';
+        btnGroup.classList.remove('active');
       } else {
+        btnGroup.style.display = '';
         if (groupIcon) groupIcon.className = 'fas fa-users';
         if (groupSpan) groupSpan.textContent = t['booking.typeGroup'] || 'Tour Ghép';
         btnGroup.setAttribute('data-type', 'group');
@@ -3355,6 +3373,7 @@
     var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var t = (window.__MRB_TRANS || {})[lang] || {};
+    var pNorm = '', dNorm = '';
 
     var tourTypeRow = document.getElementById('bfPriceTourType');
     var tourTypeIcon = document.getElementById('bfPriceTourTypeIcon');
@@ -3393,8 +3412,8 @@
 
       var pVal = (document.getElementById('bfTfPickup') || {}).value || '';
       var dVal = (document.getElementById('bfTfDropoff') || {}).value || '';
-      var pNorm = normalizeTransferCity(pVal);
-      var dNorm = normalizeTransferCity(dVal);
+      pNorm = normalizeTransferCity(pVal);
+      dNorm = normalizeTransferCity(dVal);
 
       if (tfRouteRow && tfRouteLbl && tfRouteVal) {
         tfRouteRow.style.display = 'flex';
@@ -3404,6 +3423,12 @@
           var routeDisplay = pText + ' → ' + dText;
           tfRouteLbl.textContent = routeDisplay;
           tfRouteVal.textContent = tfP > 0 ? fmt(tfP) : '—';
+        } else if (pNorm && dNorm && pNorm !== dNorm) {
+          var pText = getTransferCityName(pNorm, lang);
+          var dText = getTransferCityName(dNorm, lang);
+          var routeDisplay = pText + ' → ' + dText;
+          tfRouteLbl.textContent = routeDisplay;
+          tfRouteVal.textContent = t['transfer.customQuote'] || 'Liên hệ báo giá';
         } else {
           tfRouteLbl.textContent = t['transfer.th.route'] || 'Tuyến đường';
           tfRouteVal.textContent = '—';
@@ -3412,15 +3437,12 @@
       if (tfVehRow && tfVehLbl && tfVehVal) {
         if (tfSelectedVehicle) {
           tfVehRow.style.display = 'flex';
-          var isEv = (tfSelectedVehicle === 'ev7');
           var is16 = (tfSelectedVehicle === 'gas16');
           var vehIcon = document.getElementById('bfPriceTransferVehicleIcon');
-          if (vehIcon) vehIcon.className = is16 ? 'fas fa-shuttle-van' : (isEv ? 'fas fa-bolt' : 'fas fa-car-side');
+          if (vehIcon) vehIcon.className = is16 ? 'fas fa-shuttle-van' : 'fas fa-car-side';
           tfVehLbl.textContent = is16
             ? (t['transfer.vehicle16'] || 'Xe 16 Chỗ')
-            : (isEv
-              ? (t['transfer.vehicleEv'] || 'Xe Điện')
-              : (t['transfer.vehicleGas'] || 'Xe Xăng'));
+            : (t['transfer.vehicleGas'] || 'Xe 7 Chỗ');
           tfVehVal.textContent = is16
             ? (t['transfer.spec.seats16'] || '16 Chỗ')
             : (t['transfer.spec.seats7'] || '7 Chỗ');
@@ -3496,23 +3518,23 @@
 
     // Total
     if (totalEl) {
-      totalEl.textContent = finalTotal > 0 ? fmt(finalTotal) : '—';
+      if (isTransfer && pNorm && dNorm && pNorm !== dNorm && !tfSelectedRoute) {
+        totalEl.textContent = t['transfer.contactForQuote'] || 'Liên hệ';
+      } else {
+        totalEl.textContent = finalTotal > 0 ? fmt(finalTotal) : '—';
+      }
     }
   }
 
   function setTourType(type) {
     var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
     if (isTransfer) {
-      /* Transfer mode: type is 'gas7' or 'ev7' or 'gas16' or '' */
+      /* Transfer mode: type is 'gas7' or 'gas16' or '' */
       tfSelectedVehicle = type || '';
       tourType = ''; // not used in transfer mode
       if (tfSelectedVehicle === 'gas7') {
         btnPrivate.classList.add('active');
         btnGroup.classList.remove('active');
-        if (btn16) btn16.classList.remove('active');
-      } else if (tfSelectedVehicle === 'ev7') {
-        btnGroup.classList.add('active');
-        btnPrivate.classList.remove('active');
         if (btn16) btn16.classList.remove('active');
       } else if (tfSelectedVehicle === 'gas16') {
         if (btn16) btn16.classList.add('active');
@@ -3881,8 +3903,8 @@
     refreshWALink();
   });
   btnGroup.addEventListener('click', function () {
-    var t = (window.__bookingMode === 'transfer' || isTransferBooking()) ? 'ev7' : 'group';
-    setTourType(t);
+    if (window.__bookingMode === 'transfer' || isTransferBooking()) return;
+    setTourType('group');
     refreshWALink();
   });
   if (btn16) {
@@ -4025,7 +4047,14 @@
   if (tfPickupList) {
     tfPickupList.addEventListener('click', function (e) {
       var li = e.target.closest('li');
-      if (!li || li.classList.contains('is-disabled')) return;
+      if (!li) return;
+      if (li.classList.contains('is-disabled')) {
+        var lang = localStorage.getItem('mrben-lang') || 'vi';
+        var t = (window.__MRB_TRANS || {})[lang] || {};
+        var msg = t['transfer.routeUnavailableNotice'] || 'Tuyến đường này hiện không khả dụng với điểm đã chọn.';
+        showSwapBlockedToast(msg);
+        return;
+      }
       var val = li.getAttribute('data-val');
       setTransferPickup(val);
       closeRouteDropdowns();
@@ -4035,7 +4064,14 @@
   if (tfDropoffList) {
     tfDropoffList.addEventListener('click', function (e) {
       var li = e.target.closest('li');
-      if (!li || li.classList.contains('is-disabled')) return;
+      if (!li) return;
+      if (li.classList.contains('is-disabled')) {
+        var lang = localStorage.getItem('mrben-lang') || 'vi';
+        var t = (window.__MRB_TRANS || {})[lang] || {};
+        var msg = t['transfer.routeUnavailableNotice'] || 'Tuyến đường này hiện không khả dụng với điểm đã chọn.';
+        showSwapBlockedToast(msg);
+        return;
+      }
       var val = li.getAttribute('data-val');
       setTransferDropoff(val);
       closeRouteDropdowns();
@@ -4251,14 +4287,10 @@
 
     var vehTypeStr = tfSelectedVehicle === 'gas16'
       ? (t['transfer.vehicle16'] || 'Xe 16 Chỗ')
-      : (tfSelectedVehicle === 'ev7'
-        ? (t['transfer.vehicleEv'] || 'Xe Điện')
-        : (tfSelectedVehicle === 'gas7' ? (t['transfer.vehicleGas'] || 'Xe Xăng') : '—'));
+      : (tfSelectedVehicle === 'gas7' ? (t['transfer.vehicleGas'] || 'Xe 7 Chỗ') : '—');
     var vehTypeStrVi = tfSelectedVehicle === 'gas16'
       ? 'Xe 16 Chỗ'
-      : (tfSelectedVehicle === 'ev7'
-        ? 'Xe Điện (7 chỗ)'
-        : (tfSelectedVehicle === 'gas7' ? 'Xe Xăng (7 chỗ)' : '—'));
+      : (tfSelectedVehicle === 'gas7' ? 'Xe 7 Chỗ' : '—');
 
     var routeName = '';
     var routeNameVi = '';
@@ -4665,7 +4697,7 @@
       if (!tfSelectedVehicle) {
         var actBtn = document.querySelector('.bf-toggle-row .bf-toggle.active');
         var actType = actBtn ? actBtn.getAttribute('data-type') : '';
-        if (actType === 'gas7' || actType === 'ev7' || actType === 'gas16') {
+        if (actType === 'gas7' || actType === 'gas16') {
           tfSelectedVehicle = actType;
         }
       }
@@ -4849,7 +4881,7 @@
     var routeNameVi = (pNameVi || '—') + ' → ' + (dNameVi || '—');
 
     /* Loại xe (hiển thị tiếng Việt) */
-    var vehicleTypeMap = { gas7: 'Xe Xăng 7 Chỗ', ev7: 'Xe Điện 7 Chỗ ', gas16: 'Xe 16 Chỗ' };
+    var vehicleTypeMap = { gas7: 'Xe 7 Chỗ', gas16: 'Xe 16 Chỗ' };
     var vehicleType = vehicleTypeMap[tfSelectedVehicle] || '—';
 
     /* Giá tiền */
@@ -5010,6 +5042,11 @@
       var dtTrig = document.getElementById('bfDtTrigger');
       if (dtTrig) dtTrig.classList.add('bf-error');
     }
+    if (!tfSelectedVehicle) {
+      errors.push('Vui lòng chọn loại xe (Xe 7 Chỗ hoặc Xe 16 Chỗ).');
+      if (btnPrivate) btnPrivate.classList.add('bf-error');
+      if (btn16) btn16.classList.add('bf-error');
+    }
     if (!tfPickup || !tfDropoff) {
       errors.push('Vui lòng chọn đầy đủ Điểm đón và Điểm trả.');
       var pTrig = document.getElementById('bfTfPickupTrigger');
@@ -5018,6 +5055,8 @@
       if (dTrig && !tfDropoff) dTrig.classList.add('bf-error');
     } else if (tfPickup.toLowerCase() === tfDropoff.toLowerCase()) {
       errors.push('Điểm đón và Điểm trả không được trùng nhau.');
+    } else if (!hasTransferRoute(tfPickup, tfDropoff)) {
+      errors.push('Tuyến đường này hiện không khả dụng trong bảng giá niêm yết.');
     }
 
     if (errors.length > 0) {
@@ -5259,7 +5298,7 @@
       pVal = pVal.trim();
       dVal = dVal.trim();
       if (pVal && dVal) {
-        if (pVal.toLowerCase() === dVal.toLowerCase()) {
+        if (pVal.toLowerCase() === dVal.toLowerCase() || !hasTransferRoute(pVal, dVal)) {
           isValid = false;
           var pTrig = document.getElementById('bfTfPickupTrigger');
           var dTrig = document.getElementById('bfTfDropoffTrigger');
@@ -5366,7 +5405,7 @@
       var hasActive = btnPriv.classList.contains('active') || btnGrp.classList.contains('active') || (btn16v && btn16v.classList.contains('active'));
       if (!hasActive) {
         btnPriv.classList.add('bf-error');
-        btnGrp.classList.add('bf-error');
+        if (btnGrp.style.display !== 'none') btnGrp.classList.add('bf-error');
         if (btn16v && btn16v.style.display !== 'none') btn16v.classList.add('bf-error');
         isValid = false;
         if (!firstErr) firstErr = btnPriv;
@@ -7780,17 +7819,6 @@
         ]
       },
       {
-        id: 'ev7', icon: 'fas fa-car-side', badgeClass: 'tf-badge-ev',
-        badgeI18n: 'transfer.badge.ev', nameI18n: 'transfer.vehicle.ev7',
-        descI18n: 'transfer.vehicle.ev7Desc',
-        image: 'assets/images/produtcs/xe-dien-7c.webp',
-        specs: [
-          { icon: 'fas fa-users', labelI18n: 'transfer.spec.seats7' },
-          { icon: 'fas fa-bolt', labelI18n: 'transfer.spec.ev' },
-          { icon: 'fas fa-suitcase', labelI18n: 'transfer.spec.luggage' }
-        ]
-      },
-      {
         id: 'gas16', icon: 'fas fa-shuttle-van', badgeClass: 'tf-badge-gas16',
         badgeI18n: 'transfer.badge.gas16', nameI18n: 'transfer.vehicle.gas16',
         descI18n: 'transfer.vehicle.gas16Desc',
@@ -7803,13 +7831,13 @@
       }
     ],
     routes: [
-      { id: 'muine-hcm', from: 'muine', to: 'sgn', nameI18n: 'transfer.route.muineHcm', distance: '~200 km', duration: '~4h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 }, roundTrip: false },
-      { id: 'muine-nhatrang', from: 'muine', to: 'nhatrang', nameI18n: 'transfer.route.muineNt', distance: '~250 km', duration: '~4.5h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 }, roundTrip: false },
-      { id: 'nhatrang-hcm', from: 'nhatrang', to: 'sgn', nameI18n: 'transfer.route.ntHcm', distance: '~430 km', duration: '~7.5h', prices: { gas7: 3500000, ev7: 3500000, gas16: 5300000 }, roundTrip: false },
-      { id: 'muine-phanrang', from: 'muine', to: 'phanrang', nameI18n: 'transfer.route.muinePhanrang', distance: '~110 km', duration: '~2h', prices: { gas7: 1750000, ev7: 1750000, gas16: 2600000 }, roundTrip: false },
-      { id: 'muine-tacu', from: 'muine', to: 'tacu', nameI18n: 'transfer.route.muineTacu', distance: '~30 km', duration: '~1h', prices: { gas7: 1300000, ev7: 1300000, gas16: 1900000 }, roundTrip: true },
-      { id: 'muine-kega', from: 'muine', to: 'kega', nameI18n: 'transfer.route.muineKega', distance: '~50 km', duration: '~1.5h', prices: { gas7: 1300000, ev7: 1300000, gas16: 1900000 }, roundTrip: true },
-      { id: 'muine-cothach', from: 'muine', to: 'cothach', nameI18n: 'transfer.route.muineCothach', distance: '~80 km', duration: '~2h', prices: { gas7: 1900000, ev7: 1900000, gas16: 2700000 }, roundTrip: true }
+      { id: 'muine-hcm', from: 'muine', to: 'sgn', nameI18n: 'transfer.route.muineHcm', distance: '~200 km', duration: '~4h', prices: { gas7: 1750000, gas16: 2600000 }, roundTrip: false },
+      { id: 'muine-nhatrang', from: 'muine', to: 'nhatrang', nameI18n: 'transfer.route.muineNt', distance: '~250 km', duration: '~4.5h', prices: { gas7: 1750000, gas16: 2600000 }, roundTrip: false },
+      { id: 'nhatrang-hcm', from: 'nhatrang', to: 'sgn', nameI18n: 'transfer.route.ntHcm', distance: '~430 km', duration: '~7.5h', prices: { gas7: 3500000, gas16: 5300000 }, roundTrip: false },
+      { id: 'muine-phanrang', from: 'muine', to: 'phanrang', nameI18n: 'transfer.route.muinePhanrang', distance: '~110 km', duration: '~2h', prices: { gas7: 1750000, gas16: 2600000 }, roundTrip: false },
+      { id: 'muine-tacu', from: 'muine', to: 'tacu', nameI18n: 'transfer.route.muineTacu', distance: '~30 km', duration: '~1h', prices: { gas7: 1300000, gas16: 1900000 }, roundTrip: true },
+      { id: 'muine-kega', from: 'muine', to: 'kega', nameI18n: 'transfer.route.muineKega', distance: '~50 km', duration: '~1.5h', prices: { gas7: 1300000, gas16: 1900000 }, roundTrip: true },
+      { id: 'muine-cothach', from: 'muine', to: 'cothach', nameI18n: 'transfer.route.muineCothach', distance: '~80 km', duration: '~2h', prices: { gas7: 1900000, gas16: 2700000 }, roundTrip: true }
     ]
   };
   /* Expose for booking modal auto-detect */
@@ -7843,7 +7871,7 @@
           + badgeHtml
           + '</div>'
         : '';
-      h += '<div class="tour-card" data-vehicle-id="' + v.id + '" style="cursor:pointer;">'
+      h += '<div class="tour-card is-active" data-vehicle-id="' + v.id + '" style="cursor:pointer;">'
         + imgHtml
         + '<div class="tour-body">'
         + '<div class="tour-meta">' + metaHtml + '</div>'
@@ -7899,7 +7927,6 @@
   var tfCurrentIdx = 0;
 
   function tfCardsPerView() {
-    if (window.innerWidth > 960) return 3;
     return window.innerWidth > 680 ? 2 : 1;
   }
 
@@ -7907,6 +7934,12 @@
     var dotsEl = document.getElementById('tfDots');
     if (!dotsEl) return;
     dotsEl.innerHTML = '';
+    var perView = tfCardsPerView();
+    if (perView >= tfCards.length) {
+      dotsEl.style.display = 'none';
+      return;
+    }
+    dotsEl.style.display = '';
     tfCards.forEach(function (_, i) {
       var dot = document.createElement('button');
       dot.className = 'tours-dot' + (i === 0 ? ' active' : '');
@@ -7933,8 +7966,15 @@
     });
     var prevBtn = document.querySelector('.tf-arrow-prev');
     var nextBtn = document.querySelector('.tf-arrow-next');
-    if (prevBtn) prevBtn.disabled = false;
-    if (nextBtn) nextBtn.disabled = false;
+    var showArrows = perView < tfCards.length;
+    if (prevBtn) {
+      prevBtn.style.display = showArrows ? '' : 'none';
+      prevBtn.disabled = false;
+    }
+    if (nextBtn) {
+      nextBtn.style.display = showArrows ? '' : 'none';
+      nextBtn.disabled = false;
+    }
   }
 
   function tfGoTo(idx) {
@@ -8023,24 +8063,16 @@
     if (window.__setTourType) {
       window.__setTourType(vId);
     } else {
-      var btnG = document.getElementById('bfTypeGroup');
       var btnP = document.getElementById('bfTypePrivate');
       var btn16f = document.getElementById('bfType16');
-      if (vId === 'ev7') {
-        if (btnG) btnG.classList.add('active');
-        if (btnP) btnP.classList.remove('active');
-        if (btn16f) btn16f.classList.remove('active');
-      } else if (vId === 'gas7') {
+      if (vId === 'gas7') {
         if (btnP) btnP.classList.add('active');
-        if (btnG) btnG.classList.remove('active');
         if (btn16f) btn16f.classList.remove('active');
       } else if (vId === 'gas16') {
         if (btn16f) btn16f.classList.add('active');
         if (btnP) btnP.classList.remove('active');
-        if (btnG) btnG.classList.remove('active');
       } else {
         if (btnP) btnP.classList.remove('active');
-        if (btnG) btnG.classList.remove('active');
         if (btn16f) btn16f.classList.remove('active');
       }
     }

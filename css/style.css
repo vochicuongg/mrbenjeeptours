@@ -4857,45 +4857,85 @@ button {
     line-height: 1.6;
 }
 
-/* ── Vehicle Cards / Transfer Grid — shared .tours-grid layout ── */
-/* On desktop / laptop (>=961px), display all 3 vehicle cards side by side in full view */
-@media (min-width: 961px) {
-    #svcPanelTransfer .tour-card {
-        flex: 0 0 calc(33.333% - 16px);
-        max-width: calc(33.333% - 16px);
-        opacity: 1;
-        transform: scale(1);
+/* ── Vehicle Cards / Transfer Grid (2 vehicles: Xe 7 Chỗ & Xe 16 Chỗ) ── */
+/* On tablet, laptop & desktop (>680px): Clean, centered 2-column layout */
+@media (min-width: 681px) {
+    #svcPanelTransfer .tours-slider-wrapper {
+        padding: 0;
+        overflow: visible;
     }
-    #svcPanelTransfer .tour-card:hover {
-        transform: translateY(-8px) scale(1.01);
-        border-color: var(--color-gold);
-    }
-    #svcPanelTransfer .tour-card:hover .tour-img-wrap img {
-        transform: scale(1.08);
-    }
+
     #svcPanelTransfer .tours-arrow,
     #svcPanelTransfer .tours-dots {
         display: none !important;
     }
-    #svcPanelTransfer .tours-slider-wrapper {
-        padding: 0;
+
+    #tfVehicles {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+        max-width: 960px;
+        margin: 0 auto 36px;
+        overflow: visible;
+        scroll-snap-type: none;
+        padding: 8px 4px 16px;
+    }
+
+    #svcPanelTransfer .tour-card {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: none;
+        opacity: 1;
+        transform: scale(1);
+        margin: 0;
+        scroll-snap-align: none;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        border: 1px solid var(--color-border);
+        border-radius: 18px;
+        transition: transform 0.4s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+
+    #svcPanelTransfer .tour-card:hover {
+        transform: translateY(-8px) scale(1.015);
+        border-color: var(--color-gold);
+        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.22), 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    #svcPanelTransfer .tour-card:hover .tour-img-wrap img {
+        transform: scale(1.08);
     }
 }
 
-/* On tablet (681px - 960px), display 2 cards per view with slider navigation to reach the 3rd */
-@media (min-width: 681px) and (max-width: 960px) {
-    #svcPanelTransfer .tour-card {
-        flex: 0 0 calc(50% - 12px);
-        max-width: calc(50% - 12px);
+/* On laptop & desktop (>=961px): Roomy luxury layout */
+@media (min-width: 961px) {
+    #tfVehicles {
+        gap: 36px;
+        max-width: 980px;
+        margin: 0 auto 44px;
     }
-    #svcPanelTransfer .tours-arrow {
-        display: flex;
+
+    #svcPanelTransfer .tour-card .tour-img-wrap {
+        height: 280px;
     }
-    #svcPanelTransfer .tours-dots {
-        display: flex;
+
+    #svcPanelTransfer .tour-card .tour-body {
+        padding: 28px 28px 24px;
     }
-    #svcPanelTransfer .tours-slider-wrapper {
-        padding: 0 52px;
+
+    #svcPanelTransfer .tour-card .tour-title {
+        font-size: 1.45rem;
+        margin-bottom: 12px;
+    }
+
+    #svcPanelTransfer .tour-card .tour-meta {
+        gap: 10px 20px;
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+    }
+
+    #svcPanelTransfer .tour-card .tour-desc {
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 }
 
@@ -4912,11 +4952,6 @@ button {
 .tf-badge-gas {
     background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
     color: #1A0F0A;
-}
-
-.tf-badge-ev {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: #ffffff;
 }
 
 .tf-badge-gas16 {
@@ -5085,10 +5120,6 @@ button {
 
 .tf-th-gas7 i {
     color: #f59e0b;
-}
-
-.tf-th-ev7 i {
-    color: #10b981;
 }
 
 .tf-th-gas16 i {
