@@ -255,7 +255,7 @@
       'transfer.itineraryNote': 'Khứ hồi trong ngày',
       'transfer.oneWayNote': 'Không khứ hồi',
       'transfer.swapBlocked': 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.',
-      'transfer.routeUnavailableNotice': 'Tuyến đường này hiện không khả dụng với điểm đã chọn.',
+      'transfer.routeUnavailableNotice': 'Tuyến đường này không khả dụng với điểm đã chọn.',
       'transfer.customQuote': 'Liên hệ báo giá',
       'transfer.contactForQuote': 'Liên hệ',
       'transfer.pricingTitle': 'Bảng Giá Niêm Yết',
@@ -301,7 +301,7 @@
       'transfer.labelDropoff': 'Điểm trả',
       'transfer.phPickupInput': 'Chọn điểm đón',
       'transfer.phDropoff': 'Chọn điểm trả',
-      'transfer.labelVehicleType': 'Loại Xe',
+      'transfer.labelVehicleType': 'Loại xe',
       'transfer.vehicleGas': 'Xe 7 Chỗ',
       'transfer.vehicle16': 'Xe 16 Chỗ',
       'transfer.phNotesTransfer': 'Yêu cầu khác của khách hàng',
@@ -3417,20 +3417,15 @@
 
       if (tfRouteRow && tfRouteLbl && tfRouteVal) {
         tfRouteRow.style.display = 'flex';
-        if (tfSelectedRoute && pNorm && dNorm && pNorm !== dNorm) {
+        tfRouteLbl.textContent = t['transfer.th.route'] || 'Tuyến đường';
+        if (pNorm && dNorm && pNorm !== dNorm) {
           var pText = getTransferCityName(pNorm, lang);
           var dText = getTransferCityName(dNorm, lang);
           var routeDisplay = pText + ' → ' + dText;
-          tfRouteLbl.textContent = routeDisplay;
-          tfRouteVal.textContent = tfP > 0 ? fmt(tfP) : '—';
-        } else if (pNorm && dNorm && pNorm !== dNorm) {
-          var pText = getTransferCityName(pNorm, lang);
-          var dText = getTransferCityName(dNorm, lang);
-          var routeDisplay = pText + ' → ' + dText;
-          tfRouteLbl.textContent = routeDisplay;
-          tfRouteVal.textContent = t['transfer.customQuote'] || 'Liên hệ báo giá';
+          tfRouteRow.title = routeDisplay;
+          tfRouteVal.textContent = routeDisplay;
         } else {
-          tfRouteLbl.textContent = t['transfer.th.route'] || 'Tuyến đường';
+          tfRouteRow.removeAttribute('title');
           tfRouteVal.textContent = '—';
         }
       }
@@ -3440,12 +3435,10 @@
           var is16 = (tfSelectedVehicle === 'gas16');
           var vehIcon = document.getElementById('bfPriceTransferVehicleIcon');
           if (vehIcon) vehIcon.className = is16 ? 'fas fa-shuttle-van' : 'fas fa-car-side';
-          tfVehLbl.textContent = is16
+          tfVehLbl.textContent = t['transfer.labelVehicleType'] || 'Loại xe';
+          tfVehVal.textContent = is16
             ? (t['transfer.vehicle16'] || 'Xe 16 Chỗ')
             : (t['transfer.vehicleGas'] || 'Xe 7 Chỗ');
-          tfVehVal.textContent = is16
-            ? (t['transfer.spec.seats16'] || '16 Chỗ')
-            : (t['transfer.spec.seats7'] || '7 Chỗ');
         } else {
           tfVehRow.style.display = 'none';
         }
@@ -3977,9 +3970,21 @@
       existing.style.animation = 'none';
       void existing.offsetWidth;
       existing.style.animation = 'bfToastCenterShake 0.35s ease';
+      if (!existing.querySelector('.bf-toast-close')) {
+        var cBtn = document.createElement('button');
+        cBtn.type = 'button';
+        cBtn.className = 'bf-toast-close';
+        cBtn.setAttribute('aria-label', 'Đóng');
+        cBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        cBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          dismissSwapToast(existing);
+        });
+        existing.appendChild(cBtn);
+      }
       swapToastTimer = setTimeout(function () {
         dismissSwapToast(existing);
-      }, 3200);
+      }, 3500);
       return;
     }
 
@@ -3995,10 +4000,22 @@
     span.className = 'bf-toast-text';
     span.textContent = msg;
 
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'bf-toast-close';
+    closeBtn.setAttribute('aria-label', 'Đóng');
+    closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    closeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dismissSwapToast(toast);
+    });
+
     toast.appendChild(icon);
     toast.appendChild(span);
+    toast.appendChild(closeBtn);
 
-    toast.addEventListener('click', function () {
+    toast.addEventListener('click', function (e) {
+      if (e.target.closest('.bf-toast-close')) return;
       dismissSwapToast(toast);
     });
 
@@ -4007,11 +4024,15 @@
     if (swapToastTimer) clearTimeout(swapToastTimer);
     swapToastTimer = setTimeout(function () {
       dismissSwapToast(toast);
-    }, 3200);
+    }, 3500);
   }
 
   function dismissSwapToast(toast) {
-    if (!toast || !toast.parentNode) return;
+    if (!toast || !toast.parentNode || toast.classList.contains('is-hiding')) return;
+    if (swapToastTimer) {
+      clearTimeout(swapToastTimer);
+      swapToastTimer = null;
+    }
     toast.classList.add('is-hiding');
     setTimeout(function () {
       if (toast && toast.parentNode) toast.remove();
@@ -4051,7 +4072,7 @@
       if (li.classList.contains('is-disabled')) {
         var lang = localStorage.getItem('mrben-lang') || 'vi';
         var t = (window.__MRB_TRANS || {})[lang] || {};
-        var msg = t['transfer.routeUnavailableNotice'] || 'Tuyến đường này hiện không khả dụng với điểm đã chọn.';
+        var msg = t['transfer.routeUnavailableNotice'] || 'Tuyến đường này không khả dụng với điểm đã chọn.';
         showSwapBlockedToast(msg);
         return;
       }
@@ -7039,6 +7060,7 @@
   }
 
   /* ── Build dropdown ── */
+  var isRebuildingSearch = false;
   function buildDropdown(filter) {
     var rawFilter = (filter || '').trim();
     var cleanFilter = removeAccents(rawFilter);
@@ -7103,28 +7125,113 @@
     if (searchEl) {
       searchEl.value = filter;
       searchEl.addEventListener('input', function () {
+        isRebuildingSearch = true;
         buildDropdown(this.value);
         var s = document.getElementById('bfHotelSearch');
-        if (s) s.focus();
+        if (s) {
+          s.focus();
+          if (typeof s.setSelectionRange === 'function') {
+            s.setSelectionRange(s.value.length, s.value.length);
+          }
+        }
+        setTimeout(function () {
+          isRebuildingSearch = false;
+        }, 60);
       });
       searchEl.addEventListener('mousedown', function (e) { e.stopPropagation(); });
+      searchEl.addEventListener('click', function (e) { e.stopPropagation(); });
+      searchEl.addEventListener('blur', function () {
+        // Chỉ khi người dùng thoát ra (blur) khỏi ô tìm kiếm mới tự tinh chỉnh lại vị trí
+        setTimeout(function () {
+          if (isRebuildingSearch) return;
+          var s = document.getElementById('bfHotelSearch');
+          if (wrap && wrap.classList.contains('open') && document.activeElement !== s) {
+            centerHotelInView();
+          }
+        }, 150);
+      });
       searchEl.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeDropdown();
+        if (e.key === 'Escape') {
+          closeDropdown();
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          this.blur();
+        }
       });
     }
   }
 
+  /* ── Center Hotel Dropdown in Viewport ── */
+  var centerHotelTimer = null;
+  function centerHotelInView() {
+    clearTimeout(centerHotelTimer);
+    var body = document.querySelector('.booking-body');
+    if (!body) return;
+    if (!wrap || !wrap.classList.contains('open')) return;
+
+    // Khi người dùng đang tương tác/focus trong ô tìm kiếm, giữ nguyên vị trí (không tự dịch chuyển)
+    var activeSearch = document.getElementById('bfHotelSearch');
+    if (activeSearch && document.activeElement === activeSearch) return;
+
+    centerHotelTimer = setTimeout(function () {
+      if (!wrap || !wrap.classList.contains('open')) return;
+      var curSearch = document.getElementById('bfHotelSearch');
+      if (curSearch && document.activeElement === curSearch) return;
+
+      var bodyRect = body.getBoundingClientRect();
+      var wrapRect = wrap.getBoundingClientRect();
+      var dropRect = dropdown ? dropdown.getBoundingClientRect() : null;
+      if (!wrapRect.height || !bodyRect.height) return;
+
+      // Combined bounding box of wrap + dropdown list
+      var targetTop = wrapRect.top;
+      var targetBottom = (dropRect && dropRect.height > 10) ? dropRect.bottom : wrapRect.bottom;
+      var targetHeight = targetBottom - targetTop;
+
+      // Center target vertically within the visible booking-body area
+      var bodyCenter = bodyRect.top + bodyRect.height / 2;
+      var targetCenter = targetTop + targetHeight / 2;
+      var diff = targetCenter - bodyCenter;
+
+      // Ensure top of wrap doesn't scroll beneath sticky booking header
+      var minAllowedTop = bodyRect.top + 8;
+      if (targetTop - diff < minAllowedTop) {
+        diff = targetTop - minAllowedTop;
+      }
+
+      // If target fits within visible body, ensure bottom isn't clipped by bottom edge
+      var maxAllowedBottom = bodyRect.bottom - 12;
+      if (targetHeight <= (bodyRect.height - 20) && (targetBottom - diff > maxAllowedBottom)) {
+        diff = targetBottom - maxAllowedBottom;
+      }
+
+      // Re-verify top doesn't hide under header
+      if (targetTop - diff < minAllowedTop) {
+        diff = targetTop - minAllowedTop;
+      }
+
+      if (Math.abs(diff) > 2) {
+        body.scrollBy({
+          top: diff,
+          behavior: 'smooth'
+        });
+      }
+    }, 80);
+  }
+
   function openDropdown() {
     wrap.classList.add('open');
+    var body = document.querySelector('.booking-body');
+    if (body) body.classList.add('hotel-open');
     buildDropdown('');
-    setTimeout(function () {
-      var s = document.getElementById('bfHotelSearch');
-      if (s) s.focus();
-    }, 30);
+    centerHotelInView();
   }
 
   function closeDropdown() {
+    clearTimeout(centerHotelTimer);
     wrap.classList.remove('open');
+    var body = document.querySelector('.booking-body');
+    if (body) body.classList.remove('hotel-open');
   }
 
   function selectHotel(h) {
@@ -7198,8 +7305,18 @@
     });
   }
 
+  window.addEventListener('resize', function () {
+    if (wrap && wrap.classList.contains('open')) {
+      var s = document.getElementById('bfHotelSearch');
+      if (s && document.activeElement === s) return;
+      centerHotelInView();
+    }
+  });
+
   document.addEventListener('click', function () { closeDropdown(); });
-  dropdown.addEventListener('click', function (e) { e.stopPropagation(); });
+  dropdown.addEventListener('click', function (e) {
+    e.stopPropagation();
+  });
 
   document.addEventListener('mrben-booking-close', function () {
     nameInput.value = '';

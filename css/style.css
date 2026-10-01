@@ -1072,7 +1072,7 @@ button {
    FEATURED TOURS
    ============================================================ */
 .tours {
-    background: var(--color-bg);
+    background: #270e09;
 }
 
 /* ── Tours grid: horizontal scroll slider (all screen sizes) ── */
@@ -3058,10 +3058,12 @@ button {
     scroll-behavior: smooth;
 }
 
-/* Ensure enough scrollable bottom room so calendar/clock can be perfectly centered on all screen sizes */
+/* Ensure enough scrollable bottom room so calendar/clock and hotel dropdown can be perfectly centered on all screen sizes */
 .booking-body:has(.bf-dt-wrap.open),
-.booking-body.picker-open {
-    padding-bottom: calc(380px + env(safe-area-inset-bottom, 0px)) !important;
+.booking-body.picker-open,
+.booking-body:has(.bf-hotel-wrap.open),
+.booking-body.hotel-open {
+    padding-bottom: calc(400px + env(safe-area-inset-bottom, 0px)) !important;
 }
 
 .booking-body::-webkit-scrollbar {
@@ -3281,7 +3283,7 @@ button {
     background: #1e0e06;
     border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 10px;
-    max-height: 240px;
+    max-height: 350px;
     overflow: hidden auto;
     z-index: 9999;
     padding: 0 0 6px;
@@ -3308,6 +3310,12 @@ button {
 .bf-hotel-dropdown::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.3);
     border-radius: 3px;
+}
+
+@media (max-height: 540px) {
+    .bf-hotel-dropdown {
+        max-height: 220px;
+    }
 }
 
 .bf-hotel-opt {
@@ -5064,7 +5072,6 @@ button {
     z-index: 3;
     background: #1c110b;
     text-align: left;
-    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.45);
     min-width: 180px;
 }
 
@@ -5082,7 +5089,6 @@ button {
     z-index: 2;
     background: #170e08;
     text-align: left;
-    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.45);
     cursor: default;
     transition: background var(--dur) var(--ease);
 }
@@ -5845,6 +5851,7 @@ button {
         font-size: 0.78rem;
     }
 
+
     .tf-pricing-table thead th.tf-th-route,
     .tf-pricing-table tbody td.tf-td-route {
         width: 142px;
@@ -6355,6 +6362,7 @@ button {
     gap: 8px;
     font-size: 0.9rem;
     color: var(--color-text-muted);
+    flex-shrink: 0;
 }
 
 .bf-price-label i {
@@ -6362,12 +6370,15 @@ button {
     font-size: 1rem;
     width: 18px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .bf-price-value {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--color-text);
+    text-align: right;
+    word-break: break-word;
 }
 
 .bf-price-divider {
@@ -6991,52 +7002,117 @@ button {
     transform: translate(-50%, -50%);
     background: rgba(22, 13, 10, 0.96);
     color: #ffffff;
-    padding: 16px 24px;
-    border-radius: 14px;
+    width: calc(100vw - 32px);
+    max-width: 480px;
+    padding: 18px 46px 18px 22px;
+    border-radius: 16px;
     border: 1.5px solid rgba(255, 87, 34, 0.45);
     box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 87, 34, 0.22);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     font-weight: 500;
-    line-height: 1.45;
+    line-height: 1.5;
     z-index: 999999;
-    max-width: min(90vw, 420px);
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 14px;
     cursor: pointer;
     user-select: none;
     animation: bfToastCenterIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#bfSwapBlockedToast .bf-toast-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+#bfSwapBlockedToast .bf-toast-close:hover {
+    background: rgba(255, 87, 34, 0.35);
+    border-color: rgba(255, 87, 34, 0.6);
+    color: #ffffff;
+    transform: scale(1.12);
+}
+
+#bfSwapBlockedToast .bf-toast-close:active {
+    transform: scale(0.95);
 }
 
 #bfSwapBlockedToast.is-hiding {
-    opacity: 0 !important;
-    transform: translate(-50%, -50%) scale(0.92) !important;
+    animation: bfToastCenterOut 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    pointer-events: none !important;
 }
 
 #bfSwapBlockedToast .bf-toast-icon {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: #ff5722;
     flex-shrink: 0;
 }
 
 #bfSwapBlockedToast .bf-toast-text {
     flex: 1;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* Mobile responsive: Mở rộng ngang tối đa theo màn hình điện thoại */
+@media (max-width: 680px) {
+    #bfSwapBlockedToast {
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
+        padding: 16px 42px 16px 16px;
+        gap: 12px;
+        border-radius: 14px;
+        font-size: 0.92rem;
+    }
+
+    #bfSwapBlockedToast .bf-toast-icon {
+        font-size: 1.25rem;
+    }
 }
 
 @keyframes bfToastCenterIn {
     0% {
         opacity: 0;
         transform: translate(-50%, -46%) scale(0.92);
+        filter: blur(3px);
     }
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
+        filter: blur(0px);
+    }
+}
+
+@keyframes bfToastCenterOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -44%) scale(0.88);
+        filter: blur(4px);
     }
 }
 
