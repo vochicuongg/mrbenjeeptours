@@ -2902,7 +2902,7 @@
     var hCustomGroup = document.getElementById('bfHotelCustomGroup');
     var hotelWrapCheck = document.getElementById('bfHotelWrap');
 
-    if (window.__bookingMode !== 'transfer') {
+    if (window.__bookingMode !== 'transfer' && !isTransferBooking()) {
       if (hNameGroup) hNameGroup.style.display = '';
       if (hAddrGroup) hAddrGroup.style.display = '';
       if (hCustomGroup) {
@@ -3125,6 +3125,43 @@
   window.__normalizeTransferCity = normalizeTransferCity;
   window.__getTransferCityName = getTransferCityName;
 
+  /* ── Hàm kiểm tra thông minh: Đang đặt Xe Đưa Đón hay Tour Xe Jeep ── */
+  function isTransferBooking() {
+    // 1. Kiểm tra trực tiếp cờ window.__bookingMode (nguồn sự thật cao nhất)
+    if (window.__bookingMode === 'jeep') return false;
+    if (window.__bookingMode === 'transfer') return true;
+
+    // 2. Nhóm chọn tuyến đường xe đưa đón đang hiển thị trong modal
+    var tfRouteGroup = document.getElementById('bfTransferRouteGroup');
+    var isRouteVisible = (tfRouteGroup && tfRouteGroup.style.display !== 'none');
+
+    // 3. Có dữ liệu chọn Điểm đón hoặc Điểm trả
+    var pIn = document.getElementById('bfTfPickup');
+    var dIn = document.getElementById('bfTfDropoff');
+    var pVal = (pIn && pIn.value) ? pIn.value.trim() : '';
+    var dVal = (dIn && dIn.value) ? dIn.value.trim() : '';
+    var hasRouteVal = (pVal !== '' || dVal !== '');
+
+    // 4. Biến tfSelectedVehicle mang giá trị loại xe đưa đón
+    var isTfVehicle = (tfSelectedVehicle === 'gas7' || tfSelectedVehicle === 'ev7' || tfSelectedVehicle === 'gas16');
+
+    // 5. Nút toggle đang active là xe đưa đón (gas7, ev7, gas16)
+    var activeToggle = document.querySelector('.bf-toggle-row .bf-toggle.active');
+    var dType = activeToggle ? activeToggle.getAttribute('data-type') : '';
+    var isTfToggle = (dType === 'gas7' || dType === 'ev7' || dType === 'gas16');
+
+    // 6. Tiêu đề tour hoặc form đang mang nội dung xe đưa đón
+    var tn = document.getElementById('bookingTourName');
+    var isTfTitle = (tn && tn.textContent && tn.textContent.indexOf('Xe Đưa Đón') !== -1);
+
+    if (isRouteVisible || hasRouteVal || isTfVehicle || isTfToggle || isTfTitle) {
+      window.__bookingMode = 'transfer';
+      return true;
+    }
+    return false;
+  }
+  window.__isTransferBooking = isTransferBooking;
+
   /* ── Transfer mode: configure which sections to show/hide ── */
   function configureBookingMode(mode) {
     window.__bookingMode = mode;
@@ -3145,6 +3182,32 @@
       if (pSel) pSel.classList.remove('is-selected');
       if (dSel) dSel.classList.remove('is-selected');
       if (pdRow) pdRow.classList.remove('has-both-selected');
+
+      // Xóa sạch giá trị input điểm đón và trả của xe đưa đón
+      if (typeof setTransferPickup === 'function') setTransferPickup('');
+      if (typeof setTransferDropoff === 'function') setTransferDropoff('');
+      var pIn = document.getElementById('bfTfPickup');
+      var dIn = document.getElementById('bfTfDropoff');
+      if (pIn) pIn.value = '';
+      if (dIn) dIn.value = '';
+      var pValEl = document.getElementById('bfTfPickupVal');
+      if (pValEl) {
+        pValEl.textContent = t['transfer.phPickupInput'] || 'Chọn điểm đón';
+        pValEl.classList.add('is-placeholder');
+      }
+      var dValEl = document.getElementById('bfTfDropoffVal');
+      if (dValEl) {
+        dValEl.textContent = t['transfer.phDropoff'] || 'Chọn điểm trả...';
+        dValEl.classList.add('is-placeholder');
+      }
+    } else {
+      /* BẮT BUỘC: Khi kích hoạt chế độ Xe Đưa Đón, xóa sạch tourType để cô lập dữ liệu hoàn toàn */
+      tourType = '';
+    }
+
+    /* Đồng bộ trạng thái chọn Ngày & Giờ độc lập theo từng chế độ (Jeep vs Transfer) */
+    if (typeof window.__syncPickerMode === 'function') {
+      window.__syncPickerMode(mode);
     }
 
     /* Pickup/Dropoff row */
@@ -3289,7 +3352,7 @@
   }
 
   function updatePrice() {
-    var isTransfer = (window.__bookingMode === 'transfer');
+    var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var t = (window.__MRB_TRANS || {})[lang] || {};
 
@@ -3438,7 +3501,7 @@
   }
 
   function setTourType(type) {
-    var isTransfer = (window.__bookingMode === 'transfer');
+    var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
     if (isTransfer) {
       /* Transfer mode: type is 'gas7' or 'ev7' or 'gas16' or '' */
       tfSelectedVehicle = type || '';
@@ -3666,7 +3729,13 @@
     if (addonSandDune) addonSandDune.classList.remove('selected');
     if (guestVal) guestVal.textContent = '1';
     if (vehicleVal) vehicleVal.textContent = '1';
-    setDefaultDatetime();
+    if (typeof window.__resetPickerModeStates === 'function') {
+      window.__resetPickerModeStates();
+    } else if (typeof window.__syncPickerMode === 'function') {
+      window.__syncPickerMode(window.__bookingMode || 'jeep');
+    } else {
+      setDefaultDatetime();
+    }
     /* Reset tour type — no pre-selection */
     tourType = '';           /* không có mặc định, người dùng phải chọn */
     if (btnPrivate) { btnPrivate.classList.remove('active'); btnPrivate.classList.remove('bf-error'); }
@@ -3702,6 +3771,7 @@
 
   /* ── Open modal ── */
   function openBooking(data) {
+    configureBookingMode('jeep');
     tourName = data.name || 'Xe Jeep Mr. Ben';
     tourNameVi = data.nameVi || tourName; // dùng tên Việt, fallback về tourName nếu không có
     pricePrivate = data.private || PRICE_PRIVATE;
@@ -3769,8 +3839,14 @@
   document.querySelectorAll('.nav-cta').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      configureBookingMode('jeep');
-      openBooking({ name: 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
+      var transferPanel = document.getElementById('svcPanelTransfer');
+      var isTransferActive = (transferPanel && transferPanel.classList.contains('svc-panel--active'));
+      if (isTransferActive && window.__openTransferBooking) {
+        window.__openTransferBooking();
+      } else {
+        configureBookingMode('jeep');
+        openBooking({ name: 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
+      }
     });
   });
 
@@ -3800,12 +3876,12 @@
 
   /* ── Tour type toggle ── */
   btnPrivate.addEventListener('click', function () {
-    var t = (window.__bookingMode === 'transfer') ? 'gas7' : 'private';
+    var t = (window.__bookingMode === 'transfer' || isTransferBooking()) ? 'gas7' : 'private';
     setTourType(t);
     refreshWALink();
   });
   btnGroup.addEventListener('click', function () {
-    var t = (window.__bookingMode === 'transfer') ? 'ev7' : 'group';
+    var t = (window.__bookingMode === 'transfer' || isTransferBooking()) ? 'ev7' : 'group';
     setTourType(t);
     refreshWALink();
   });
@@ -4266,7 +4342,7 @@
   }
 
   function buildMessage(isHtml) {
-    if (window.__bookingMode === 'transfer') {
+    if (window.__bookingMode === 'transfer' || isTransferBooking()) {
       return buildTransferMessage(isHtml);
     }
     var bStart = isHtml ? '<b>' : '';
@@ -4522,11 +4598,143 @@
 
     // =========================================================
     // LUỒNG 2: ĐẨY DỮ LIỆU SANG MAKE.COM ĐỂ TẠO LỊCH GOOGLE CALENDAR
+    // (Có xác thực dữ liệu, chống gửi trùng, AbortController timeout)
     // =========================================================
-    var webhookUrl = 'https://hook.eu1.make.com/hz6g13pxrevta33z5piw4x5i7tko0vcd';
+    sendToMakeWebhook();
+  }
 
-    // Thu thập các biến thô để Make.com có thể bóc tách
-    var name = document.getElementById('bfName').value.trim();
+  /* ────────────────────────────────────────────────────────────
+     MODULE: Gửi dữ liệu đặt tour lên Make.com Webhook
+     - Xác thực nghiêm ngặt (Validation) trước khi gửi
+     - Chống gửi trùng lặp (isSubmitting flag)
+     - AbortController timeout 10 giây
+     - Làm sạch payload (sanitize)
+     - Xử lý lỗi thân thiện người dùng
+     ──────────────────────────────────────────────────────────── */
+
+  /* ── Hằng số cấu hình – thay đổi URL tại đây khi cần ── */
+  var MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/hz6g13pxrevta33z5piw4x5i7tko0vcd';
+  var MAKE_TIMEOUT_MS  = 10000; // 10 giây timeout
+
+  /* ── Cờ chống gửi trùng lặp (double-submit prevention) ── */
+  var _isSendingToMake = false;
+
+  /* ── Tiện ích: Làm sạch chuỗi, loại bỏ ký tự gây lỗi JSON ── */
+  function sanitizeStr(str) {
+    if (typeof str !== 'string') return '';
+    return str
+      .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '') // Control chars
+      .trim();
+  }
+
+  /* ── Regex kiểm tra SĐT linh hoạt (VN 9-10 số + quốc tế +8-15 số) ── */
+  var PHONE_REGEX_LOCAL = /^\d{9,10}$/;
+  var PHONE_REGEX_INTL  = /^\+\d{8,15}$/;
+
+  /* ── Xác thực dữ liệu bắt buộc trước khi gửi webhook ── */
+  /* Hỗ trợ cả 2 mode: 'jeep' (mặc định) và 'transfer' */
+  function validateWebhookPayload(name, phone, fullPhone, dtIso) {
+    var isTransfer = isTransferBooking();
+    var tag = '[Make.com Guard]';
+
+    if (!name || name.length < 2) {
+      console.warn(tag + ' Tên không hợp lệ — bỏ qua.');
+      return false;
+    }
+    if (!phone) {
+      console.warn(tag + ' SĐT trống — bỏ qua.');
+      return false;
+    }
+    if (!PHONE_REGEX_LOCAL.test(phone) && !PHONE_REGEX_INTL.test(fullPhone)) {
+      console.warn(tag + ' SĐT sai định dạng — bỏ qua.');
+      return false;
+    }
+    if (!dtIso) {
+      console.warn(tag + ' Chưa chọn ngày — bỏ qua.');
+      return false;
+    }
+    var selDate = new Date(dtIso);
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    if (isNaN(selDate.getTime()) || selDate < today) {
+      console.warn(tag + ' Ngày quá khứ — bỏ qua.');
+      return false;
+    }
+
+    if (isTransfer) {
+      /* Transfer: cần có loại xe + tuyến đường (pickup & dropoff) */
+      if (!tfSelectedVehicle) {
+        var actBtn = document.querySelector('.bf-toggle-row .bf-toggle.active');
+        var actType = actBtn ? actBtn.getAttribute('data-type') : '';
+        if (actType === 'gas7' || actType === 'ev7' || actType === 'gas16') {
+          tfSelectedVehicle = actType;
+        }
+      }
+      if (!tfSelectedVehicle) {
+        console.warn(tag + ' [Transfer] Chưa chọn loại xe — bỏ qua.');
+        return false;
+      }
+      var pIn = document.getElementById('bfTfPickup');
+      var dIn = document.getElementById('bfTfDropoff');
+      var pVal = pIn ? pIn.value.trim() : '';
+      var dVal = dIn ? dIn.value.trim() : '';
+      if (!pVal || !dVal) {
+        console.warn(tag + ' [Transfer] Chưa chọn tuyến đường — bỏ qua.');
+        return false;
+      }
+    } else {
+      /* Jeep: cần có loại tour (private / group) */
+      if (!tourType) {
+        console.warn(tag + ' [Jeep] Chưa chọn loại tour — bỏ qua.');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /* ── Tiện ích: Tạo chuỗi createdAt chuẩn ISO (GMT+7) ── */
+  function makeCreatedAt() {
+    var now = new Date();
+    var gmt7 = new Date(now.getTime() + 7 * 3600000);
+    var Y = gmt7.getUTCFullYear();
+    var M = ('0' + (gmt7.getUTCMonth() + 1)).slice(-2);
+    var D = ('0' + gmt7.getUTCDate()).slice(-2);
+    var h = ('0' + gmt7.getUTCHours()).slice(-2);
+    var m = ('0' + gmt7.getUTCMinutes()).slice(-2);
+    var s = ('0' + gmt7.getUTCSeconds()).slice(-2);
+    return Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s;
+  }
+
+  /* ── Tiện ích: Tạo chuỗi nowDt legacy (DD-MM-YYYY | HH:mm) ── */
+  function makeLegacyNowDt() {
+    var now = new Date();
+    return ('0' + now.getDate()).slice(-2) + '-'
+      + ('0' + (now.getMonth() + 1)).slice(-2) + '-'
+      + now.getFullYear() + ' | '
+      + ('0' + now.getHours()).slice(-2) + ':'
+      + ('0' + now.getMinutes()).slice(-2);
+  }
+
+  /* ── Tiện ích: Phân tách dtInput thành pickupDate, pickupTime, dt, dtIso ── */
+  function parseDatetimeInput() {
+    var raw = dtInput.value ? dtInput.value.replace('T', ' ') : '';
+    var result = { pickupDate: '', pickupTime: '', dt: '—', dtIso: dtInput.value || '' };
+    if (!raw) return result;
+    var parts = raw.split(' ');
+    if (parts.length === 2) {
+      result.pickupDate = parts[0];
+      result.pickupTime = parts[1];
+      var dp = parts[0].split('-');
+      var paddedDay = dp[2].length === 1 ? '0' + dp[2] : dp[2];
+      result.dt = paddedDay + '-' + dp[1] + '-' + dp[0] + ' | ' + parts[1];
+    } else {
+      result.dt = raw;
+    }
+    return result;
+  }
+
+  /* ── Tiện ích: Thu thập thông tin chung (name, phone, hotel, datetime...) ── */
+  function collectCommonFields() {
+    var name = sanitizeStr(document.getElementById('bfName').value);
     var phone = document.getElementById('bfPhone').value.trim();
     var cleanPhone = phone.replace(/^0/, '');
     var codeTextEl = document.getElementById('bfPhoneCodeText');
@@ -4538,30 +4746,37 @@
     var isCustom = (hotelWrapCheck && hotelWrapCheck.classList.contains('is-other-selected'));
     var hotelName = '';
     if (isCustom) {
-      hotelName = document.getElementById('bfHotelCustomName') ? document.getElementById('bfHotelCustomName').value.trim() : '';
+      hotelName = document.getElementById('bfHotelCustomName')
+        ? sanitizeStr(document.getElementById('bfHotelCustomName').value) : '';
     } else {
-      hotelName = hotelObj ? hotelObj.value.trim() : '';
+      hotelName = hotelObj ? sanitizeStr(hotelObj.value) : '';
     }
-    var hotelAddr = document.getElementById('bfHotelAddress') ? document.getElementById('bfHotelAddress').value.trim() : '';
+    var hotelAddr = document.getElementById('bfHotelAddress')
+      ? sanitizeStr(document.getElementById('bfHotelAddress').value) : '';
+    var notes = sanitizeStr(document.getElementById('bfNotes').value);
+    var dtInfo = parseDatetimeInput();
 
-    var pickupObj = document.getElementById('bfPickupAddress');
-    var pickup = pickupObj ? pickupObj.value.trim() : '';
+    return {
+      name: name, cleanPhone: cleanPhone, fullPhone: sanitizeStr(fullPhone),
+      hotelName: hotelName, hotelAddr: hotelAddr, notes: notes,
+      pickupDate: dtInfo.pickupDate, pickupTime: dtInfo.pickupTime,
+      dt: dtInfo.dt, dtIso: dtInfo.dtIso,
+      createdAt: makeCreatedAt(), nowDt: makeLegacyNowDt()
+    };
+  }
 
-    var dtRaw = dtInput.value ? dtInput.value.replace('T', ' ') : '';
-    var dt = '—';
-    if (dtRaw) {
-      var dtParts = dtRaw.split(' ');
-      if (dtParts.length === 2) {
-        var dateParts = dtParts[0].split('-');
-        var paddedDay = dateParts[2].length === 1 ? '0' + dateParts[2] : dateParts[2];
-        dt = paddedDay + '-' + dateParts[1] + '-' + dateParts[0] + ' | ' + dtParts[1];
-      } else {
-        dt = dtRaw;
-      }
-    }
+  /* ── Build payload cho JEEP TOUR ── */
+  function buildJeepPayload(c) {
+    var rawTime = c.pickupTime || '';
+    // Tour Jeep chỉ có 2 khung giờ cố định: Bình Minh (04:30) hoặc Hoàng Hôn (13:30)
+    var isJeepSlot = (rawTime === '04:30' || rawTime === '13:30');
+    var timeOnly = isJeepSlot ? rawTime : '';
+    var safePickupTime = isJeepSlot ? rawTime : '';
+    var safeDt = isJeepSlot ? c.dt : (c.pickupDate || '—');
+    var safeDtIso = isJeepSlot ? c.dtIso : (c.pickupDate ? (c.pickupDate + 'T00:00') : '');
 
-    var timeOnly = dtRaw ? (dtRaw.split(' ')[1] || '') : '';
-    var typeStr = tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
+    var typeStr = tourType === 'private'
+      ? 'Tour Riêng Tư' : 'Tour Ghép (' + guests + ' người)';
     var tourLine = (timeOnly ? timeOnly + ' - ' : '') + typeStr;
     var vehicleStr = vehicleCount + ' xe';
 
@@ -4570,60 +4785,336 @@
     else if (tourType === 'group') unit = priceGroup;
     var count = (tourType === 'group') ? guests : vehicleCount;
     var baseTotal = unit * count;
-
     var totalNum;
     if (addonSandDuneSelected) {
-      if (tourType === 'private') {
-        totalNum = ADDON_PRICE_PER_VEHICLE * vehicleCount;
-      } else {
-        totalNum = ADDON_PRICE_PER_VEHICLE;
-      }
+      totalNum = (tourType === 'private')
+        ? ADDON_PRICE_PER_VEHICLE * vehicleCount : ADDON_PRICE_PER_VEHICLE;
     } else {
       totalNum = baseTotal;
     }
-    // Holiday surcharge
     if (isHolidaySurcharge() && totalNum > 0) {
       totalNum = totalNum + Math.round(totalNum * HOLIDAY_SURCHARGE_RATE);
     }
     var totalText = totalNum > 0 ? fmt(totalNum) : '—';
 
-    var notes = document.getElementById('bfNotes').value.trim();
+    var pickupObj = document.getElementById('bfPickupAddress');
+    var pickup = pickupObj ? sanitizeStr(pickupObj.value) : '';
     var tVi = (window.__MRB_TRANS || {})['vi'] || {};
     var addonStr = tVi['booking.addonSandDune'] || 'Leo đồi cát trắng bằng xe Jeep';
     var finalRouteVi = window.__bfCurrentRouteVi || '';
 
-    var now = new Date();
-    var nowDt = ('0' + now.getDate()).slice(-2) + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + now.getFullYear() + ' | ' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+    return {
+      serviceType:            'Tour Xe Jeep',
+      customerName:           c.name,
+      phone:                  c.fullPhone,
+      vehicleType:            'Xe Jeep',
+      route:                  sanitizeStr(finalRouteVi),
+      hotel:                  c.hotelName,
+      address:                c.hotelAddr,
+      pickupDate:             c.pickupDate,
+      pickupTime:             safePickupTime,
+      totalPrice:             totalText,
+      totalPriceRaw:          totalNum,
+      notes:                  c.notes,
+      createdAt:              c.createdAt,
+      tourLine:               sanitizeStr(tourLine),
+      tourType:               tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép',
+      vehicleStr:             vehicleStr,
+      addonSandDuneSelected:  addonSandDuneSelected,
+      addonStr:               sanitizeStr(addonStr),
+      finalRouteVi:           sanitizeStr(finalRouteVi),
+      pickup:                 pickup,
+      holidaySurcharge:       isHolidaySurcharge(),
+      name:                   c.name,
+      fullPhone:              c.fullPhone,
+      hotelName:              c.hotelName,
+      hotelAddr:              c.hotelAddr,
+      dt:                     safeDt,
+      dtIso:                  safeDtIso,
+      totalText:              totalText,
+      nowDt:                  c.nowDt
+    };
+  }
 
-    // Đóng gói thành JSON cho Make.com
-    var bookingData = {
-      name: name,
-      fullPhone: fullPhone,
-      tourLine: tourLine,
-      tourType: tourType === 'private' ? 'Tour Riêng Tư' : 'Tour Ghép',
-      vehicleStr: vehicleStr,
-      addonSandDuneSelected: addonSandDuneSelected,
-      addonStr: addonStr,
-      finalRouteVi: finalRouteVi,
-      pickup: pickup,
-      hotelName: hotelName,
-      hotelAddr: hotelAddr,
-      dt: dt,
-      dtIso: dtInput.value,
-      holidaySurcharge: isHolidaySurcharge(),
-      totalText: totalText,
-      notes: notes,
-      nowDt: nowDt
+  /* ── Build payload cho XE ĐƯA ĐÓN (Transfer) ── */
+  function buildTransferPayload(c) {
+    var tfPickup = (document.getElementById('bfTfPickup') || {}).value || '';
+    tfPickup = tfPickup.trim();
+    var tfDropoff = (document.getElementById('bfTfDropoff') || {}).value || '';
+    tfDropoff = tfDropoff.trim();
+
+    /* Tên thành phố tiếng Việt */
+    var pNameVi = getTransferCityName(tfPickup, 'vi');
+    var dNameVi = getTransferCityName(tfDropoff, 'vi');
+    var routeNameVi = (pNameVi || '—') + ' → ' + (dNameVi || '—');
+
+    /* Loại xe (hiển thị tiếng Việt) */
+    var vehicleTypeMap = { gas7: 'Xe Xăng 7 Chỗ', ev7: 'Xe Điện 7 Chỗ ', gas16: 'Xe 16 Chỗ' };
+    var vehicleType = vehicleTypeMap[tfSelectedVehicle] || '—';
+
+    /* Giá tiền */
+    var tfPrice = 0;
+    if (tfSelectedRoute && tfSelectedVehicle) {
+      tfPrice = (tfSelectedRoute.prices && tfSelectedRoute.prices[tfSelectedVehicle]) || 0;
+    }
+    var totalText = tfPrice > 0 ? fmt(tfPrice) : '—';
+
+    var payload = {
+      serviceType:            'Xe Đưa Đón',
+      customerName:           c.name,
+      phone:                  c.fullPhone,
+      vehicleType:            vehicleType,
+      route:                  sanitizeStr(routeNameVi),
+      hotel:                  c.hotelName,
+      address:                c.hotelAddr,
+      pickupDate:             c.pickupDate,
+      pickupTime:             c.pickupTime,
+      totalPrice:             totalText,
+      totalPriceRaw:          tfPrice,
+      notes:                  c.notes,
+      createdAt:              c.createdAt,
+      pickupCity:             sanitizeStr(tfPickup),
+      dropoffCity:            sanitizeStr(tfDropoff),
+      vehicleId:              tfSelectedVehicle,
+      name:                   c.name,
+      fullPhone:              c.fullPhone,
+      hotelName:              c.hotelName,
+      hotelAddr:              c.hotelAddr,
+      dt:                     c.dt,
+      dtIso:                  c.dtIso,
+      totalText:              totalText,
+      nowDt:                  c.nowDt
     };
 
-    fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(bookingData)
-    })
-      .then(function (r) { console.log('Ting ting! Đã đẩy dữ liệu lịch sang Make.com thành công!'); })
-      .catch(function (e) { console.error('Lỗi kết nối tới Make.com:', e); });
+    /* ── CÔ LẬP DỮ LIỆU TUYỆT ĐỐI (Strict Data Separation) ──
+       Tuyệt đối KHÔNG gửi các trường của Tour Xe Jeep trong payload Xe Đưa Đón */
+    delete payload.tourType;
+    delete payload.tourLine;
+    delete payload.vehicleStr;
+    delete payload.addonSandDuneSelected;
+    delete payload.addonStr;
+    delete payload.finalRouteVi;
+    delete payload.holidaySurcharge;
+    delete payload.pickup;
+
+    return payload;
   }
+
+  /* ── Hàm chính: Thu thập, xác thực và gửi dữ liệu tới Make.com ── */
+  function sendToMakeWebhook() {
+    if (_isSendingToMake) {
+      console.warn('[Make.com] Đang xử lý đơn trước — bỏ qua trùng lặp.');
+      return;
+    }
+
+    /* 1. Thu thập dữ liệu chung */
+    var c = collectCommonFields();
+
+    /* 2. Xác thực — chặn payload rỗng / không hợp lệ */
+    if (!validateWebhookPayload(c.name, c.cleanPhone, c.fullPhone, c.dtIso)) {
+      console.warn('[Make.com] Dữ liệu không hợp lệ — KHÔNG gửi webhook.');
+      return;
+    }
+
+    /* 3. Phân nhánh: Xây dựng payload theo loại dịch vụ */
+    var isTransfer = isTransferBooking();
+    var bookingData;
+    if (isTransfer) {
+      bookingData = buildTransferPayload(c);
+      delete bookingData.tourType;
+    } else {
+      bookingData = buildJeepPayload(c);
+    }
+
+    /* 4. Bật cờ chống gửi trùng */
+    _isSendingToMake = true;
+    console.log('[Make.com] 📤 Gửi ' + bookingData.serviceType + ':'
+      + ' ' + JSON.stringify(bookingData).length + ' bytes');
+
+    /* 5. AbortController — Tự hủy nếu Make.com > 10 giây */
+    var abortCtrl = new AbortController();
+    var timeoutId = setTimeout(function () {
+      abortCtrl.abort();
+    }, MAKE_TIMEOUT_MS);
+
+    fetch(MAKE_WEBHOOK_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(bookingData),
+      signal:  abortCtrl.signal
+    })
+      .then(function (response) {
+        clearTimeout(timeoutId);
+        if (response.ok) {
+          console.log('✅ Ting ting! Đã đẩy ['
+            + bookingData.serviceType + '] sang Make.com thành công!');
+        } else {
+          console.error('[Make.com] HTTP ' + response.status);
+        }
+      })
+      .catch(function (err) {
+        clearTimeout(timeoutId);
+        if (err.name === 'AbortError') {
+          console.error('[Make.com] ⏱️ Timeout '
+            + (MAKE_TIMEOUT_MS / 1000) + 's. Đơn đã gửi qua kênh khác.');
+        } else {
+          console.error('[Make.com] ❌ Lỗi kết nối:', err.message || err);
+        }
+      })
+      .finally(function () {
+        _isSendingToMake = false; // Trả cờ, cho phép gửi đơn mới
+      });
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     HÀM XỬ LÝ SUBMIT ĐẶT XE ĐƯA ĐÓN (Transfer Booking Submit)
+     - Lắng nghe submit form hoặc click nút gửi đặt xe đưa đón
+     - Kiểm tra xác thực (Validation): Họ tên, SĐT, Ngày đón, Tuyến đường
+     - Ngăn chặn hoàn toàn payload rỗng 1.0 B lên Make.com
+     - Chống spam / double-click: Vô hiệu hóa nút và đổi chữ "Đang xử lý..."
+     - Gửi fetch() POST JSON tới Make.com Webhook với AbortController
+     - Xử lý phản hồi Success / Error kèm popup / modal thông báo trực quan
+     ══════════════════════════════════════════════════════════════ */
+  function handleTransferBookingSubmit(event) {
+    if (event && event.preventDefault) {
+      event.preventDefault();
+    }
+
+    /* 1. Chống gửi trùng nếu đang có tiến trình gửi */
+    if (_isSendingToMake) {
+      console.warn('[Make.com] Đang xử lý đơn trước — vui lòng đợi giây lát.');
+      return false;
+    }
+
+    /* 2. Thu thập dữ liệu chung từ form */
+    var c = collectCommonFields();
+
+    /* 3. Lấy dữ liệu riêng cho dịch vụ Xe Đưa Đón */
+    var pEl = document.getElementById('bfTfPickup');
+    var dEl = document.getElementById('bfTfDropoff');
+    var tfPickup = (pEl ? pEl.value : '').trim();
+    var tfDropoff = (dEl ? dEl.value : '').trim();
+
+    /* 4. VALIDATION NGHIÊM NGẶT — Ngăn chặn triệt để gói tin rỗng 1.0 B */
+    var errors = [];
+    if (!c.name || c.name.length < 2) {
+      errors.push('Vui lòng nhập Họ tên hợp lệ.');
+      if (document.getElementById('bfName')) document.getElementById('bfName').classList.add('bf-error');
+    }
+    if (!c.cleanPhone || c.cleanPhone.length < 8 || c.cleanPhone.length > 15) {
+      errors.push('Vui lòng nhập Số điện thoại hợp lệ (8 - 15 chữ số).');
+      if (document.getElementById('bfPhone')) document.getElementById('bfPhone').classList.add('bf-error');
+    }
+    if (!c.pickupDate || !c.pickupTime) {
+      errors.push('Vui lòng chọn Ngày & Giờ đón.');
+      var dtTrig = document.getElementById('bfDtTrigger');
+      if (dtTrig) dtTrig.classList.add('bf-error');
+    }
+    if (!tfPickup || !tfDropoff) {
+      errors.push('Vui lòng chọn đầy đủ Điểm đón và Điểm trả.');
+      var pTrig = document.getElementById('bfTfPickupTrigger');
+      var dTrig = document.getElementById('bfTfDropoffTrigger');
+      if (pTrig && !tfPickup) pTrig.classList.add('bf-error');
+      if (dTrig && !tfDropoff) dTrig.classList.add('bf-error');
+    } else if (tfPickup.toLowerCase() === tfDropoff.toLowerCase()) {
+      errors.push('Điểm đón và Điểm trả không được trùng nhau.');
+    }
+
+    if (errors.length > 0) {
+      console.warn('[Validation] Không thể gửi đơn đặt xe:', errors);
+      alert('⚠️ ' + errors.join('\n'));
+      return false;
+    }
+
+    /* 5. Xác định nút submit & hiển thị trạng thái đang xử lý */
+    var submitBtn = null;
+    if (event) {
+      submitBtn = event.submitter || (event.target && event.target.querySelector ? event.target.querySelector('button[type="submit"], .btn-submit, #bfConfirmSendNow') : null);
+      if (!submitBtn && event.target && (event.target.tagName === 'BUTTON' || event.target.tagName === 'A')) {
+        submitBtn = event.target;
+      }
+    }
+    if (!submitBtn) {
+      submitBtn = document.getElementById('bfConfirmSendNow') || document.querySelector('.bf-btn-wa');
+    }
+
+    var originalBtnText = '';
+    if (submitBtn) {
+      originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+    }
+
+    /* 6. Đóng gói Payload theo Schema chuẩn */
+    var payload = buildTransferPayload(c);
+    delete payload.tourType;
+
+    /* 7. Kích hoạt cờ chống gửi trùng */
+    _isSendingToMake = true;
+
+    /* 8. Thiết lập AbortController (Timeout 10s) */
+    var abortCtrl = new AbortController();
+    var timeoutId = setTimeout(function () {
+      abortCtrl.abort();
+    }, MAKE_TIMEOUT_MS);
+    /* 9. Gửi fetch POST JSON tới Make.com Webhook */
+    fetch(MAKE_WEBHOOK_URL, {
+      method:  'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':       'application/json'
+      },
+      body:    JSON.stringify(payload),
+      signal:  abortCtrl.signal
+    })
+      .then(function (response) {
+        clearTimeout(timeoutId);
+        if (response.ok) {
+          console.log('✅ [Make.com] Đã gửi đơn Xe Đưa Đón thành công!', payload);
+          // Gửi kèm qua Telegram để đồng bộ
+          if (typeof sendToTelegram === 'function') {
+            try { sendToTelegram(); } catch (e) { console.warn(e); }
+          }
+          // Đóng modal xác nhận nếu đang mở
+          if (typeof closeConfirmModal === 'function') closeConfirmModal();
+          // Mở modal cảm ơn trực quan
+          if (typeof openThankModal === 'function') {
+            openThankModal();
+          } else {
+            alert('🎉 Cảm ơn quý khách! Đơn đặt xe đưa đón đã được tiếp nhận. Đội ngũ Mr. Ben sẽ liên hệ xác nhận ngay!');
+          }
+          // Reset form
+          if (typeof resetBookingForm === 'function') resetBookingForm();
+        } else {
+          throw new Error('HTTP ' + response.status + ': Máy chủ Make.com phản hồi không thành công.');
+        }
+      })
+      .catch(function (err) {
+        clearTimeout(timeoutId);
+        console.error('❌ [Make.com] Gửi đơn thất bại:', err);
+        if (err.name === 'AbortError') {
+          alert('⏱️ Yêu cầu gửi đơn quá thời gian (Timeout). Vui lòng kiểm tra kết nối mạng hoặc liên hệ Hotline/Zalo: 0913.140.196.');
+        } else {
+          alert('❌ Có lỗi xảy ra khi gửi đơn đặt xe. Quý khách vui lòng liên hệ trực tiếp Hotline/Zalo: 0913.140.196 để được hỗ trợ tức thì!');
+        }
+      })
+      .finally(function () {
+        _isSendingToMake = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('is-loading');
+          submitBtn.innerHTML = originalBtnText || 'Gửi ngay';
+        }
+      });
+
+    return true;
+  }
+
+  // Export ra window để gọi từ form submit hoặc bên ngoài
+  window.handleTransferBookingSubmit = handleTransferBookingSubmit;
+
+
 
   /* ─── Confirm Modal Logic ─── */
   var confirmModal = document.getElementById('bfConfirmModal');
@@ -4752,7 +5243,7 @@
   function validateBookingForm() {
     var isValid = true;
     var firstErr = null;
-    var isTransfer = (window.__bookingMode === 'transfer');
+    var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
 
     var T = (window.__MRB_TRANS || {})[localStorage.getItem('mrben-lang') || 'vi'] || {};
     var reqFields = [
@@ -4853,6 +5344,16 @@
       if (dtTrigger) dtTrigger.classList.add('bf-error');
       isValid = false;
       if (!firstErr && dtTrigger) firstErr = dtTrigger;
+    } else if (!isTransfer && dt && dt.value.trim()) {
+      // Tour Jeep chỉ chấp nhận 04:30 hoặc 13:30
+      var timePart = (dt.value.split('T')[1] || '').trim();
+      if (timePart !== '04:30' && timePart !== '13:30') {
+        if (dtTrigger) dtTrigger.classList.add('bf-error');
+        isValid = false;
+        if (!firstErr && dtTrigger) firstErr = dtTrigger;
+      } else {
+        if (dtTrigger) dtTrigger.classList.remove('bf-error');
+      }
     } else {
       if (dtTrigger) dtTrigger.classList.remove('bf-error');
     }
@@ -5331,11 +5832,21 @@
     selMin = clockMin;
     var y = selDate.getFullYear(), mo = selDate.getMonth() + 1, d = selDate.getDate();
     var iso = y + '-' + pad(mo) + '-' + pad(d) + 'T' + pad(selHour) + ':' + pad(selMin);
+    var disp = pad(d) + '/' + pad(mo) + '/' + y + ' | ' + pad(selHour) + ':' + pad(selMin);
     dtHidden.value = iso;
-    dtDisplay.textContent = pad(d) + '/' + pad(mo) + '/' + y + ' | ' + pad(selHour) + ':' + pad(selMin);
+    dtDisplay.textContent = disp;
     dtTrigger.classList.add('has-value');
     closePicker();
     dtHidden.dispatchEvent(new Event('input'));
+
+    // Lưu vào trạng thái độc lập của Xe Đưa Đón
+    modeStates.transfer.selDate = new Date(selDate.getTime());
+    modeStates.transfer.selHour = selHour;
+    modeStates.transfer.selMin = selMin;
+    modeStates.transfer.clockHour = clockHour;
+    modeStates.transfer.clockMin = clockMin;
+    modeStates.transfer.iso = iso;
+    modeStates.transfer.display = disp;
   }
 
   if (clockHourBlock) clockHourBlock.addEventListener('click', function () {
@@ -5460,9 +5971,29 @@
   var curYear = todayDate.getFullYear();
   var curMonth = todayDate.getMonth();
   var selDate = null;
-  var selHour = 5;
-  var selMin = 0;
+  var selHour = null;
+  var selMin = null;
   var MINS = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+
+  /* ── Quản lý trạng thái Date & Time độc lập tuyệt đối giữa Tour Jeep và Xe Đưa Đón ── */
+  var modeStates = {
+    jeep: {
+      selDate: null,
+      selHour: null,
+      selMin: null,
+      iso: '',
+      display: ''
+    },
+    transfer: {
+      selDate: null,
+      selHour: null,
+      selMin: null,
+      clockHour: 8,
+      clockMin: 0,
+      iso: '',
+      display: ''
+    }
+  };
 
   /* Returns month names array for current language */
   function getMonths() {
@@ -5680,10 +6211,18 @@
     var label = hour === 4
       ? (T['booking.sunrise'] || 'Bình Minh')
       : (T['booking.sunset'] || 'Hoàng Hôn');
-    dtDisplay.textContent = pad(d) + '/' + pad(mo) + '/' + y + ' | ' + label + ' (' + pad(hour) + ':' + pad(min) + ')';
+    var disp = pad(d) + '/' + pad(mo) + '/' + y + ' | ' + label + ' (' + pad(hour) + ':' + pad(min) + ')';
+    dtDisplay.textContent = disp;
     dtTrigger.classList.add('has-value');
     closePicker();
     dtHidden.dispatchEvent(new Event('input'));
+
+    // Lưu vào trạng thái độc lập của Tour Xe Jeep
+    modeStates.jeep.selDate = new Date(selDate.getTime());
+    modeStates.jeep.selHour = hour;
+    modeStates.jeep.selMin = min;
+    modeStates.jeep.iso = iso;
+    modeStates.jeep.display = disp;
   }
 
   if (sunriseBtn) sunriseBtn.addEventListener('click', function () {
@@ -5784,23 +6323,111 @@
     dtDisplay.textContent = placeholder;
   }
 
+  /* ── Đồng bộ Date & Time theo chế độ dịch vụ độc lập (Jeep vs Transfer) ── */
+  function syncPickerMode(newMode) {
+    newMode = newMode || window.__bookingMode || 'jeep';
+    closePicker();
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var TRANS = window.__MRB_TRANS || {};
+    var placeholder = (TRANS[lang] && TRANS[lang]['booking.datePlaceholder'])
+      || 'Chọn ngày & giờ khởi hành';
+
+    if (newMode === 'transfer') {
+      var st = modeStates.transfer;
+      selDate = st.selDate ? new Date(st.selDate.getTime()) : null;
+      selHour = st.selHour;
+      selMin = st.selMin;
+      clockHour = (typeof st.clockHour === 'number') ? st.clockHour : 8;
+      clockMin = (typeof st.clockMin === 'number') ? st.clockMin : 0;
+      dtHidden.value = st.iso || '';
+      if (st.iso && st.display) {
+        dtDisplay.textContent = st.display;
+        dtTrigger.classList.add('has-value');
+      } else {
+        dtDisplay.textContent = placeholder;
+        dtTrigger.classList.remove('has-value');
+      }
+      if (clockHourBlock) clockHourBlock.textContent = (st.iso && selHour !== null) ? pad(clockHour) : '--';
+      if (clockMinBlock) clockMinBlock.textContent = (st.iso && selMin !== null) ? pad(clockMin) : '--';
+      [sunriseBtn, sunsetBtn].forEach(function (b) { b && b.classList.remove('selected'); });
+    } else {
+      // Chế độ Tour Jeep: Tuyệt đối chỉ nhận khung giờ Bình Minh (04:30) hoặc Hoàng Hôn (13:30)
+      var sj = modeStates.jeep;
+      var isJeepValid = sj.iso && ((sj.selHour === 4 && sj.selMin === 30) || (sj.selHour === 13 && sj.selMin === 30));
+      if (isJeepValid) {
+        selDate = sj.selDate ? new Date(sj.selDate.getTime()) : null;
+        selHour = sj.selHour;
+        selMin = sj.selMin;
+        dtHidden.value = sj.iso;
+        dtDisplay.textContent = sj.display;
+        dtTrigger.classList.add('has-value');
+        if (sunriseBtn) sunriseBtn.classList.toggle('selected', selHour === 4 && selMin === 30);
+        if (sunsetBtn) sunsetBtn.classList.toggle('selected', selHour === 13 && selMin === 30);
+      } else {
+        // Nếu chưa chọn hoặc dữ liệu không hợp lệ với Jeep, reset sạch sẽ
+        selDate = null;
+        selHour = null;
+        selMin = null;
+        dtHidden.value = '';
+        dtDisplay.textContent = placeholder;
+        dtTrigger.classList.remove('has-value');
+        [sunriseBtn, sunsetBtn].forEach(function (b) { b && b.classList.remove('selected'); });
+      }
+      if (clockHourBlock) clockHourBlock.textContent = '--';
+      if (clockMinBlock) clockMinBlock.textContent = '--';
+    }
+
+    if (calView) calView.style.display = '';
+    if (tpView) tpView.style.display = 'none';
+    if (clockView) clockView.style.display = 'none';
+
+    // Bắn sự kiện input để đồng bộ lộ trình (route) và tính giá
+    dtHidden.dispatchEvent(new Event('input'));
+  }
+
+  function resetPickerModeStates() {
+    modeStates.jeep = { selDate: null, selHour: null, selMin: null, iso: '', display: '' };
+    modeStates.transfer = { selDate: null, selHour: null, selMin: null, clockHour: 8, clockMin: 0, iso: '', display: '' };
+    setDefault();
+  }
+
+  window.__syncPickerMode = syncPickerMode;
+  window.__resetPickerModeStates = resetPickerModeStates;
+
   setDefault();
-  // Re-default when booking modal reopens
-  document.addEventListener('mrben-booking-open', setDefault);
+  // Khi mở modal đặt xe/tour, đồng bộ đúng chế độ hiện tại
+  document.addEventListener('mrben-booking-open', function () {
+    syncPickerMode(window.__bookingMode || 'jeep');
+  });
 
   // Translate Date & Time label dynamically
   document.addEventListener('mrben-langchange', function () {
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var TRANS = window.__MRB_TRANS || {};
+    var placeholder = (TRANS[lang] && TRANS[lang]['booking.datePlaceholder']) || 'Chọn ngày & giờ khởi hành';
+
+    // Cập nhật lại display lưu trữ của Jeep khi đổi ngôn ngữ
+    if (modeStates.jeep.selDate && modeStates.jeep.iso && (modeStates.jeep.selHour === 4 || modeStates.jeep.selHour === 13)) {
+      var T = (window.__MRB_TRANS || {})[lang] || {};
+      var dj = modeStates.jeep.selDate.getDate();
+      var moj = modeStates.jeep.selDate.getMonth() + 1;
+      var yj = modeStates.jeep.selDate.getFullYear();
+      var labelj = modeStates.jeep.selHour === 4
+        ? (T['booking.sunrise'] || 'Bình Minh')
+        : (T['booking.sunset'] || 'Hoàng Hôn');
+      modeStates.jeep.display = pad(dj) + '/' + pad(moj) + '/' + yj + ' | ' + labelj + ' (' + pad(modeStates.jeep.selHour) + ':' + pad(modeStates.jeep.selMin) + ')';
+    }
+
     if (selDate && selHour !== null && selMin !== null) {
       if (window.__bookingMode === 'transfer') {
         var y = selDate.getFullYear(), mo = selDate.getMonth() + 1, d = selDate.getDate();
         dtDisplay.textContent = pad(d) + '/' + pad(mo) + '/' + y + ' | ' + pad(selHour) + ':' + pad(selMin);
-      } else {
+      } else if (selHour === 4 || selHour === 13) {
         confirmSlot(selHour, selMin);
+      } else {
+        dtDisplay.textContent = placeholder;
       }
     } else {
-      var placeholder = (TRANS[lang] && TRANS[lang]['booking.datePlaceholder']) || 'Chọn ngày & giờ khởi hành';
       dtDisplay.textContent = placeholder;
     }
     if (clockHint) {
@@ -7003,6 +7630,13 @@
       if (svc === 'transfer' && window.__tfSyncSlider) {
         window.__tfSyncSlider();
       }
+    }
+
+    /* Sync booking modal mode */
+    if (window.__configureBookingMode) {
+      window.__configureBookingMode(svc === 'transfer' ? 'transfer' : 'jeep');
+    } else {
+      window.__bookingMode = (svc === 'transfer' ? 'transfer' : 'jeep');
     }
 
     /* update section header */
