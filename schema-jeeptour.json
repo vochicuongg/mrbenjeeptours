@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["TravelAgency", "LocalBusiness"],
+      "@type": ["TravelAgency", "TourOperator", "LocalBusiness"],
       "@id": "https://mrbenjeeptours.com/#travelagency",
       "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
       "alternateName": [
@@ -15,20 +15,20 @@
       "image": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
       "description": "Dịch vụ tour xe Jeep Mũi Né uy tín – Ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên, Làng Chài. Đưa đón tận nơi tại hơn 100+ khách sạn, resort và homestay.",
       "telephone": "+84913140196",
-      "priceRange": "150,000₫ – 500,000₫",
+      "priceRange": "150.000₫ - 3.500.000₫",
       "currenciesAccepted": "VND",
       "paymentAccepted": "Cash, Bank Transfer",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Phường Mũi Né",
+        "streetAddress": "329 Nguyễn Đình Chiểu, Phường Mũi Né",
         "addressLocality": "Thành phố Phan Thiết",
         "addressRegion": "Bình Thuận",
         "addressCountry": "VN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 10.9546982,
-        "longitude": 108.2444825
+        "latitude": 10.9333,
+        "longitude": 108.2833
       },
       "hasMap": "https://www.google.com/maps?cid=4592942468307409302",
       "areaServed": [
@@ -58,8 +58,8 @@
           "Saturday",
           "Sunday"
         ],
-        "opens": "04:00",
-        "closes": "21:00"
+        "opens": "00:00",
+        "closes": "23:59"
       },
       "sameAs": [
         "https://www.google.com/maps?cid=4592942468307409302",
