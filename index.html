@@ -1210,6 +1210,67 @@
                                 <span data-i18n="transfer.scrollHint">Vuốt ngang để so sánh giá các loại xe</span>
                             </div>
                         </div>
+
+                        <!-- ── Transfer Search / Route Finder ── -->
+                        <div class="tf-search" id="tfSearch">
+                            <div class="tf-search-inner">
+                                <div class="tf-search-field">
+                                    <label class="tf-search-label">
+                                        <i class="fas fa-car-side"></i>
+                                        <span data-i18n="transfer.search.vehicle">Loại xe</span>
+                                    </label>
+                                    <div class="tf-search-dropdown" id="tfSearchVehicleWrap">
+                                        <button type="button" class="tf-search-trigger" id="tfSearchVehicleTrigger"
+                                            aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="tf-search-val is-placeholder" id="tfSearchVehicleVal"
+                                                data-i18n="transfer.search.allVehicles">Tất cả loại xe</span>
+                                            <i class="fas fa-chevron-down tf-search-arrow"></i>
+                                        </button>
+                                        <ul class="tf-search-list" id="tfSearchVehicleList" role="listbox"></ul>
+                                        <input type="hidden" id="tfSearchVehicle" value="" />
+                                    </div>
+                                </div>
+                                <div class="tf-search-field">
+                                    <label class="tf-search-label">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span data-i18n="transfer.search.from">Điểm đón</span>
+                                    </label>
+                                    <div class="tf-search-dropdown" id="tfSearchFromWrap">
+                                        <button type="button" class="tf-search-trigger" id="tfSearchFromTrigger"
+                                            aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="tf-search-val is-placeholder" id="tfSearchFromVal"
+                                                data-i18n="transfer.search.allFrom">Tất cả điểm đón</span>
+                                            <i class="fas fa-chevron-down tf-search-arrow"></i>
+                                        </button>
+                                        <ul class="tf-search-list" id="tfSearchFromList" role="listbox"></ul>
+                                        <input type="hidden" id="tfSearchFrom" value="" />
+                                    </div>
+                                </div>
+                                <div class="tf-search-field">
+                                    <label class="tf-search-label">
+                                        <i class="fas fa-flag-checkered"></i>
+                                        <span data-i18n="transfer.search.to">Điểm trả</span>
+                                    </label>
+                                    <div class="tf-search-dropdown" id="tfSearchToWrap">
+                                        <button type="button" class="tf-search-trigger" id="tfSearchToTrigger"
+                                            aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="tf-search-val is-placeholder" id="tfSearchToVal"
+                                                data-i18n="transfer.search.allTo">Tất cả điểm trả</span>
+                                            <i class="fas fa-chevron-down tf-search-arrow"></i>
+                                        </button>
+                                        <ul class="tf-search-list" id="tfSearchToList" role="listbox"></ul>
+                                        <input type="hidden" id="tfSearchTo" value="" />
+                                    </div>
+                                </div>
+                                <button class="tf-search-reset" id="tfSearchReset" type="button"
+                                    data-i18n-title="transfer.search.resetTitle" title="Xoá bộ lọc">
+                                    <i class="fas fa-rotate-left"></i>
+                                </button>
+                            </div>
+                            <div class="tf-search-result" id="tfSearchResult" style="display:none;">
+                                <span class="tf-search-result-text" id="tfSearchResultText"></span>
+                            </div>
+                        </div>
                         <div class="tf-pricing-table-container">
                             <div class="tf-pricing-table" id="tfPricingTable"></div>
                         </div>

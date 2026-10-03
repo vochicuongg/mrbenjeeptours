@@ -267,6 +267,15 @@
       'transfer.scrollHint': 'Vuốt ngang để so sánh giá các loại xe',
       'transfer.pricingTapHint': "Nhấn 'Đặt xe' trên bảng giá để đặt nhanh",
       'transfer.miniBook': 'Đặt xe',
+      'transfer.search.vehicle': 'Loại xe',
+      'transfer.search.from': 'Điểm đón',
+      'transfer.search.to': 'Điểm trả',
+      'transfer.search.allVehicles': 'Tất cả loại xe',
+      'transfer.search.allFrom': 'Tất cả điểm đón',
+      'transfer.search.allTo': 'Tất cả điểm trả',
+      'transfer.search.resultCount': '{n} tuyến tìm thấy',
+      'transfer.search.noResult': 'Không tìm thấy tuyến phù hợp',
+      'transfer.search.resetTitle': 'Xoá bộ lọc',
       'transfer.inc.allIn': 'Giá trọn gói niêm yết',
       'transfer.inc.toll': 'Bao gồm xăng & phí cao tốc',
       'transfer.inc.driver': 'Tài xế đón tận nơi',
@@ -558,6 +567,15 @@
       'transfer.scrollHint': 'Swipe horizontally to compare vehicle prices',
       'transfer.pricingTapHint': "Tap 'Book' on the price list to book quickly",
       'transfer.miniBook': 'Book',
+      'transfer.search.vehicle': 'Vehicle',
+      'transfer.search.from': 'Pick-up',
+      'transfer.search.to': 'Drop-off',
+      'transfer.search.allVehicles': 'All vehicles',
+      'transfer.search.allFrom': 'All pick-up points',
+      'transfer.search.allTo': 'All drop-off points',
+      'transfer.search.resultCount': '{n} route(s) found',
+      'transfer.search.noResult': 'No matching route found',
+      'transfer.search.resetTitle': 'Clear filters',
       'transfer.inc.allIn': 'All-inclusive fixed price',
       'transfer.inc.toll': 'Includes fuel & highway tolls',
       'transfer.inc.driver': 'Door-to-door professional driver',
@@ -848,6 +866,15 @@
       'transfer.scrollHint': 'Проведите пальцем для сравнения цен',
       'transfer.pricingTapHint': "Нажмите 'Заказ' в таблице для быстрого заказа",
       'transfer.miniBook': 'Заказ',
+      'transfer.search.vehicle': 'Транспорт',
+      'transfer.search.from': 'Посадка',
+      'transfer.search.to': 'Высадка',
+      'transfer.search.allVehicles': 'Все транспорт',
+      'transfer.search.allFrom': 'Все пункты посадки',
+      'transfer.search.allTo': 'Все пункты высадки',
+      'transfer.search.resultCount': 'Найдено маршрутов: {n}',
+      'transfer.search.noResult': 'Подходящий маршрут не найден',
+      'transfer.search.resetTitle': 'Сбросить фильтры',
       'transfer.inc.allIn': 'Фиксированная цена всё включено',
       'transfer.inc.toll': 'Включая топливо и платные дороги',
       'transfer.inc.driver': 'Водитель от двери до двери',
@@ -1138,6 +1165,15 @@
       'transfer.scrollHint': '左右滑动对比各车型价格',
       'transfer.pricingTapHint': "点击价格表中的'预订'即可快速订车",
       'transfer.miniBook': '预订',
+      'transfer.search.vehicle': '车型',
+      'transfer.search.from': '上车点',
+      'transfer.search.to': '下车点',
+      'transfer.search.allVehicles': '所有车型',
+      'transfer.search.allFrom': '所有上车点',
+      'transfer.search.allTo': '所有下车点',
+      'transfer.search.resultCount': '找到 {n} 条路线',
+      'transfer.search.noResult': '未找到匹配路线',
+      'transfer.search.resetTitle': '清除筛选',
       'transfer.inc.allIn': '全包一口价',
       'transfer.inc.toll': '包含燃油及高速过路费',
       'transfer.inc.driver': '专业司机上门接送',
@@ -1428,6 +1464,15 @@
       'transfer.scrollHint': '좌우로 스크롤하여 차종별 요금 비교',
       'transfer.pricingTapHint': "요금표의 '예약'을 눌러 빠르게 예약하세요",
       'transfer.miniBook': '예약',
+      'transfer.search.vehicle': '차종',
+      'transfer.search.from': '탑승지',
+      'transfer.search.to': '하차지',
+      'transfer.search.allVehicles': '모든 차종',
+      'transfer.search.allFrom': '모든 탑승지',
+      'transfer.search.allTo': '모든 하차지',
+      'transfer.search.resultCount': '{n}개 노선 검색됨',
+      'transfer.search.noResult': '일치하는 노선이 없습니다',
+      'transfer.search.resetTitle': '필터 초기화',
       'transfer.inc.allIn': '모든 비용 포함 정찰가',
       'transfer.inc.toll': '유류비 및 고속도로 통행료 포함',
       'transfer.inc.driver': '전문 기사 도어투도어 픽업',
@@ -1718,6 +1763,15 @@
       'transfer.scrollHint': 'Wischen Sie, um Fahrzeugpreise zu vergleichen',
       'transfer.pricingTapHint': "Tippen Sie in der Preistabelle auf 'Buchen'",
       'transfer.miniBook': 'Buchen',
+      'transfer.search.vehicle': 'Fahrzeug',
+      'transfer.search.from': 'Abholort',
+      'transfer.search.to': 'Absetzort',
+      'transfer.search.allVehicles': 'Alle Fahrzeuge',
+      'transfer.search.allFrom': 'Alle Abholorte',
+      'transfer.search.allTo': 'Alle Absetzorte',
+      'transfer.search.resultCount': '{n} Route(n) gefunden',
+      'transfer.search.noResult': 'Keine passende Route gefunden',
+      'transfer.search.resetTitle': 'Filter zurücksetzen',
       'transfer.inc.allIn': 'Alles-inklusive Festpreis',
       'transfer.inc.toll': 'Inklusive Benzin & Autobahngebühren',
       'transfer.inc.driver': 'Professioneller Fahrer von Tür zu Tür',
@@ -8233,10 +8287,253 @@
     document.dispatchEvent(new CustomEvent('mrben-booking-open'));
   }
 
+  /* ─── Transfer Search / Route Finder ─── */
+
+  /* Close all tf-search dropdowns */
+  function closeTfSearchDropdowns() {
+    document.querySelectorAll('.tf-search-dropdown.open').forEach(function (d) {
+      d.classList.remove('open');
+      var trigger = d.querySelector('.tf-search-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  /* Get hidden input value for a dropdown */
+  function tfSearchVal(id) {
+    var el = document.getElementById(id);
+    return el ? el.value : '';
+  }
+
+  /* Set a dropdown's display value + hidden input + is-selected state */
+  function tfSearchSetVal(wrapId, val, label, placeholderKey) {
+    var wrap = document.getElementById(wrapId);
+    if (!wrap) return;
+    var hidden = wrap.querySelector('input[type="hidden"]');
+    var valEl = wrap.querySelector('.tf-search-val');
+    if (hidden) hidden.value = val;
+    if (valEl) {
+      valEl.textContent = label || t(placeholderKey) || '';
+      valEl.classList.toggle('is-placeholder', !val);
+      if (val) {
+        valEl.removeAttribute('data-i18n');
+      } else {
+        valEl.setAttribute('data-i18n', placeholderKey);
+      }
+    }
+    wrap.classList.toggle('is-selected', !!val);
+    /* Mark active li & aria-selected */
+    wrap.querySelectorAll('.tf-search-list li').forEach(function (li) {
+      var isActive = (li.getAttribute('data-val') || '') === (val || '');
+      li.classList.toggle('is-active', isActive);
+      li.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
+  function populateSearchDropdowns() {
+    /* Vehicle list */
+    var vList = document.getElementById('tfSearchVehicleList');
+    if (vList) {
+      var vHtml = '<li data-val="" role="option" data-i18n="transfer.search.allVehicles">' + t('transfer.search.allVehicles') + '</li>';
+      TRANSFER_CONFIG.vehicleTypes.forEach(function (v) {
+        vHtml += '<li data-val="' + v.id + '" role="option" data-i18n="' + v.nameI18n + '">' + t(v.nameI18n) + '</li>';
+      });
+      vList.innerHTML = vHtml;
+    }
+
+    /* Collect unique from/to */
+    var fromSet = {}, toSet = {};
+    TRANSFER_CONFIG.routes.forEach(function (r) {
+      fromSet[r.from] = true; toSet[r.to] = true;
+      if (!r.roundTrip) { fromSet[r.to] = true; toSet[r.from] = true; }
+    });
+
+    /* From list */
+    var fList = document.getElementById('tfSearchFromList');
+    if (fList) {
+      var fHtml = '<li data-val="" role="option" data-i18n="transfer.search.allFrom">' + t('transfer.search.allFrom') + '</li>';
+      Object.keys(fromSet).forEach(function (key) {
+        fHtml += '<li data-val="' + key + '" role="option" data-i18n="transfer.city.' + key + '">' + t('transfer.city.' + key) + '</li>';
+      });
+      fList.innerHTML = fHtml;
+    }
+
+    /* To list */
+    var tList = document.getElementById('tfSearchToList');
+    if (tList) {
+      var tHtml = '<li data-val="" role="option" data-i18n="transfer.search.allTo">' + t('transfer.search.allTo') + '</li>';
+      Object.keys(toSet).forEach(function (key) {
+        tHtml += '<li data-val="' + key + '" role="option" data-i18n="transfer.city.' + key + '">' + t('transfer.city.' + key) + '</li>';
+      });
+      tList.innerHTML = tHtml;
+    }
+
+    /* Update display labels & active states from current hidden values */
+    var curV = tfSearchVal('tfSearchVehicle');
+    var curF = tfSearchVal('tfSearchFrom');
+    var curT = tfSearchVal('tfSearchTo');
+    var vCfg = null;
+    if (curV) {
+      TRANSFER_CONFIG.vehicleTypes.forEach(function (v) { if (v.id === curV) vCfg = v; });
+    }
+    tfSearchSetVal('tfSearchVehicleWrap', curV, vCfg ? t(vCfg.nameI18n) : (curV || t('transfer.search.allVehicles')), 'transfer.search.allVehicles');
+    tfSearchSetVal('tfSearchFromWrap', curF, curF ? t('transfer.city.' + curF) : t('transfer.search.allFrom'), 'transfer.search.allFrom');
+    tfSearchSetVal('tfSearchToWrap', curT, curT ? t('transfer.city.' + curT) : t('transfer.search.allTo'), 'transfer.search.allTo');
+  }
+
+  function applySearchFilter() {
+    var fV = tfSearchVal('tfSearchVehicle');
+    var fF = tfSearchVal('tfSearchFrom');
+    var fT = tfSearchVal('tfSearchTo');
+    var resultBox = document.getElementById('tfSearchResult');
+    var resultText = document.getElementById('tfSearchResultText');
+    var isFiltering = !!(fV || fF || fT);
+    var table = document.querySelector('#tfPricingTable table');
+    if (!table) return;
+
+    /* Column visibility */
+    var headerCells = table.querySelectorAll('thead th');
+    headerCells.forEach(function (th) {
+      var m = th.className.match(/tf-th-(gas\d+)/);
+      if (m) { th.classList.toggle('tf-col-hidden', !!(fV && m[1] !== fV)); }
+      else { th.classList.remove('tf-col-hidden'); }
+    });
+
+    /* Row visibility */
+    var rows = table.querySelectorAll('tbody .tf-pricing-row');
+    var visibleCount = 0;
+
+    rows.forEach(function (row) {
+      var td = row.querySelector('.tf-td-route');
+      if (!td) return;
+      var rFrom = td.getAttribute('data-from');
+      var rTo = td.getAttribute('data-to');
+      var rId = td.getAttribute('data-route-id');
+      var cfg = null;
+      TRANSFER_CONFIG.routes.forEach(function (r) { if (r.id === rId) cfg = r; });
+
+      var match = false;
+      if (cfg && !cfg.roundTrip) {
+        /* Bi-directional transfer route */
+        var fwd = (!fF || rFrom === fF) && (!fT || rTo === fT);
+        var rev = (!fF || rTo === fF) && (!fT || rFrom === fT);
+        match = fwd || rev;
+      } else {
+        /* One-way or fixed roundtrip route */
+        match = (!fF || rFrom === fF) && (!fT || rTo === fT);
+      }
+      if (fF && fT && fF === fT) { match = false; }
+      if (match && fV && cfg && !cfg.prices[fV]) match = false;
+
+      row.classList.toggle('tf-search-hidden', !match);
+      if (match) visibleCount++;
+
+      /* Cell column hide */
+      row.querySelectorAll('.tf-price-cell').forEach(function (cell) {
+        cell.classList.toggle('tf-col-hidden', !!(fV && cell.getAttribute('data-vehicle-id') !== fV));
+      });
+    });
+
+    /* Remove old no-result row */
+    var old = table.querySelector('.tf-no-result-row');
+    if (old) old.remove();
+
+    /* Result badge */
+    if (resultBox && resultText) {
+      if (isFiltering) {
+        resultBox.style.display = '';
+        if (visibleCount > 0) {
+          resultBox.classList.remove('tf-search-no-result');
+          resultText.innerHTML = '<i class="fas fa-check-circle"></i> ' + t('transfer.search.resultCount').replace('{n}', visibleCount);
+        } else {
+          resultBox.classList.add('tf-search-no-result');
+          resultText.innerHTML = '<i class="fas fa-times-circle"></i> ' + t('transfer.search.noResult');
+          var tbody = table.querySelector('tbody');
+          if (tbody) {
+            var cols = fV ? 2 : headerCells.length;
+            var nr = document.createElement('tr');
+            nr.className = 'tf-no-result-row';
+            nr.innerHTML = '<td colspan="' + cols + '">' + t('transfer.search.noResult') + '</td>';
+            tbody.appendChild(nr);
+          }
+        }
+      } else {
+        resultBox.style.display = 'none';
+        resultBox.classList.remove('tf-search-no-result');
+      }
+    }
+  }
+
+  function initTransferSearch() {
+    var resetBtn = document.getElementById('tfSearchReset');
+    var wraps = [
+      { wrapId: 'tfSearchVehicleWrap', hiddenId: 'tfSearchVehicle', phKey: 'transfer.search.allVehicles' },
+      { wrapId: 'tfSearchFromWrap',    hiddenId: 'tfSearchFrom',    phKey: 'transfer.search.allFrom' },
+      { wrapId: 'tfSearchToWrap',      hiddenId: 'tfSearchTo',      phKey: 'transfer.search.allTo' }
+    ];
+
+    populateSearchDropdowns();
+
+    /* Wire each dropdown */
+    wraps.forEach(function (cfg) {
+      var wrap = document.getElementById(cfg.wrapId);
+      if (!wrap) return;
+      var trigger = wrap.querySelector('.tf-search-trigger');
+
+      /* Toggle open/close */
+      if (trigger) {
+        trigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var wasOpen = wrap.classList.contains('open');
+          closeTfSearchDropdowns();
+          if (!wasOpen) {
+            wrap.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+
+      /* Li click → select value */
+      wrap.addEventListener('click', function (e) {
+        var li = e.target.closest('.tf-search-list li');
+        if (!li) return;
+        var val = li.getAttribute('data-val') || '';
+        var label = li.textContent;
+        tfSearchSetVal(cfg.wrapId, val, val ? label : t(cfg.phKey), cfg.phKey);
+        closeTfSearchDropdowns();
+        applySearchFilter();
+      });
+    });
+
+    /* Close on outside click */
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.tf-search-dropdown')) {
+        closeTfSearchDropdowns();
+      }
+    });
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeTfSearchDropdowns();
+      }
+    });
+
+    /* Reset button */
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        wraps.forEach(function (cfg) {
+          tfSearchSetVal(cfg.wrapId, '', t(cfg.phKey), cfg.phKey);
+        });
+        applySearchFilter();
+      });
+    }
+  }
+
   function initTransfer() {
     renderVehicleCards();
     renderPricingTable();
     initTransferSlider();
+    initTransferSearch();
 
     /* ── CTA "Đặt Xe Ngay" button ── */
     var tfCtaBtn = document.getElementById('tfCtaBookBtn');
@@ -8280,6 +8577,8 @@
       renderVehicleCards();
       renderPricingTable();
       initTransferSlider();
+      populateSearchDropdowns();
+      applySearchFilter();
     });
   }
 

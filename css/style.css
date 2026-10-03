@@ -5147,6 +5147,283 @@ button {
     }
 }
 
+/* ── Transfer Search / Route Finder ─────────────────────── */
+.tf-search {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 20;
+}
+
+.tf-search-inner {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    background: rgba(20, 12, 8, 0.65);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 16px 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.tf-search-field {
+    flex: 1 1 180px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tf-search-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.tf-search-label i {
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+/* ── Custom Dropdown (mirrors bf-custom-select) ── */
+.tf-search-dropdown {
+    position: relative;
+}
+
+.tf-search-dropdown.open {
+    z-index: 100;
+}
+
+.tf-search-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.tf-search-trigger:hover,
+.tf-search-dropdown.open .tf-search-trigger {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.06);
+}
+
+.tf-search-val {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tf-search-val.is-placeholder {
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+}
+
+.tf-search-arrow {
+    font-size: 0.7rem;
+    color: var(--color-gold);
+    flex-shrink: 0;
+    transition: transform 0.25s;
+}
+
+.tf-search-dropdown.open .tf-search-arrow {
+    transform: rotate(180deg);
+}
+
+.tf-search-list {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #1e0e06;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 220px;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+.tf-search-dropdown.open .tf-search-list {
+    display: block;
+    animation: bfFadeIn 0.18s ease;
+}
+
+.tf-search-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    user-select: none;
+}
+
+.tf-search-list li:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold);
+}
+
+.tf-search-list li.is-active {
+    background: rgba(212, 175, 55, 0.18);
+    color: var(--color-gold);
+}
+
+.tf-search-list li.is-active::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 0.72rem;
+    color: var(--color-gold);
+}
+
+/* Scrollbar inside dropdown list */
+.tf-search-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.tf-search-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tf-search-list::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 3px;
+}
+
+/* Selected state — golden border */
+.tf-search-dropdown.is-selected .tf-search-trigger {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.tf-search-dropdown.is-selected .tf-search-trigger:hover,
+.tf-search-dropdown.is-selected.open .tf-search-trigger {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.tf-search-reset {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 10px;
+    color: var(--color-gold);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.tf-search-reset:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.5);
+    transform: rotate(-180deg);
+}
+
+.tf-search-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.tf-search-result-text {
+    font-size: 0.82rem;
+    color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px dashed rgba(212, 175, 55, 0.32);
+    border-radius: 20px;
+    padding: 5px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tf-search-result-text i {
+    font-size: 0.78rem;
+}
+
+.tf-search-no-result .tf-search-result-text {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Pricing row hidden by search filter */
+.tf-pricing-row.tf-search-hidden {
+    display: none !important;
+}
+
+/* Vehicle column hidden by search filter */
+.tf-col-hidden {
+    display: none !important;
+}
+
+/* No-result placeholder row */
+.tf-no-result-row td {
+    text-align: center;
+    padding: 32px 16px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.92rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .tf-search-inner {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 16px;
+    }
+
+    .tf-search-field {
+        flex: 1 1 100%;
+    }
+
+    .tf-search-reset {
+        width: 100%;
+        height: 38px;
+        border-radius: 10px;
+    }
+
+    .tf-search-reset:hover {
+        transform: none;
+    }
+}
+
 .tf-pricing-table-container {
     position: relative;
     border-radius: 14px;
