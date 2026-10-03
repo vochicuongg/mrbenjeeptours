@@ -274,7 +274,7 @@
       'transfer.search.allVehicles': 'Tất cả loại xe',
       'transfer.search.allFrom': 'Tất cả điểm đón',
       'transfer.search.allTo': 'Tất cả điểm trả',
-      'transfer.search.resultCount': '{n} tuyến tìm thấy',
+      'transfer.search.resultCount': 'Đã tìm thấy {n} tuyến phù hợp',
       'transfer.search.noResult': 'Không tìm thấy tuyến phù hợp',
       'transfer.search.swap': 'Đổi vị trí điểm đón và trả',
       'transfer.search.resetTitle': 'Xoá bộ lọc',
@@ -576,7 +576,7 @@
       'transfer.search.allVehicles': 'All vehicles',
       'transfer.search.allFrom': 'All pick-up points',
       'transfer.search.allTo': 'All drop-off points',
-      'transfer.search.resultCount': '{n} route(s) found',
+      'transfer.search.resultCount': 'Found {n} suitable routes.',
       'transfer.search.noResult': 'No matching route found',
       'transfer.search.swap': 'Swap pickup & drop-off',
       'transfer.search.resetTitle': 'Clear filters',
@@ -8320,6 +8320,12 @@
     document.querySelectorAll('.tf-search-field.is-open').forEach(function (f) {
       f.classList.remove('is-open');
     });
+    document.querySelectorAll('.tf-search-inner.is-open').forEach(function (i) {
+      i.classList.remove('is-open');
+    });
+    document.querySelectorAll('.tf-search.has-open-dropdown').forEach(function (s) {
+      s.classList.remove('has-open-dropdown');
+    });
   }
 
   /* Get hidden input value for a dropdown */
@@ -8439,7 +8445,9 @@
     updateTfSearchDisabledStates();
   }
 
-  function applySearchFilter() {
+  var wasTableFiltered = false;
+
+  function applySearchFilter(isExplicitReset) {
     var fV = tfSearchVal('tfSearchVehicle');
     var fF = tfSearchVal('tfSearchFrom');
     var fT = tfSearchVal('tfSearchTo');
@@ -8546,14 +8554,33 @@
 
     if (tableContainer) {
       tableContainer.classList.toggle('is-single-vehicle', isSingleVehicle);
+      if (isFiltering) {
+        /* Filter applied (single-vehicle or other selections) */
+        tableContainer.classList.remove('is-restored');
+        tableContainer.classList.remove('is-applied');
+        void tableContainer.offsetWidth; // force reflow for smooth animation replay
+        tableContainer.classList.add('is-applied');
+      } else {
+        /* Filter cleared / reset back to initial full table */
+        tableContainer.classList.remove('is-applied');
+        if (isExplicitReset || wasTableFiltered) {
+          tableContainer.classList.remove('is-restored');
+          void tableContainer.offsetWidth; // force reflow for restore animation
+          tableContainer.classList.add('is-restored');
+        } else {
+          tableContainer.classList.remove('is-restored');
+        }
+      }
     }
+    wasTableFiltered = isFiltering;
+
     if (pricingSec) {
       pricingSec.classList.toggle('is-single-vehicle', isSingleVehicle);
     }
     if (scrollHint) {
       scrollHint.classList.toggle('tf-hint-hidden', isSingleVehicle || isFiltering);
     }
-    if (isSingleVehicle && tfPricingTable) {
+    if ((isSingleVehicle || !isFiltering) && tfPricingTable) {
       tfPricingTable.scrollLeft = 0;
     }
   }
@@ -8585,6 +8612,10 @@
             wrap.classList.add('open');
             var field = wrap.closest('.tf-search-field');
             if (field) field.classList.add('is-open');
+            var inner = wrap.closest('.tf-search-inner');
+            if (inner) inner.classList.add('is-open');
+            var search = wrap.closest('.tf-search');
+            if (search) search.classList.add('has-open-dropdown');
             trigger.setAttribute('aria-expanded', 'true');
           }
         });
@@ -8673,6 +8704,16 @@
     /* Reset button */
     if (resetBtn) {
       resetBtn.addEventListener('click', function () {
+        var resetIcon = resetBtn.querySelector('i');
+        if (resetIcon) {
+          resetIcon.style.transition = 'transform 0.45s ease';
+          resetIcon.style.transform = 'rotate(-360deg)';
+          setTimeout(function () {
+            resetIcon.style.transition = '';
+            resetIcon.style.transform = '';
+          }, 460);
+        }
+
         wraps.forEach(function (cfg) {
           tfSearchSetVal(cfg.wrapId, '', t(cfg.phKey), cfg.phKey);
         });
@@ -8681,7 +8722,7 @@
         }
         closeTfSearchDropdowns();
         updateTfSearchDisabledStates();
-        applySearchFilter();
+        applySearchFilter(true);
       });
     }
   }
