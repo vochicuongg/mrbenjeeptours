@@ -5131,7 +5131,7 @@ button {
     border-radius: 20px;
     padding: 6px 16px;
     width: fit-content;
-    margin: 4px auto 0;
+    margin: 10px auto 0;
 }
 
 .tf-pricing-scroll-hint i {
@@ -5173,6 +5173,11 @@ button {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    position: relative;
+}
+
+.tf-search-field.is-open {
+    z-index: 105;
 }
 
 .tf-search-label {
@@ -5306,6 +5311,17 @@ button {
     color: var(--color-gold);
 }
 
+.tf-search-list li.is-disabled {
+    opacity: 0.35 !important;
+    cursor: not-allowed !important;
+    color: var(--color-text-muted) !important;
+}
+
+.tf-search-list li.is-disabled:hover {
+    background: transparent !important;
+    color: var(--color-text-muted) !important;
+}
+
 /* Scrollbar inside dropdown list */
 .tf-search-list::-webkit-scrollbar {
     width: 5px;
@@ -5332,26 +5348,113 @@ button {
     background: rgba(212, 175, 55, 0.1);
 }
 
-.tf-search-reset {
-    flex: 0 0 auto;
+/* ── Swap button between From & To ── */
+.tf-search-swap {
+    flex: 0 0 42px;
     width: 42px;
     height: 42px;
-    display: flex;
+    border-radius: 50%;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-gold);
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                color 0.25s ease;
+    align-self: flex-end;
+    margin-bottom: 1px;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+}
+
+@media (hover: hover) {
+    .tf-search-swap:hover {
+        background: rgba(212, 175, 55, 0.18);
+        border-color: var(--color-gold);
+        color: #ffffff;
+        box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+        transform: rotate(180deg);
+    }
+}
+
+.tf-search-swap:active {
+    transform: rotate(180deg) scale(0.92);
+}
+
+.tf-search-swap:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+.tf-search-swap.is-swapping {
+    animation: tfSwapSpin 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes tfSwapSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.9); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.tf-search-swap.has-both {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.18) 0%, rgba(255, 87, 34, 0.18) 100%);
+    border-color: rgba(212, 175, 55, 0.5);
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+}
+
+@media (hover: hover) {
+    .tf-search-swap.has-both:hover {
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.28) 0%, rgba(255, 87, 34, 0.28) 100%);
+        border-color: var(--color-gold);
+    }
+}
+
+/* ── Reset Button ── */
+.tf-search-reset {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background: rgba(212, 175, 55, 0.1);
     border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 10px;
     color: var(--color-gold);
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    align-self: flex-end;
+    margin-bottom: 1px;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
-.tf-search-reset:hover {
-    background: rgba(212, 175, 55, 0.2);
-    border-color: rgba(212, 175, 55, 0.5);
-    transform: rotate(-180deg);
+@media (hover: hover) {
+    .tf-search-reset:hover {
+        background: rgba(212, 175, 55, 0.2);
+        border-color: rgba(212, 175, 55, 0.5);
+        transform: rotate(-180deg);
+    }
+}
+
+.tf-search-reset:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+.tf-search-reset-text {
+    display: none;
 }
 
 .tf-search-result {
@@ -5402,25 +5505,135 @@ button {
     font-style: italic;
 }
 
+/* ── Mobile Layout Optimization ── */
 @media (max-width: 768px) {
     .tf-search-inner {
         flex-direction: column;
-        gap: 10px;
-        padding: 14px 16px;
+        align-items: stretch;
+        gap: 12px;
+        padding: 14px 14px;
+        border-radius: 14px;
     }
 
     .tf-search-field {
         flex: 1 1 100%;
+        width: 100%;
+        gap: 5px;
     }
 
-    .tf-search-reset {
-        width: 100%;
+    .tf-search-label {
+        font-size: 0.74rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 1px;
+    }
+
+    .tf-search-trigger {
+        padding: 10px 14px;
+        font-size: 0.88rem;
+        min-height: 42px;
+        border-radius: 9px;
+    }
+
+    /* Swap button sits centered between Pick-up & Drop-off */
+    .tf-search-swap {
+        flex: 0 0 38px;
+        width: 38px;
         height: 38px;
+        align-self: center;
+        margin: -4px auto;
+        transform: rotate(90deg);
+        z-index: 2;
+        background: #1e0e06;
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    @media (hover: hover) {
+        .tf-search-swap:hover {
+            transform: rotate(270deg);
+        }
+    }
+
+    .tf-search-swap:active {
+        transform: rotate(270deg) scale(0.92);
+    }
+
+    .tf-search-swap.is-swapping {
+        animation: tfSwapSpinMobile 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes tfSwapSpinMobile {
+        0% { transform: rotate(90deg) scale(1); }
+        50% { transform: rotate(270deg) scale(0.9); }
+        100% { transform: rotate(450deg) scale(1); }
+    }
+
+    .tf-search-swap.has-both {
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.22) 0%, rgba(255, 87, 34, 0.22) 100%), #1e0e06;
+        border-color: rgba(212, 175, 55, 0.55);
+        box-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Reset button becomes full-width action bar */
+    .tf-search-reset {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 42px;
         border-radius: 10px;
+        align-self: stretch;
+        margin-top: 2px;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        letter-spacing: 0.2px;
     }
 
     .tf-search-reset:hover {
         transform: none;
+    }
+
+    .tf-search-reset-text {
+        display: inline;
+    }
+
+    .tf-search-result {
+        margin-top: 8px;
+    }
+
+    .tf-search-result-text {
+        font-size: 0.78rem;
+        padding: 5px 14px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tf-search-inner {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .tf-search-swap {
+        width: 36px;
+        height: 36px;
+        margin: -5px auto;
+        font-size: 0.88rem;
+    }
+
+    .tf-search-trigger {
+        padding: 9px 12px;
+        font-size: 0.84rem;
+    }
+
+    .tf-search-reset {
+        height: 40px;
+        font-size: 0.82rem;
     }
 }
 
@@ -5518,6 +5731,48 @@ button {
     .tf-pricing-table tbody tr:hover .tf-route-name {
         color: var(--color-gold);
     }
+}
+
+/* ── Single Vehicle Mode (Khi chọn Xe 7 Chỗ hoặc Xe 16 Chỗ) ───────────────── */
+.tf-pricing-table-container.is-single-vehicle .tf-pricing-table {
+    overflow-x: hidden;
+}
+
+.tf-pricing-table-container.is-single-vehicle .tf-pricing-table table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: auto;
+}
+
+.tf-pricing-table-container.is-single-vehicle .tf-pricing-table thead th.tf-th-route {
+    position: static;
+    background: #1e130c;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    border-right: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.tf-pricing-table-container.is-single-vehicle .tf-pricing-table tbody td.tf-td-route {
+    position: static;
+    background-color: transparent !important;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tf-pricing-table-container.is-single-vehicle .tf-pricing-table thead th.tf-th-vehicle,
+.tf-pricing-table-container.is-single-vehicle .tf-pricing-table tbody td.tf-price-cell {
+    width: 130px;
+    min-width: 110px;
+    white-space: nowrap;
+}
+
+/* Ẩn badge gợi ý vuốt ngang khi đã lọc 1 loại xe cụ thể */
+.tf-pricing.is-single-vehicle .tf-pricing-scroll-hint,
+.tf-pricing-scroll-hint.tf-hint-hidden {
+    display: none !important;
 }
 
 .tf-th-vehicle {
@@ -6130,6 +6385,18 @@ button {
 @media (max-width: 768px) {
     .tf-pricing-scroll-hint {
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0.78rem;
+        padding: 5px 14px;
+        gap: 6px;
+        margin: 8px 0 0 0;
+    }
+
+    .tf-pricing-scroll-hint i {
+        font-size: 0.78rem;
     }
 
     /* Disable button active animation on mobile */
@@ -6303,6 +6570,50 @@ button {
         gap: 8px;
         padding: 10px 14px;
     }
+
+    /* Single vehicle mode: hiển thị vừa vặn chiều ngang mobile, không cần trượt ngang */
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: auto;
+        touch-action: pan-y;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table table {
+        width: 100% !important;
+        min-width: 0 !important;
+        font-size: 0.8rem;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table thead th.tf-th-route,
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table tbody td.tf-td-route {
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        position: static !important;
+        padding: 9px 10px;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table thead th.tf-th-vehicle,
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table tbody td.tf-price-cell {
+        width: 108px !important;
+        min-width: 98px !important;
+        max-width: 120px !important;
+        padding: 9px 6px;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-route-cell-wrap {
+        gap: 3px;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-route-name {
+        font-size: 0.82rem;
+        line-height: 1.3;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-route-meta {
+        font-size: 0.68rem;
+        gap: 3px 5px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -6337,6 +6648,36 @@ button {
 
     .tf-inc-item {
         font-size: 0.75rem;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table thead th.tf-th-route,
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table tbody td.tf-td-route {
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        padding: 8px 8px;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table thead th.tf-th-vehicle,
+    .tf-pricing-table-container.is-single-vehicle .tf-pricing-table tbody td.tf-price-cell {
+        width: 96px !important;
+        min-width: 88px !important;
+        max-width: 104px !important;
+        padding: 8px 4px;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-route-name {
+        font-size: 0.76rem;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-price-val {
+        font-size: 0.82rem;
+    }
+
+    .tf-pricing-table-container.is-single-vehicle .tf-price-book-mini {
+        font-size: 0.65rem;
+        padding: 2.5px 6px;
+        gap: 3px;
     }
 }
 

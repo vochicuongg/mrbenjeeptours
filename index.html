@@ -1205,16 +1205,12 @@
                         <div class="tf-pricing-header-wrap">
                             <h3 class="tf-pricing-title" data-i18n="transfer.pricingTitle"><i class="fas fa-tags"></i>
                                 Bảng Giá Niêm Yết</h3>
-                            <div class="tf-pricing-scroll-hint">
-                                <i class="fas fa-arrows-left-right"></i>
-                                <span data-i18n="transfer.scrollHint">Vuốt ngang để so sánh giá các loại xe</span>
-                            </div>
                         </div>
 
                         <!-- ── Transfer Search / Route Finder ── -->
                         <div class="tf-search" id="tfSearch">
                             <div class="tf-search-inner">
-                                <div class="tf-search-field">
+                                <div class="tf-search-field tf-search-field--vehicle">
                                     <label class="tf-search-label">
                                         <i class="fas fa-car-side"></i>
                                         <span data-i18n="transfer.search.vehicle">Loại xe</span>
@@ -1230,7 +1226,7 @@
                                         <input type="hidden" id="tfSearchVehicle" value="" />
                                     </div>
                                 </div>
-                                <div class="tf-search-field">
+                                <div class="tf-search-field tf-search-field--from">
                                     <label class="tf-search-label">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <span data-i18n="transfer.search.from">Điểm đón</span>
@@ -1246,7 +1242,12 @@
                                         <input type="hidden" id="tfSearchFrom" value="" />
                                     </div>
                                 </div>
-                                <div class="tf-search-field">
+                                <button class="tf-search-swap" id="tfSearchSwap" type="button"
+                                    data-i18n-title="transfer.search.swap" title="Đổi vị trí điểm đón và trả"
+                                    aria-label="Đổi vị trí điểm đón và trả">
+                                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                                </button>
+                                <div class="tf-search-field tf-search-field--to">
                                     <label class="tf-search-label">
                                         <i class="fas fa-flag-checkered"></i>
                                         <span data-i18n="transfer.search.to">Điểm trả</span>
@@ -1263,12 +1264,18 @@
                                     </div>
                                 </div>
                                 <button class="tf-search-reset" id="tfSearchReset" type="button"
-                                    data-i18n-title="transfer.search.resetTitle" title="Xoá bộ lọc">
+                                    data-i18n-title="transfer.search.resetTitle" title="Xoá bộ lọc"
+                                    aria-label="Xoá bộ lọc">
                                     <i class="fas fa-rotate-left"></i>
+                                    <span class="tf-search-reset-text" data-i18n="transfer.search.resetTitle">Xoá bộ lọc</span>
                                 </button>
                             </div>
                             <div class="tf-search-result" id="tfSearchResult" style="display:none;">
                                 <span class="tf-search-result-text" id="tfSearchResultText"></span>
+                            </div>
+                            <div class="tf-pricing-scroll-hint">
+                                <i class="fas fa-arrows-left-right"></i>
+                                <span data-i18n="transfer.scrollHint">Vuốt ngang để so sánh giá các loại xe</span>
                             </div>
                         </div>
                         <div class="tf-pricing-table-container">

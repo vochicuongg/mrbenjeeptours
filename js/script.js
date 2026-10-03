@@ -260,6 +260,7 @@
       'transfer.itineraryNote': 'Khứ hồi trong ngày',
       'transfer.oneWayNote': 'Không khứ hồi',
       'transfer.swapBlocked': 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.',
+      'transfer.samePointNotice': 'Điểm đón và điểm trả không được trùng nhau.',
       'transfer.routeUnavailableNotice': 'Tuyến đường này không khả dụng với điểm đã chọn.',
       'transfer.customQuote': 'Liên hệ báo giá',
       'transfer.contactForQuote': 'Liên hệ',
@@ -275,6 +276,7 @@
       'transfer.search.allTo': 'Tất cả điểm trả',
       'transfer.search.resultCount': '{n} tuyến tìm thấy',
       'transfer.search.noResult': 'Không tìm thấy tuyến phù hợp',
+      'transfer.search.swap': 'Đổi vị trí điểm đón và trả',
       'transfer.search.resetTitle': 'Xoá bộ lọc',
       'transfer.inc.allIn': 'Giá trọn gói niêm yết',
       'transfer.inc.toll': 'Bao gồm xăng & phí cao tốc',
@@ -560,6 +562,7 @@
       'transfer.itineraryNote': 'Round trip',
       'transfer.oneWayNote': 'One-way',
       'transfer.swapBlocked': 'This location is drop-off only and cannot be selected as pickup.',
+      'transfer.samePointNotice': 'Pick-up and drop-off locations cannot be the same.',
       'transfer.routeUnavailableNotice': 'This route is not available with the selected location.',
       'transfer.customQuote': 'Contact for quote',
       'transfer.contactForQuote': 'Contact us',
@@ -575,6 +578,7 @@
       'transfer.search.allTo': 'All drop-off points',
       'transfer.search.resultCount': '{n} route(s) found',
       'transfer.search.noResult': 'No matching route found',
+      'transfer.search.swap': 'Swap pickup & drop-off',
       'transfer.search.resetTitle': 'Clear filters',
       'transfer.inc.allIn': 'All-inclusive fixed price',
       'transfer.inc.toll': 'Includes fuel & highway tolls',
@@ -859,6 +863,7 @@
       'transfer.itineraryNote': 'туда и обратно',
       'transfer.oneWayNote': 'В одну сторону',
       'transfer.swapBlocked': 'Эта точка только для высадки, её нельзя выбрать как место посадки.',
+      'transfer.samePointNotice': 'Место посадки и высадки не могут совпадать.',
       'transfer.routeUnavailableNotice': 'Этот маршрут недоступен для выбранной точки.',
       'transfer.customQuote': 'По запросу',
       'transfer.contactForQuote': 'Связаться',
@@ -874,6 +879,7 @@
       'transfer.search.allTo': 'Все пункты высадки',
       'transfer.search.resultCount': 'Найдено маршрутов: {n}',
       'transfer.search.noResult': 'Подходящий маршрут не найден',
+      'transfer.search.swap': 'Поменять местами посадку и высадку',
       'transfer.search.resetTitle': 'Сбросить фильтры',
       'transfer.inc.allIn': 'Фиксированная цена всё включено',
       'transfer.inc.toll': 'Включая топливо и платные дороги',
@@ -1158,6 +1164,7 @@
       'transfer.itineraryNote': '往返',
       'transfer.oneWayNote': '单程',
       'transfer.swapBlocked': '此地点仅为下车点，无法选择为上车点。',
+      'transfer.samePointNotice': '上车地点和下车地点不能相同。',
       'transfer.routeUnavailableNotice': '所选地点之间暂无此路线。',
       'transfer.customQuote': '联系报价',
       'transfer.contactForQuote': '联系我们',
@@ -1173,6 +1180,7 @@
       'transfer.search.allTo': '所有下车点',
       'transfer.search.resultCount': '找到 {n} 条路线',
       'transfer.search.noResult': '未找到匹配路线',
+      'transfer.search.swap': '交换上下车地点',
       'transfer.search.resetTitle': '清除筛选',
       'transfer.inc.allIn': '全包一口价',
       'transfer.inc.toll': '包含燃油及高速过路费',
@@ -1457,6 +1465,7 @@
       'transfer.itineraryNote': '왕복',
       'transfer.oneWayNote': '편도',
       'transfer.swapBlocked': '이 위치는 하차 전용이며 탑승 장소로 선택할 수 없습니다.',
+      'transfer.samePointNotice': '탑승 장소와 하차 장소는 같을 수 없습니다.',
       'transfer.routeUnavailableNotice': '선택하신 장소 간에는 운행 경로가 없습니다.',
       'transfer.customQuote': '문의 후 견적',
       'transfer.contactForQuote': '문의하기',
@@ -1472,6 +1481,7 @@
       'transfer.search.allTo': '모든 하차지',
       'transfer.search.resultCount': '{n}개 노선 검색됨',
       'transfer.search.noResult': '일치하는 노선이 없습니다',
+      'transfer.search.swap': '출발지와 도착지 교환',
       'transfer.search.resetTitle': '필터 초기화',
       'transfer.inc.allIn': '모든 비용 포함 정찰가',
       'transfer.inc.toll': '유류비 및 고속도로 통행료 포함',
@@ -1756,6 +1766,7 @@
       'transfer.itineraryNote': 'Hin- und Rückfahrt',
       'transfer.oneWayNote': 'Einfache Fahrt',
       'transfer.swapBlocked': 'Dieser Ort ist nur ein Absetzpunkt und kann nicht als Abholpunkt gewählt werden.',
+      'transfer.samePointNotice': 'Abhol- und Absetzort dürfen nicht identisch sein.',
       'transfer.routeUnavailableNotice': 'Diese Route ist mit dem ausgewählten Ort nicht verfügbar.',
       'transfer.customQuote': 'Preis auf Anfrage',
       'transfer.contactForQuote': 'Kontakt',
@@ -1771,6 +1782,7 @@
       'transfer.search.allTo': 'Alle Absetzorte',
       'transfer.search.resultCount': '{n} Route(n) gefunden',
       'transfer.search.noResult': 'Keine passende Route gefunden',
+      'transfer.search.swap': 'Abhol- und Absetzort tauschen',
       'transfer.search.resetTitle': 'Filter zurücksetzen',
       'transfer.inc.allIn': 'Alles-inklusive Festpreis',
       'transfer.inc.toll': 'Inklusive Benzin & Autobahngebühren',
@@ -1838,6 +1850,15 @@
       const key = el.getAttribute('data-i18n-placeholder');
       if (t[key] !== undefined) {
         el.setAttribute('placeholder', t[key]);
+      }
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n-title');
+      if (t[key] !== undefined) {
+        el.setAttribute('title', t[key]);
+        if (el.hasAttribute('aria-label')) {
+          el.setAttribute('aria-label', t[key]);
+        }
       }
     });
     /* Update <html lang> attribute for accessibility */
@@ -8296,6 +8317,9 @@
       var trigger = d.querySelector('.tf-search-trigger');
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
     });
+    document.querySelectorAll('.tf-search-field.is-open').forEach(function (f) {
+      f.classList.remove('is-open');
+    });
   }
 
   /* Get hidden input value for a dropdown */
@@ -8327,6 +8351,40 @@
       li.classList.toggle('is-active', isActive);
       li.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
+  }
+
+  /* Update disabled state for From/To lists so pick-up and drop-off cannot be the same */
+  function updateTfSearchDisabledStates() {
+    var curF = tfSearchVal('tfSearchFrom');
+    var curT = tfSearchVal('tfSearchTo');
+    var fList = document.getElementById('tfSearchFromList');
+    var tList = document.getElementById('tfSearchToList');
+
+    if (fList) {
+      fList.querySelectorAll('li').forEach(function (li) {
+        var v = li.getAttribute('data-val');
+        var isSame = Boolean(v && curT && v === curT);
+        li.classList.toggle('is-disabled', isSame);
+        if (isSame) {
+          li.setAttribute('aria-disabled', 'true');
+        } else {
+          li.removeAttribute('aria-disabled');
+        }
+      });
+    }
+
+    if (tList) {
+      tList.querySelectorAll('li').forEach(function (li) {
+        var v = li.getAttribute('data-val');
+        var isSame = Boolean(v && curF && v === curF);
+        li.classList.toggle('is-disabled', isSame);
+        if (isSame) {
+          li.setAttribute('aria-disabled', 'true');
+        } else {
+          li.removeAttribute('aria-disabled');
+        }
+      });
+    }
   }
 
   function populateSearchDropdowns() {
@@ -8378,12 +8436,21 @@
     tfSearchSetVal('tfSearchVehicleWrap', curV, vCfg ? t(vCfg.nameI18n) : (curV || t('transfer.search.allVehicles')), 'transfer.search.allVehicles');
     tfSearchSetVal('tfSearchFromWrap', curF, curF ? t('transfer.city.' + curF) : t('transfer.search.allFrom'), 'transfer.search.allFrom');
     tfSearchSetVal('tfSearchToWrap', curT, curT ? t('transfer.city.' + curT) : t('transfer.search.allTo'), 'transfer.search.allTo');
+    updateTfSearchDisabledStates();
   }
 
   function applySearchFilter() {
     var fV = tfSearchVal('tfSearchVehicle');
     var fF = tfSearchVal('tfSearchFrom');
     var fT = tfSearchVal('tfSearchTo');
+
+    /* Condition: pick-up and drop-off cannot be the same */
+    if (fF && fT && fF === fT) {
+      tfSearchSetVal('tfSearchToWrap', '', t('transfer.search.allTo'), 'transfer.search.allTo');
+      fT = '';
+      updateTfSearchDisabledStates();
+    }
+
     var resultBox = document.getElementById('tfSearchResult');
     var resultText = document.getElementById('tfSearchResultText');
     var isFiltering = !!(fV || fF || fT);
@@ -8461,10 +8528,39 @@
         resultBox.classList.remove('tf-search-no-result');
       }
     }
+
+    /* Update Swap Button highlight state */
+    var swapBtn = document.getElementById('tfSearchSwap');
+    if (swapBtn) {
+      swapBtn.classList.toggle('has-both', !!(fF && fT));
+      swapBtn.classList.toggle('has-value', !!(fF || fT));
+    }
+
+    /* Single vehicle mode: when 7 chỗ (gas7) or 16 chỗ (gas16) is selected,
+       the pricing table on mobile fits 100% width without horizontal scroll */
+    var isSingleVehicle = (fV === 'gas7' || fV === 'gas16');
+    var tableContainer = document.querySelector('.tf-pricing-table-container');
+    var pricingSec = document.querySelector('.tf-pricing');
+    var scrollHint = document.querySelector('.tf-pricing-scroll-hint');
+    var tfPricingTable = document.getElementById('tfPricingTable');
+
+    if (tableContainer) {
+      tableContainer.classList.toggle('is-single-vehicle', isSingleVehicle);
+    }
+    if (pricingSec) {
+      pricingSec.classList.toggle('is-single-vehicle', isSingleVehicle);
+    }
+    if (scrollHint) {
+      scrollHint.classList.toggle('tf-hint-hidden', isSingleVehicle || isFiltering);
+    }
+    if (isSingleVehicle && tfPricingTable) {
+      tfPricingTable.scrollLeft = 0;
+    }
   }
 
   function initTransferSearch() {
     var resetBtn = document.getElementById('tfSearchReset');
+    var swapBtn = document.getElementById('tfSearchSwap');
     var wraps = [
       { wrapId: 'tfSearchVehicleWrap', hiddenId: 'tfSearchVehicle', phKey: 'transfer.search.allVehicles' },
       { wrapId: 'tfSearchFromWrap',    hiddenId: 'tfSearchFrom',    phKey: 'transfer.search.allFrom' },
@@ -8487,6 +8583,8 @@
           closeTfSearchDropdowns();
           if (!wasOpen) {
             wrap.classList.add('open');
+            var field = wrap.closest('.tf-search-field');
+            if (field) field.classList.add('is-open');
             trigger.setAttribute('aria-expanded', 'true');
           }
         });
@@ -8496,13 +8594,67 @@
       wrap.addEventListener('click', function (e) {
         var li = e.target.closest('.tf-search-list li');
         if (!li) return;
+        if (li.classList.contains('is-disabled')) {
+          var lang = localStorage.getItem('mrben-lang') || 'vi';
+          var tDict = (window.__MRB_TRANS || {})[lang] || {};
+          var msg = tDict['transfer.samePointNotice'] || 'Điểm đón và điểm trả không được trùng nhau.';
+          if (window.__showSwapBlockedToast) {
+            window.__showSwapBlockedToast(msg);
+          } else {
+            alert(msg);
+          }
+          return;
+        }
         var val = li.getAttribute('data-val') || '';
         var label = li.textContent;
         tfSearchSetVal(cfg.wrapId, val, val ? label : t(cfg.phKey), cfg.phKey);
         closeTfSearchDropdowns();
+        updateTfSearchDisabledStates();
         applySearchFilter();
       });
     });
+
+    /* Swap button between Pick-up & Drop-off */
+    if (swapBtn) {
+      swapBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var curF = tfSearchVal('tfSearchFrom');
+        var curT = tfSearchVal('tfSearchTo');
+        if (!curF && !curT) return;
+
+        /* If user swaps identical values, do nothing */
+        if (curF && curT && curF === curT) return;
+
+        /* Block swap if the target pickup is a drop-off only city */
+        var TRANSFER_PICKUP_ALLOWED = { muine: true, sgn: true, nhatrang: true, phanrang: true };
+        if (curT && !TRANSFER_PICKUP_ALLOWED[curT]) {
+          var lang = localStorage.getItem('mrben-lang') || 'vi';
+          var tDict = (window.__MRB_TRANS || {})[lang] || {};
+          var msg = tDict['transfer.swapBlocked'] || 'Điểm này chỉ là điểm trả, không thể chọn làm điểm đón.';
+          if (window.__showSwapBlockedToast) {
+            window.__showSwapBlockedToast(msg);
+          } else {
+            alert(msg);
+          }
+          return;
+        }
+
+        /* Play spin animation (force reflow for repeated clicks) */
+        swapBtn.classList.remove('is-swapping');
+        void swapBtn.offsetWidth;
+        swapBtn.classList.add('is-swapping');
+        setTimeout(function () {
+          swapBtn.classList.remove('is-swapping');
+        }, 360);
+
+        /* Swap the values */
+        tfSearchSetVal('tfSearchFromWrap', curT, curT ? t('transfer.city.' + curT) : t('transfer.search.allFrom'), 'transfer.search.allFrom');
+        tfSearchSetVal('tfSearchToWrap', curF, curF ? t('transfer.city.' + curF) : t('transfer.search.allTo'), 'transfer.search.allTo');
+        closeTfSearchDropdowns();
+        updateTfSearchDisabledStates();
+        applySearchFilter();
+      });
+    }
 
     /* Close on outside click */
     document.addEventListener('click', function (e) {
@@ -8524,6 +8676,11 @@
         wraps.forEach(function (cfg) {
           tfSearchSetVal(cfg.wrapId, '', t(cfg.phKey), cfg.phKey);
         });
+        if (swapBtn) {
+          swapBtn.classList.remove('has-both', 'has-value');
+        }
+        closeTfSearchDropdowns();
+        updateTfSearchDisabledStates();
         applySearchFilter();
       });
     }
@@ -8534,6 +8691,8 @@
     renderPricingTable();
     initTransferSlider();
     initTransferSearch();
+    updateTfSearchDisabledStates();
+    applySearchFilter();
 
     /* ── CTA "Đặt Xe Ngay" button ── */
     var tfCtaBtn = document.getElementById('tfCtaBookBtn');
