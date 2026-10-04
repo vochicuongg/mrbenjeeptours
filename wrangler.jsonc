@@ -1,0 +1,9 @@
+{
+  "name": "mrbenjeeptours",
+  "compatibility_date": "2026-10-01",
+  "main": "worker.js",
+  "vars": {
+    "TELEGRAM_BOT_TOKEN": "8698354601:AAGvQblFamiQ_qKOxzbP_bQxYyQx24f49Lw",
+    "TELEGRAM_CHAT_ID": "-1003852617510"
+  }
+}
