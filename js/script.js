@@ -141,6 +141,7 @@
       'booking.priceGroupValue': '150,000₫',
       'booking.labelName': 'Họ và Tên',
       'booking.formTitle': 'Đặt Tour',
+      'booking.tourName': 'Xe Jeep Mr. Ben',
       'booking.placeholderName': 'Nhập tên của bạn',
       'booking.labelPhone': 'Số Điện Thoại',
       'booking.placeholderPhone': 'Nhập số điện thoại',
@@ -443,6 +444,7 @@
       'booking.priceGroupValue': '$150,000',
       'booking.labelName': 'Full Name',
       'booking.formTitle': 'Book Tour',
+      'booking.tourName': 'Mr. Ben Jeep Tour',
       'booking.placeholderName': 'Enter your name',
       'booking.labelPhone': 'Phone Number',
       'booking.placeholderPhone': 'Enter phone number',
@@ -743,6 +745,7 @@
       'booking.priceGroup': 'Групповой Тур',
       'booking.labelName': 'Полное Имя',
       'booking.formTitle': 'Забронировать',
+      'booking.tourName': 'Джип-тур Mr. Ben',
       'booking.placeholderName': 'Введите ваше имя',
       'booking.labelPhone': 'Номер Телефона',
       'booking.placeholderPhone': 'Введите номер телефона',
@@ -1044,6 +1047,7 @@
       'booking.priceGroup': '拼团游',
       'booking.labelName': '姓名',
       'booking.formTitle': '预订行程',
+      'booking.tourName': 'Mr. Ben 吉普车之旅',
       'booking.placeholderName': '请输入您的姓名',
       'booking.labelPhone': '电话号码',
       'booking.placeholderPhone': '请输入电话号码',
@@ -1345,6 +1349,7 @@
       'booking.priceGroup': '합승 투어',
       'booking.labelName': '성명',
       'booking.formTitle': '투어 예약',
+      'booking.tourName': 'Mr. Ben 지프 투어',
       'booking.placeholderName': '이름을 입력하세요',
       'booking.labelPhone': '전화번호',
       'booking.placeholderPhone': '전화번호를 입력하세요',
@@ -1646,6 +1651,7 @@
       'booking.priceGroup': 'Gruppenreise',
       'booking.labelName': 'Vollständiger Name',
       'booking.formTitle': 'Tour Buchen',
+      'booking.tourName': 'Mr. Ben Jeep-Tour',
       'booking.placeholderName': 'Geben Sie Ihren Namen ein',
       'booking.labelPhone': 'Telefonnummer',
       'booking.placeholderPhone': 'Telefonnummer eingeben',
@@ -3276,7 +3282,16 @@
 
     // 6. Tiêu đề tour hoặc form đang mang nội dung xe đưa đón
     var tn = document.getElementById('bookingTourName');
-    var isTfTitle = (tn && tn.textContent && tn.textContent.indexOf('Xe Đưa Đón') !== -1);
+    var isTfTitle = (tn && (
+      tn.getAttribute('data-i18n') === 'transfer.bookingTourName' ||
+      (tn.textContent && (
+        tn.textContent.indexOf('Xe Đưa Đón') !== -1 ||
+        tn.textContent.indexOf('Transfer') !== -1 ||
+        tn.textContent.indexOf('Трансфер') !== -1 ||
+        tn.textContent.indexOf('接送') !== -1 ||
+        tn.textContent.indexOf('픽업') !== -1
+      ))
+    ));
 
     if (isRouteVisible || hasRouteVal || isTfVehicle || isTfToggle || isTfTitle) {
       window.__bookingMode = 'transfer';
@@ -3437,8 +3452,14 @@
 
     /* Booking tour / vehicle subtitle */
     var tourNameEl = document.getElementById('bookingTourName');
-    if (tourNameEl && isTransfer) {
-      tourNameEl.textContent = t['transfer.bookingTourName'] || 'Xe Đưa Đón';
+    if (tourNameEl) {
+      if (isTransfer) {
+        tourNameEl.textContent = t['transfer.bookingTourName'] || 'Xe Đưa Đón với Mr. Ben';
+        tourNameEl.setAttribute('data-i18n', 'transfer.bookingTourName');
+      } else {
+        tourNameEl.textContent = t['booking.tourName'] || 'Xe Jeep Mr. Ben';
+        tourNameEl.setAttribute('data-i18n', 'booking.tourName');
+      }
     }
 
     updatePrice();
@@ -3892,16 +3913,18 @@
   /* ── Open modal ── */
   function openBooking(data) {
     configureBookingMode('jeep');
-    tourName = data.name || 'Xe Jeep Mr. Ben';
-    tourNameVi = data.nameVi || tourName; // dùng tên Việt, fallback về tourName nếu không có
-    pricePrivate = data.private || PRICE_PRIVATE;
-    priceGroup = data.group || PRICE_GROUP;
-
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var t = (window.__MRB_TRANS || {})[lang] || {};
+
+    tourName = (data && data.name && data.name !== 'Xe Jeep Mr. Ben') ? data.name : (t['booking.tourName'] || 'Xe Jeep Mr. Ben');
+    tourNameVi = (data && data.nameVi) ? data.nameVi : 'Xe Jeep Mr. Ben'; // dùng tên Việt, fallback về tourName nếu không có
+    pricePrivate = (data && data.private) || PRICE_PRIVATE;
+    priceGroup = (data && data.group) || PRICE_GROUP;
+
     var perText = t['tour.price.per'] || '/người';
 
     tourNameEl.textContent = tourName;
+    tourNameEl.setAttribute('data-i18n', 'booking.tourName');
     bpbPrivate.textContent = fmt(pricePrivate);
     bpbGroup.innerHTML = fmt(priceGroup) + ' <span class="bpb-per">' + perText + '</span>';
 
@@ -3950,8 +3973,10 @@
   if (jbcBookBtn) {
     jbcBookBtn.addEventListener('click', function (e) {
       e.preventDefault();
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      var t = (window.__MRB_TRANS || {})[lang] || {};
       configureBookingMode('jeep');
-      openBooking({ name: 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
+      openBooking({ name: t['booking.tourName'] || 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
     });
   }
 
@@ -3964,8 +3989,10 @@
       if (isTransferActive && window.__openTransferBooking) {
         window.__openTransferBooking();
       } else {
+        var lang = localStorage.getItem('mrben-lang') || 'vi';
+        var t = (window.__MRB_TRANS || {})[lang] || {};
         configureBookingMode('jeep');
-        openBooking({ name: 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
+        openBooking({ name: t['booking.tourName'] || 'Xe Jeep Mr. Ben', nameVi: 'Xe Jeep Mr. Ben', private: PRICE_PRIVATE, group: PRICE_GROUP });
       }
     });
   });
@@ -4348,14 +4375,24 @@
     } else if (dIn && typeof setTransferDropoff === 'function') {
       setTransferDropoff('');
     }
+    var tourNameEl = document.getElementById('bookingTourName');
     if (window.__bookingMode === 'transfer') {
       var tr = (window.__MRB_TRANS || {})[curLang] || {};
       var formTitleEl = document.querySelector('[data-i18n="booking.formTitle"]');
       if (formTitleEl) formTitleEl.textContent = tr['transfer.bookingTitle'] || 'Đặt Xe Đưa Đón';
-      var tourNameEl = document.getElementById('bookingTourName');
-      if (tourNameEl) tourNameEl.textContent = tr['transfer.bookingTourName'] || 'Xe Đưa Đón';
+      if (tourNameEl) {
+        tourNameEl.textContent = tr['transfer.bookingTourName'] || 'Xe Đưa Đón với Mr. Ben';
+        tourNameEl.setAttribute('data-i18n', 'transfer.bookingTourName');
+      }
       /* Re-sync vehicle type toggle labels */
       if (typeof configureBookingMode === 'function') configureBookingMode('transfer');
+    } else {
+      var tr = (window.__MRB_TRANS || {})[curLang] || {};
+      tourName = tr['booking.tourName'] || 'Xe Jeep Mr. Ben';
+      if (tourNameEl) {
+        tourNameEl.textContent = tourName;
+        tourNameEl.setAttribute('data-i18n', 'booking.tourName');
+      }
     }
     if (typeof updatePrice === 'function') updatePrice();
   });
@@ -8279,7 +8316,10 @@
     if (!overlay) return;
     if (window.__configureBookingMode) window.__configureBookingMode('transfer');
     var tourNameEl = document.getElementById('bookingTourName');
-    if (tourNameEl) tourNameEl.textContent = t('transfer.bookingTourName') || 'Xe Đưa Đón';
+    if (tourNameEl) {
+      tourNameEl.textContent = t('transfer.bookingTourName') || 'Xe Đưa Đón với Mr. Ben';
+      tourNameEl.setAttribute('data-i18n', 'transfer.bookingTourName');
+    }
 
     var vId = (opts && opts.vehicleId) ? opts.vehicleId : '';
     if (window.__setTourType) {
