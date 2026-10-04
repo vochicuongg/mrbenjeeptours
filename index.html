@@ -8,7 +8,7 @@
         content="Dịch vụ Tour Xe Jeep Mũi Né ngắm bình minh &amp; hoàng hôn đồi cát trắng. Xe đưa đón sân bay Tân Sơn Nhất, Cam Ranh 7-16 chỗ uy tín, giá tốt. Đặt xe 24/7!" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' https://mrbenjeeptours.com https://www.mrbenjeeptours.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://*.workers.dev https://*.make.com; media-src 'self'; frame-src https://www.google.com; frame-ancestors 'none';" />
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://mrbenjeeptours.vochicuong-bin04.workers.dev https://*.workers.dev https://www.google-analytics.com https://region1.google-analytics.com; media-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'none';" />
     <link rel="canonical" href="https://www.mrbenjeeptours.com/" />
     <meta name="geo.region" content="VN-58" />
     <meta name="geo.placename" content="Mũi Né, Phan Thiết, Bình Thuận" />
@@ -1532,10 +1532,10 @@
                     </div>
                 </div>
 
-                <!-- Honeypot anti-bot trap (hidden from users, traps automated bots) -->
-                <div class="bf-hp-gate" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden;z-index:-1;">
+                <!-- Bẫy bot: Người thật không thấy, bot tự fill sẽ bị chặn -->
+                <div class="bf-hp-gate" aria-hidden="true" style="display:none !important; position:absolute; left:-9999px;">
                     <label for="bfHpTrapField">Do not fill this field</label>
-                    <input type="text" id="bfHpTrapField" name="mrb_anti_bot_check" tabindex="-1" autocomplete="off" value="" />
+                    <input type="text" id="bfHpTrapField" name="mrb_user_url" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" value="" />
                 </div>
 
                 <!-- Name -->

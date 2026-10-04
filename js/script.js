@@ -4889,33 +4889,40 @@
     } catch (e) {}
   }
 
+  /* ══════════════════════════════════════════════════════════════
+     GATEWAY BẢO MẬT CLOUDFLARE WORKER (Reverse Proxy API Gateway)
+     - Giấu hoàn toàn Make.com Webhook URL & Telegram Bot Token khỏi client
+     - Whitelist CORS chặt chẽ cho mrbenjeeptours.com
+     - Rate Limiting 6 req/phút/IP chống tấn công spam/flood
+     - Bẫy bot Honeypot & Lọc spam lead tại Edge Server
+     ══════════════════════════════════════════════════════════════ */
+  var MRBEN_GATEWAY_URL = 'https://mrbenjeeptours.vochicuong-bin04.workers.dev';
+  var GATEWAY_TIMEOUT_MS = 10000; // 10 giây timeout
+
   /* ── Gửi tin nhắn tức thì qua Cloudflare Worker tới Telegram (Độc lập) ── */
   function sendToTelegramOnly() {
     var rawMsg = buildMessage(true); // Lấy chuỗi HTML
-    var workerUrl = 'https://mrbenjeeptours.vochicuong-bin04.workers.dev';
+    var hpTrap = (document.getElementById('bfHpTrapField') || {}).value || '';
 
-    if (workerUrl === 'YOUR_CLOUDFLARE_WORKER_URL_HERE') {
-      console.warn('Bạn chưa cập nhật link Cloudflare Worker. Tin nhắn Telegram sẽ không được gửi.');
-      return;
-    }
-
-    fetch(workerUrl, {
+    fetch(MRBEN_GATEWAY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        action: 'telegram',
         message: rawMsg,
-        parse_mode: 'HTML' // Yêu cầu telegram render mã HTML
+        parse_mode: 'HTML',
+        hpField: hpTrap
       })
     })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data.success) {
-          console.log('✅ Đã gửi thông tin đến Telegram Group thành công thông qua Worker.');
+          console.log('✅ Đã gửi thông tin đến Telegram Group thành công thông qua Gateway.');
         } else {
-          console.error('Lỗi khi gửi qua Worker:', data);
+          console.error('Lỗi khi gửi qua Gateway:', data);
         }
       })
-      .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
+      .catch(function (e) { console.error('Lỗi kết nối tới Gateway:', e); });
   }
 
   /* ── Gửi đồng thời Telegram & Webhook Make.com (Dành cho Tour Jeep) ── */
@@ -4923,22 +4930,18 @@
     // Luồng 1: Telegram qua Cloudflare Worker
     sendToTelegramOnly();
 
-    // Luồng 2: Make.com Webhook (Lịch Google)
+    // Luồng 2: Make.com Webhook (Lịch Google) qua Worker Gateway
     sendToMakeWebhook();
   }
 
   /* ────────────────────────────────────────────────────────────
-     MODULE: Gửi dữ liệu đặt tour lên Make.com Webhook
+     MODULE: Gửi dữ liệu đặt tour lên Make.com qua Cloudflare Gateway
      - Xác thực nghiêm ngặt (Validation) trước khi gửi
      - Chống gửi trùng lặp (isSubmitting flag)
      - AbortController timeout 10 giây
      - Làm sạch payload (sanitize)
      - Xử lý lỗi thân thiện người dùng
      ──────────────────────────────────────────────────────────── */
-
-  /* ── Hằng số cấu hình – thay đổi URL tại đây khi cần ── */
-  var MAKE_WEBHOOK_URL = 'https://hook.eu1.make.com/hz6g13pxrevta33z5piw4x5i7tko0vcd';
-  var MAKE_TIMEOUT_MS  = 10000; // 10 giây timeout
 
   /* ── Cờ chống gửi trùng lặp (double-submit prevention) ── */
   var _isSendingToMake = false;
@@ -5265,34 +5268,43 @@
     console.log('[Make.com] 📤 Gửi ' + bookingData.serviceType + ':'
       + ' ' + JSON.stringify(bookingData).length + ' bytes');
 
-    /* 5. AbortController — Tự hủy nếu Make.com > 10 giây */
+    /* 5. AbortController — Tự hủy nếu Gateway > 10 giây */
     var abortCtrl = new AbortController();
     var timeoutId = setTimeout(function () {
       abortCtrl.abort();
-    }, MAKE_TIMEOUT_MS);
+    }, GATEWAY_TIMEOUT_MS);
 
-    fetch(MAKE_WEBHOOK_URL, {
+    var hpTrap = (document.getElementById('bfHpTrapField') || {}).value || '';
+
+    fetch(MRBEN_GATEWAY_URL, {
       method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(bookingData),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':       'application/json'
+      },
+      body:    JSON.stringify({
+        action:      'make',
+        bookingData: bookingData,
+        hpField:     hpTrap
+      }),
       signal:  abortCtrl.signal
     })
       .then(function (response) {
         clearTimeout(timeoutId);
         if (response.ok) {
           console.log('✅ Ting ting! Đã đẩy ['
-            + bookingData.serviceType + '] sang Make.com thành công!');
+            + bookingData.serviceType + '] sang Make.com qua Cloudflare Gateway thành công!');
         } else {
-          console.error('[Make.com] HTTP ' + response.status);
+          console.error('[Gateway] HTTP ' + response.status);
         }
       })
       .catch(function (err) {
         clearTimeout(timeoutId);
         if (err.name === 'AbortError') {
-          console.error('[Make.com] ⏱️ Timeout '
-            + (MAKE_TIMEOUT_MS / 1000) + 's. Đơn đã gửi qua kênh khác.');
+          console.error('[Gateway] ⏱️ Timeout '
+            + (GATEWAY_TIMEOUT_MS / 1000) + 's. Đơn đã gửi qua kênh khác.');
         } else {
-          console.error('[Make.com] ❌ Lỗi kết nối:', err.message || err);
+          console.error('[Gateway] ❌ Lỗi kết nối:', err.message || err);
         }
       })
       .finally(function () {
@@ -5416,28 +5428,33 @@
     var abortCtrl = new AbortController();
     var timeoutId = setTimeout(function () {
       abortCtrl.abort();
-    }, MAKE_TIMEOUT_MS);
-    /* 9. Gửi fetch POST JSON tới Make.com Webhook */
-    fetch(MAKE_WEBHOOK_URL, {
+    }, GATEWAY_TIMEOUT_MS);
+
+    var hpTrap = (document.getElementById('bfHpTrapField') || {}).value || '';
+    var rawMsg = buildMessage(true);
+
+    /* 9. Gửi fetch POST JSON tới Cloudflare Gateway (Điều phối Make.com & Telegram) */
+    fetch(MRBEN_GATEWAY_URL, {
       method:  'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept':       'application/json'
       },
-      body:    JSON.stringify(payload),
+      body:    JSON.stringify({
+        action:      'booking',
+        bookingData: payload,
+        message:     rawMsg,
+        hpField:     hpTrap
+      }),
       signal:  abortCtrl.signal
     })
       .then(function (response) {
         clearTimeout(timeoutId);
         if (response.ok) {
-          console.log('✅ [Make.com] Đã gửi đơn Xe Đưa Đón thành công!', payload);
+          console.log('✅ [Gateway] Đã gửi đơn Xe Đưa Đón thành công!', payload);
           // Ghi nhận cooldown vào sessionStorage
           recordBookingSuccess(c.fullPhone);
 
-          // Gửi kèm qua Telegram để đồng bộ (CHỈ GỬI TELEGRAM WORKER, tránh gọi lặp Make.com)
-          if (typeof sendToTelegramOnly === 'function') {
-            try { sendToTelegramOnly(); } catch (e) { console.warn(e); }
-          }
           // Đóng modal xác nhận nếu đang mở
           if (typeof closeConfirmModal === 'function') closeConfirmModal();
           // Mở modal cảm ơn trực quan
@@ -5449,12 +5466,12 @@
           // Reset form
           if (typeof resetBookingForm === 'function') resetBookingForm();
         } else {
-          throw new Error('HTTP ' + response.status + ': Máy chủ Make.com phản hồi không thành công.');
+          throw new Error('HTTP ' + response.status + ': Máy chủ Gateway phản hồi không thành công.');
         }
       })
       .catch(function (err) {
         clearTimeout(timeoutId);
-        console.error('❌ [Make.com] Gửi đơn thất bại:', err);
+        console.error('❌ [Gateway] Gửi đơn thất bại:', err);
         if (err.name === 'AbortError') {
           alert('⏱️ Yêu cầu gửi đơn quá thời gian (Timeout). Vui lòng kiểm tra kết nối mạng hoặc liên hệ Hotline/Zalo: 0913.140.196.');
         } else {
