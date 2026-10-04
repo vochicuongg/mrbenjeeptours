@@ -1532,6 +1532,12 @@
                     </div>
                 </div>
 
+                <!-- Honeypot anti-bot trap (hidden from users, traps automated bots) -->
+                <div class="bf-hp-gate" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden;z-index:-1;">
+                    <label for="bfHpTrapField">Do not fill this field</label>
+                    <input type="text" id="bfHpTrapField" name="mrb_anti_bot_check" tabindex="-1" autocomplete="off" value="" />
+                </div>
+
                 <!-- Name -->
                 <div class="bf-group">
                     <label class="bf-label" for="bfName"><span data-i18n="booking.labelName">Họ và Tên</span> <span

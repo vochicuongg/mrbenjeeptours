@@ -4429,6 +4429,17 @@ button {
     justify-content: center;
 }
 
+.goldx:disabled,
+.goldx.is-loading,
+.bf-btn:disabled,
+.bf-btn.is-loading {
+    opacity: 0.7;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
 .bf-route-ok-row {
     display: flex;
     justify-content: center;

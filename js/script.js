@@ -4762,39 +4762,168 @@
     return encodeURIComponent(buildMessage(false));
   }
 
-  function sendToTelegram() {
-    // =========================================================
-    // LUỒNG 1: GỬI TIN NHẮN TỨC THÌ QUA CLOUDFLARE WORKER 
-    // =========================================================
+  /* ────────────────────────────────────────────────────────────
+     MODULE BẢO VỆ WEBSITE & CHỐNG SPAM (Security & Anti-Bot Guard)
+     - Honeypot Trap: Bẫy ẩn phát hiện và chặn bot tự động
+     - Time Gate: Chặn thao tác submit dưới 2 giây
+     - Double-Click & Cooldown 30s: Chặn bấm nhiều lần liên tiếp
+     - Spam Filter: Lọc link rác, từ khóa quảng cáo và số điện thoại ảo
+     ──────────────────────────────────────────────────────────── */
+  var BOOKING_COOLDOWN_MS = 30000; // 30 giây cooldown
+  var MIN_FILL_TIME_MS    = 2000;  // Tối thiểu 2 giây để người dùng điền form
+  var _isBookingSubmitting = false; // Cờ chặn race condition & double-submit
+
+  var SECURITY_MESSAGES = {
+    vi: {
+      tooFast: '⚠️ Bạn thao tác quá nhanh. Vui lòng kiểm tra lại thông tin trước khi tiếp tục.',
+      cooldown: '⚠️ Quý khách vừa gửi đơn đặt xe thành công. Hệ thống Mr. Ben đang xử lý, vui lòng đợi {s} giây hoặc liên hệ trực tiếp Hotline/Zalo: 0913.140.196.',
+      invalidInfo: '⚠️ Thông tin đặt tour không hợp lệ (số điện thoại hoặc ký tự không được hỗ trợ). Vui lòng kiểm tra lại.',
+      sending: 'Đang gửi...'
+    },
+    en: {
+      tooFast: '⚠️ Action was too fast. Please review your details before proceeding.',
+      cooldown: '⚠️ You have just submitted a booking request. Mr. Ben is processing it, please wait {s}s or contact us directly via WhatsApp: +84913140196.',
+      invalidInfo: '⚠️ Invalid booking details (phone number or unsupported characters). Please review your information.',
+      sending: 'Sending...'
+    },
+    ru: {
+      tooFast: '⚠️ Действие выполнено слишком быстро. Пожалуйста, проверьте данные перед отправкой.',
+      cooldown: '⚠️ Заявка уже отправлена и обрабатывается. Пожалуйста, подождите {s} сек или напишите нам в WhatsApp: +84913140196.',
+      invalidInfo: '⚠️ Некорректные данные бронирования (номер телефона или неподдерживаемые символы).',
+      sending: 'Отправка...'
+    },
+    zh: {
+      tooFast: '⚠️ 操作过快，请在继续之前核对您的信息。',
+      cooldown: '⚠️ 您刚刚已提交预订。我们正在处理中，请等待 {s} 秒或直接联系 WhatsApp/热线: +84913140196。',
+      invalidInfo: '⚠️ 预订信息无效（电话号码或不受支持的字符），请重新检查。',
+      sending: '发送中...'
+    },
+    ko: {
+      tooFast: '⚠️ 작업이 너무 빠릅니다. 진행하기 전에 정보를 다시 확인해 주세요.',
+      cooldown: '⚠️ 방금 예약을 접수하셨습니다. 처리 중이오니 {s}초 후 다시 시도하시거나 WhatsApp/전화로 문의해 주세요: +84913140196.',
+      invalidInfo: '⚠️ 예약 정보가 올바르지 않습니다 (전화번호 또는 지원되지 않는 문자). 다시 확인해 주세요.',
+      sending: '전송 중...'
+    },
+    de: {
+      tooFast: '⚠️ Aktion zu schnell. Bitte überprüfen Sie Ihre Angaben vor dem Fortfahren.',
+      cooldown: '⚠️ Sie haben gerade eine Buchung gesendet. Wir bearbeiten sie, bitte warten Sie {s} Sek. oder kontaktieren Sie uns per WhatsApp: +84913140196.',
+      invalidInfo: '⚠️ Ungültige Buchungsangaben (Telefonnummer oder ungültige Zeichen). Bitte erneut prüfen.',
+      sending: 'Wird gesendet...'
+    }
+  };
+
+  function getSecurityMessage(key, param) {
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var dict = SECURITY_MESSAGES[lang] || SECURITY_MESSAGES.vi;
+    var msg = dict[key] || SECURITY_MESSAGES.vi[key] || '';
+    if (param !== undefined) {
+      msg = msg.replace('{s}', param);
+    }
+    return msg;
+  }
+
+  /* 1. Kiểm tra Bẫy Honeypot ẩn */
+  function checkHoneypotTrap() {
+    var hp = document.getElementById('bfHpTrapField');
+    if (hp && hp.value && hp.value.trim().length > 0) {
+      console.warn('[Security Guard] 🚨 Phát hiện Bot kích hoạt Honeypot Trap. Chặn yêu cầu.');
+      return false;
+    }
+    return true;
+  }
+
+  /* 2. Kiểm tra Thời gian điền form (Time Gate) */
+  function checkTimeGate() {
+    var now = Date.now();
+    var elapsed = now - (modalOpenTime || 0);
+    if (!modalOpenTime || elapsed < MIN_FILL_TIME_MS) {
+      console.warn('[Security Guard] 🚨 Thao tác quá nhanh (' + elapsed + 'ms).');
+      return false;
+    }
+    return true;
+  }
+
+  /* 3. Lọc số điện thoại rác & từ khóa quảng cáo/spam link */
+  var SPAM_URL_PATTERN = /(https?:\/\/|www\.|\.com|\.net|\.org|\.xyz|\.vip|\.top|\.ru|\.cn|telegram\.me|t\.me)/i;
+  var SPAM_KEYWORD_PATTERN = /(casino|viagra|sex|poker|bet88|crypto|bitcoin|usdt|seo\s+service)/i;
+  var JUNK_PHONE_SEQUENCES = ['123456789', '987654321', '0123456789', '0987654321', '12345678', '87654321'];
+
+  function isSpamLead(name, phone, notes) {
+    if (!name && !phone) return false;
+    if (name && (SPAM_URL_PATTERN.test(name) || SPAM_KEYWORD_PATTERN.test(name))) return true;
+    if (notes && (SPAM_URL_PATTERN.test(notes) || SPAM_KEYWORD_PATTERN.test(notes))) return true;
+
+    var cleanP = (phone || '').replace(/\D/g, '');
+    if (cleanP.length >= 8 && /^(\d)\1+$/.test(cleanP)) return true;
+
+    for (var i = 0; i < JUNK_PHONE_SEQUENCES.length; i++) {
+      if (cleanP === JUNK_PHONE_SEQUENCES[i]) return true;
+    }
+    return false;
+  }
+
+  /* 4. Bộ đệm Cooldown 30 giây theo thiết bị / số điện thoại */
+  function checkBookingCooldown(fullPhone) {
+    try {
+      var lastTs = parseInt(sessionStorage.getItem('mrb_last_booking_ts') || '0', 10);
+      var lastPhone = sessionStorage.getItem('mrb_last_booking_phone') || '';
+      var now = Date.now();
+      if (lastTs && (now - lastTs < BOOKING_COOLDOWN_MS)) {
+        var cleanLast = (lastPhone || '').replace(/\D/g, '');
+        var cleanCurr = (fullPhone || '').replace(/\D/g, '');
+        if (!cleanCurr || !cleanLast || cleanLast === cleanCurr) {
+          var remainingSecs = Math.ceil((BOOKING_COOLDOWN_MS - (now - lastTs)) / 1000);
+          return { isSpam: true, remaining: remainingSecs };
+        }
+      }
+    } catch (e) {
+      console.warn('[Security Guard] Lỗi truy cập sessionStorage:', e);
+    }
+    return { isSpam: false, remaining: 0 };
+  }
+
+  function recordBookingSuccess(fullPhone) {
+    try {
+      sessionStorage.setItem('mrb_last_booking_ts', Date.now().toString());
+      if (fullPhone) sessionStorage.setItem('mrb_last_booking_phone', fullPhone);
+    } catch (e) {}
+  }
+
+  /* ── Gửi tin nhắn tức thì qua Cloudflare Worker tới Telegram (Độc lập) ── */
+  function sendToTelegramOnly() {
     var rawMsg = buildMessage(true); // Lấy chuỗi HTML
     var workerUrl = 'https://mrbenjeeptours.vochicuong-bin04.workers.dev';
 
     if (workerUrl === 'YOUR_CLOUDFLARE_WORKER_URL_HERE') {
       console.warn('Bạn chưa cập nhật link Cloudflare Worker. Tin nhắn Telegram sẽ không được gửi.');
-    } else {
-      fetch(workerUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: rawMsg,
-          parse_mode: 'HTML' // Yêu cầu telegram render mã HTML
-        })
-      })
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          if (data.success) {
-            console.log('Đã gửi thông tin đến Telegram Group thành công thông qua Worker.');
-          } else {
-            console.error('Lỗi khi gửi qua Worker:', data);
-          }
-        })
-        .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
+      return;
     }
 
-    // =========================================================
-    // LUỒNG 2: ĐẨY DỮ LIỆU SANG MAKE.COM ĐỂ TẠO LỊCH GOOGLE CALENDAR
-    // (Có xác thực dữ liệu, chống gửi trùng, AbortController timeout)
-    // =========================================================
+    fetch(workerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: rawMsg,
+        parse_mode: 'HTML' // Yêu cầu telegram render mã HTML
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          console.log('✅ Đã gửi thông tin đến Telegram Group thành công thông qua Worker.');
+        } else {
+          console.error('Lỗi khi gửi qua Worker:', data);
+        }
+      })
+      .catch(function (e) { console.error('Lỗi kết nối tới Worker:', e); });
+  }
+
+  /* ── Gửi đồng thời Telegram & Webhook Make.com (Dành cho Tour Jeep) ── */
+  function sendToTelegram() {
+    // Luồng 1: Telegram qua Cloudflare Worker
+    sendToTelegramOnly();
+
+    // Luồng 2: Make.com Webhook (Lịch Google)
     sendToMakeWebhook();
   }
 
@@ -4832,6 +4961,11 @@
     var isTransfer = isTransferBooking();
     var tag = '[Make.com Guard]';
 
+    if (!checkHoneypotTrap()) {
+      console.warn(tag + ' Phát hiện Honeypot Trap — bỏ qua.');
+      return false;
+    }
+
     if (!name || name.length < 2) {
       console.warn(tag + ' Tên không hợp lệ — bỏ qua.');
       return false;
@@ -4842,6 +4976,11 @@
     }
     if (!PHONE_REGEX_LOCAL.test(phone) && !PHONE_REGEX_INTL.test(fullPhone)) {
       console.warn(tag + ' SĐT sai định dạng — bỏ qua.');
+      return false;
+    }
+    var notes = (document.getElementById('bfNotes') || {}).value || '';
+    if (isSpamLead(name, phone, notes)) {
+      console.warn(tag + ' Phát hiện thông tin spam/số ảo — bỏ qua.');
       return false;
     }
     if (!dtIso) {
@@ -5175,14 +5314,32 @@
       event.preventDefault();
     }
 
+    /* 0. Bẫy Bot Honeypot & Time Gate */
+    if (!checkHoneypotTrap()) return false;
+    if (!checkTimeGate()) {
+      alert(getSecurityMessage('tooFast'));
+      return false;
+    }
+
     /* 1. Chống gửi trùng nếu đang có tiến trình gửi */
-    if (_isSendingToMake) {
+    if (_isSendingToMake || _isBookingSubmitting) {
       console.warn('[Make.com] Đang xử lý đơn trước — vui lòng đợi giây lát.');
       return false;
     }
 
     /* 2. Thu thập dữ liệu chung từ form */
     var c = collectCommonFields();
+
+    /* 2.1. Kiểm tra Cooldown 30s & Dữ liệu rác */
+    var cd = checkBookingCooldown(c.fullPhone);
+    if (cd.isSpam) {
+      alert(getSecurityMessage('cooldown', cd.remaining));
+      return false;
+    }
+    if (isSpamLead(c.name, c.cleanPhone, c.notes)) {
+      alert(getSecurityMessage('invalidInfo'));
+      return false;
+    }
 
     /* 3. Lấy dữ liệu riêng cho dịch vụ Xe Đưa Đón */
     var pEl = document.getElementById('bfTfPickup');
@@ -5274,9 +5431,12 @@
         clearTimeout(timeoutId);
         if (response.ok) {
           console.log('✅ [Make.com] Đã gửi đơn Xe Đưa Đón thành công!', payload);
-          // Gửi kèm qua Telegram để đồng bộ
-          if (typeof sendToTelegram === 'function') {
-            try { sendToTelegram(); } catch (e) { console.warn(e); }
+          // Ghi nhận cooldown vào sessionStorage
+          recordBookingSuccess(c.fullPhone);
+
+          // Gửi kèm qua Telegram để đồng bộ (CHỈ GỬI TELEGRAM WORKER, tránh gọi lặp Make.com)
+          if (typeof sendToTelegramOnly === 'function') {
+            try { sendToTelegramOnly(); } catch (e) { console.warn(e); }
           }
           // Đóng modal xác nhận nếu đang mở
           if (typeof closeConfirmModal === 'function') closeConfirmModal();
@@ -5385,21 +5545,53 @@
   }
 
   function executeSend() {
-    if (pendingLink) {
-      sendToTelegram();
-      var a = document.createElement('a');
-      a.href = pendingLink;
-      a.target = '_blank';
-      a.click();
-
-      // Clear form after successful send
-      setTimeout(function () {
-        resetBookingForm();
-      }, 500);
+    if (_isBookingSubmitting) {
+      console.warn('[Security Guard] Yêu cầu đang được xử lý, bỏ qua click trùng lặp.');
+      return;
     }
-    closeConfirmModal();
-    // Show thank-you modal after sending
-    openThankModal();
+
+    clearInterval(confirmTimer);
+
+    if (btnSendNow) {
+      btnSendNow.disabled = true;
+      btnSendNow.classList.add('is-loading');
+      btnSendNow.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + getSecurityMessage('sending');
+    }
+
+    _isBookingSubmitting = true;
+
+    try {
+      if (pendingLink) {
+        sendToTelegram();
+
+        // Ghi nhận cooldown vào sessionStorage
+        var c = collectCommonFields();
+        recordBookingSuccess(c.fullPhone);
+
+        var a = document.createElement('a');
+        a.href = pendingLink;
+        a.target = '_blank';
+        a.click();
+
+        // Clear form after successful send
+        setTimeout(function () {
+          resetBookingForm();
+        }, 500);
+      }
+    } finally {
+      closeConfirmModal();
+      // Show thank-you modal after sending
+      openThankModal();
+
+      setTimeout(function () {
+        _isBookingSubmitting = false;
+        if (btnSendNow) {
+          btnSendNow.disabled = false;
+          btnSendNow.classList.remove('is-loading');
+          btnSendNow.innerHTML = '<span data-i18n="booking.confirmSendNow">Gửi luôn</span>&nbsp;(<span id="bfCountdownNum">30</span>s)';
+        }
+      }, 2500);
+    }
   }
 
   if (confirmClose) confirmClose.addEventListener('click', closeConfirmModal);
@@ -5443,9 +5635,33 @@
   }
 
   function validateBookingForm() {
+    // 0. Bẫy Bot Honeypot & Time Gate
+    if (!checkHoneypotTrap()) return false;
+    if (!checkTimeGate()) {
+      alert(getSecurityMessage('tooFast'));
+      return false;
+    }
+
     var isValid = true;
     var firstErr = null;
     var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
+
+    // 0.1 Kiểm tra Cooldown 30 giây & Spam Lead
+    var cPhone = (document.getElementById('bfPhone') || {}).value || '';
+    var cCode = (document.getElementById('bfPhoneCodeText') || {}).value || (typeof selectedPhoneCode !== 'undefined' ? selectedPhoneCode : '+84');
+    var cd = checkBookingCooldown(cCode + cPhone.replace(/\D/g, ''));
+    if (cd.isSpam) {
+      alert(getSecurityMessage('cooldown', cd.remaining));
+      return false;
+    }
+
+    var nameVal = ((document.getElementById('bfName') || {}).value || '').trim();
+    var phoneVal = ((document.getElementById('bfPhone') || {}).value || '').trim();
+    var notesVal = ((document.getElementById('bfNotes') || {}).value || '').trim();
+    if (isSpamLead(nameVal, phoneVal, notesVal)) {
+      alert(getSecurityMessage('invalidInfo'));
+      return false;
+    }
 
     var T = (window.__MRB_TRANS || {})[localStorage.getItem('mrben-lang') || 'vi'] || {};
     var reqFields = [
@@ -5652,16 +5868,28 @@
   if (btnCall) {
     btnCall.addEventListener('click', function (e) {
       e.preventDefault();
+      if (_isBookingSubmitting) return;
+
       if (validateBookingForm()) {
-        sendToTelegram();
-        // Open the tel: link
-        window.location.href = btnCall.getAttribute('href');
-        // Clear form after successful send
-        setTimeout(function () {
-          resetBookingForm();
-        }, 500);
-        // Show thank-you modal
-        openThankModal();
+        _isBookingSubmitting = true;
+        try {
+          sendToTelegram();
+          var c = collectCommonFields();
+          recordBookingSuccess(c.fullPhone);
+
+          // Open the tel: link
+          window.location.href = btnCall.getAttribute('href');
+          // Clear form after successful send
+          setTimeout(function () {
+            resetBookingForm();
+          }, 500);
+          // Show thank-you modal
+          openThankModal();
+        } finally {
+          setTimeout(function () {
+            _isBookingSubmitting = false;
+          }, 2500);
+        }
       }
     });
   }
