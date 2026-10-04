@@ -99,7 +99,7 @@ async function sendToTelegram(token, chatId, text, parseMode) {
     return { ok: data.ok, data: data };
   } catch (err) {
     clearTimeout(timeoutId);
-    return { ok: false, error: err.message };
+    return { ok: false, error: err.message }; 
   }
 }
 
