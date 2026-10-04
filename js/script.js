@@ -4281,6 +4281,168 @@
     de: { code: '+49', flag: 'assets/images/languages/germany.webp' }
   };
 
+  /* ══════════════════════════════════════════════════════════════
+     CHUẨN HÓA SỐ ĐIỆN THOẠI & TỰ ĐỘNG XỬ LÝ MÃ VÙNG TRÙNG LẶP (+84)
+     - Khi đã chọn mã +84: Nếu khách cố tình gõ/dán thêm +84, 84, 084, 0084, (+84)
+       thì hệ thống tự động gọt bỏ mã vùng và chuẩn hóa về dạng 10 số (09...)
+     - Bảo vệ các số Vinaphone đầu 084 (084xxxxxxx - đúng 10 số) không bị cắt nhầm
+     - Tự động xóa class .bf-error khi số đạt chuẩn
+     ══════════════════════════════════════════════════════════════ */
+  function checkAndClearPhoneError(phoneInput, cCode, pLen) {
+    if (!phoneInput) return;
+    var isValid = false;
+    if (cCode === '+84' && pLen >= 9 && pLen <= 10) isValid = true;
+    else if (cCode === '+1' && pLen === 10) isValid = true;
+    else if (cCode === '+7' && pLen === 10) isValid = true;
+    else if (cCode === '+86' && pLen === 11) isValid = true;
+    else if (cCode === '+82' && pLen >= 9 && pLen <= 10) isValid = true;
+    else if (cCode === '+49' && pLen >= 10 && pLen <= 11) isValid = true;
+    else if (cCode !== '+84' && cCode !== '+1' && cCode !== '+7' && cCode !== '+86' && cCode !== '+82' && cCode !== '+49' && pLen >= 8 && pLen <= 15) isValid = true;
+
+    if (isValid) {
+      phoneInput.classList.remove('bf-error');
+    }
+  }
+
+
+  function sanitizePhoneNumberInput(phoneInput, isFinal) {
+    if (!phoneInput) return;
+    var raw = phoneInput.value;
+    if (!raw) return;
+
+    var codeTextEl = document.getElementById('bfPhoneCodeText');
+    var cCode = (typeof selectedPhoneCode !== 'undefined' && selectedPhoneCode)
+      ? selectedPhoneCode
+      : (codeTextEl ? codeTextEl.value.trim() : '+84');
+
+    var codeDigits = cCode.replace(/\D/g, '');
+
+    // 1. Nhận diện các tiền tố chuỗi: +CODE, 00CODE, (+CODE), (CODE) và tiền tố có (0)
+    var s = raw.trim();
+    if (codeDigits) {
+      var prefixRegex = new RegExp('^(?:\\+\\s*' + codeDigits + '|00\\s*' + codeDigits + '|\\(\\+?' + codeDigits + '\\))\\s*(?:\\(?0\\)?)?\\s*', 'i');
+      if (prefixRegex.test(s)) {
+        s = s.replace(prefixRegex, '');
+        var d = s.replace(/\D/g, '');
+        if (d) {
+          if (cCode === '+84' && !d.startsWith('0')) d = '0' + d;
+          if (cCode === '+82' && d.startsWith('01') && d.length === 11) d = d.slice(1);
+          phoneInput.value = d;
+          checkAndClearPhoneError(phoneInput, cCode, d.length);
+          return;
+        }
+      }
+    }
+
+    if (s.startsWith('+')) {
+      s = s.replace(/^\+\s*/, '');
+    }
+
+    // 2. Lấy toàn bộ chữ số
+    var digits = s.replace(/\D/g, '');
+
+    // 3. Tự động xử lý mã vùng theo từng quốc gia
+    if (cCode === '+84') {
+      // ── VIỆT NAM (+84) ──
+      if (digits.startsWith('0084')) {
+        digits = digits.slice(4);
+        if (!digits.startsWith('0')) digits = '0' + digits;
+      } else if (digits.startsWith('840') && digits.length >= 11) {
+        digits = '0' + digits.slice(3);
+      } else if (digits.startsWith('84') && digits.length === 11 && /^[35789]/.test(digits.slice(2))) {
+        digits = '0' + digits.slice(2);
+      } else if (digits.startsWith('084') && digits.length >= 11 && /^[35789]/.test(digits.slice(3))) {
+        digits = '0' + digits.slice(3);
+      }
+
+      if (isFinal) {
+        if (digits.length === 9 && /^[35789]/.test(digits)) {
+          digits = '0' + digits;
+        } else if (digits.startsWith('84') && digits.length >= 10 && /^[35789]/.test(digits.slice(2))) {
+          digits = '0' + digits.slice(2);
+        }
+      }
+    } else if (cCode === '+1') {
+      // ── MỸ / BẮC MỸ (+1) ── Chuẩn 10 số (Area Code + Local)
+      if (digits.startsWith('001') && digits.length === 13) {
+        digits = digits.slice(3);
+      } else if (digits.length === 11 && digits.startsWith('1')) {
+        digits = digits.slice(1);
+      } else if (isFinal && digits.startsWith('1') && digits.length >= 11) {
+        digits = digits.slice(1);
+      }
+    } else if (cCode === '+7') {
+      // ── NGA / KAZAKHSTAN (+7) ── Chuẩn 10 số
+      // Người Nga thường gõ tiền tố nội địa 8 hoặc 7 (8916... hoặc 7916...) -> 11 số
+      if (digits.startsWith('007') && digits.length === 13) {
+        digits = digits.slice(3);
+      } else if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) {
+        digits = digits.slice(1);
+      } else if (isFinal && (digits.startsWith('7') || digits.startsWith('8')) && digits.length >= 11) {
+        digits = digits.slice(1);
+      }
+    } else if (cCode === '+86') {
+      // ── TRUNG QUỐC (+86) ── Chuẩn 11 số (bắt đầu bằng 1)
+      if (digits.startsWith('0086')) {
+        digits = digits.slice(4);
+      } else if (digits.startsWith('860') && digits.length >= 14) {
+        digits = digits.slice(3);
+      } else if (digits.startsWith('86') && digits.length === 13 && digits[2] === '1') {
+        digits = digits.slice(2);
+      } else if (digits.startsWith('086') && digits.length >= 13) {
+        digits = digits.slice(3);
+      }
+
+      if (digits.length === 12 && digits.startsWith('01')) {
+        digits = digits.slice(1);
+      }
+
+      if (isFinal && digits.startsWith('86') && digits.length >= 12 && digits[2] === '1') {
+        digits = digits.slice(2);
+      }
+    } else if (cCode === '+82') {
+      // ── HÀN QUỐC (+82) ── Chuẩn 9-10 số (quốc tế: 10xxxxxxxx)
+      if (digits.startsWith('0082')) {
+        digits = digits.slice(4);
+      } else if (digits.startsWith('820') && digits.length >= 12) {
+        digits = digits.slice(3);
+      } else if (digits.startsWith('82') && digits.length >= 11) {
+        digits = digits.slice(2);
+      }
+
+      if (digits.length === 11 && digits.startsWith('01')) {
+        digits = digits.slice(1);
+      }
+
+      if (isFinal && digits.startsWith('82') && digits.length >= 10) {
+        digits = digits.slice(2);
+      }
+    } else if (cCode === '+49') {
+      // ── ĐỨC (+49) ── Chuẩn 10-11 số
+      if (digits.startsWith('0049')) {
+        digits = digits.slice(4);
+      } else if (digits.startsWith('490') && digits.length >= 13) {
+        digits = digits.slice(2);
+      } else if (digits.startsWith('49') && digits.length >= 12) {
+        digits = digits.slice(2);
+      }
+
+      if (isFinal && digits.startsWith('49') && digits.length >= 12) {
+        digits = digits.slice(2);
+      }
+    } else if (codeDigits) {
+      // ── CÁC MÃ QUỐC GIA TÙY CHỌN KHÁC (CUSTOM) ──
+      if (digits.startsWith('00' + codeDigits) && digits.length > codeDigits.length + 6) {
+        digits = digits.slice(2 + codeDigits.length);
+      } else if (digits.startsWith(codeDigits) && digits.length > codeDigits.length + 6) {
+        digits = digits.slice(codeDigits.length);
+      }
+    }
+
+    phoneInput.value = digits;
+    checkAndClearPhoneError(phoneInput, cCode, digits.length);
+  }
+
   function setPhoneCode(langOrCode) {
     if (langOrCode === 'custom') {
       selectedPhoneCode = '';
@@ -4322,6 +4484,12 @@
     codeOpts.forEach(function (opt) {
       opt.classList.toggle('active', opt.getAttribute('data-code') === entry.code);
     });
+
+    // Khi chuyển về mã vùng +84, tự động sửa ngay nếu số đang nhập có mã vùng trùng
+    var phoneInput = document.getElementById('bfPhone');
+    if (phoneInput && phoneInput.value) {
+      sanitizePhoneNumberInput(phoneInput, true);
+    }
   }
 
   function openCodeDropdown() {
@@ -5735,6 +5903,9 @@
           // Name cannot contain numbers
           if (/[0-9]/.test(val)) isInvalid = true;
         } else if (f.id === 'bfPhone' && val) {
+          // Tự động kiểm tra và chuẩn hóa mã vùng trùng lặp trước khi kiểm tra độ dài
+          sanitizePhoneNumberInput(el, true);
+          val = el.value.trim();
           // Phone length validation based on country code
           var pLen = val.length;
           var cCode = (typeof selectedPhoneCode !== 'undefined' ? selectedPhoneCode : '+84');
@@ -5833,13 +6004,30 @@
         if (id === 'bfName') {
           this.value = this.value.replace(/[0-9]/g, '');
         }
-        // Strip non-numbers from Phone
+        // Chuẩn hóa và tự động sửa mã vùng trùng lặp cho số điện thoại
         if (id === 'bfPhone') {
-          this.value = this.value.replace(/\D/g, '');
+          sanitizePhoneNumberInput(this, false);
         }
       });
     }
   });
+
+  // Sự kiện blur, change và paste để hoàn thiện chuẩn hóa số điện thoại
+  var phoneFieldEl = document.getElementById('bfPhone');
+  if (phoneFieldEl) {
+    phoneFieldEl.addEventListener('blur', function () {
+      sanitizePhoneNumberInput(this, true);
+    });
+    phoneFieldEl.addEventListener('change', function () {
+      sanitizePhoneNumberInput(this, true);
+    });
+    phoneFieldEl.addEventListener('paste', function () {
+      var self = this;
+      setTimeout(function () {
+        sanitizePhoneNumberInput(self, true);
+      }, 0);
+    });
+  }
 
   // Strip non-numeric/plus from Custom Phone Code text and validate
   var phoneCodeInput = document.getElementById('bfPhoneCodeText');
@@ -5862,6 +6050,13 @@
         } else {
           phoneCodeBtn.classList.remove('bf-error');
         }
+      }
+    });
+
+    phoneCodeInput.addEventListener('blur', function () {
+      var phoneField = document.getElementById('bfPhone');
+      if (phoneField && phoneField.value) {
+        sanitizePhoneNumberInput(phoneField, true);
       }
     });
   }
