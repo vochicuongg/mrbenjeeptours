@@ -1945,15 +1945,29 @@
 
   /* Restore saved language or auto-detect from device/browser settings */
   (function initLang() {
-    let saved = localStorage.getItem('mrben-lang');
+    let saved = null;
+    const supportedLangs = ['vi', 'en', 'ru', 'zh', 'ko', 'de'];
 
-    // If no saved language, auto-detect from device/browser
+    // 1. Check URL query parameter (e.g., ?lang=en, ?lang=ru)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryLang = urlParams.get('lang');
+      if (queryLang && supportedLangs.includes(queryLang.toLowerCase())) {
+        saved = queryLang.toLowerCase();
+        localStorage.setItem('mrben-lang', saved);
+      }
+    } catch (e) {}
+
+    // 2. Check saved language from localStorage
+    if (!saved) {
+      saved = localStorage.getItem('mrben-lang');
+    }
+
+    // 3. If no saved language, auto-detect from device/browser
     if (!saved) {
       // Get full browser language (e.g., 'vi-VN', 'en-US', 'ru-RU', 'zh-CN', 'ko-KR', 'de-DE')
       const fullLang = navigator.language || navigator.userLanguage || '';
       const browserLang = fullLang.substring(0, 2).toLowerCase();
-
-      const supportedLangs = ['vi', 'en', 'ru', 'zh', 'ko', 'de'];
 
       // Map browser language codes to supported languages
       let detectedLang = 'en'; // fallback default
@@ -3001,29 +3015,11 @@
     var hCustomGroup = document.getElementById('bfHotelCustomGroup');
     var hotelWrapCheck = document.getElementById('bfHotelWrap');
 
-    if (window.__bookingMode !== 'transfer' && !isTransferBooking()) {
-      if (hNameGroup) hNameGroup.style.display = '';
-      if (hAddrGroup) hAddrGroup.style.display = '';
-      if (hCustomGroup) {
-        hCustomGroup.style.display = (hotelWrapCheck && hotelWrapCheck.classList.contains('is-other-selected')) ? '' : 'none';
-      }
-      return;
-    }
-
-    var pIn = document.getElementById('bfTfPickup');
-    var dIn = document.getElementById('bfTfDropoff');
-    var pVal = pIn ? pIn.value.trim() : '';
-    var dVal = dIn ? dIn.value.trim() : '';
-    var showHotel = Boolean(pVal && dVal);
-
-    if (hNameGroup) hNameGroup.style.display = showHotel ? '' : 'none';
-    if (hAddrGroup) hAddrGroup.style.display = showHotel ? '' : 'none';
+    /* Hotel Name and Hotel Address must always remain visible in both Jeep & Transfer mode */
+    if (hNameGroup) hNameGroup.style.display = '';
+    if (hAddrGroup) hAddrGroup.style.display = '';
     if (hCustomGroup) {
-      if (!showHotel) {
-        hCustomGroup.style.display = 'none';
-      } else {
-        hCustomGroup.style.display = (hotelWrapCheck && hotelWrapCheck.classList.contains('is-other-selected')) ? '' : 'none';
-      }
+      hCustomGroup.style.display = (hotelWrapCheck && hotelWrapCheck.classList.contains('is-other-selected')) ? '' : 'none';
     }
   }
 
@@ -3430,7 +3426,7 @@
     var tfItinGroup = document.getElementById('bfTransferItineraryGroup');
     if (tfItinGroup) tfItinGroup.style.display = 'none';
 
-    /* Hotel section: in jeep mode always shown, in transfer mode shown only when both pickup & dropoff chosen */
+    /* Hotel section: always shown in both jeep and transfer modes */
     updateTransferDropdownDisabledStates();
     checkTransferHotelVisibility();
 
@@ -5869,24 +5865,16 @@
           if (pTrig) pTrig.classList.add('bf-error');
           if (dTrig) dTrig.classList.add('bf-error');
           if (!firstErr) firstErr = pTrig || dTrig;
-        } else {
-          reqFields.push({ id: 'bfHotelName', text: T['wa.hotel'] || 'Khách sạn' });
-          reqFields.push({ id: 'bfHotelAddress', text: T['wa.hotelAddress'] || 'Địa chỉ' });
-          var hotelNameEl = document.getElementById('bfHotelName');
-          var hotelWrapEl = document.getElementById('bfHotelWrap');
-          if (hotelNameEl && hotelWrapEl && hotelWrapEl.classList.contains('is-other-selected')) {
-            reqFields.push({ id: 'bfHotelCustomName', text: T['wa.hotel'] || 'Khách sạn' });
-          }
         }
       }
-    } else {
-      reqFields.push({ id: 'bfHotelName', text: T['wa.hotel'] || 'Khách sạn' });
-      reqFields.push({ id: 'bfHotelAddress', text: T['wa.hotelAddress'] || 'Địa chỉ' });
-      var hotelNameEl = document.getElementById('bfHotelName');
-      var hotelWrapEl = document.getElementById('bfHotelWrap');
-      if (hotelNameEl && hotelWrapEl && hotelWrapEl.classList.contains('is-other-selected')) {
-        reqFields.push({ id: 'bfHotelCustomName', text: T['wa.hotel'] || 'Khách sạn' });
-      }
+    }
+
+    reqFields.push({ id: 'bfHotelName', text: T['wa.hotel'] || 'Khách sạn' });
+    reqFields.push({ id: 'bfHotelAddress', text: T['wa.hotelAddress'] || 'Địa chỉ' });
+    var hotelNameEl = document.getElementById('bfHotelName');
+    var hotelWrapEl = document.getElementById('bfHotelWrap');
+    if (hotelNameEl && hotelWrapEl && hotelWrapEl.classList.contains('is-other-selected')) {
+      reqFields.push({ id: 'bfHotelCustomName', text: T['wa.hotel'] || 'Khách sạn' });
     }
 
     reqFields.forEach(function (f) {
@@ -8788,6 +8776,12 @@
     if (window.__setTransferPickup) window.__setTransferPickup(opts.pickup || '');
     if (window.__setTransferDropoff) window.__setTransferDropoff(opts.dropoff || '');
 
+    /* Ensure Hotel Name & Hotel Address groups are fully visible */
+    var hNameGroup = document.getElementById('bfHotelNameGroup');
+    var hAddrGroup = document.getElementById('bfHotelAddressGroup');
+    if (hNameGroup) hNameGroup.style.display = '';
+    if (hAddrGroup) hAddrGroup.style.display = '';
+
     if (window.__recordModalOpenTime) window.__recordModalOpenTime();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -9226,7 +9220,10 @@
     if (tfCtaBtn) {
       tfCtaBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        openTransferBooking();
+        var fV = tfSearchVal('tfSearchVehicle');
+        var fF = tfSearchVal('tfSearchFrom');
+        var fT = tfSearchVal('tfSearchTo');
+        openTransferBooking({ vehicleId: fV, pickup: fF, dropoff: fT });
       });
     }
 

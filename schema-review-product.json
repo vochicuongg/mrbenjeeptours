@@ -1,40 +1,33 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": "https://mrbenjeeptours.com/#jeep-tour-product",
+  "@id": "https://www.mrbenjeeptours.com/#jeep-tour-product",
   "name": "Tour Xe Jeep Khám Phá Mũi Né – Mr. Ben Jeep Tours",
   "description": "Tour xe Jeep Mũi Né cao cấp: Đón bình minh tại Đồi Cát Trắng, ngắm hoàng hôn Đồi Cát Đỏ, khám phá Làng Chài Mũi Né và Suối Tiên. Hành trình 4 giờ, đưa đón tận nơi tại 250+ khách sạn Mũi Né – Phan Thiết.",
   "image": [
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-do.webp",
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-cam.webp",
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-hong.webp",
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-trang.webp",
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-vang.webp",
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-xanh-duong.webp",
-    "https://mrbenjeeptours.com/assets/images/produtcs/xe-jeep-xanh-luc.webp"
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-do.webp",
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-cam.webp",
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-hong.webp",
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-trang.webp",
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-vang.webp",
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-xanh-duong.webp",
+    "https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-xanh-luc.webp"
   ],
   "brand": {
     "@type": "Brand",
     "name": "Mr. Ben Jeep Tours",
-    "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+    "logo": "https://www.mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
     "sameAs": "https://www.google.com/maps?cid=4592942468307409302"
-  },
-  "provider": {
-    "@type": "TravelAgency",
-    "@id": "https://mrbenjeeptours.com/#travelagency",
-    "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
-    "url": "https://mrbenjeeptours.com/",
-    "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
   },
   "sku": "MRBEN-JEEP-MUINE-01",
   "mpn": "MRBEN-TOUR-2026",
   "category": "Tours & Sightseeing > Jeep Tours",
-  "url": "https://mrbenjeeptours.com/#tours",
+  "url": "https://www.mrbenjeeptours.com/#tours",
   "offers": {
     "@type": "AggregateOffer",
-    "url": "https://mrbenjeeptours.com/#tours",
+    "url": "https://www.mrbenjeeptours.com/#tours",
     "priceCurrency": "VND",
-    "lowPrice": "500000",
+    "lowPrice": "150000",
     "highPrice": "950000",
     "offerCount": "2",
     "availability": "https://schema.org/InStock",
@@ -42,9 +35,9 @@
     "priceValidUntil": "2026-12-31",
     "seller": {
       "@type": "TravelAgency",
-      "@id": "https://mrbenjeeptours.com/#travelagency",
+      "@id": "https://www.mrbenjeeptours.com/#travelagency",
       "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
-      "url": "https://mrbenjeeptours.com/",
+      "url": "https://www.mrbenjeeptours.com/",
       "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
     },
     "offers": [
@@ -55,7 +48,7 @@
         "priceCurrency": "VND",
         "availability": "https://schema.org/InStock",
         "priceValidUntil": "2026-12-31",
-        "url": "https://mrbenjeeptours.com/#tours"
+        "url": "https://www.mrbenjeeptours.com/#tours"
       },
       {
         "@type": "Offer",
@@ -64,7 +57,7 @@
         "priceCurrency": "VND",
         "availability": "https://schema.org/InStock",
         "priceValidUntil": "2026-12-31",
-        "url": "https://mrbenjeeptours.com/#tours"
+        "url": "https://www.mrbenjeeptours.com/#tours"
       }
     ]
   },

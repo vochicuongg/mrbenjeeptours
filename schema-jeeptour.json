@@ -2,17 +2,17 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["TravelAgency", "TourOperator", "LocalBusiness"],
-      "@id": "https://mrbenjeeptours.com/#travelagency",
+      "@type": ["TravelAgency", "LocalBusiness"],
+      "@id": "https://www.mrbenjeeptours.com/#travelagency",
       "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
       "alternateName": [
         "Mr. Ben Jeep Tours",
         "Mr Ben Jeep Tours",
         "Mr. Ben Jeep Tours Mũi Né"
       ],
-      "url": "https://mrbenjeeptours.com/",
-      "logo": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
-      "image": "https://mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+      "url": "https://www.mrbenjeeptours.com/",
+      "logo": "https://www.mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
+      "image": "https://www.mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
       "description": "Dịch vụ tour xe Jeep Mũi Né uy tín – Ngắm bình minh, hoàng hôn tại Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên, Làng Chài. Đưa đón tận nơi tại hơn 100+ khách sạn, resort và homestay.",
       "telephone": "+84913140196",
       "priceRange": "150.000₫ - 3.500.000₫",
@@ -71,7 +71,7 @@
       "makesOffer": {
         "@type": "Offer",
         "itemOffered": {
-          "@id": "https://mrbenjeeptours.com/#touristtrip"
+          "@id": "https://www.mrbenjeeptours.com/#touristtrip"
         }
       },
       "hasOfferCatalog": {
@@ -93,10 +93,10 @@
     },
     {
       "@type": "TouristTrip",
-      "@id": "https://mrbenjeeptours.com/#touristtrip",
+      "@id": "https://www.mrbenjeeptours.com/#touristtrip",
       "name": "Tour Xe Jeep Mũi Né – Ngắm Bình Minh & Hoàng Hôn",
       "description": "Tour xe Jeep khám phá Đồi Cát Trắng, Đồi Cát Đỏ, Suối Tiên và Làng Chài Mũi Né. Đưa đón tận nơi tại hơn 100+ khách sạn, resort, homestay khu vực Mũi Né – Phan Thiết.",
-      "url": "https://mrbenjeeptours.com/#tours",
+      "url": "https://www.mrbenjeeptours.com/#tours",
       "touristType": [
         "Couples",
         "Families",
@@ -105,7 +105,7 @@
         "Adventure Seekers"
       ],
       "provider": {
-        "@id": "https://mrbenjeeptours.com/#travelagency"
+        "@id": "https://www.mrbenjeeptours.com/#travelagency"
       },
       "itinerary": {
         "@type": "ItemList",
@@ -195,12 +195,12 @@
         ]
       },
       "subjectOf": {
-        "@id": "https://mrbenjeeptours.com/#pickup-locations"
+        "@id": "https://www.mrbenjeeptours.com/#pickup-locations"
       }
     },
     {
       "@type": "ItemList",
-      "@id": "https://mrbenjeeptours.com/#pickup-locations",
+      "@id": "https://www.mrbenjeeptours.com/#pickup-locations",
       "name": "Danh sách điểm đón khách – Mr. Ben Jeep Tours Mũi Né",
       "description": "Hơn 100+ khách sạn, resort và homestay tại Mũi Né – Phan Thiết được Mr. Ben Jeep Tours đưa đón tận nơi miễn phí.",
       "numberOfItems": 251,

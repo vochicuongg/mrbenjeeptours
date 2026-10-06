@@ -52,14 +52,9 @@
         content="Dịch vụ Tour Xe Jeep Mũi Né ngắm bình minh &amp; hoàng hôn đồi cát trắng. Xe đưa đón sân bay Tân Sơn Nhất, Cam Ranh 7-16 chỗ uy tín, giá tốt. Đặt xe 24/7!" />
     <meta name="twitter:image" content="https://www.mrbenjeeptours.com/assets/images/produtcs/xe-jeep-cam.webp" />
 
-    <!-- Hreflang Tags for Multi-Language SEO -->
+    <!-- Alternate Language References (x-default & Vietnamese matching canonical URL) -->
     <link rel="alternate" hreflang="x-default" href="https://www.mrbenjeeptours.com/" />
-    <link rel="alternate" hreflang="vi" href="https://www.mrbenjeeptours.com/?lang=vi" />
-    <link rel="alternate" hreflang="en" href="https://www.mrbenjeeptours.com/?lang=en" />
-    <link rel="alternate" hreflang="ru" href="https://www.mrbenjeeptours.com/?lang=ru" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://www.mrbenjeeptours.com/?lang=zh" />
-    <link rel="alternate" hreflang="ko" href="https://www.mrbenjeeptours.com/?lang=ko" />
-    <link rel="alternate" hreflang="de" href="https://www.mrbenjeeptours.com/?lang=de" />
+    <link rel="alternate" hreflang="vi" href="https://www.mrbenjeeptours.com/" />
 
     <!-- Structured Data for Google Site Name & Logo -->
     <script type="application/ld+json">
@@ -78,11 +73,11 @@
     }
     </script>
 
-    <!-- Structured Data for TravelAgency, TourOperator & LocalBusiness (NAP & Entity Reconciliation) -->
+    <!-- Structured Data for TravelAgency & LocalBusiness (NAP & Entity Reconciliation) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["TravelAgency", "TourOperator", "LocalBusiness"],
+      "@type": ["TravelAgency", "LocalBusiness"],
       "@id": "https://www.mrbenjeeptours.com/#travelagency",
       "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
       "alternateName": [
@@ -129,7 +124,7 @@
       },
       "sameAs": [
         "https://www.google.com/maps?cid=4592942468307409302",
-        "https://web.facebook.com/binh.jeep",
+        "https://www.facebook.com/binh.jeep",
         "https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html",
         "https://zalo.me/84913140196",
         "https://www.tiktok.com/@mr.ben.jeep.tour"
@@ -164,14 +159,6 @@
           "name": "Cam Ranh"
         }
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "128",
-        "reviewCount": "128"
-      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Dịch vụ Tour Xe Jeep & Xe Đưa Đón 24/7 Mr. Ben",
@@ -267,13 +254,6 @@
         "logo": "https://www.mrbenjeeptours.com/assets/images/logo/logo-mr.ben.webp",
         "sameAs": "https://www.google.com/maps?cid=4592942468307409302"
       },
-      "provider": {
-        "@type": "TravelAgency",
-        "@id": "https://www.mrbenjeeptours.com/#travelagency",
-        "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury",
-        "url": "https://www.mrbenjeeptours.com/",
-        "hasMap": "https://www.google.com/maps?cid=4592942468307409302"
-      },
       "sku": "MRBEN-JEEP-MUINE-01",
       "mpn": "MRBEN-TOUR-2026",
       "category": "Tours & Sightseeing > Jeep Tours",
@@ -282,7 +262,7 @@
         "@type": "AggregateOffer",
         "url": "https://www.mrbenjeeptours.com/#tours",
         "priceCurrency": "VND",
-        "lowPrice": "500000",
+        "lowPrice": "150000",
         "highPrice": "950000",
         "offerCount": "2",
         "availability": "https://schema.org/InStock",
@@ -363,9 +343,11 @@
       "alternateName": ["Mr. Ben Private Car Transfer", "Xe Riêng Mr. Ben Mũi Né"],
       "description": "Dịch vụ xe riêng đưa đón sân bay và liên tỉnh: Mũi Né – TP.HCM (Tân Sơn Nhất), Mũi Né – Nha Trang, Nha Trang – TP.HCM. Xe 7 chỗ và xe 16 chỗ, tài xế chuyên nghiệp, đón tận nơi phục vụ 24/7.",
       "url": "https://www.mrbenjeeptours.com/#transfer",
+      "serviceType": "Dịch vụ xe riêng đưa đón sân bay & liên tỉnh",
       "provider": {
         "@type": "TravelAgency",
-        "@id": "https://www.mrbenjeeptours.com/#travelagency"
+        "@id": "https://www.mrbenjeeptours.com/#travelagency",
+        "name": "Mr. Ben Jeep Tours Mũi Né - Booking Jeep Tours Luxury"
       },
       "areaServed": [
         {"@type": "City", "name": "Phan Thiết"},
@@ -384,7 +366,8 @@
             "price": "1750000",
             "priceCurrency": "VND",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2026-12-31"
+            "priceValidUntil": "2026-12-31",
+            "url": "https://www.mrbenjeeptours.com/#transfer"
           },
           {
             "@type": "Offer",
@@ -392,7 +375,8 @@
             "price": "1750000",
             "priceCurrency": "VND",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2026-12-31"
+            "priceValidUntil": "2026-12-31",
+            "url": "https://www.mrbenjeeptours.com/#transfer"
           },
           {
             "@type": "Offer",
@@ -400,7 +384,8 @@
             "price": "3500000",
             "priceCurrency": "VND",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2026-12-31"
+            "priceValidUntil": "2026-12-31",
+            "url": "https://www.mrbenjeeptours.com/#transfer"
           },
           {
             "@type": "Offer",
@@ -408,7 +393,8 @@
             "price": "5300000",
             "priceCurrency": "VND",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2026-12-31"
+            "priceValidUntil": "2026-12-31",
+            "url": "https://www.mrbenjeeptours.com/#transfer"
           }
         ]
       }
@@ -546,7 +532,7 @@
     </noscript>
 
     <!-- Main Stylesheet (Critical) -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
 </head>
 
 <body>
@@ -1433,7 +1419,7 @@
                     landscapes of Mũi Né and Phan Thiết, Vietnam.</p>
                 <div class="social-links">
                     <a href="https://www.tripadvisor.com/Attraction_Review-g298086-d34263740-Reviews-Mr_Ben_Jeep_Tours_Mui_Ne-Phan_Thiet_Binh_Thuan_Province.html"
-                        target="_blank" aria-label="Tripadvisor"><span class="fa-icon-wrapper"
+                        target="_blank" rel="nofollow noopener noreferrer" aria-label="Tripadvisor"><span class="fa-icon-wrapper"
                             style="display: inline-flex; align-items: center; justify-content: center; width: 1em; height: 1em;"><svg
                                 fill="currentColor" width="1em" height="1em" style="display: block;" role="img"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1441,13 +1427,13 @@
                                 <path
                                     d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 0 0 4.04 10.43 5.976 5.976 0 0 0 4.075-1.6L12 19.705l1.922-2.09a5.972 5.972 0 0 0 4.072 1.598 6 6 0 0 0 6-5.998 5.982 5.982 0 0 0-1.957-4.432L24 6.648h-4.35a13.573 13.573 0 0 0-7.644-2.353zM12 6.255c1.531 0 3.063.303 4.504.903C13.943 8.138 12 10.43 12 13.1c0-2.671-1.942-4.962-4.504-5.942A11.72 11.72 0 0 1 12 6.256zM6.002 9.157a4.059 4.059 0 1 1 0 8.118 4.059 4.059 0 0 1 0-8.118zm11.992.002a4.057 4.057 0 1 1 .003 8.115 4.057 4.057 0 0 1-.003-8.115zm-11.992 1.93a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256zm11.992 0a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256z" />
                             </svg></span></a>
-                    <a href="https://web.facebook.com/binh.jeep" target="_blank" aria-label="Facebook"><i
+                    <a href="https://www.facebook.com/binh.jeep" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i
                             class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@mr.ben.jeep.tour" target="_blank" aria-label="TikTok"><i
+                    <a href="https://www.tiktok.com/@mr.ben.jeep.tour" target="_blank" rel="nofollow noopener noreferrer" aria-label="TikTok"><i
                             class="fab fa-tiktok"></i></a>
-                    <a href="https://wa.me/84913140196" target="_blank" aria-label="WhatsApp"><i
+                    <a href="https://wa.me/84913140196" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i
                             class="fab fa-whatsapp"></i></a>
-                    <a href="https://zalo.me/84913140196" target="_blank" aria-label="Zalo"><span
+                    <a href="https://zalo.me/84913140196" target="_blank" rel="nofollow noopener noreferrer" aria-label="Zalo"><span
                             class="zalo-iconn">Z</span></a>
                 </div>
             </div>
@@ -1708,8 +1694,7 @@
 
                 <!-- Hotel Name -->
                 <div class="bf-group" id="bfHotelNameGroup">
-                    <label class="bf-label" for="bfHotelName" data-i18n="booking.labelHotel">Tên Khách Sạn /
-                        Resort</label>
+                    <label class="bf-label" for="bfHotelName" data-i18n="booking.labelHotel">Tên Khách Sạn/Resort</label>
                     <div class="bf-hotel-wrap" id="bfHotelWrap">
                         <div class="bf-hotel-input-row">
                             <i class="fas fa-hotel bf-hotel-icon"></i>
@@ -1733,8 +1718,7 @@
 
                 <!-- Hotel Address -->
                 <div class="bf-group" id="bfHotelAddressGroup">
-                    <label class="bf-label" for="bfHotelAddress" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn
-                        / Resort</label>
+                    <label class="bf-label" for="bfHotelAddress" data-i18n="booking.labelHotelAddress">Địa Chỉ Khách Sạn/Resort</label>
                     <div class="bf-hotel-wrap" id="bfHotelAddressWrap">
                         <div class="bf-hotel-input-row" style="position: relative;">
                             <i class="fas fa-map-marker-alt bf-hotel-icon"></i>
@@ -2055,7 +2039,7 @@
         </div>
     </div><!-- /#bookingOverlay -->
 
-    <script src="js/script.js"></script>
+    <script src="js/script.min.js"></script>
 </body>
 
 </html>
