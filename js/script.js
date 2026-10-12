@@ -171,6 +171,8 @@
       'booking.confirmDesc': 'Đơn hàng của bạn sẽ được gửi sau:',
       'booking.confirmEdit': 'Chỉnh Sửa',
       'booking.confirmSendNow': 'Gửi Ngay',
+      'booking.confirmCallNow': 'Gọi Ngay',
+      'booking.connectingCall': 'Đang kết nối cuộc gọi...',
       'cal.sun': 'CN', 'cal.mon': 'T2', 'cal.tue': 'T3', 'cal.wed': 'T4', 'cal.thu': 'T5', 'cal.fri': 'T6', 'cal.sat': 'T7',
       'booking.labelHotel': 'Tên Khách Sạn/Resort',
       'booking.placeholderHotel': 'Tìm tên khách sạn/resort...',
@@ -474,6 +476,8 @@
       'booking.confirmDesc': 'Your message will be sent in:',
       'booking.confirmEdit': 'Edit',
       'booking.confirmSendNow': 'Send Now',
+      'booking.confirmCallNow': 'Call Now',
+      'booking.connectingCall': 'Connecting call...',
       'cal.sun': 'Su', 'cal.mon': 'Mo', 'cal.tue': 'Tu', 'cal.wed': 'We', 'cal.thu': 'Th', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
       'booking.labelHotel': 'Hotel/Resort Name',
       'booking.placeholderHotel': 'Search hotel/resort name...',
@@ -775,6 +779,8 @@
       'booking.confirmDesc': 'Ваше сообщение будет отправлено через:',
       'booking.confirmEdit': 'Изменить',
       'booking.confirmSendNow': 'Отправить',
+      'booking.confirmCallNow': 'Позвонить',
+      'booking.connectingCall': 'Соединение...',
       'cal.sun': 'Вс', 'cal.mon': 'Пн', 'cal.tue': 'Вт', 'cal.wed': 'Ср', 'cal.thu': 'Чт', 'cal.fri': 'Пт', 'cal.sat': 'Сб',
       'booking.labelHotel': 'Название Отеля/Курорта',
       'booking.placeholderHotel': 'Поиск отеля/курорта...',
@@ -1077,6 +1083,8 @@
       'booking.confirmDesc': '您的消息将在以下时间发送：',
       'booking.confirmEdit': '编辑',
       'booking.confirmSendNow': '立即发送',
+      'booking.confirmCallNow': '立即呼叫',
+      'booking.connectingCall': '正在接通电话...',
       'cal.sun': '日', 'cal.mon': '一', 'cal.tue': '二', 'cal.wed': '三', 'cal.thu': '四', 'cal.fri': '五', 'cal.sat': '六',
       'booking.labelHotel': '酒店/度假村名称',
       'booking.placeholderHotel': '搜索酒店/度假村名称...',
@@ -1379,6 +1387,8 @@
       'booking.confirmDesc': '메시지가 다음 시간 후 전송됩니다:',
       'booking.confirmEdit': '수정',
       'booking.confirmSendNow': '지금 전송',
+      'booking.confirmCallNow': '지금 통화',
+      'booking.connectingCall': '전화 연결 중...',
       'cal.sun': '일', 'cal.mon': '월', 'cal.tue': '화', 'cal.wed': '수', 'cal.thu': '목', 'cal.fri': '금', 'cal.sat': '토',
       'booking.labelHotel': '호텔/리조트 이름',
       'booking.placeholderHotel': '호텔/리조트 이름 검색...',
@@ -1681,6 +1691,8 @@
       'booking.confirmDesc': 'Ihre Nachricht wird gesendet in:',
       'booking.confirmEdit': 'Bearbeiten',
       'booking.confirmSendNow': 'Jetzt Senden',
+      'booking.confirmCallNow': 'Jetzt Anrufen',
+      'booking.connectingCall': 'Verbindung wird hergestellt...',
       'cal.sun': 'So', 'cal.mon': 'Mo', 'cal.tue': 'Di', 'cal.wed': 'Mi', 'cal.thu': 'Do', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
       'booking.labelHotel': 'Hotel/Resort Name',
       'booking.placeholderHotel': 'Hotel/Resortname suchen...',
@@ -5674,6 +5686,40 @@
   var pendingPlatform = null;
   var pendingLink = '';
 
+  function resetSendButtonText() {
+    if (!btnSendNow) return;
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    var label = T['booking.confirmSendNow'] || (lang === 'vi' ? 'Gửi luôn' : 'Send Now');
+    btnSendNow.innerHTML = '<span data-i18n="booking.confirmSendNow">' + label + '</span>&nbsp;(<span id="bfCountdownNum">30</span>s)';
+    confirmNum = document.getElementById('bfCountdownNum');
+  }
+
+  function triggerPhoneCall(telUri) {
+    if (!telUri) return;
+
+    // Tương thích tối ưu cả iOS (Safari, WebKit) và Android:
+    // 1. Giả lập click thẻ <a> ẩn (tương thích in-app webview và iOS Safari)
+    var a = document.createElement('a');
+    a.href = telUri;
+    a.rel = 'noopener';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      if (a.parentNode) {
+        a.parentNode.removeChild(a);
+      }
+    }, 500);
+
+    // 2. Kích hoạt trực tiếp window.location.href (chuẩn cho Android Chrome & iOS Safari)
+    try {
+      window.location.href = telUri;
+    } catch (e) {
+      console.warn('Lỗi kích hoạt cuộc gọi qua location.href:', e);
+    }
+  }
+
   function openConfirmModal(platform) {
     if (!confirmModal) return;
     pendingPlatform = platform;
@@ -5687,6 +5733,34 @@
       var zObj = { act: "WA", oa: "84913140196", ext: "txt", text: plainMsg };
       var state = encodeURIComponent(JSON.stringify(zObj));
       pendingLink = 'https://zalo.me/84913140196?state=' + state;
+    } else if (platform === 'call') {
+      var callEl = document.getElementById('bfCall') || document.querySelector('.bf-btn-call');
+      pendingLink = (callEl && callEl.getAttribute('href')) ? callEl.getAttribute('href') : 'tel:0913140196';
+    }
+
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+
+    // Cập nhật tiêu đề bảng xác nhận (Tour hoặc Xe đưa đón)
+    var confirmTitleEl = confirmModal.querySelector('.bf-confirm-header h3');
+    if (confirmTitleEl) {
+      var isTransfer = (window.__bookingMode === 'transfer' || isTransferBooking());
+      if (lang === 'vi') {
+        confirmTitleEl.textContent = isTransfer ? 'Xác Nhận Đặt Xe' : 'Xác Nhận Đặt Tour';
+      } else {
+        confirmTitleEl.textContent = T['booking.confirmTitle'] || 'Confirm Booking';
+      }
+    }
+
+    // Cập nhật nút xác nhận (Gọi Ngay vs Gửi Luôn)
+    if (btnSendNow) {
+      var isCall = (platform === 'call');
+      var label = isCall
+        ? (T['booking.confirmCallNow'] || (lang === 'vi' ? 'Gọi ngay' : 'Call Now'))
+        : (T['booking.confirmSendNow'] || (lang === 'vi' ? 'Gửi luôn' : 'Send Now'));
+      var i18nKey = isCall ? 'booking.confirmCallNow' : 'booking.confirmSendNow';
+      btnSendNow.innerHTML = '<span data-i18n="' + i18nKey + '">' + label + '</span>&nbsp;(<span id="bfCountdownNum">30</span>s)';
+      confirmNum = document.getElementById('bfCountdownNum');
     }
 
     // Inject List Data
@@ -5723,6 +5797,7 @@
     }
     pendingPlatform = null;
     pendingLink = '';
+    resetSendButtonText();
   }
 
   function executeSend() {
@@ -5736,7 +5811,12 @@
     if (btnSendNow) {
       btnSendNow.disabled = true;
       btnSendNow.classList.add('is-loading');
-      btnSendNow.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + getSecurityMessage('sending');
+      var lang = localStorage.getItem('mrben-lang') || 'vi';
+      var T = (window.__MRB_TRANS || {})[lang] || {};
+      var loadingText = (pendingPlatform === 'call')
+        ? (T['booking.connectingCall'] || (lang === 'vi' ? 'Đang kết nối cuộc gọi...' : 'Connecting...'))
+        : getSecurityMessage('sending');
+      btnSendNow.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + loadingText;
     }
 
     _isBookingSubmitting = true;
@@ -5749,10 +5829,19 @@
         var c = collectCommonFields();
         recordBookingSuccess(c.fullPhone);
 
-        var a = document.createElement('a');
-        a.href = pendingLink;
-        a.target = '_blank';
-        a.click();
+        if (pendingPlatform === 'call' || pendingLink.indexOf('tel:') === 0) {
+          triggerPhoneCall(pendingLink);
+        } else {
+          var a = document.createElement('a');
+          a.href = pendingLink;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function () {
+            if (a.parentNode) a.parentNode.removeChild(a);
+          }, 1000);
+        }
 
         // Clear form after successful send
         setTimeout(function () {
@@ -5769,7 +5858,7 @@
         if (btnSendNow) {
           btnSendNow.disabled = false;
           btnSendNow.classList.remove('is-loading');
-          btnSendNow.innerHTML = '<span data-i18n="booking.confirmSendNow">Gửi luôn</span>&nbsp;(<span id="bfCountdownNum">30</span>s)';
+          resetSendButtonText();
         }
       }, 2500);
     }
@@ -6064,35 +6153,14 @@
     });
   }
 
-  var btnCall = document.querySelector('.bf-btn-call');
-  if (btnCall) {
+  var btnCalls = document.querySelectorAll('.bf-btn-call, #bfCall');
+  btnCalls.forEach(function (btnCall) {
     btnCall.addEventListener('click', function (e) {
       e.preventDefault();
       if (_isBookingSubmitting) return;
-
-      if (validateBookingForm()) {
-        _isBookingSubmitting = true;
-        try {
-          sendToTelegram();
-          var c = collectCommonFields();
-          recordBookingSuccess(c.fullPhone);
-
-          // Open the tel: link
-          window.location.href = btnCall.getAttribute('href');
-          // Clear form after successful send
-          setTimeout(function () {
-            resetBookingForm();
-          }, 500);
-          // Show thank-you modal
-          openThankModal();
-        } finally {
-          setTimeout(function () {
-            _isBookingSubmitting = false;
-          }, 2500);
-        }
-      }
+      if (validateBookingForm()) openConfirmModal('call');
     });
-  }
+  });
 
 })();
 
