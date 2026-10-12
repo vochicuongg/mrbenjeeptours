@@ -4537,12 +4537,36 @@ button {
 .goldx {
     background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
     border: none;
-    color: #1A0A02;
+    color: #1A0A02 !important;
+    text-decoration: none;
 }
 
 .goldx:hover {
     filter: brightness(1.1);
     transform: translateY(-1px);
+    color: #1A0A02 !important;
+    text-decoration: none;
+}
+
+@keyframes btnPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(212, 175, 55, 0);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+        transform: scale(1);
+    }
+}
+
+.bf-btn-pulse {
+    animation: btnPulse 1.6s infinite ease-in-out !important;
 }
 
 #bfCountdownNum {
@@ -7769,24 +7793,56 @@ button {
     font-family: var(--font-sans);
 }
 
-.bf-thank-close-btn {
+.bf-thank-call-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
-    color: #1A0A02;
-    border: none;
-    padding: 12px 40px;
+    color: #1A0A02 !important;
+    text-decoration: none;
+    padding: 12px 28px;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
+    font-family: var(--font-sans);
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+    width: 100%;
+    max-width: 290px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bf-thank-call-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 26px rgba(212, 175, 55, 0.45);
+    color: #1A0A02 !important;
+}
+
+.bf-thank-call-btn:active {
+    transform: translateY(0);
+}
+
+.bf-thank-close-btn {
+    background: transparent;
+    color: var(--color-gold);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    padding: 10px 36px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
     cursor: pointer;
     font-family: var(--font-sans);
     transition: all 0.2s ease;
-    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.35);
 }
 
 .bf-thank-close-btn:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--color-gold);
+    color: #fff;
 }
 
 .bf-thank-close-btn:active {
@@ -7829,12 +7885,19 @@ button {
 
     .bf-thank-message {
         font-size: 0.88rem;
-        margin-bottom: 22px;
+        margin-bottom: 20px;
+    }
+
+    .bf-thank-call-btn {
+        padding: 10px 18px;
+        font-size: 0.88rem;
+        max-width: 100%;
+        margin-bottom: 10px;
     }
 
     .bf-thank-close-btn {
-        padding: 10px 32px;
-        font-size: 0.92rem;
+        padding: 8px 28px;
+        font-size: 0.86rem;
     }
 }
 

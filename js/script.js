@@ -211,6 +211,7 @@
       'wa.footer': 'Mong bạn hãy liên lạc sớm cho tôi nhé.',
       'booking.thankTitle': 'Cảm Ơn Bạn! 🎉',
       'booking.thankMessage': 'Cảm ơn bạn đã đặt tour Jeep với Mr. Ben! Chúng tôi sẽ liên hệ lại với bạn sớm nhất để xác nhận chuyến đi. Chúc bạn có một chuyến phiêu lưu tuyệt vời!',
+      'booking.callHotline': 'Gọi Hotline: 0913 140 196',
       'booking.thankClose': 'Đóng',
       'booking.hotelOther': 'Khách sạn khác',
       'booking.hotelSearchPlaceholder': 'Tìm kiếm...',
@@ -516,6 +517,7 @@
       'wa.footer': 'Please contact me soon.',
       'booking.thankTitle': 'Thank You! 🎉',
       'booking.thankMessage': 'Thank you for booking a Jeep tour with Mr. Ben! We will contact you shortly to confirm your trip. Wishing you an amazing adventure!',
+      'booking.callHotline': 'Call Hotline: +84 913 140 196',
       'booking.thankClose': 'Close',
       'booking.hotelOther': 'Other hotel',
       'booking.hotelSearchPlaceholder': 'Search...',
@@ -820,6 +822,7 @@
       'wa.footer': 'Пожалуйста, свяжитесь со мной в ближайшее время.',
       'booking.thankTitle': 'Спасибо! 🎉',
       'booking.thankMessage': 'Спасибо за бронирование джип-тура с Mr. Ben! Мы свяжемся с вами в ближайшее время для подтверждения поездки. Желаем вам незабываемого приключения!',
+      'booking.callHotline': 'Горячая линия: +84 913 140 196',
       'booking.thankClose': 'Закрыть',
       'booking.hotelOther': 'Другой отель',
       'booking.hotelSearchPlaceholder': 'Поиск...',
@@ -1124,6 +1127,7 @@
       'wa.footer': '请尽快与我联系。',
       'booking.thankTitle': '谢谢您！🎉',
       'booking.thankMessage': '感谢您预订 Mr. Ben 的吉普车之旅！我们将尽快与您联系确认行程。祝您旅途愉快！',
+      'booking.callHotline': '热线电话: +84 913 140 196',
       'booking.thankClose': '关闭',
       'booking.hotelOther': '其他酒店',
       'booking.hotelSearchPlaceholder': '搜索...',
@@ -1428,6 +1432,7 @@
       'wa.footer': '빠른 연락 부탁드립니다.',
       'booking.thankTitle': '감사합니다! 🎉',
       'booking.thankMessage': 'Mr. Ben 지프 투어를 예약해 주셔서 감사합니다! 곧 연락드려 여행을 확인해 드리겠습니다. 멋진 모험이 되시길 바랍니다!',
+      'booking.callHotline': '직통 전화: +84 913 140 196',
       'booking.thankClose': '닫기',
       'booking.hotelOther': '기타 호텔',
       'booking.hotelSearchPlaceholder': '검색...',
@@ -1732,6 +1737,7 @@
       'wa.footer': 'Bitte kontaktieren Sie mich bald.',
       'booking.thankTitle': 'Vielen Dank! 🎉',
       'booking.thankMessage': 'Vielen Dank für Ihre Buchung einer Jeep-Tour mit Mr. Ben! Wir werden uns in Kürze bei Ihnen melden, um Ihre Reise zu bestätigen. Wir wünschen Ihnen ein tolles Abenteuer!',
+      'booking.callHotline': 'Hotline anrufen: +84 913 140 196',
       'booking.thankClose': 'Schließen',
       'booking.hotelOther': 'Anderes Hotel',
       'booking.hotelSearchPlaceholder': 'Suchen...',
@@ -5691,30 +5697,19 @@
     var lang = localStorage.getItem('mrben-lang') || 'vi';
     var T = (window.__MRB_TRANS || {})[lang] || {};
     var label = T['booking.confirmSendNow'] || (lang === 'vi' ? 'Gửi luôn' : 'Send Now');
+    btnSendNow.classList.remove('bf-btn-pulse', 'is-loading');
     btnSendNow.innerHTML = '<span data-i18n="booking.confirmSendNow">' + label + '</span>&nbsp;(<span id="bfCountdownNum">30</span>s)';
     confirmNum = document.getElementById('bfCountdownNum');
   }
 
   function triggerPhoneCall(telUri) {
     if (!telUri) return;
+    var cleanUri = telUri;
+    if (cleanUri.indexOf('tel:') !== 0) cleanUri = 'tel:' + cleanUri;
 
-    // Tương thích tối ưu cả iOS (Safari, WebKit) và Android:
-    // 1. Giả lập click thẻ <a> ẩn (tương thích in-app webview và iOS Safari)
-    var a = document.createElement('a');
-    a.href = telUri;
-    a.rel = 'noopener';
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function () {
-      if (a.parentNode) {
-        a.parentNode.removeChild(a);
-      }
-    }, 500);
-
-    // 2. Kích hoạt trực tiếp window.location.href (chuẩn cho Android Chrome & iOS Safari)
+    // Chuẩn kích hoạt qua location.href (tương thích iOS Safari & Android)
     try {
-      window.location.href = telUri;
+      window.location.href = cleanUri;
     } catch (e) {
       console.warn('Lỗi kích hoạt cuộc gọi qua location.href:', e);
     }
@@ -5734,8 +5729,7 @@
       var state = encodeURIComponent(JSON.stringify(zObj));
       pendingLink = 'https://zalo.me/84913140196?state=' + state;
     } else if (platform === 'call') {
-      var callEl = document.getElementById('bfCall') || document.querySelector('.bf-btn-call');
-      pendingLink = (callEl && callEl.getAttribute('href')) ? callEl.getAttribute('href') : 'tel:0913140196';
+      pendingLink = 'tel:+84913140196';
     }
 
     var lang = localStorage.getItem('mrben-lang') || 'vi';
@@ -5752,9 +5746,23 @@
       }
     }
 
-    // Cập nhật nút xác nhận (Gọi Ngay vs Gửi Luôn)
+    // Cập nhật nút xác nhận (Gọi Ngay vs Gửi Luôn) & thuộc tính href cho thẻ <a>
     if (btnSendNow) {
       var isCall = (platform === 'call');
+      btnSendNow.classList.remove('bf-btn-pulse', 'is-loading');
+
+      if (isCall) {
+        btnSendNow.href = 'tel:+84913140196';
+        btnSendNow.setAttribute('href', 'tel:+84913140196');
+        btnSendNow.removeAttribute('target');
+        btnSendNow.setAttribute('rel', 'noopener');
+      } else {
+        btnSendNow.href = pendingLink;
+        btnSendNow.setAttribute('href', pendingLink);
+        btnSendNow.setAttribute('target', '_blank');
+        btnSendNow.setAttribute('rel', 'noopener noreferrer');
+      }
+
       var label = isCall
         ? (T['booking.confirmCallNow'] || (lang === 'vi' ? 'Gọi ngay' : 'Call Now'))
         : (T['booking.confirmSendNow'] || (lang === 'vi' ? 'Gửi luôn' : 'Send Now'));
@@ -5786,7 +5794,27 @@
     confirmTimer = setInterval(function () {
       countdownSecs--;
       if (confirmNum) confirmNum.textContent = countdownSecs;
-      if (countdownSecs <= 0) { clearInterval(confirmTimer); executeSend(); }
+      if (countdownSecs <= 0) {
+        clearInterval(confirmTimer);
+        if (pendingPlatform === 'call') {
+          // Gửi trước thông tin đơn đặt lịch vào Telegram cho Mr. Ben
+          sendToTelegram();
+          var c = collectCommonFields();
+          recordBookingSuccess(c.fullPhone);
+
+          // Trên iOS/WebKit, trình duyệt chặn cuộc gọi tự động từ timer không có tương tác người dùng.
+          // Ta chuyển nút sang trạng thái Nhấn Gọi Ngay nổi bật với animation pulse
+          if (btnSendNow) {
+            btnSendNow.classList.add('bf-btn-pulse');
+            var callPrompt = T['booking.confirmCallNow'] || (lang === 'vi' ? 'Nhấn để Gọi Ngay' : 'Tap to Call Now');
+            btnSendNow.innerHTML = '<i class="fas fa-phone-alt"></i> ' + callPrompt + ': 0913 140 196';
+            btnSendNow.href = 'tel:+84913140196';
+            btnSendNow.setAttribute('href', 'tel:+84913140196');
+          }
+        } else {
+          executeSend();
+        }
+      }
     }, 1000);
   }
 
@@ -5795,25 +5823,30 @@
     if (confirmModal) {
       confirmModal.classList.remove('open');
     }
+    if (btnSendNow) {
+      btnSendNow.classList.remove('bf-btn-pulse', 'is-loading');
+    }
     pendingPlatform = null;
     pendingLink = '';
     resetSendButtonText();
   }
 
-  function executeSend() {
+  function executeSend(e) {
     if (_isBookingSubmitting) {
+      if (e && e.preventDefault) e.preventDefault();
       console.warn('[Security Guard] Yêu cầu đang được xử lý, bỏ qua click trùng lặp.');
       return;
     }
 
     clearInterval(confirmTimer);
+    var lang = localStorage.getItem('mrben-lang') || 'vi';
+    var T = (window.__MRB_TRANS || {})[lang] || {};
+    var isCall = (pendingPlatform === 'call' || (pendingLink && pendingLink.indexOf('tel:') === 0));
 
     if (btnSendNow) {
-      btnSendNow.disabled = true;
+      btnSendNow.classList.remove('bf-btn-pulse');
       btnSendNow.classList.add('is-loading');
-      var lang = localStorage.getItem('mrben-lang') || 'vi';
-      var T = (window.__MRB_TRANS || {})[lang] || {};
-      var loadingText = (pendingPlatform === 'call')
+      var loadingText = isCall
         ? (T['booking.connectingCall'] || (lang === 'vi' ? 'Đang kết nối cuộc gọi...' : 'Connecting...'))
         : getSecurityMessage('sending');
       btnSendNow.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + loadingText;
@@ -5823,15 +5856,37 @@
 
     try {
       if (pendingLink) {
+        // Gửi tức thì thông tin đặt tour/xe qua Telegram bot
         sendToTelegram();
 
         // Ghi nhận cooldown vào sessionStorage
         var c = collectCommonFields();
         recordBookingSuccess(c.fullPhone);
 
-        if (pendingPlatform === 'call' || pendingLink.indexOf('tel:') === 0) {
-          triggerPhoneCall(pendingLink);
+        if (isCall) {
+          // XỬ LÝ GỌI ĐIỆN TƯƠNG THÍCH HOÀN TOÀN IOS & ANDROID:
+          // Nếu có sự kiện click thực tế từ người dùng trên thẻ <a>, KHÔNG gọi e.preventDefault()
+          // để iOS Safari xử lý mở ứng dụng Điện thoại một cách tự nhiên nhất (hiển thị popup Gọi số...).
+          // Nếu được gọi từ script/timer không có event, dùng triggerPhoneCall fallback.
+          if (!e || !e.type) {
+            triggerPhoneCall(pendingLink);
+          }
+
+          // Chờ 800ms để trình quay số hệ thống mở an toàn trước khi chuyển sang Thank Modal
+          setTimeout(function () {
+            closeConfirmModal();
+            openThankModal();
+            resetBookingForm();
+            _isBookingSubmitting = false;
+            if (btnSendNow) {
+              btnSendNow.classList.remove('is-loading');
+              resetSendButtonText();
+            }
+          }, 800);
+          return;
         } else {
+          // WhatsApp / Zalo
+          if (e && e.preventDefault) e.preventDefault();
           var a = document.createElement('a');
           a.href = pendingLink;
           a.target = '_blank';
@@ -5841,26 +5896,25 @@
           setTimeout(function () {
             if (a.parentNode) a.parentNode.removeChild(a);
           }, 1000);
-        }
 
-        // Clear form after successful send
-        setTimeout(function () {
-          resetBookingForm();
-        }, 500);
+          setTimeout(function () {
+            resetBookingForm();
+          }, 500);
+        }
       }
     } finally {
-      closeConfirmModal();
-      // Show thank-you modal after sending
-      openThankModal();
+      if (!isCall) {
+        closeConfirmModal();
+        openThankModal();
 
-      setTimeout(function () {
-        _isBookingSubmitting = false;
-        if (btnSendNow) {
-          btnSendNow.disabled = false;
-          btnSendNow.classList.remove('is-loading');
-          resetSendButtonText();
-        }
-      }, 2500);
+        setTimeout(function () {
+          _isBookingSubmitting = false;
+          if (btnSendNow) {
+            btnSendNow.classList.remove('is-loading');
+            resetSendButtonText();
+          }
+        }, 2500);
+      }
     }
   }
 
