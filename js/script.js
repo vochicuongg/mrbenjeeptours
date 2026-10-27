@@ -7445,7 +7445,7 @@
     { name: '3B MAISON Homestay & Villa', address: '124 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Adachi Homestay Phan Thiết', address: '86/3 Nguyễn Công Hoan, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Allezboo Beach Resort', address: '8 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'A L Y S S A Seaside Muine', address: '316 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'A L Y S S A Seaside Muine', address: '246 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ananda Resort', address: '148 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Anantara Mui Ne Resort', address: '12A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Anh Hien Hotel', address: '81A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
