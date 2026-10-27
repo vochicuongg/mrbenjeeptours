@@ -1,27 +1,9 @@
-﻿/* ============================================================
-   MR. BEN JEEP TOURS – script.js
-   Navbar scroll · Mobile menu · Back-to-top · Language switcher
+/* ============================================================
+   i18n TRANSLATIONS
    ============================================================ */
-
 (function () {
   'use strict';
 
-  /* ─── Element References ──────────────────────────────────── */
-  const navbar = document.getElementById('navbar');
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const backToTop = document.getElementById('backToTop');
-  const allNavLinks = document.querySelectorAll('.nav-link');
-
-  /* Language switcher elements */
-  const langBtn = document.getElementById('langBtn');
-  const langDropdown = document.getElementById('langDropdown');
-  const langArrow = document.getElementById('langArrow');
-  const langFlagActive = document.getElementById('langFlagActive');
-  const langCodeActive = document.getElementById('langCodeActive');
-  const langOptions = document.querySelectorAll('.lang-option');
-
-  /* ─── i18n Translations ───────────────────────────────────── */
   const TRANSLATIONS = {
     vi: {
       '_meta.title': 'Mr. Ben Jeep Tours Mũi Né | Tour Xe Jeep & Xe Đưa Đón 24/7',
@@ -1858,6 +1840,24 @@
 
   };
   window.__MRB_TRANS = TRANSLATIONS; // expose for other IIFEs
+})();
+
+
+/* ============================================================
+   i18n LANGUAGE SWITCHER & AUTO-DETECTION
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const TRANSLATIONS = window.__MRB_TRANS || {};
+
+  /* Language switcher elements */
+  const langBtn = document.getElementById('langBtn');
+  const langDropdown = document.getElementById('langDropdown');
+  const langArrow = document.getElementById('langArrow');
+  const langFlagActive = document.getElementById('langFlagActive');
+  const langCodeActive = document.getElementById('langCodeActive');
+  const langOptions = document.querySelectorAll('.lang-option');
 
   /* ─── Apply translations ──────────────────────────────────── */
   let currentLang = localStorage.getItem('mrben-lang') || 'vi';
@@ -1958,7 +1958,12 @@
 
   /* Escape key closes dropdown */
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { closeLang(); closeMenu(); }
+    if (e.key === 'Escape') {
+      closeLang();
+      if (typeof window.__mrbCloseMenu === 'function') {
+        window.__mrbCloseMenu();
+      }
+    }
   });
 
   /* Restore saved language or auto-detect from device/browser settings */
@@ -2030,6 +2035,22 @@
     /* Notify components to sync with initial language (e.g. phone code dropdown) */
     document.dispatchEvent(new CustomEvent('mrben-langchange', { detail: { lang: currentLang } }));
   })();
+})();
+
+
+/* ============================================================
+   NAVBAR & NAVIGATION
+   Navbar scroll · Mobile menu · Back-to-top · Active links
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ─── Element References ──────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const backToTop = document.getElementById('backToTop');
+  const allNavLinks = document.querySelectorAll('.nav-link');
 
   /* ─── Navbar: Solid on scroll ──────────────────────────────── */
   let isScrolling = false;
@@ -2171,33 +2192,38 @@
 
   /* ─── Mobile Menu ──────────────────────────────────────────── */
   function closeMenu() {
-    navLinks.classList.remove('open');
-    hamburger.classList.remove('active');
+    if (navLinks) navLinks.classList.remove('open');
+    if (hamburger) hamburger.classList.remove('active');
     document.body.style.overflow = '';
   }
+  window.__mrbCloseMenu = closeMenu;
 
-  hamburger.addEventListener('click', function () {
-    const isOpen = navLinks.classList.toggle('open');
-    hamburger.classList.toggle('active', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
+  if (hamburger) {
+    hamburger.addEventListener('click', function () {
+      const isOpen = navLinks ? navLinks.classList.toggle('open') : false;
+      hamburger.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+  }
 
   allNavLinks.forEach(function (link) {
     link.addEventListener('click', closeMenu);
   });
 
   document.addEventListener('click', function (e) {
-    if (navLinks.classList.contains('open') &&
+    if (navLinks && navLinks.classList.contains('open') &&
       !navLinks.contains(e.target) &&
-      !hamburger.contains(e.target)) {
+      (!hamburger || !hamburger.contains(e.target))) {
       closeMenu();
     }
   });
 
   /* ─── Back to Top ──────────────────────────────────────────── */
-  backToTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (backToTop) {
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   /* ─── Scroll Reveal ────────────────────────────────────────── */
   const revealTargets = document.querySelectorAll(
@@ -2964,6 +2990,7 @@
   init();
 
 })();
+
 
 /* ============================================================
    BOOKING MODAL
@@ -6218,6 +6245,7 @@
 
 })();
 
+
 /* ============================================================
    CUSTOM DATE & TIME PICKER
    ============================================================ */
@@ -7191,6 +7219,7 @@
 
 })();
 
+
 /* ============================================================
    ITINERARY SELECTOR
    ============================================================ */
@@ -7403,6 +7432,7 @@
   });
 
 })();
+
 
 /* ═══════════════════════════════════════════════════
    Hotel Autocomplete IIFE
@@ -8048,6 +8078,7 @@
   });
 
 })();
+
 
 /* ============================================================
    HERO VIDEO PLAY/PAUSE CONTROLLER
@@ -9394,4 +9425,5 @@
   }
 
 })();
+
 

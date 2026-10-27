@@ -1,0 +1,241 @@
+/* ============================================================
+   TRANSFER BOOKING – Pickup / Dropoff Row
+   ============================================================ */
+.bf-pickup-dropoff-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select {
+    flex: 1;
+    min-width: 0;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-trigger {
+    position: relative;
+    padding-left: 36px;
+    padding-right: 28px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    transition: border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+}
+
+.bf-pickup-dropoff-row .bf-pd-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    pointer-events: none;
+    z-index: 1;
+    transition: filter 0.25s ease;
+}
+
+.bf-pickup-dropoff-row .bf-pd-icon--pickup {
+    color: #4CAF50;
+}
+
+.bf-pickup-dropoff-row .bf-pd-icon--dropoff {
+    color: #FF5722;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-val.is-placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select.open .bf-custom-select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* ── Hiển thị khung theo màu Điểm đón (#4CAF50) ── */
+#bfTfPickupSelect .bf-custom-select-trigger:hover,
+#bfTfPickupSelect.open .bf-custom-select-trigger {
+    border-color: #4CAF50 !important;
+    background: rgba(76, 175, 80, 0.1) !important;
+    box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.3), 0 3px 12px rgba(76, 175, 80, 0.2) !important;
+}
+
+#bfTfPickupSelect .bf-custom-select-trigger:hover .bf-custom-select-arrow,
+#bfTfPickupSelect.open .bf-custom-select-arrow {
+    color: #4CAF50 !important;
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-trigger,
+#bfTfPickupTrigger.is-selected,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-custom-select-trigger {
+    border-color: #4CAF50 !important;
+    background: rgba(76, 175, 80, 0.08) !important;
+    box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.28), 0 2px 10px rgba(76, 175, 80, 0.18) !important;
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-val,
+#bfTfPickupTrigger.is-selected .bf-custom-select-val,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-custom-select-val {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-arrow,
+#bfTfPickupTrigger.is-selected .bf-custom-select-arrow,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-custom-select-arrow {
+    color: #4CAF50;
+}
+
+#bfTfPickupSelect.is-selected .bf-pd-icon--pickup,
+#bfTfPickupTrigger.is-selected .bf-pd-icon--pickup,
+#bfTfPickupSelect:has(#bfTfPickupVal:not(.is-placeholder)) .bf-pd-icon--pickup {
+    filter: drop-shadow(0 0 6px rgba(76, 175, 80, 0.5));
+}
+
+#bfTfPickupSelect.is-selected .bf-custom-select-trigger:hover,
+#bfTfPickupSelect.is-selected.open .bf-custom-select-trigger {
+    border-color: #66bb6a !important;
+    background: rgba(76, 175, 80, 0.14) !important;
+    box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.4), 0 4px 14px rgba(76, 175, 80, 0.28) !important;
+}
+
+#bfTfPickupList li:hover {
+    background: rgba(76, 175, 80, 0.12) !important;
+    color: #81c784 !important;
+}
+
+#bfTfPickupList li.is-active {
+    background: rgba(76, 175, 80, 0.22) !important;
+    color: #4CAF50 !important;
+    font-weight: 600;
+}
+
+/* ── Hiển thị khung theo màu Điểm trả (#FF5722) ── */
+#bfTfDropoffSelect .bf-custom-select-trigger:hover,
+#bfTfDropoffSelect.open .bf-custom-select-trigger {
+    border-color: #FF5722 !important;
+    background: rgba(255, 87, 34, 0.1) !important;
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.3), 0 3px 12px rgba(255, 87, 34, 0.2) !important;
+}
+
+#bfTfDropoffSelect .bf-custom-select-trigger:hover .bf-custom-select-arrow,
+#bfTfDropoffSelect.open .bf-custom-select-arrow {
+    color: #FF5722 !important;
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-trigger,
+#bfTfDropoffTrigger.is-selected,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-custom-select-trigger {
+    border-color: #FF5722 !important;
+    background: rgba(255, 87, 34, 0.08) !important;
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.28), 0 2px 10px rgba(255, 87, 34, 0.18) !important;
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-val,
+#bfTfDropoffTrigger.is-selected .bf-custom-select-val,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-custom-select-val {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-arrow,
+#bfTfDropoffTrigger.is-selected .bf-custom-select-arrow,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-custom-select-arrow {
+    color: #FF5722;
+}
+
+#bfTfDropoffSelect.is-selected .bf-pd-icon--dropoff,
+#bfTfDropoffTrigger.is-selected .bf-pd-icon--dropoff,
+#bfTfDropoffSelect:has(#bfTfDropoffVal:not(.is-placeholder)) .bf-pd-icon--dropoff {
+    filter: drop-shadow(0 0 6px rgba(255, 87, 34, 0.5));
+}
+
+#bfTfDropoffSelect.is-selected .bf-custom-select-trigger:hover,
+#bfTfDropoffSelect.is-selected.open .bf-custom-select-trigger {
+    border-color: #ff7043 !important;
+    background: rgba(255, 87, 34, 0.14) !important;
+    box-shadow: 0 0 0 1px rgba(255, 87, 34, 0.4), 0 4px 14px rgba(255, 87, 34, 0.28) !important;
+}
+
+#bfTfDropoffList li:hover {
+    background: rgba(255, 87, 34, 0.12) !important;
+    color: #ff8a65 !important;
+}
+
+#bfTfDropoffList li.is-active {
+    background: rgba(255, 87, 34, 0.22) !important;
+    color: #FF5722 !important;
+    font-weight: 600;
+}
+
+.bf-pickup-dropoff-row .bf-custom-select-trigger.bf-error {
+    border-color: #e74c3c !important;
+    background: rgba(231, 76, 60, 0.05) !important;
+    box-shadow: 0 0 0 1px rgba(231, 76, 60, 0.3) !important;
+}
+
+.bf-pd-swap {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bf-pd-swap:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: var(--color-gold);
+    transform: rotate(180deg);
+}
+
+.bf-pd-swap:active {
+    transform: rotate(180deg) scale(0.92);
+}
+
+/* Nút hoán đổi khi cả Điểm đón và Điểm trả đã được chọn */
+.bf-pickup-dropoff-row.has-both-selected .bf-pd-swap {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.16) 0%, rgba(255, 87, 34, 0.16) 100%);
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.18);
+}
+
+.bf-pickup-dropoff-row.has-both-selected .bf-pd-swap:hover {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.26) 0%, rgba(255, 87, 34, 0.26) 100%);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+@media (max-width: 420px) {
+    .bf-pickup-dropoff-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .bf-pickup-dropoff-row .bf-custom-select {
+        width: 100%;
+    }
+
+    .bf-pd-swap {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+
+    .bf-pd-swap:hover {
+        transform: rotate(270deg);
+    }
+}

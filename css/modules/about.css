@@ -1,0 +1,95 @@
+/* ============================================================
+   ABOUT – WHY CHOOSE US  (Light / White section)
+   ============================================================ */
+.about {
+    background: var(--color-bg-light);
+    /* Subtle warm top border to transition from dark hero */
+    border-top: 4px solid var(--color-gold);
+}
+
+/* Override section-header text for light bg */
+.about .section-eyebrow {
+    color: var(--color-orange);
+}
+
+.about .section-title {
+    color: var(--color-text-dark);
+}
+
+.about .section-subtitle {
+    color: var(--color-text-dark-muted);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+.feature-card {
+    background: var(--color-bg-card-light);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(139, 60, 0, 0.06);
+    transition: transform var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-gold);
+    box-shadow: 0 16px 48px rgba(212, 175, 55, 0.18);
+}
+
+.feature-icon {
+    width: 72px;
+    height: 72px;
+    margin-inline: auto;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(200, 75, 17, 0.12));
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    font-size: 1.6rem;
+    color: var(--color-gold-dark);
+    transition: background var(--dur);
+}
+
+.feature-card:hover .feature-icon {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.32), rgba(200, 75, 17, 0.22));
+}
+
+.feature-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-dark-muted);
+    line-height: 1.7;
+}
+
+.feature-card--247 {
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    font-size: 1.6rem;
+    color: var(--color-gold-dark);
+    transition: background var(--dur);
+}
+
+.feature-card--247:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+}

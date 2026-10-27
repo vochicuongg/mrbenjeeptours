@@ -1,0 +1,480 @@
+/* ============================================================
+   FEATURED TOURS
+   ============================================================ */
+.tours {
+    background: #270e09;
+}
+
+/* ── Tours grid: horizontal scroll slider (all screen sizes) ── */
+.tours-grid {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+
+.tours-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Each card: fixed width = 1/3 of container on desktop */
+.tour-card {
+    flex: 0 0 calc(33.333% - 16px);
+    scroll-snap-align: start;
+}
+
+/* Tours slider wrapper – base */
+.tours-slider-wrapper {
+    position: relative;
+    padding: 0 52px;
+    overflow: hidden;
+}
+
+.tours-arrow {
+    display: flex;
+    position: absolute;
+    top: 350px;
+    /* vertically centered over the image (260px / 2) */
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-gold);
+    background: rgba(26, 15, 10, 0.88);
+    color: var(--color-gold);
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--dur) var(--ease), box-shadow var(--dur);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.tours-arrow-prev {
+    left: -17px;
+
+}
+
+.tours-arrow-next {
+    right: -17px;
+
+}
+
+.tours-arrow:hover {
+    background: var(--color-gold);
+    color: #1A0F0A;
+}
+
+.tours-arrow:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Dots indicator – visible on all screen sizes */
+.tours-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.tours-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    background: var(--color-border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), width var(--dur) var(--ease);
+}
+
+.tours-dot.active {
+    background: var(--color-gold);
+    width: 24px;
+}
+
+/* ── Unified Jeep Booking CTA ── */
+.jeep-booking-cta {
+    margin-top: 48px;
+    padding: 0 16px;
+}
+
+.jbc-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(56, 32, 16, 0.85), rgba(26, 15, 10, 0.95));
+    border: 1.5px solid rgba(212, 175, 55, 0.35);
+    border-radius: 20px;
+    padding: 40px 36px 36px;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.35),
+        0 0 60px rgba(212, 175, 55, 0.08) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.jbc-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-gold-light), var(--color-gold), var(--color-gold-light), transparent);
+}
+
+.jbc-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(200, 75, 17, 0.15));
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+}
+
+.jbc-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.jbc-prices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 20px;
+}
+
+.jbc-price-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    max-width: 200px;
+}
+
+.jbc-price-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.jbc-price-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    letter-spacing: -0.01em;
+}
+
+.jbc-price-per {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.jbc-price-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.35), transparent);
+    flex-shrink: 0;
+    margin: 0 20px;
+}
+
+.jbc-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+.jbc-hint i {
+    color: var(--color-gold);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.jbc-book-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jbc-book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.45);
+}
+
+@media (max-width: 480px) {
+    .jbc-inner {
+        padding: 32px 20px 28px;
+    }
+
+    .jbc-title {
+        font-size: 1.25rem;
+    }
+
+    .jbc-price-val {
+        font-size: 1.05rem;
+    }
+
+    .jbc-price-divider {
+        margin: 0 12px;
+    }
+
+    .jbc-hint {
+        font-size: 0.76rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .jbc-book-btn {
+        max-width: 100%;
+    }
+}
+
+.tour-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: clip;
+    /* clip = no scroll container (unlike hidden) */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    isolation: isolate;
+    /* inactive state: dim + shrink */
+    opacity: 0.55;
+    transform: scale(0.94);
+    transition:
+        opacity 0.45s var(--ease),
+        transform 0.45s var(--ease),
+        border-color 0.35s var(--ease),
+        box-shadow 0.35s var(--ease);
+}
+
+/* Active card: full brightness + full size */
+.tour-card.is-active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.15), 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Slide-in animations (direction applied via JS) ── */
+@keyframes tourCardInNext {
+    from {
+        opacity: 0.3;
+        transform: scale(0.93) translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+@keyframes tourCardInPrev {
+    from {
+        opacity: 0.3;
+        transform: scale(0.93) translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Hover lift only on active card on desktop */
+.tour-card.is-active:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: var(--color-gold);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.22), 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.tour-img-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 260px;
+    flex-shrink: 0;
+}
+
+.tour-img-wrap img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease);
+}
+
+.tour-card:hover .tour-img-wrap img {
+    transform: scale(1.08);
+}
+
+.tour-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    color: #1A0F0A;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.sunset-badge {
+    background: linear-gradient(135deg, var(--color-orange), var(--color-red));
+    color: #fff;
+}
+
+.tour-body {
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tour-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+}
+
+.tour-meta i {
+    color: var(--color-gold);
+    margin-right: 5px;
+}
+
+.tour-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.tour-desc {
+    font-size: 0.88rem;
+    color: #d5c5ae;
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 22px;
+}
+
+.tour-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 20px 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    background: linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 0%, transparent 100%);
+    border-radius: 0 0 16px 16px;
+    margin: 0 -24px -26px;
+}
+
+.tour-price {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    width: 100%;
+}
+
+/* Full-width book button */
+.tour-footer .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 13px;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+}
+
+.price-tier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    text-align: center;
+}
+
+.price-type {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price-amount {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+}
+
+.price-per {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.price-divider {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
+    flex-shrink: 0;
+    margin: 0 8px;
+}

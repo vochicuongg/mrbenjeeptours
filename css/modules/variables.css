@@ -1,0 +1,220 @@
+/* ============================================================
+   MR. BEN JEEP TOURS – style.css
+   Color Palette & Design System via CSS Custom Properties
+   ============================================================ */
+
+:root {
+    /* Brand Colors – Dark (warm) */
+    --color-bg: #1A0F0A;
+    --color-bg-alt: #231709;
+    --color-bg-card: #382010;
+
+    /* Brand Colors – Light (white balance) */
+    --color-bg-light: #FDFAF5;
+    --color-bg-light-alt: #F5EDE0;
+    --color-bg-card-light: #FFFFFF;
+
+    /* Gold */
+    --color-gold: #D4AF37;
+    --color-gold-light: #FFD700;
+    --color-gold-dark: #A8892A;
+
+    /* Accent reds */
+    --color-red: #8B0000;
+    --color-orange: #C84B11;
+
+    /* Text – dark mode */
+    --color-text: #F5EFE6;
+    --color-text-muted: #A89880;
+
+    /* Text – light mode */
+    --color-text-dark: #1A0F0A;
+    --color-text-dark-muted: #7A6050;
+
+    /* Borders */
+    --color-border: rgba(212, 175, 55, 0.25);
+    --color-border-hover: rgba(212, 175, 55, 0.75);
+    --color-border-light: rgba(212, 175, 55, 0.3);
+
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Poppins', system-ui, sans-serif;
+
+    /* Spacing */
+    --section-py: 100px;
+    --container: 1200px;
+
+    /* Transitions */
+    --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    --dur: 0.35s;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove browser default blue focus outline on click, preserve keyboard focus */
+button:focus:not(:focus-visible),
+button:active,
+a:focus:not(:focus-visible),
+a:active,
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible focus ring for keyboard navigation (accessibility) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+/* Remove tap highlight on ALL elements for mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+/* ── Gold Text Utility ───────────────────────────────────── */
+.gold-text {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold), var(--color-gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all var(--dur) var(--ease);
+    white-space: nowrap;
+}
+
+.btn-gold {
+    background: transparent linear-gradient(135deg, var(--color-gold-light), var(--color-gold), var(--color-gold-dark));
+    color: #1A0F0A;
+    border: 2px solid transparent;
+}
+
+.btn-gold:hover {
+    background: transparent linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+    box-shadow: 0 0 28px rgba(212, 175, 55, 0.55);
+    transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-outline-gold:hover {
+    background: #fff;
+    color: #1a0f0a;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 10px 22px;
+    font-size: 0.8rem;
+}
+
+/* ── Section Shared ──────────────────────────────────────── */
+.section {
+    padding: var(--section-py) 0;
+    scroll-margin-top: 80px;
+    /* Offset for fixed navbar when scrolling */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.section-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 580px;
+    margin-inline: auto;
+}

@@ -1,0 +1,169 @@
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    position: relative;
+    height: 100svh;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #1A0F0A url('../assets/images/background/background.jpg') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(26, 15, 10, 0.45) 0%,
+            rgba(26, 15, 10, 0.65) 50%,
+            rgba(139, 0, 0, 0.35) 80%,
+            rgba(26, 15, 10, 0.9) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    padding-inline: 24px;
+    animation: fadeUp 1s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffc300;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Hero brand lockup (line 2 of title) ── */
+.hero-brand-lockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.hero-title-with {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(245, 239, 230, 0.85);
+    line-height: 1;
+}
+
+.hero-brand-name {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+    gap: 3px;
+}
+
+/* "MR. BEN" — bold gold, matches logo */
+.hero-brand-mr {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-gold);
+    text-shadow: 0 2px 16px rgba(212, 175, 55, 0.35);
+    line-height: 1;
+    display: block;
+}
+
+/* "JEEP TOURS" — smaller, muted white, spaced out, matches logo */
+.hero-brand-jeep {
+    font-family: var(--font-sans);
+    font-size: clamp(0.7rem, 1.4vw, 1rem);
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    color: rgba(245, 239, 230, 0.65);
+    text-transform: uppercase;
+    line-height: 1;
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(245, 239, 230, 0.85);
+    max-width: 620px;
+    margin-inline: auto;
+    margin-bottom: 44px;
+    line-height: 1.7;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+}
+
+.hero-scroll-hint i {
+    color: var(--color-gold);
+    font-size: 1rem;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
+}

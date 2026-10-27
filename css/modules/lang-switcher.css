@@ -1,0 +1,121 @@
+/* ============================================================
+   LANGUAGE SWITCHER
+   ============================================================ */
+.lang-switcher {
+    position: relative;
+    z-index: 1002;
+}
+
+/* Trigger button */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background var(--dur), border-color var(--dur);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+}
+
+.lang-btn:hover,
+.lang-btn.open {
+    background: rgba(212, 175, 55, 0.12);
+    border-color: var(--color-gold);
+}
+
+/* Flag image inside button & options */
+.lang-flag {
+    width: 22px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Language code text */
+.lang-code {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+/* Chevron arrow */
+.lang-arrow {
+    font-size: 0.6rem;
+    transition: transform var(--dur) var(--ease);
+}
+
+.lang-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    background: rgba(26, 15, 10, 0.97);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 6px;
+    list-style: none;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    /* Hidden state */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.25s var(--ease),
+        transform 0.25s var(--ease);
+}
+
+.lang-dropdown.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Each option row */
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background var(--dur);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.lang-option:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-text);
+}
+
+.lang-option.active {
+    background: rgba(212, 175, 55, 0.14);
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+/* Gold dot indicator for active language */
+.lang-option.active::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    margin-left: auto;
+    flex-shrink: 0;
+}

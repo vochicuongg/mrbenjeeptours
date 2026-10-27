@@ -1,0 +1,495 @@
+/* ============================================================
+   RESPONSIVE – TABLET
+   ============================================================ */
+@media (max-width: 960px) {
+    :root {
+        --section-py: 72px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-badges {
+        padding: 28px 8px;
+    }
+
+    .footer-map {
+        grid-column: 1 / -1;
+    }
+
+    .footer-map-wrap {
+        padding-bottom: 45%;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE – MOBILE
+   ============================================================ */
+@media (max-width: 680px) {
+    :root {
+        --section-py: 56px;
+    }
+
+    /* Navbar mobile */
+    .nav-links {
+        position: fixed;
+        inset: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 80px 40px 200px calc(30% + 20px);
+        padding-left: 185px;
+        gap: 28px;
+        background: linear-gradient(to right,
+                rgba(10, 5, 2, 0.65) 0%,
+                rgba(10, 5, 2, 0.65) 30%,
+                rgba(15, 8, 3, 0.97) 30%,
+                rgba(15, 8, 3, 0.97) 100%);
+        backdrop-filter: blur(12px);
+        transform: translateX(100%);
+        transition: transform 0.4s var(--ease);
+        z-index: 1000;
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+    /* KEY FIX: backdrop-filter on .navbar creates a new containing block,
+       breaking position:fixed on child .nav-links (clips to navbar height).
+       Remove it when menu is open to restore viewport as containing block. */
+    .navbar:has(.nav-links.open) {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    /* Mobile nav logo */
+    .nav-mobile-logo-item {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    .nav-mobile-logo {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid var(--color-gold);
+        box-shadow: 0 0 24px rgba(212, 175, 55, 0.3);
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        color: var(--color-text);
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Reset navbar size for mobile */
+    .navbar {
+        padding: 0 0 10px 0;
+    }
+
+    .navbar.scrolled {
+        padding: 0 0 6px 0;
+    }
+
+    .topbar-container {
+        justify-content: center;
+        text-align: center;
+        padding-inline: 12px;
+    }
+
+    .topbar-contact {
+        display: none;
+    }
+
+    .topbar-hours {
+        font-size: 0.72rem;
+        line-height: 1.35;
+    }
+
+    .nav-logo-img {
+        height: 55px;
+        width: 55px;
+    }
+
+    .navbar.scrolled .nav-logo-img {
+        height: 44px;
+        width: 44px;
+    }
+
+    /* Mobile nav layout: CSS Grid — logo LEFT, controls RIGHT */
+    .nav-container {
+        position: static;
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        /* col1=logo | col2=spacer | col3=lang | col4=hamburger */
+        align-items: center;
+    }
+
+    .nav-logo {
+        grid-column: 1;
+        grid-row: 1;
+        position: static;
+        transform: none;
+    }
+
+    .nav-links {
+        grid-column: 1 / -1;
+        /* Hidden but keeps it in grid flow cleanly */
+        grid-row: 1;
+    }
+
+    .lang-switcher {
+        grid-column: 3;
+        grid-row: 1;
+        margin-left: 0;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hamburger {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Tours – mobile horizontal slider */
+    .tours-slider-wrapper {
+        position: relative;
+        /* Do NOT set overflow:hidden — it breaks child scroll */
+    }
+
+    .tours-grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        scroll-snap-type: none;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0;
+        padding: 0;
+        /* JS manages horizontal scroll on mobile; allow vertical page scroll */
+        overscroll-behavior-x: contain;
+        touch-action: pan-y;
+        will-change: scroll-position;
+    }
+
+    .tours-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tour-card {
+        flex: 0 0 100%;
+        width: 100%;
+        scroll-snap-align: start;
+        max-width: none;
+        margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        overscroll-behavior-x: contain;
+        opacity: 0.82;
+        transform: scale(0.98);
+        user-select: none;
+        -webkit-user-select: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        transition: opacity 0.45s var(--ease), transform 0.45s var(--ease), border-color 0.35s var(--ease);
+        will-change: opacity, transform;
+    }
+
+    .tour-card.is-active {
+        opacity: 1;
+        transform: scale(1);
+        border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .tour-body {
+        overflow: hidden;
+        touch-action: pan-y;
+    }
+
+    /* Fix image overflow inside slider card */
+    .tour-img-wrap {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .tour-img-wrap img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+
+    /* Make Book Now button full-width on mobile */
+    .tour-footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        padding: 14px 0 0;
+        margin: 0;
+        background: none;
+        border-radius: 0;
+    }
+
+    .tour-footer .btn-gold {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 14px;
+        font-size: 0.95rem;
+        letter-spacing: 0.12em;
+    }
+
+    .tour-price {
+        justify-content: center;
+    }
+
+    /* Remove desktop side padding; keep overflow clipping */
+    .tours-slider-wrapper {
+        padding: 0;
+    }
+
+    /* Smaller image on mobile */
+    .tour-img-wrap {
+        height: 200px;
+    }
+
+    /* Arrow centered over mobile image */
+    .tours-arrow {
+        top: 300px;
+    }
+
+
+    /* Gallery – mobile auto-scroll marquee */
+    .gallery-grid {
+        display: block;
+        /* override desktop grid — track handles the flex row */
+        overflow: hidden;
+        /* hide the track overflow — translateX does the scrolling */
+        padding-bottom: 24px;
+    }
+
+    .gallery-track {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        will-change: transform;
+        /* GPU-accelerated */
+        cursor: grab;
+    }
+
+    .gallery-track:active {
+        cursor: grabbing;
+    }
+
+    .gallery-track .gallery-item {
+        flex: 0 0 75vw;
+        max-width: 340px;
+        margin: 0;
+        aspect-ratio: 4/3;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .dest-stack-wrapper {
+        max-width: 100%;
+        padding: 0 12px;
+    }
+
+    .dest-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .dest-arrow-prev {
+        left: -6px;
+    }
+
+    .dest-arrow-next {
+        right: -6px;
+    }
+
+    .destination-info {
+        padding: 18px 16px;
+    }
+
+    .destination-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .destination-info p {
+        font-size: 0.82rem;
+    }
+
+    /* Reviews mobile */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .trust-badges {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 24px 8px;
+        border-radius: 14px;
+        gap: 0;
+    }
+
+    /* Mobile: hide vertical dividers, use cross-shaped dividers instead */
+    .trust-badge:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Horizontal divider between top & bottom rows */
+    .trust-badges::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        right: 8%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        opacity: 0.25;
+        transform: translateY(-50%);
+    }
+
+    /* Vertical divider through center */
+    .trust-badge:nth-child(1)::after,
+    .trust-badge:nth-child(3)::after {
+        display: block;
+        right: 0;
+        top: 12%;
+        height: 76%;
+    }
+
+    .trust-badge {
+        padding: 16px 8px;
+    }
+
+    .trust-badge strong {
+        font-size: 2rem;
+    }
+
+    .trust-badge .count-suffix {
+        font-size: 0.9rem;
+    }
+
+    .trust-badge .count-unit {
+        font-size: 0.95rem;
+    }
+
+    .trust-badge i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .review-card {
+        padding: 20px;
+    }
+
+    .feature-card {
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 0;
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .feature-card p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+
+    /* Contact cards */
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-map-wrap {
+        padding-bottom: 65%;
+        border-radius: 10px;
+    }
+
+    .footer-map h3 {
+        font-size: 0.92rem;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+    }
+
+    /* Language switcher: always visible, smaller on mobile */
+    .lang-switcher {
+        order: -1;
+        /* move before hamburger */
+    }
+
+    .lang-code {
+        display: none;
+    }
+}

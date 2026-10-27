@@ -1,0 +1,111 @@
+/* ============================================================
+   SERVICE TABS  (Jeep Tour  |  Xe Đưa Đón)
+   ============================================================ */
+
+.svc-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.svc-tabs.svc-tabs--visible {
+    display: flex;
+}
+
+.svc-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border: 2px solid rgba(212, 175, 55, .25);
+    border-radius: 60px;
+    background: rgba(26, 15, 10, .6);
+    color: rgba(255, 255, 255, .65);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    cursor: pointer;
+    transition: all .35s ease;
+    position: relative;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.svc-tab i {
+    font-size: 1.15em;
+    transition: color .35s ease;
+}
+
+.svc-tab:hover {
+    border-color: var(--color-gold);
+    color: #fff;
+    background: rgba(212, 175, 55, .08);
+}
+
+.svc-tab--active {
+    border-color: var(--color-gold);
+    background: linear-gradient(135deg, rgba(212, 175, 55, .18), rgba(212, 175, 55, .06));
+    color: var(--color-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, .15),
+                inset 0 1px 0 rgba(212, 175, 55, .2);
+    pointer-events: none;
+}
+
+.svc-tab--active i {
+    color: var(--color-gold);
+}
+
+/* "Mới" badge on tab */
+.svc-tab-new {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: .65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #1A0F0A;
+    background: var(--color-gold);
+    border-radius: 20px;
+    line-height: 1.5;
+    animation: svcBadgePulse 2s ease-in-out infinite;
+}
+
+@keyframes svcBadgePulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.12); }
+}
+
+/* ── Panels ─────────────────────────────────────────────────── */
+.svc-panel {
+    display: none;
+    animation: svcFadeIn .45s ease;
+}
+
+.svc-panel--active {
+    display: block;
+}
+
+@keyframes svcFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive tabs ────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .svc-tabs {
+        gap: 8px;
+        margin-bottom: 28px;
+    }
+    .svc-tab {
+        padding: 11px 18px;
+        font-size: .88rem;
+        gap: 7px;
+    }
+    .svc-tab-new {
+        font-size: .58rem;
+        padding: 1px 6px;
+    }
+}
+

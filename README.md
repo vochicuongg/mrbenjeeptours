@@ -104,22 +104,80 @@
 ```
 d:\mrben\
 ├── index.html              # Trang chính (SPA – Single Page Application)
+├── build.js                # Build script (nối & minify modules)
+├── package.json            # Scripts: build, watch
 ├── css/
-│   └── style.css           # Toàn bộ CSS (responsive, animations, booking modal)
+│   ├── modules/            # 20 CSS modules theo từng component/section
+│   │   ├── variables.css           # Tokens, resets, base typography, buttons
+│   │   ├── header-nav.css          # Topbar & navigation bar
+│   │   ├── hero.css                # Hero section
+│   │   ├── hero-video.css          # Hero video background & toggle
+│   │   ├── about.css               # Giới thiệu / Why choose us
+│   │   ├── destinations.css        # Điểm đến (Mobile stacked cards + desktop showcase)
+│   │   ├── tours.css               # Thẻ tour xe Jeep & slider
+│   │   ├── gallery.css             # Thư viện ảnh gallery
+│   │   ├── reviews.css             # Đánh giá & thống kê trust badges
+│   │   ├── cta-banner.css          # CTA banner & contact info
+│   │   ├── footer.css              # Footer & back-to-top button
+│   │   ├── responsive-base.css     # Media queries tablet & mobile trang chủ
+│   │   ├── lang-switcher.css       # Dropdown chuyển đổi ngôn ngữ
+│   │   ├── service-tabs.css        # Tab chuyển đổi Jeep Tour ↔ Xe Đưa Đón
+│   │   ├── booking-modal.css       # Modal đặt xe cốt lõi, hotel, lịch, stepper
+│   │   ├── confirm-modal.css       # Modal xác nhận đặt tour & đếm ngược
+│   │   ├── thank-modal.css         # Modal cảm ơn sau khi gửi thông tin
+│   │   ├── transfer.css            # Dịch vụ xe đưa đón liên tỉnh & bảng giá
+│   │   ├── transfer-booking.css    # Hàng chọn điểm đón / trả khách xe đưa đón
+│   │   └── clock-picker-toast.css  # Đồng hồ chọn giờ & toast cảnh báo
+│   ├── style.css           # CSS bundle unminified
+│   └── style.min.css       # CSS bundle minified dùng cho production
 ├── js/
-│   └── script.js           # Toàn bộ JavaScript (i18n, booking logic, calendar, messaging)
+│   ├── modules/            # 12 JS modules độc lập theo IIFE & single-responsibility
+│   │   ├── translations.js         # Từ điển đa ngôn ngữ (6 ngôn ngữ)
+│   │   ├── i18n.js                 # Xử lý chọn & đồng bộ ngôn ngữ
+│   │   ├── navigation.js           # Cuộn trang, menu mobile, active link, reveal
+│   │   ├── destinations-swiper.js  # Hiệu ứng vuốt card điểm đến
+│   │   ├── tours-slider.js         # Slider vuốt tour xe Jeep trên mobile
+│   │   ├── booking-modal.js        # Logic đặt tour, phụ thu, validation, gửi tin
+│   │   ├── date-time-picker.js     # Bộ chọn ngày & đồng hồ kim tương tác
+│   │   ├── itinerary-selector.js   # Đổi thứ tự 4 điểm dừng tour
+│   │   ├── hotel-autocomplete.js   # Autocomplete 250+ khách sạn Mũi Né
+│   │   ├── media-enhancements.js   # Video toggle, đếm số review, marquee gallery
+│   │   ├── service-tabs.js         # Chuyển đổi tab dịch vụ Jeep Tour / Xe Đưa Đón
+│   │   └── transfer.js             # Logic & cấu hình xe đưa đón riêng
+│   ├── script.js           # JS bundle unminified
+│   └── script.min.js       # JS bundle minified dùng cho production
 ├── worker.js               # Cloudflare Worker – proxy gửi tin Telegram
 ├── robots.txt              # SEO – cho phép tất cả crawler
 ├── sitemap.xml             # SEO – sitemap với hreflang 6 ngôn ngữ
-├── assets/
-│   └── images/
-│       ├── background/     # Hero background (background.jpg, background.webm)
-│       ├── languages/      # Cờ quốc gia cho language switcher (7 flags .webp)
-│       ├── library/        # Gallery ảnh (lib1–lib9.webp)
-│       ├── logo/           # Logo Mr. Ben (logo-mr.ben.webp, logo_circle_gold.png)
-│       └── produtcs/       # Ảnh xe Jeep 7 màu (xe-jeep-*.webp)
-└── README.md               # Tài liệu dự án
+└── assets/                 # Hình ảnh, icon, logo, video
 ```
+
+### ⚡ Quy Trình Phát Triển & Build
+- **Chạy build một lần**:
+  ```bash
+  npm run build
+  # hoặc
+  node build.js
+  ```
+- **Chế độ tự động lắng nghe (Watch mode)**:
+  ```bash
+  npm run watch
+  # hoặc
+  node build.js --watch
+  ```
+- **Kiểm tra toàn bộ hệ thống (Automated Tests & Regression Check)**:
+  ```bash
+  npm test
+  # hoặc
+  node test.js
+  ```
+  Test runner tự động đối chiếu làm rõ 100% không có sự sai lệch logic so với commit gần nhất (HEAD):
+  - Khớp 100% 826 CSS selectors, custom properties :root.
+  - Khớp 100% 310 translation keys qua cả 6 ngôn ngữ (vi, en, ru, zh, ko, de).
+  - Khớp 100% danh mục 259 khách sạn Mũi Né / Phan Thiết.
+  - Khớp 100% bảng giá xe đưa đón & công thức tính phụ thu lễ (+30%).
+  - Kiểm tra cú pháp syntax JS/CSS/Worker và toàn bộ liên kết HTML/Asset.
+Khi sửa bất kỳ file nào trong `css/modules/` hoặc `js/modules/`, build script sẽ tự động gộp và minify thành file bundle trong vài mili-giây mà không làm gián đoạn trải nghiệm.
 
 ---
 

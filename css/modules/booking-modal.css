@@ -1,0 +1,1311 @@
+/* ============================================================
+   BOOKING MODAL
+   ============================================================ */
+.booking-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 9000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 16px;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px)) 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease);
+}
+
+@media (min-width: 600px) {
+    .booking-overlay {
+        align-items: center;
+    }
+}
+
+@media (max-width: 599px) {
+    .booking-overlay {
+        padding: 12px 10px;
+        padding: 12px 10px calc(12px + env(safe-area-inset-bottom, 0px)) 10px;
+        align-items: center;
+    }
+
+    .booking-modal {
+        width: 100%;
+        max-width: 100%;
+        /* vh fallback → dvh for dynamic address-bar on every mobile browser */
+        max-height: 85vh;
+        max-height: 85dvh;
+        max-height: min(85dvh, calc(100vh - 24px));
+        border-radius: 15px;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    .booking-overlay.open .booking-modal {
+        transform: translateY(0) scale(1);
+    }
+
+    .booking-header {
+        padding: 16px 16px 10px;
+    }
+
+    .booking-title {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .booking-tour-name {
+        font-size: 0.8rem;
+    }
+
+    .booking-price-bar {
+        padding: 10px 16px;
+    }
+
+    .booking-body {
+        padding: 14px 16px 24px !important;
+        padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+        gap: 10px !important;
+    }
+
+    .bf-group {
+        gap: 5px !important;
+    }
+
+    .bf-label {
+        font-size: 0.76rem;
+    }
+
+    .bf-input {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .bf-hotel-input-row {
+        padding: 9px 12px;
+    }
+
+    .bf-toggle {
+        padding: 9px 10px;
+        font-size: 0.82rem;
+    }
+}
+
+/* ── Extra-small phones (≤ 350px wide, e.g. iPhone SE / Galaxy S mini) ── */
+@media (max-width: 350px) {
+    .booking-overlay {
+        padding: 6px 4px;
+        padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px)) 4px;
+    }
+
+    .booking-modal {
+        max-height: 90vh;
+        max-height: 90dvh;
+        border-radius: 12px;
+    }
+
+    .booking-header {
+        padding: 14px 12px 8px;
+    }
+
+    .booking-title {
+        font-size: 1.05rem;
+    }
+
+    .booking-tour-name {
+        font-size: 0.72rem;
+    }
+
+    .booking-price-bar {
+        padding: 8px 12px;
+    }
+
+    .bpb-label {
+        font-size: 0.65rem;
+    }
+
+    .bpb-val {
+        font-size: 0.88rem;
+    }
+
+    .booking-body {
+        padding: 10px 12px 20px !important;
+        padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+        gap: 8px !important;
+    }
+
+    .bf-label {
+        font-size: 0.7rem;
+    }
+
+    .bf-input {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .bf-hotel-input-row {
+        padding: 8px 10px;
+    }
+
+    .bf-toggle {
+        padding: 8px 8px;
+        font-size: 0.78rem;
+    }
+}
+
+/* ── Landscape orientation on short phones ── */
+@media (max-height: 500px) and (orientation: landscape) {
+    .booking-overlay {
+        padding: 8px;
+    }
+
+    .booking-modal {
+        max-height: 94vh;
+        max-height: 94dvh;
+        border-radius: 12px;
+    }
+
+    .booking-header {
+        padding: 10px 16px 6px;
+    }
+
+    .booking-title {
+        font-size: 1rem;
+    }
+
+    .booking-body {
+        padding: 8px 16px 16px !important;
+        gap: 6px !important;
+    }
+}
+
+.booking-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.booking-modal {
+    background: linear-gradient(160deg, #1C0F06 0%, #150A03 100%);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 430px;
+    /* vh fallback for old browsers → dvh for modern mobile browsers */
+    max-height: 92vh;
+    max-height: 92dvh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(212, 175, 55, 0.1);
+    transform: translateY(24px) scale(0.97);
+    transition: transform 0.35s var(--ease);
+    /* Prevent iOS bounce / over-scroll from breaking layout */
+    -webkit-overflow-scrolling: touch;
+}
+
+.booking-modal::-webkit-scrollbar {
+    display: none;
+}
+
+.booking-overlay.open .booking-modal {
+    transform: translateY(0) scale(1);
+}
+
+/* ── Close ── */
+.booking-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-muted);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--dur), color var(--dur);
+    z-index: 10;
+    cursor: pointer;
+    border: none;
+}
+
+.booking-close:hover {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--color-gold);
+}
+
+/* ── Header ── */
+.booking-header {
+    padding: 30px 24px 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: linear-gradient(160deg, #1C0F06 0%, #150A03 100%);
+    flex-shrink: 0;
+}
+
+.booking-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    margin-bottom: 6px;
+}
+
+.booking-tour-name {
+    font-size: 0.9rem;
+    color: var(--color-gold-light);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+/* ── Price bar ── */
+.booking-price-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(212, 175, 55, 0.05);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    padding: 14px 24px;
+}
+
+/* ── 24/7 Hours Banner in Booking Modal ── */
+.bf-hours-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 16px 24px 8px;
+    font-size: 0.82rem;
+    color: #f0e6d6;
+    line-height: 1.45;
+}
+
+.bf-hours-banner i {
+    color: var(--color-gold);
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+/* ── Scrollable form body ── */
+.booking-body {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+/* Ensure enough scrollable bottom room so calendar/clock and hotel dropdown can be perfectly centered on all screen sizes */
+.booking-body:has(.bf-dt-wrap.open),
+.booking-body.picker-open,
+.booking-body:has(.bf-hotel-wrap.open),
+.booking-body.hotel-open {
+    padding-bottom: calc(400px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.booking-body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.bpb-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.bpb-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.bpb-val {
+    font-size: 1rem;
+    color: var(--color-gold);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.bpb-per {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    padding-left: 2px;
+}
+
+#bpbGroup {
+    padding-left: 22px;
+}
+
+.bpb-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.2);
+    flex-shrink: 0;
+}
+
+/* ── Form body ── */
+.booking-body {
+    padding: 20px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bf-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.bf-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: 0.04em;
+}
+
+.bf-req {
+    color: var(--color-gold);
+}
+
+.bf-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    padding: 11px 14px;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    transition: border-color var(--dur), box-shadow var(--dur);
+    box-sizing: border-box;
+}
+
+.bf-input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.bf-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.bf-input:hover {
+    border-color: var(--color-gold);
+}
+
+/* Validation Error Style */
+.bf-error {
+    border-color: #e74c3c !important;
+    background: rgba(231, 76, 60, 0.05) !important;
+    animation: bfPulseError 1s ease 3;
+}
+
+@keyframes bfPulseError {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(231, 76, 60, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+    }
+}
+
+/* ── Hotel Autocomplete ── */
+.bf-hotel-wrap {
+    position: relative;
+}
+
+.bf-hotel-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    padding: 11px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.bf-hotel-input-row:hover,
+.bf-hotel-wrap.open .bf-hotel-input-row .bf-phone-input {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.bf-hotel-icon {
+    color: var(--color-gold);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.bf-hotel-input {
+    flex: 1;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+.bf-hotel-input.has-value {
+    color: var(--color-text);
+    cursor: default;
+}
+
+.bf-hotel-arrow {
+    color: var(--color-gold);
+    font-size: 0.75rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+}
+
+.bf-hotel-wrap.open .bf-hotel-arrow {
+    transform: rotate(180deg);
+}
+
+/* Arrow becomes ✕ clear button when "other hotel" is selected */
+.bf-hotel-wrap.is-other-selected .bf-hotel-arrow {
+    transform: rotate(0deg);
+    color: #fff;
+    font-size: 0.7rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.bf-hotel-wrap.is-other-selected .bf-hotel-arrow:hover {
+    color: #fff;
+    background: rgba(212, 175, 55, 0.35);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.bf-hotel-wrap.is-other-selected .bf-hotel-input-row {
+    cursor: pointer;
+    border-color: rgba(212, 175, 55, 0.35);
+}
+
+.bf-hotel-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #1e0e06;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    max-height: 350px;
+    overflow: hidden auto;
+    z-index: 9999;
+    padding: 0 0 6px;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
+}
+
+.bf-hotel-wrap.open .bf-hotel-dropdown {
+    display: block;
+    animation: dtFadeIn 0.18s ease;
+}
+
+.bf-hotel-dropdown::-webkit-scrollbar {
+    width: 5px;
+}
+
+.bf-hotel-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bf-hotel-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 3px;
+}
+
+@media (max-height: 540px) {
+    .bf-hotel-dropdown {
+        max-height: 220px;
+    }
+}
+
+.bf-hotel-opt {
+    padding: 9px 16px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.07);
+}
+
+.bf-hotel-opt:last-child {
+    border-bottom: none;
+}
+
+.bf-hotel-opt:hover,
+.bf-hotel-opt.focused {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.bf-hotel-opt:hover .bf-hotel-opt-name,
+.bf-hotel-opt.focused .bf-hotel-opt-name {
+    color: var(--color-gold);
+}
+
+.bf-hotel-opt-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text);
+    display: block;
+}
+
+.bf-hotel-opt-addr {
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.45);
+    display: block;
+    margin-top: 2px;
+}
+
+.bf-hotel-opt.is-other .bf-hotel-opt-name {
+    color: var(--color-gold);
+    font-style: italic;
+}
+
+
+
+.bf-hotel-search-wrap {
+    padding: 10px 10px 6px;
+    position: sticky;
+    top: 0;
+    background: #1e0e06;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    z-index: 2;
+}
+
+.bf-hotel-search {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 7px;
+    padding: 6px 10px 6px 30px;
+    color: var(--color-text);
+    font-size: 0.84rem;
+    outline: none;
+}
+
+.bf-hotel-search::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.bf-hotel-search:focus {
+    border-color: var(--color-gold);
+}
+
+.bf-hotel-search-wrap .fa-search {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.78rem;
+    pointer-events: none;
+}
+
+.bf-hotel-no-result {
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.84rem;
+    text-align: center;
+}
+
+#bfHotelAddress {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.6);
+    caret-color: transparent;
+}
+
+#bfHotelAddress:not([readonly]) {
+    caret-color: transparent;
+    color: var(--color-text);
+}
+
+/* Fake thick caret overlay */
+.bf-fake-caret {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.25em;
+    background: #ffffff;
+    pointer-events: none;
+    animation: bfCaretBlink 1s step-end infinite;
+    z-index: 2;
+    border-radius: 1px;
+}
+
+@keyframes bfCaretBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Address input row glow when editable (other hotel selected) */
+#bfHotelAddressGroup .bf-hotel-input-row:has(#bfHotelAddress:not([readonly])) {
+    border-color: rgba(212, 175, 55, 0.35);
+    cursor: text;
+}
+
+#bfHotelAddressGroup .bf-hotel-input-row:has(#bfHotelAddress:not([readonly]):focus) {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.bf-dt-wrap {
+    position: relative;
+}
+
+.bf-dt-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-align: left;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.bf-dt-trigger:hover {
+    border-color: var(--color-gold);
+}
+
+.bf-dt-trigger span {
+    flex: 1;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.9rem;
+    transition: color var(--dur);
+}
+
+.bf-dt-trigger.has-value span {
+    color: var(--color-text);
+}
+
+.bf-dt-arrow {
+    font-size: 0.65rem;
+    color: var(--color-gold);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+}
+
+.bf-dt-wrap.open .bf-dt-arrow {
+    transform: rotate(180deg);
+}
+
+/* Panel */
+.bf-dt-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #1A0A02;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s, transform 0.25s, height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 200;
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7);
+}
+
+.bf-dt-wrap.open .bf-dt-panel {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+/* Calendar header */
+.bf-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 16px 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.bf-cal-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    letter-spacing: 0.04em;
+}
+
+.bf-cal-nav {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: var(--color-gold);
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--dur), transform var(--dur);
+}
+
+.bf-cal-nav:hover {
+    background: rgba(212, 175, 55, 0.18);
+    transform: scale(1.05);
+}
+
+/* Calendar grid */
+.bf-cal-grid {
+    padding: 8px 12px 14px;
+}
+
+.bf-cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 6px;
+}
+
+.bf-cal-weekdays span {
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    padding: 4px 0;
+}
+
+.bf-cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.bf-cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background var(--dur), color var(--dur), transform 0.15s;
+    position: relative;
+}
+
+.bf-cal-day:hover:not(.disabled):not(.selected) {
+    background: rgba(212, 175, 55, 0.12);
+    color: var(--color-gold);
+    transform: scale(1.1);
+}
+
+.bf-cal-day.today:not(.selected) {
+    border: 1.5px solid var(--color-gold);
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+.bf-cal-day.selected {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    color: #1A0A02;
+    font-weight: 700;
+    transform: scale(1.1);
+}
+
+.bf-cal-day.bf-day-pulse {
+    animation: bfCalDayPulse 0.32s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+    z-index: 2;
+}
+
+@keyframes bfCalDayPulse {
+    0% {
+        transform: scale(0.92);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.85);
+    }
+    45% {
+        transform: scale(1.18);
+        box-shadow: 0 0 18px rgba(212, 175, 55, 0.95), 0 0 0 4px rgba(212, 175, 55, 0.4);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
+    }
+}
+
+.bf-cal-day.disabled {
+    color: rgba(255, 255, 255, 0.18);
+    cursor: default;
+}
+
+.bf-cal-day.other-month {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Time drum picker ── */
+.bf-tp-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 20px 10px;
+}
+
+.bf-tp-block {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.1));
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    font-family: var(--font-serif);
+    color: var(--color-gold);
+    min-width: 72px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    transition: all 0.15s;
+}
+
+.bf-tp-block--min {
+    opacity: 0.65;
+}
+
+.bf-tp-block--min.active {
+    opacity: 1;
+}
+
+.bf-tp-sep {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    opacity: 0.5;
+}
+
+/* ── Time display (top HH:MM) ── */
+.bf-tp-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px 4px;
+}
+
+.bf-tp-block {
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: var(--font-serif);
+    min-width: 72px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s;
+    /* Inactive = dim */
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    color: rgba(212, 175, 55, 0.45);
+}
+
+.bf-tp-block.bf-tp-active {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    border-color: var(--color-gold);
+    color: #1A0A02;
+}
+
+.bf-tp-block:hover:not(.bf-tp-active) {
+    border-color: rgba(212, 175, 55, 0.3);
+    color: var(--color-gold);
+}
+
+.bf-tp-sep {
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(212, 175, 55, 0.4);
+    user-select: none;
+}
+
+.bf-tp-mode-hint {
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    margin: 0 0 4px;
+}
+
+/* ── Time slot picker (Bình Minh / Hoàng Hôn) ── */
+.bf-ts-wrap {
+    padding: 12px 16px 20px;
+}
+
+.bf-ts-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    font-weight: 700;
+    margin: 0 0 14px;
+}
+
+.bf-ts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.bf-ts-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(212, 175, 55, 0.2);
+    cursor: pointer;
+    transition: all 0.22s;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.bf-ts-card:focus,
+.bf-ts-card:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.bf-ts-card:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.06);
+}
+
+/* Disabled / past slot — same grey look as past calendar days */
+.bf-ts-card:disabled,
+.bf-ts-card[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+.bf-ts-card.selected {
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.22), rgba(212, 175, 55, 0.08));
+    border-color: var(--color-gold);
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.15);
+}
+
+.bf-ts-icon {
+    font-size: 2rem;
+    color: var(--color-gold);
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+    transition: transform 0.22s;
+}
+
+.bf-ts-card:hover .bf-ts-icon,
+.bf-ts-card.selected .bf-ts-icon {
+    transform: scale(1.12);
+}
+
+.bf-ts-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+}
+
+.bf-ts-card.selected .bf-ts-name {
+    color: var(--color-gold);
+}
+
+.bf-ts-time {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-serif);
+}
+
+.bf-ts-card.selected .bf-ts-time {
+    color: var(--color-gold);
+    opacity: 0.85;
+}
+
+
+.bf-clock-svg {
+    width: 100%;
+    max-width: 260px;
+    display: block;
+    margin: 0 auto;
+    cursor: grab;
+    overflow: visible;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.bf-clock-svg.is-dragging {
+    cursor: grabbing;
+}
+
+.bf-clock-svg.is-dragging .bf-clock-hand,
+.bf-clock-svg.is-dragging .bf-clock-sel-ring,
+.bf-clock-svg.is-dragging .bf-clock-sel-dot {
+    transition: none !important;
+}
+
+/* SVG clock elements */
+.bf-clock-face {
+    fill: rgba(212, 175, 55, 0.04);
+    stroke: rgba(212, 175, 55, 0.15);
+    stroke-width: 1;
+}
+
+.bf-clock-hand {
+    stroke: var(--color-gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    transition: x2 0.3s cubic-bezier(0.16, 1, 0.3, 1), y2 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bf-clock-sel-dot {
+    fill: var(--color-gold);
+    transition: cx 0.3s cubic-bezier(0.16, 1, 0.3, 1), cy 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bf-clock-center-dot {
+    fill: var(--color-gold);
+}
+
+/* SVG text numbers — added by JS */
+.bf-clock-num {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    fill: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    user-select: none;
+    transition: fill 0.15s;
+}
+
+.bf-clock-num:hover:not(.bf-clock-disabled) {
+    fill: rgba(255, 255, 255, 0.9);
+}
+
+.bf-clock-num.bf-clock-disabled {
+    fill: rgba(255, 255, 255, 0.18) !important;
+    cursor: not-allowed !important;
+    font-weight: 400 !important;
+}
+
+.bf-clock-num.bf-clock-num--inner.bf-clock-disabled {
+    opacity: 0.22 !important;
+    fill: rgba(255, 255, 255, 0.15) !important;
+    cursor: not-allowed !important;
+}
+
+.bf-clock-num.bf-clock-active {
+    fill: #1A0A02;
+    font-weight: 700;
+}
+
+.bf-clock-sel-ring {
+    fill: var(--color-gold);
+    transition: cx 0.3s cubic-bezier(0.16, 1, 0.3, 1), cy 0.3s cubic-bezier(0.16, 1, 0.3, 1), r 0.2s ease;
+}
+
+/* ── Date & Clock View Transitions ── */
+.bf-view-exit-left {
+    animation: bfViewExitLeft 0.18s cubic-bezier(0.4, 0, 0.7, 1) forwards;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.bf-view-enter-right {
+    animation: bfViewEnterRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+.bf-view-exit-right {
+    animation: bfViewExitRight 0.18s cubic-bezier(0.4, 0, 0.7, 1) forwards;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.bf-view-enter-left {
+    animation: bfViewEnterLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes bfViewExitLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.96);
+    }
+}
+
+@keyframes bfViewEnterRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes bfViewExitRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.96);
+    }
+}
+
+@keyframes bfViewEnterLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* ── Clock Face Bloom & Radiant Pulse on Entrance ── */
+.bf-clock-dial-bloom {
+    animation: bfClockDialBloom 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity, filter;
+    transform-origin: center center;
+}
+
+@keyframes bfClockDialBloom {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) rotate(-10deg);
+        filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+    }
+    45% {
+        filter: drop-shadow(0 0 22px rgba(212, 175, 55, 0.7));
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+    }
+}
+
+.bf-clock-header-enter {
+    animation: bfClockHeaderEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes bfClockHeaderEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bf-view-exit-left,
+    .bf-view-enter-right,
+    .bf-view-exit-right,
+    .bf-view-enter-left,
+    .bf-clock-dial-bloom,
+    .bf-clock-header-enter,
+    .bf-cal-day.bf-day-pulse {
+        animation: none !important;
+        transform: none !important;
+    }
+    .bf-dt-panel {
+        transition: opacity 0.25s, transform 0.25s !important;
+    }
+}
+
+/* Confirm button */
+.bf-tp-confirm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: calc(100% - 32px);
+    margin: 0 16px 16px;
+    padding: 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    color: #1A0A02;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    border: none;
+    transition: filter var(--dur), transform var(--dur);
+}
+
+.bf-tp-confirm:disabled {
+    opacity: 0.35 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    filter: grayscale(0.8) !important;
+}
+
+.bf-tp-confirm:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.bf-textarea {
+    resize: none;
+    line-height: 1.5;
+}
