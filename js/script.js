@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    i18n TRANSLATIONS
    ============================================================ */
 (function () {
@@ -7613,6 +7613,7 @@
     { name: 'Ocean Place Resort', address: '192/2 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ocean Star Resort', address: '22 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ocean Valley Hotel', address: '187 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Oceanique Villas', address: '74 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Palado Hotel Mui Ne', address: '98B Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Palette Muine Boutique Hotel', address: '21 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Palmira Beach Resort & Spa', address: '14 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7629,6 +7630,7 @@
     { name: 'QT Villa', address: 'Chế Lan Viên, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Quoc Dinh Guesthouse', address: '123 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Radisson Resort Mui Ne', address: '16 Nguyễn Cơ Thạch, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Rainbow Beach Mũi Né - Homestay & Coffee', address: '98 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Rang Garden Beach Resort', address: '128A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ravenala MuiNe Resort', address: '146 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Resort Đỗ Khoa', address: '126B Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
