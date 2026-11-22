@@ -7816,7 +7816,27 @@
   /* Function to remove Vietnamese accents for better searching */
   function removeAccents(str) {
     if (!str) return '';
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\u0111/g, 'd');
+  }
+
+  /* Squash: bỏ mọi ký tự không phải chữ/số — để "alyssa" khớp được "A L Y S S A" */
+  function squashForSearch(str) {
+    return (str || '').replace(/[^a-z0-9]/g, '');
+  }
+
+  /* Khớp linh hoạt theo 3 lớp:
+     1) khớp nguyên cụm như cũ, 2) khớp sau khi bỏ hết khoảng trắng ở cả hai phía,
+     3) mọi từ trong ô tìm đều xuất hiện trong tên (không cần đúng thứ tự/cụm) */
+  function hotelNameMatches(name, cleanFilter) {
+    if (!cleanFilter) return true;
+    var nameF = removeAccents(name);
+    if (nameF.indexOf(cleanFilter) !== -1) return true;
+    var nameSquashed = squashForSearch(nameF);
+    if (nameSquashed.indexOf(squashForSearch(cleanFilter)) !== -1) return true;
+    var tokens = cleanFilter.split(/\s+/).filter(Boolean);
+    return tokens.length > 0 && tokens.every(function (t) {
+      return nameF.indexOf(t) !== -1 || nameSquashed.indexOf(t) !== -1;
+    });
   }
 
   /* ── Build dropdown ── */
@@ -7839,10 +7859,19 @@
       'placeholder="' + searchPlaceholder + '" autocomplete="off" />';
     dropdown.appendChild(searchWrap);
 
-    var normalResults = hotelData.filter(function (h) {
-      if (h._isOther) return false;
-      return !cleanFilter || removeAccents(h.name).indexOf(cleanFilter) !== -1;
+    /* Ưu tiên khớp mạnh (nguyên cụm / bỏ khoảng trắng) lên trước, khớp theo từng từ xuống sau */
+    var primaryResults = [];
+    var tokenResults = [];
+    hotelData.forEach(function (h) {
+      if (h._isOther) return;
+      if (!cleanFilter) { primaryResults.push(h); return; }
+      var nameF = removeAccents(h.name);
+      var strong = nameF.indexOf(cleanFilter) !== -1 ||
+        squashForSearch(nameF).indexOf(squashForSearch(cleanFilter)) !== -1;
+      if (strong) primaryResults.push(h);
+      else if (hotelNameMatches(h.name, cleanFilter)) tokenResults.push(h);
     });
+    var normalResults = primaryResults.concat(tokenResults);
 
     var otherHotel = hotelData.find(function (h) { return h._isOther; });
     var results = normalResults;
