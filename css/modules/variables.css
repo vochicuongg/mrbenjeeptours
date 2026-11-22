@@ -5,9 +5,17 @@
 
 :root {
     /* Brand Colors – Dark (warm) */
-    --color-bg: #1A0F0A;
-    --color-bg-alt: #231709;
-    --color-bg-card: #382010;
+    --color-bg: #171009;
+    --color-bg-alt: #20160D;
+    --color-bg-card: #2B1E11;
+    --color-surface: #241910;
+
+    /* Elevation & Shape */
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-lift: 0 24px 60px rgba(0, 0, 0, 0.5);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --gold-grad: linear-gradient(135deg, #F3D27A, #D4AF37 55%, #A8892A);
 
     /* Brand Colors – Light (white balance) */
     --color-bg-light: #FDFAF5;
@@ -41,7 +49,7 @@
     --font-sans: 'Poppins', system-ui, sans-serif;
 
     /* Spacing */
-    --section-py: 100px;
+    --section-py: 112px;
     --container: 1200px;
 
     /* Transitions */
@@ -92,7 +100,14 @@ html {
     overflow-x: hidden;
 }
 
+::selection {
+    background: rgba(212, 175, 55, 0.85);
+    color: #171009;
+}
+
 body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-sans);
@@ -143,33 +158,35 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 14px 32px;
-    border-radius: 4px;
+    padding: 15px 34px;
+    border-radius: 999px;
     font-family: var(--font-sans);
     font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     transition: all var(--dur) var(--ease);
     white-space: nowrap;
 }
 
 .btn-gold {
-    background: transparent linear-gradient(135deg, var(--color-gold-light), var(--color-gold), var(--color-gold-dark));
+    background: var(--gold-grad);
     color: #1A0F0A;
-    border: 2px solid transparent;
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.22);
 }
 
 .btn-gold:hover {
-    background: transparent linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
-    box-shadow: 0 0 28px rgba(212, 175, 55, 0.55);
+    background: var(--gold-grad);
+    box-shadow: 0 14px 34px rgba(212, 175, 55, 0.35);
     transform: translateY(-2px);
 }
 
 .btn-outline-gold {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.06);
     color: #fff;
-    border: 2px solid #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
 }
 
 .btn-outline-gold:hover {
@@ -192,29 +209,62 @@ button {
 
 .section-header {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 72px;
 }
 
 .section-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
     font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--color-gold);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.section-eyebrow::before,
+.section-eyebrow::after {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+
+.section-eyebrow::after {
+    background: linear-gradient(90deg, var(--color-gold), transparent);
 }
 
 .section-title {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
     margin-bottom: 18px;
 }
 
 .section-subtitle {
-    font-size: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.75;
     color: var(--color-text-muted);
-    max-width: 580px;
+    max-width: 600px;
     margin-inline: auto;
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

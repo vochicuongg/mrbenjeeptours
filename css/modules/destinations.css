@@ -30,7 +30,7 @@
     right: 0;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@
     user-select: none;
     will-change: transform, opacity;
     transition: transform 0.45s var(--ease), opacity 0.45s var(--ease), box-shadow 0.45s var(--ease);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-card);
 }
 
 .destination-card:active {
