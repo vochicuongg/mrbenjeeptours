@@ -493,3 +493,115 @@
         display: none;
     }
 }
+
+/* ============================================================
+   RESPONSIVE – NAV COMPACT (màn hình vừa: tránh menu gãy dòng)
+   ============================================================ */
+@media (max-width: 1200px) {
+    .nav-links {
+        gap: 22px;
+    }
+
+    .nav-link {
+        font-size: 0.84rem;
+        letter-spacing: 0.04em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-cta {
+        display: none;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION — mọi thiết bị di động
+   ============================================================ */
+@media (max-width: 680px) {
+    /* Hero gọn hơn trên màn hình thấp, nút xếp dọc dễ chạm */
+    .hero {
+        min-height: 560px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .hero-btns .btn {
+        width: min(320px, 88vw);
+        min-height: 50px;
+    }
+
+    /* Nút bấm đạt chuẩn vùng chạm 48px */
+    .btn {
+        min-height: 48px;
+    }
+
+    /* Hamburger: vùng chạm lớn hơn */
+    .hamburger {
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mũi tên carousel: to hơn + nằm gọn trong màn hình (không bị cắt nửa) */
+    .tours-arrow,
+    .dest-arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tours-arrow-prev {
+        left: 6px;
+    }
+
+    .tours-arrow-next {
+        right: 6px;
+    }
+
+    .dest-arrow-prev {
+        left: 6px;
+    }
+
+    .dest-arrow-next {
+        right: 6px;
+    }
+
+    /* Tuỳ chọn ngôn ngữ: hàng chạm tối thiểu 44px */
+    .lang-option {
+        min-height: 44px;
+    }
+
+    /* Nút lên đầu trang: to hơn, tránh vùng tai thỏ/home indicator */
+    .back-to-top {
+        width: 48px;
+        height: 48px;
+        right: 20px;
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Gợi ý cuộn hero không đè nút ở màn hình thấp */
+    .hero-scroll-hint {
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 380px) {
+    /* Điện thoại rất nhỏ: logo gọn lại, chừa chỗ cho nút ngôn ngữ + hamburger */
+    .nav-logo-img {
+        height: 46px;
+        width: 46px;
+    }
+
+    .navbar.scrolled .nav-logo-img {
+        height: 42px;
+        width: 42px;
+    }
+}

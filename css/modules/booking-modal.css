@@ -1309,3 +1309,13 @@
     resize: none;
     line-height: 1.5;
 }
+
+/* ── Mobile: ô nhập 16px để iOS không tự zoom khi focus ── */
+@media (max-width: 680px) {
+    .bf-input,
+    .bf-textarea,
+    .bf-hotel-input,
+    .bf-phone-input {
+        font-size: 16px;
+    }
+}

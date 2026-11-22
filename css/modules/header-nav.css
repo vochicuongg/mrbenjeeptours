@@ -54,6 +54,7 @@
 }
 
 .navbar {
+    background: transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,14 +64,15 @@
     transition: background var(--dur) var(--ease),
         padding var(--dur) var(--ease),
         border-color var(--dur) var(--ease);
-    border-bottom: 1px solid transparent;
 }
 
 .navbar.scrolled {
-    background: rgba(26, 15, 10, 0.97);
+    background: rgba(23, 16, 9, 0.88);
     padding: 0 0 5px 0;
-    border-bottom-color: rgba(212, 175, 55, 0.3);
-    backdrop-filter: blur(8px);
+    border-bottom-color: rgba(212, 175, 55, 0.22);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: none;
 }
 
 .nav-container {
@@ -124,6 +126,7 @@
     text-transform: uppercase;
     color: #fff;
     position: relative;
+    white-space: nowrap;
     transition: color var(--dur);
 }
 
