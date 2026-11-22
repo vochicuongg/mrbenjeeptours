@@ -1979,7 +1979,7 @@
         saved = queryLang.toLowerCase();
         localStorage.setItem('mrben-lang', saved);
       }
-    } catch (e) {}
+    } catch (e) { }
 
     // 2. Check saved language from localStorage
     if (!saved) {
@@ -7445,7 +7445,7 @@
     { name: '3B MAISON Homestay & Villa', address: '124 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Adachi Homestay Phan Thiết', address: '86/3 Nguyễn Công Hoan, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Allezboo Beach Resort', address: '8 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'A L Y S S A Seaside Muine', address: '316 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'A L Y S S A Seaside Muine', address: '85-87 Hòa Bình, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Ananda Resort', address: '148 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Anantara Mui Ne Resort', address: '12A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Anh Hien Hotel', address: '81A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7460,7 +7460,6 @@
     { name: 'Bao Quynh Bungalow Resort', address: '26 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Bao Tram Guesthouse', address: '66 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Bay View Resort & Villas', address: '152 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'Bí Homestay', address: '97 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Bình Yên Homestay', address: '165 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Blue Bay Mui Ne Resort & Spa', address: 'Khu phố Suối Nước, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Blue Ocean Resort', address: '54 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7560,6 +7559,7 @@
     { name: 'Maidi Homestay Mui Ne', address: '151 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'MANA Muine Beach Resort', address: '20B Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Manila Resort', address: 'Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Mariné Homestay Mũi Né', address: '32 Huỳnh Tấn Phát, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'MAY Bungalow Mui Ne', address: '246/2 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Melon Resort Mui Ne', address: 'Khu phố 5, Phường Phú Hài, Tỉnh Lâm Đồng' },
     { name: 'Meraki Oasis Hotel', address: '150 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7733,7 +7733,6 @@
     { name: 'Vuon Tra Resort', address: '146 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Wanderlust garden inn', address: '375/3 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Wanderlust Hotel', address: '375 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'White Sand Resort Mui Ne', address: 'Km 8, Nguyễn Thông, Phường Phú Hài, Tỉnh Lâm Đồng' },
     { name: 'Wiki Villa Mui Ne', address: '2C Nguyễn Tấn Định, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Windy Hills Hotel', address: '299 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Xin Chào Hotel', address: '129 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
