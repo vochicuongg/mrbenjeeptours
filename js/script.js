@@ -783,7 +783,6 @@
       'booking.ctaTitle': 'Забронировать Джип-тур',
       'booking.ctaHint': 'Хотите выбрать цвет джипа? Укажите в поле Примечания при бронировании.',
       'booking.ctaButton': 'Забронировать',
-      'cal.sun': 'Вс', 'cal.mon': 'Пн', 'cal.tue': 'Вт', 'cal.wed': 'Ср', 'cal.thu': 'Чт', 'cal.fri': 'Пт', 'cal.sat': 'Сб',
       'cal.months': 'Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь',
       'stop.whiteDune': 'Белые Песчаные Дюны',
       'stop.redDune': 'Красные Песчаные Дюны',
@@ -1088,7 +1087,6 @@
       'booking.ctaTitle': '预订吉普车旅游',
       'booking.ctaHint': '想要特定颜色的吉普车？请在预订时在备注栏中注明。',
       'booking.ctaButton': '立即预订',
-      'cal.sun': '日', 'cal.mon': '一', 'cal.tue': '二', 'cal.wed': '三', 'cal.thu': '四', 'cal.fri': '五', 'cal.sat': '六',
       'cal.months': '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月',
       'stop.whiteDune': '白沙丘',
       'stop.redDune': '红沙丘',
@@ -1393,7 +1391,6 @@
       'booking.ctaTitle': '지프 투어 예약',
       'booking.ctaHint': '원하는 지프 색상이 있으신가요? 예약 시 메모란에 기재해 주세요.',
       'booking.ctaButton': '지금 예약',
-      'cal.sun': '일', 'cal.mon': '월', 'cal.tue': '화', 'cal.wed': '수', 'cal.thu': '목', 'cal.fri': '금', 'cal.sat': '토',
       'cal.months': '1월,2월,3월,4월,5월,6월,7월,8월,9월,10월,11월,12월',
       'stop.whiteDune': '화이트 샌드듄',
       'stop.redDune': '레드 샌드듄',
@@ -1698,7 +1695,6 @@
       'booking.ctaTitle': 'Jeep-Tour Buchen',
       'booking.ctaHint': 'Wünschen Sie eine bestimmte Jeep-Farbe? Geben Sie es bei der Buchung im Notizfeld an.',
       'booking.ctaButton': 'Jetzt Buchen',
-      'cal.sun': 'So', 'cal.mon': 'Mo', 'cal.tue': 'Di', 'cal.wed': 'Mi', 'cal.thu': 'Do', 'cal.fri': 'Fr', 'cal.sat': 'Sa',
       'cal.months': 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember',
       'stop.whiteDune': 'Weiße Sanddüne',
       'stop.redDune': 'Rote Sanddüne',
@@ -7266,7 +7262,6 @@
   var values = currentOrder.slice();
 
   /* ── Custom select helpers ──────────────────────────── */
-  function getVal(idx) { return values[idx]; }
 
   function closeAll() {
     wrappers.forEach(function (w) { if (w) w.classList.remove('open'); });

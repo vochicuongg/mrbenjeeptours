@@ -44,7 +44,6 @@
   var values = currentOrder.slice();
 
   /* ── Custom select helpers ──────────────────────────── */
-  function getVal(idx) { return values[idx]; }
 
   function closeAll() {
     wrappers.forEach(function (w) { if (w) w.classList.remove('open'); });
