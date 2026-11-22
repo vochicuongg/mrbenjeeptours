@@ -7445,7 +7445,11 @@
     { name: '3B MAISON Homestay & Villa', address: '124 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Adachi Homestay Phan Thiết', address: '86/3 Nguyễn Công Hoan, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Allezboo Beach Resort', address: '8 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+<<<<<<< HEAD
     { name: 'A L Y S S A Seaside Muine', address: '85-87 Hòa Bình, Phường Mũi Né, Tỉnh Lâm Đồng' },
+=======
+    { name: 'A L Y S S A Seaside Muine', address: '246 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+>>>>>>> 2bfb53ec2c0c046895e324dd7dc513242d6561e1
     { name: 'Ananda Resort', address: '148 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Anantara Mui Ne Resort', address: '12A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Anh Hien Hotel', address: '81A Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7513,7 +7517,6 @@
     { name: 'Hải Âu Mui Ne Beach Resort', address: '32 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'HAI GIA RESORT', address: '72A Huỳnh Thúc Kháng, khu phố 4, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Hải Yên Family Hotel', address: 'Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'Herbal Hotel & Spa', address: '21 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Hiep Hoa Resort', address: '80 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Hill Lodge Mui Ne', address: 'E6 Nguyễn Tấn Định, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Hill Villa - Mui Ne', address: '201/88 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7526,7 +7529,6 @@
     { name: 'Hòn Rơm 1 Resort', address: 'Long Sơn, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'HOTEL 86 - MUINE', address: '35C Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Hung Phuc Mui Ne Hotel', address: '55 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'Hưng Thịnh Resort', address: '1 Nguyễn Cơ Thạch, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'I Hostel Muine', address: 'Hẻm 188 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'iHome Backpacker Resort', address: 'Quarter 2 City, Hòa Bình, Street Ward, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Inner Peace Phan Thiet', address: '255 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
@@ -7674,7 +7676,7 @@
     { name: 'Sea Lion Beach Resort', address: '12 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Sea Senses HomeStay', address: 'Chưa xác định được số nhà chính xác' },
     { name: 'Seahorse Resort & Spa', address: 'Xuân Thủy, Phường Mũi Né, Tỉnh Lâm Đồng' },
-    { name: 'Seaside Mui Ne Hotel', address: '124 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Seaside Mui Ne Hotel', address: '124B Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Sea Winds Resort', address: '139 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Second House', address: '157/10 Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Serenity by the Sea', address: '88 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
