@@ -54,7 +54,7 @@
 }
 
 .navbar {
-    background: linear-gradient(180deg, rgba(14, 9, 5, 0.55), rgba(14, 9, 5, 0));
+    background: transparent;
     position: fixed;
     top: 0;
     left: 0;
