@@ -122,6 +122,7 @@
     { name: 'Maidi Homestay Mui Ne', address: '151 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'MANA Muine Beach Resort', address: '20B Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Manila Resort', address: 'Huỳnh Thúc Kháng, Phường Mũi Né, Tỉnh Lâm Đồng' },
+    { name: 'Mariné Homestay Mũi Né', address: '32 Huỳnh Tấn Phát, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'MAY Bungalow Mui Ne', address: '246/2 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
     { name: 'Melon Resort Mui Ne', address: 'Khu phố 5, Phường Phú Hài, Tỉnh Lâm Đồng' },
     { name: 'Meraki Oasis Hotel', address: '150 Nguyễn Đình Chiểu, Phường Mũi Né, Tỉnh Lâm Đồng' },
