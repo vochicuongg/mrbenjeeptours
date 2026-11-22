@@ -268,3 +268,18 @@ button {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================================
+   GLOBAL POLISH — chống tràn ngang, chạm mượt trên mobile
+   ============================================================ */
+html,
+body {
+    overflow-x: clip;
+}
+
+a,
+button,
+.btn {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
