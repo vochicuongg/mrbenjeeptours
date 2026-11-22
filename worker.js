@@ -11,9 +11,9 @@
  * 5. Bất đồng bộ song song: Telegram và Make.com không nghẽn lẫn nhau.
  * 
  * CẤU HÌNH BIẾN MÔI TRƯỜNG CLOUDFLARE (Settings -> Variables):
- * - TELEGRAM_BOT_TOKEN : 8698354601:AAGvQblFamiQ_qKOxzbP_bQxYyQx24f49Lw
- * - TELEGRAM_CHAT_ID   : -1003852617510
- * - MAKE_WEBHOOK_URL   : https://hook.eu1.make.com/hz6g13pxrevta33z5piw4x5i7tko0vcd
+ * - TELEGRAM_BOT_TOKEN : (secret — đặt bằng `wrangler secret put`, KHÔNG ghi vào code)
+ * - TELEGRAM_CHAT_ID   : (secret — đặt bằng `wrangler secret put`, KHÔNG ghi vào code)
+ * - MAKE_WEBHOOK_URL   : (secret — đặt bằng `wrangler secret put`, KHÔNG ghi vào code)
  * ════════════════════════════════════════════════════════════════════════════
  */
 
@@ -26,9 +26,6 @@ const SPAM_URL_PATTERN = /(https?:\/\/|www\.|\.com|\.net|\.org|\.xyz|\.vip|\.top
 const SPAM_KEYWORD_PATTERN = /(casino|viagra|sex|poker|bet88|crypto|bitcoin|usdt|seo\s+service)/i;
 const JUNK_PHONE_SEQUENCES = ['123456789', '987654321', '0123456789', '0987654321', '12345678', '87654321'];
 
-const FALLBACK_TG_TOKEN  = '8698354601:AAGvQblFamiQ_qKOxzbP_bQxYyQx24f49Lw';
-const FALLBACK_TG_CHATID = '-1003852617510';
-const FALLBACK_MAKE_URL  = 'https://hook.eu1.make.com/hz6g13pxrevta33z5piw4x5i7tko0vcd';
 
 function isOriginAllowed(origin) {
   if (!origin) return false;
@@ -209,9 +206,16 @@ export default {
       }
 
       // 8. Đọc biến môi trường
-      var tgToken = (env && env.TELEGRAM_BOT_TOKEN) || FALLBACK_TG_TOKEN;
-      var tgChatId = (env && env.TELEGRAM_CHAT_ID) || FALLBACK_TG_CHATID;
-      var makeUrl = (env && env.MAKE_WEBHOOK_URL) || FALLBACK_MAKE_URL;
+      var tgToken = env && env.TELEGRAM_BOT_TOKEN;
+      var tgChatId = env && env.TELEGRAM_CHAT_ID;
+      var makeUrl = env && env.MAKE_WEBHOOK_URL;
+      if (!tgToken || !tgChatId || !makeUrl) {
+        console.error('[Worker] Missing required secrets (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID / MAKE_WEBHOOK_URL). Set them with `wrangler secret put`.');
+        return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+          status: 500,
+          headers: Object.assign({ 'Content-Type': 'application/json' }, corsHeaders)
+        });
+      }
 
       var action = body.action || '';
       var message = body.message || '';
