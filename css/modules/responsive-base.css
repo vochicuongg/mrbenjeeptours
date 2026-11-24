@@ -563,10 +563,23 @@
     }
 
     /* Mũi tên carousel: to hơn + nằm gọn trong màn hình (không bị cắt nửa) */
-    .tours-arrow,
-    .dest-arrow {
+    .tours-arrow {
         width: 48px;
         height: 48px;
+    }
+
+    /* Mũi tên Điểm Đến: 48px quá to và che mất số trang — giữ gọn 36px */
+    .dest-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+    }
+
+    /* Số trang của thẻ Điểm Đến: chuyển sang góc dưới-trái của ảnh
+       để nút next (góc phải, giữa thẻ) không che mất */
+    .dest-counter {
+        right: auto;
+        left: 12px;
     }
 
     .tours-arrow-prev {
