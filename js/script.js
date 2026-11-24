@@ -2319,9 +2319,56 @@
 
   var SWIPE_MS = 450; // matches CSS 0.45s
 
+  /* ── Desktop horizontal carousel (>680px): one row, 2 cards
+        visible, the track slides by (card width + gap). ── */
+  var dIndex = 0;
+
+  function desktopVisible() { return 2; }
+
+  function desktopMaxIndex() {
+    return Math.max(0, total - desktopVisible());
+  }
+
+  function trackGap() {
+    return window.innerWidth >= 961 ? 28 : 20;
+  }
+
+  function applyDesktop(instant) {
+    if (!cards.length) return;
+    dIndex = Math.max(0, Math.min(dIndex, desktopMaxIndex()));
+    var step = cards[0].offsetWidth + trackGap();
+    if (instant) stack.style.transition = 'none';
+    stack.style.transform = 'translateX(' + (-dIndex * step) + 'px)';
+    if (instant) {
+      void stack.offsetWidth;
+      stack.style.transition = '';
+    }
+    dots.forEach(function (d, di) {
+      d.classList.toggle('active', di === dIndex);
+      d.style.display = di > desktopMaxIndex() ? 'none' : '';
+    });
+    if (btnPrev) btnPrev.classList.toggle('dest-arrow-disabled', dIndex <= 0);
+    if (btnNext) btnNext.classList.toggle('dest-arrow-disabled', dIndex >= desktopMaxIndex());
+  }
+
+  function goNextDesktop() {
+    if (dIndex < desktopMaxIndex()) {
+      dIndex++;
+      applyDesktop(false);
+    }
+  }
+
+  function goPrevDesktop() {
+    if (dIndex > 0) {
+      dIndex--;
+      applyDesktop(false);
+    }
+  }
+
   /* Navigate: top card flies out LEFT, cards behind promote up (next ►) */
   function goNext() {
-    if (animating || isDesktop()) return;
+    if (isDesktop()) { goNextDesktop(); return; }
+    if (animating) return;
     animating = true;
     var topCard = cards[order[0]];
     // Remove position class so it doesn't conflict, then swipe out
@@ -2344,7 +2391,8 @@
 
   /* Navigate: last card comes to front, top card sinks to back (prev ◄ / lùi) */
   function goPrev() {
-    if (animating || isDesktop()) return;
+    if (isDesktop()) { goPrevDesktop(); return; }
+    if (animating) return;
     animating = true;
     // Reorder: move last card to front (reverse of goNext)
     order.unshift(order.pop());
@@ -2357,6 +2405,11 @@
 
   /* Jump to a specific card index (always swipe right for forward steps) */
   function goToIndex(idx) {
+    if (isDesktop()) {
+      dIndex = Math.max(0, Math.min(idx, desktopMaxIndex()));
+      applyDesktop(false);
+      return;
+    }
     if (animating || order[0] === idx) return;
     var posInOrder = order.indexOf(idx);
     var steps = posInOrder;
@@ -2512,6 +2565,46 @@
     dragCardIdx = -1;
   }
 
+  /* ── Desktop track drag (Pointer Events) ── */
+  var dDrag = null;
+
+  stack.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+  stack.addEventListener('pointerdown', function (e) {
+    if (!isDesktop()) return;
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    dDrag = { startX: e.clientX, base: dIndex, moved: false };
+    try { stack.setPointerCapture(e.pointerId); } catch (err) { /* noop */ }
+  });
+
+  stack.addEventListener('pointermove', function (e) {
+    if (!dDrag) return;
+    var dx = e.clientX - dDrag.startX;
+    if (Math.abs(dx) > 6 && !dDrag.moved) {
+      dDrag.moved = true;
+      stack.classList.add('dest-track-dragging');
+    }
+    if (dDrag.moved) {
+      var step = cards[0].offsetWidth + trackGap();
+      stack.style.transform = 'translateX(' + (-dDrag.base * step + dx) + 'px)';
+    }
+  });
+
+  function endDesktopDrag(e) {
+    if (!dDrag) return;
+    var dx = e.clientX - dDrag.startX;
+    stack.classList.remove('dest-track-dragging');
+    if (dDrag.moved) {
+      if (dx < -70 && dIndex < desktopMaxIndex()) dIndex++;
+      else if (dx > 70 && dIndex > 0) dIndex--;
+    }
+    dDrag = null;
+    applyDesktop(false);
+  }
+
+  stack.addEventListener('pointerup', endDesktopDrag);
+  stack.addEventListener('pointercancel', endDesktopDrag);
+
   stack.addEventListener('mousedown', onPointerDown);
   stack.addEventListener('touchstart', onPointerDown, { passive: true });
   document.addEventListener('mousemove', onPointerMove);
@@ -2551,9 +2644,14 @@
         card.style.position = '';
       });
       stack.style.height = '';
+      applyDesktop(true);
       return;
     }
-    // Mobile: stacked card swiper
+    // Mobile: stacked card swiper — undo desktop carousel state
+    stack.style.transform = '';
+    dots.forEach(function (d) { d.style.display = ''; });
+    if (btnPrev) btnPrev.classList.remove('dest-arrow-disabled');
+    if (btnNext) btnNext.classList.remove('dest-arrow-disabled');
     setStackHeight();
     applyPositions();
   }

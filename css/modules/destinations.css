@@ -216,31 +216,57 @@
 }
 
 /* ============================================================
-   DESTINATIONS — SPLIT-HERO SHOWCASE DESKTOP (>680px)
-   Netflix / Cinema-poster style: TEXT left | IMAGE right
-   Alternating layout for visual rhythm.
-   Mobile (≤680px) keeps the original stacked-card swiper.
+   DESTINATIONS — HORIZONTAL CAROUSEL DESKTOP (>680px)
+   All 4 cards in one horizontal track (2 visible), sliding with
+   arrows / dots / drag — one card row tall instead of four
+   stacked split rows. Mobile (≤680px) keeps the stacked swiper.
    ============================================================ */
 @media (min-width: 681px) {
     .dest-stack-wrapper {
         max-width: 100%;
         padding: 0;
+        overflow: hidden;
     }
 
     .dest-stack {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 28px;
         perspective: none;
         height: auto !important;
+        overflow: visible;
+        padding: 10px 0 6px;
+        transition: transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+        will-change: transform;
     }
 
-    .dest-arrow,
+    .dest-stack.dest-track-dragging {
+        transition: none;
+    }
+
+    /* Carousel controls are back on desktop */
+    .dest-arrow {
+        top: 44%;
+    }
+
+    .dest-arrow-prev {
+        left: 10px;
+    }
+
+    .dest-arrow-next {
+        right: 10px;
+    }
+
+    .dest-arrow.dest-arrow-disabled {
+        opacity: 0.28;
+        pointer-events: none;
+    }
+
     .dest-dots {
-        display: none !important;
+        margin-top: 26px;
     }
 
-    /* ── Reset stacked-card → split row layout ── */
+    /* ── Reset stacked-card → carousel card ── */
     .destination-card {
         position: relative !important;
         top: auto !important;
@@ -249,42 +275,30 @@
         opacity: 1 !important;
         pointer-events: auto !important;
         z-index: auto !important;
-        cursor: pointer;
+        cursor: grab;
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
         align-items: stretch;
         border-radius: 16px;
         overflow: hidden;
         border: 1px solid rgba(212, 175, 55, 0.15);
         background: var(--color-bg-alt);
-        /* Fixed height: card height no longer follows each photo's
-           native aspect ratio (live cards measured 268–474px tall);
-           the photo crops via object-fit: cover instead. */
-        height: 360px;
-        min-height: 360px;
+        flex: 0 0 calc(50% - 14px);
+        height: 460px;
+        min-height: 460px;
         transform: none !important;
         transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease),
             border-color 0.35s var(--ease);
         box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
     }
 
-    /* Alternating: even cards reverse */
-    .dest-stack .destination-card:nth-child(even) {
-        flex-direction: row-reverse !important;
-    }
-
-    /* Hero card (1st) — larger */
-    .dest-stack .destination-card:nth-child(1) {
-        height: 460px;
-        min-height: 460px;
-        border-color: rgba(212, 175, 55, 0.3);
-    }
-
-    /* ── IMAGE column ── */
+    /* ── IMAGE band (top) ── */
     .destination-img-wrap {
         position: relative;
-        flex: 0 0 55%;
-        max-width: 55%;
+        flex: 0 0 250px;
+        width: 100%;
+        max-width: none;
+        height: 250px;
         aspect-ratio: auto;
         overflow: hidden;
         z-index: 1;
@@ -302,49 +316,30 @@
     .destination-img-wrap::after {
         content: '';
         position: absolute;
-        top: 0;
+        left: 0;
+        right: 0;
         bottom: 0;
-        width: 35%;
+        height: 45%;
         z-index: 2;
         pointer-events: none;
-        transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
+        background: linear-gradient(to top,
+                var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.55) 45%, transparent 100%);
+        transition: opacity 0.4s var(--ease);
     }
 
-    /* Fade sits at the SEAM with the text panel (was on the outer
-       edge, where it only darkened a third of every photo while the
-       seam itself stayed a hard line — measured on the live site). */
-    .destination-card:nth-child(odd) .destination-img-wrap::after {
-        right: 0;
-        left: auto;
-        background: linear-gradient(to left,
-                var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.6) 50%, transparent 100%);
-    }
-
-    .destination-card:nth-child(even) .destination-img-wrap::after {
-        left: 0;
-        right: auto;
-        background: linear-gradient(to right,
-                var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.6) 50%, transparent 100%);
-    }
-
-    /* Hide counter on desktop */
-    .dest-counter {
-        display: none;
-    }
-
-    /* ── TEXT column ── */
+    /* ── TEXT block (below image) ── */
     .destination-info {
         position: relative;
-        flex: 1 1 45%;
+        flex: 1;
         z-index: 3;
-        padding: 40px 36px;
+        padding: 26px 28px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .destination-info h3 {
-        font-size: 1.65rem;
+        font-size: 1.4rem;
         font-weight: 700;
         margin-bottom: 14px;
         line-height: 1.25;
@@ -361,18 +356,11 @@
         color: rgba(245, 239, 230, 0.78);
         line-height: 1.75;
         margin: 0;
-        max-height: 200px;
-        overflow: visible;
+        overflow: hidden;
         opacity: 1;
-    }
-
-    /* Hero text — bigger */
-    .dest-stack .destination-card:nth-child(1) .destination-info {
-        padding: 48px 44px;
-    }
-
-    .dest-stack .destination-card:nth-child(1) .destination-info p {
-        font-size: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
     }
 }
 
@@ -390,8 +378,7 @@
     }
 
     .destination-card:hover .destination-img-wrap::after {
-        width: 25%;
-        opacity: 0.7;
+        opacity: 0.75;
     }
 
     .destination-card:hover .destination-info h3 {
@@ -411,9 +398,9 @@
     .destination-info::before {
         content: attr(data-index);
         position: absolute;
-        top: 20px;
+        bottom: 4px;
         font-family: var(--font-serif);
-        font-size: 5rem;
+        font-size: 3.4rem;
         font-weight: 700;
         line-height: 1;
         pointer-events: none;
@@ -423,12 +410,9 @@
         background-clip: text;
     }
 
-    .destination-card:nth-child(odd) .destination-info::before {
-        left: 36px;
-    }
-
-    .destination-card:nth-child(even) .destination-info::before {
-        right: 36px;
+    .destination-card .destination-info::before {
+        right: 24px;
+        left: auto;
     }
 }
 
@@ -439,38 +423,27 @@
     }
 
     .destination-card {
-        height: 300px !important;
-        min-height: 300px !important;
-    }
-
-    .dest-stack .destination-card:nth-child(1) {
-        height: 380px !important;
-        min-height: 380px !important;
+        height: 420px !important;
+        min-height: 420px !important;
+        flex-basis: calc(50% - 10px) !important;
     }
 
     .destination-img-wrap {
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
+        flex: 0 0 210px !important;
+        height: 210px !important;
+        max-width: none !important;
     }
 
     .destination-info {
-        padding: 28px 24px !important;
+        padding: 22px 22px !important;
     }
 
     .destination-info h3 {
-        font-size: 1.35rem !important;
+        font-size: 1.2rem !important;
     }
 
     .destination-info p {
         font-size: 0.85rem !important;
-    }
-
-    .dest-stack .destination-card:nth-child(1) .destination-info h3 {
-        font-size: 1.65rem !important;
-    }
-
-    .dest-stack .destination-card:nth-child(1) .destination-info {
-        padding: 32px 28px !important;
     }
 }
 
@@ -479,28 +452,24 @@
    monitor instead of sitting at laptop scale in the middle. */
 @media (min-width: 1600px) {
     .destination-card {
-        height: 400px;
-        min-height: 400px;
+        height: 500px;
+        min-height: 500px;
     }
 
-    .dest-stack .destination-card:nth-child(1) {
-        height: 520px;
-        min-height: 520px;
+    .destination-img-wrap {
+        flex-basis: 280px;
+        height: 280px;
     }
 
     .destination-info {
-        padding: 48px 44px;
+        padding: 30px 32px;
     }
 
     .destination-info h3 {
-        font-size: 1.85rem;
+        font-size: 1.55rem;
     }
 
     .destination-info p {
         font-size: 1rem;
-    }
-
-    .dest-stack .destination-card:nth-child(1) .destination-info p {
-        font-size: 1.08rem;
     }
 }
