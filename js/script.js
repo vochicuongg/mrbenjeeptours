@@ -2378,27 +2378,52 @@
         whenever the pointer rested over the section (owner report
         2026-11-24). Manual navigation restarts the 2s countdown. ── */
   var autoTimer = null;
+  var resumeTimer = null;
 
   function stopAutoplay() {
     if (autoTimer) {
       clearInterval(autoTimer);
       autoTimer = null;
     }
+    if (resumeTimer) {
+      clearTimeout(resumeTimer);
+      resumeTimer = null;
+    }
+  }
+
+  function startInterval() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(function () {
+      goNextDesktop();
+    }, 2000);
   }
 
   function syncAutoplay() {
     stopAutoplay();
     if (!isDesktop() || document.hidden) return;
-    autoTimer = setInterval(function () {
+    startInterval();
+  }
+
+  /* After a MANUAL interaction (arrow / dot click, drag) the user
+     is reading the card they picked: autoplay stays off for 5s,
+     then advances once and continues at the normal 2s pace.
+     Another manual interaction restarts the 5s wait. */
+  function syncAutoplayDelayed() {
+    stopAutoplay();
+    if (!isDesktop() || document.hidden) return;
+    resumeTimer = setTimeout(function () {
+      resumeTimer = null;
+      if (!isDesktop() || document.hidden) return;
       goNextDesktop();
-    }, 2000);
+      startInterval();
+    }, 5000);
   }
 
   document.addEventListener('visibilitychange', syncAutoplay);
 
   /* Navigate: top card flies out LEFT, cards behind promote up (next ►) */
   function goNext() {
-    if (isDesktop()) { goNextDesktop(); syncAutoplay(); return; }
+    if (isDesktop()) { goNextDesktop(); syncAutoplayDelayed(); return; }
     if (animating) return;
     animating = true;
     var topCard = cards[order[0]];
@@ -2422,7 +2447,7 @@
 
   /* Navigate: last card comes to front, top card sinks to back (prev ◄ / lùi) */
   function goPrev() {
-    if (isDesktop()) { goPrevDesktop(); syncAutoplay(); return; }
+    if (isDesktop()) { goPrevDesktop(); syncAutoplayDelayed(); return; }
     if (animating) return;
     animating = true;
     // Reorder: move last card to front (reverse of goNext)
@@ -2439,7 +2464,7 @@
     if (isDesktop()) {
       dIndex = Math.max(0, Math.min(idx, desktopMaxIndex()));
       applyDesktop(false);
-      syncAutoplay();
+      syncAutoplayDelayed();
       return;
     }
     if (animating || order[0] === idx) return;
@@ -2635,7 +2660,7 @@
       applyDesktop(false);
     }
     dDrag = null;
-    syncAutoplay();
+    syncAutoplayDelayed();
   }
 
   stack.addEventListener('pointerup', endDesktopDrag);
