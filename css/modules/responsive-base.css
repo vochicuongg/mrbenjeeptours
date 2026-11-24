@@ -288,9 +288,9 @@
         height: 200px;
     }
 
-    /* Arrow centered over mobile image */
+    /* Arrow on the photo/body seam (mobile photo is 200px tall) */
     .tours-arrow {
-        top: 300px;
+        top: 200px;
     }
 
 
@@ -582,14 +582,12 @@
         left: 12px;
     }
 
-    /* Mũi tên Tours trên mobile: top 300px + cỡ 48px khiến nút đè lên
-       tiêu đề và mô tả (ảnh thẻ chỉ cao 200px) — thu gọn còn 36px và
-       căn giữa đúng phần ảnh (top 100px) như ý đồ thiết kế ban đầu */
+    /* Mũi tên Tours trên mobile: cỡ 48px quá to, đè lên chữ — thu gọn
+       còn 36px (vị trí dọc: nằm trên ranh giới ảnh/thân thẻ, rule ở trên) */
     .tours-arrow {
         width: 36px;
         height: 36px;
         font-size: 0.8rem;
-        top: 100px;
     }
 
     .tours-arrow-prev {

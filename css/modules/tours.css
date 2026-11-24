@@ -38,8 +38,8 @@
 .tours-arrow {
     display: flex;
     position: absolute;
-    top: 350px;
-    /* vertically centered over the image (260px / 2) */
+    top: 260px;
+    /* centered on the photo/body seam (the photo is 260px tall) */
     transform: translateY(-50%);
     z-index: 10;
     width: 44px;
