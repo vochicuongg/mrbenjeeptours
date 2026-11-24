@@ -429,7 +429,7 @@
         padding: 20px 16px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         min-height: 0;
     }
 

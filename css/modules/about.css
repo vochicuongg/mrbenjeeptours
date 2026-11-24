@@ -31,12 +31,13 @@
 }
 
 .feature-card {
-    /* Lấp đầy ô lưới: cả 4 thẻ cao bằng nhau, nội dung căn giữa dọc */
+    /* Lấp đầy ô lưới: cả 4 thẻ cao bằng nhau; nội dung bắt đầu từ
+       trên xuống để icon và tiêu đề thẳng hàng giữa các thẻ */
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: var(--color-bg-card-light);
     border: 1px solid var(--color-border-light);
     border-radius: 16px;
@@ -80,6 +81,12 @@
     font-weight: 600;
     color: var(--color-text-dark);
     margin-bottom: 12px;
+    /* Chiều cao cố định = 2 dòng: tiêu đề 1 dòng hay 2 dòng thì
+       đoạn mô tả bên dưới vẫn bắt đầu cùng một vị trí ở mọi thẻ */
+    min-height: 2.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .feature-card p {
