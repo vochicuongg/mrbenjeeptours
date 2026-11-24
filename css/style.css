@@ -157,6 +157,8 @@ button {
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 8px;
     padding: 15px 34px;
     border-radius: 999px;
@@ -2880,6 +2882,17 @@ button,
     .hero-btns .btn {
         width: min(320px, 88vw);
         min-height: 50px;
+    }
+
+    /* CTA chính (vàng) lên trước khi xếp dọc — nút phụ xuống dưới */
+    .hero-btns .btn-gold {
+        order: -1;
+    }
+
+    /* Nút viền trên mobile: nền tối mờ rõ hơn để đọc là nút bấm,
+       không giống ô nhập liệu trên nền ảnh */
+    .hero-btns .btn-outline-gold {
+        background: rgba(23, 16, 9, 0.42);
     }
 
     /* Nút bấm đạt chuẩn vùng chạm 48px */

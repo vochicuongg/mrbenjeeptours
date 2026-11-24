@@ -538,6 +538,17 @@
         min-height: 50px;
     }
 
+    /* CTA chính (vàng) lên trước khi xếp dọc — nút phụ xuống dưới */
+    .hero-btns .btn-gold {
+        order: -1;
+    }
+
+    /* Nút viền trên mobile: nền tối mờ rõ hơn để đọc là nút bấm,
+       không giống ô nhập liệu trên nền ảnh */
+    .hero-btns .btn-outline-gold {
+        background: rgba(23, 16, 9, 0.42);
+    }
+
     /* Nút bấm đạt chuẩn vùng chạm 48px */
     .btn {
         min-height: 48px;
