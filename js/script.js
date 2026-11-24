@@ -2383,14 +2383,24 @@
       d.classList.toggle('active', di === dIndex);
       d.style.display = di > desktopMaxIndex() ? 'none' : '';
     });
-    // At the last position the next arrow turns into a
-    // "back to the start" button (icon swap); prev wraps too.
+    // At the ends the arrows turn into wrap-around buttons (icon
+    // swap): next at the last position -> back to the start
+    // (fa-rotate-left); prev at the first position -> jump to the
+    // end (fa-rotate-right).
     if (btnNext) {
       var nIcon = btnNext.querySelector('i');
       if (nIcon) {
         nIcon.className = dIndex >= desktopMaxIndex()
           ? 'fas fa-rotate-left'
           : 'fas fa-chevron-right';
+      }
+    }
+    if (btnPrev) {
+      var pIcon = btnPrev.querySelector('i');
+      if (pIcon) {
+        pIcon.className = dIndex <= 0
+          ? 'fas fa-rotate-right'
+          : 'fas fa-chevron-left';
       }
     }
   }
@@ -2747,6 +2757,10 @@
     }
     // Mobile: stacked card swiper — undo desktop carousel state
     stopAutoplay();
+    var pI = btnPrev && btnPrev.querySelector('i');
+    if (pI) pI.className = 'fas fa-chevron-left';
+    var nI = btnNext && btnNext.querySelector('i');
+    if (nI) nI.className = 'fas fa-chevron-right';
     stack.style.transform = '';
     dots.forEach(function (d) { d.style.display = ''; });
     setStackHeight();
