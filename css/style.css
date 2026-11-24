@@ -1022,11 +1022,6 @@ button,
         right: 10px;
     }
 
-    .dest-arrow.dest-arrow-disabled {
-        opacity: 0.28;
-        pointer-events: none;
-    }
-
     .dest-dots {
         margin-top: 26px;
     }

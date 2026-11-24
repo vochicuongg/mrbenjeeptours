@@ -2347,27 +2347,76 @@
       d.classList.toggle('active', di === dIndex);
       d.style.display = di > desktopMaxIndex() ? 'none' : '';
     });
-    if (btnPrev) btnPrev.classList.toggle('dest-arrow-disabled', dIndex <= 0);
-    if (btnNext) btnNext.classList.toggle('dest-arrow-disabled', dIndex >= desktopMaxIndex());
+    // At the last position the next arrow turns into a
+    // "back to the start" button (icon swap); prev wraps too.
+    if (btnNext) {
+      var nIcon = btnNext.querySelector('i');
+      if (nIcon) {
+        nIcon.className = dIndex >= desktopMaxIndex()
+          ? 'fas fa-rotate-left'
+          : 'fas fa-chevron-right';
+      }
+    }
   }
 
+  /* Wrap-around navigation: next at the end returns to the first
+     position, prev at the start jumps to the last position. */
   function goNextDesktop() {
-    if (dIndex < desktopMaxIndex()) {
-      dIndex++;
-      applyDesktop(false);
-    }
+    dIndex = dIndex >= desktopMaxIndex() ? 0 : dIndex + 1;
+    applyDesktop(false);
   }
 
   function goPrevDesktop() {
-    if (dIndex > 0) {
-      dIndex--;
-      applyDesktop(false);
+    dIndex = dIndex <= 0 ? desktopMaxIndex() : dIndex - 1;
+    applyDesktop(false);
+  }
+
+  /* ── Autoplay: advance every 2s (desktop only). Pauses while
+        hovered, while dragged, off-screen, or when the tab is
+        hidden; any manual navigation restarts the 2s countdown. ── */
+  var autoTimer = null;
+  var autoInView = true;
+  var autoHover = false;
+
+  function stopAutoplay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
     }
+  }
+
+  function syncAutoplay() {
+    stopAutoplay();
+    if (!isDesktop() || !autoInView || autoHover || document.hidden) return;
+    autoTimer = setInterval(function () {
+      goNextDesktop();
+    }, 2000);
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      autoInView = entries[0].isIntersecting;
+      syncAutoplay();
+    }, { threshold: 0.25 }).observe(stack);
+  }
+
+  document.addEventListener('visibilitychange', syncAutoplay);
+
+  var destWrap = stack.parentElement;
+  if (destWrap) {
+    destWrap.addEventListener('mouseenter', function () {
+      autoHover = true;
+      syncAutoplay();
+    });
+    destWrap.addEventListener('mouseleave', function () {
+      autoHover = false;
+      syncAutoplay();
+    });
   }
 
   /* Navigate: top card flies out LEFT, cards behind promote up (next ►) */
   function goNext() {
-    if (isDesktop()) { goNextDesktop(); return; }
+    if (isDesktop()) { goNextDesktop(); syncAutoplay(); return; }
     if (animating) return;
     animating = true;
     var topCard = cards[order[0]];
@@ -2391,7 +2440,7 @@
 
   /* Navigate: last card comes to front, top card sinks to back (prev ◄ / lùi) */
   function goPrev() {
-    if (isDesktop()) { goPrevDesktop(); return; }
+    if (isDesktop()) { goPrevDesktop(); syncAutoplay(); return; }
     if (animating) return;
     animating = true;
     // Reorder: move last card to front (reverse of goNext)
@@ -2408,6 +2457,7 @@
     if (isDesktop()) {
       dIndex = Math.max(0, Math.min(idx, desktopMaxIndex()));
       applyDesktop(false);
+      syncAutoplay();
       return;
     }
     if (animating || order[0] === idx) return;
@@ -2573,6 +2623,7 @@
   stack.addEventListener('pointerdown', function (e) {
     if (!isDesktop()) return;
     if (e.pointerType === 'mouse' && e.button !== 0) return;
+    stopAutoplay();
     dDrag = { startX: e.clientX, base: dIndex, moved: false };
     try { stack.setPointerCapture(e.pointerId); } catch (err) { /* noop */ }
   });
@@ -2595,11 +2646,14 @@
     var dx = e.clientX - dDrag.startX;
     stack.classList.remove('dest-track-dragging');
     if (dDrag.moved) {
-      if (dx < -70 && dIndex < desktopMaxIndex()) dIndex++;
-      else if (dx > 70 && dIndex > 0) dIndex--;
+      if (dx < -70) goNextDesktop();
+      else if (dx > 70) goPrevDesktop();
+      else applyDesktop(false);
+    } else {
+      applyDesktop(false);
     }
     dDrag = null;
-    applyDesktop(false);
+    syncAutoplay();
   }
 
   stack.addEventListener('pointerup', endDesktopDrag);
@@ -2645,13 +2699,13 @@
       });
       stack.style.height = '';
       applyDesktop(true);
+      syncAutoplay();
       return;
     }
     // Mobile: stacked card swiper — undo desktop carousel state
+    stopAutoplay();
     stack.style.transform = '';
     dots.forEach(function (d) { d.style.display = ''; });
-    if (btnPrev) btnPrev.classList.remove('dest-arrow-disabled');
-    if (btnNext) btnNext.classList.remove('dest-arrow-disabled');
     setStackHeight();
     applyPositions();
   }
