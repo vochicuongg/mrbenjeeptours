@@ -2948,6 +2948,16 @@ button,
         left: 12px;
     }
 
+    /* Mũi tên Tours trên mobile: top 300px + cỡ 48px khiến nút đè lên
+       tiêu đề và mô tả (ảnh thẻ chỉ cao 200px) — thu gọn còn 36px và
+       căn giữa đúng phần ảnh (top 100px) như ý đồ thiết kế ban đầu */
+    .tours-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+        top: 100px;
+    }
+
     .tours-arrow-prev {
         left: 6px;
     }
