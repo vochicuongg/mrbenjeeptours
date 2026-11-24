@@ -590,6 +590,21 @@
         font-size: 0.8rem;
     }
 
+    /* Tâm nút Tours trùng đúng góc dưới của ảnh (nửa nút nhô ra ngoài
+       thẻ) — wrapper không được cắt phần nhô ra; lưới thẻ tự cắt nội
+       dung của nó nên mở overflow ở wrapper vẫn an toàn */
+    .tours-slider-wrapper {
+        overflow: visible;
+    }
+
+    .tours-arrow-prev {
+        left: -12px;
+    }
+
+    .tours-arrow-next {
+        right: -12px;
+    }
+
     .tours-arrow-prev {
         left: 6px;
     }

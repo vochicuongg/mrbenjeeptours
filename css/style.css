@@ -1293,14 +1293,14 @@ button,
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* Arrow centers sit on the cards' photo corners:
+   52px wrapper gutter minus half the 44px button */
 .tours-arrow-prev {
-    left: -17px;
-
+    left: 30px;
 }
 
 .tours-arrow-next {
-    right: -17px;
-
+    right: 30px;
 }
 
 .tours-arrow:hover {
@@ -2954,6 +2954,21 @@ button,
         width: 36px;
         height: 36px;
         font-size: 0.8rem;
+    }
+
+    /* Tâm nút Tours trùng đúng góc dưới của ảnh (nửa nút nhô ra ngoài
+       thẻ) — wrapper không được cắt phần nhô ra; lưới thẻ tự cắt nội
+       dung của nó nên mở overflow ở wrapper vẫn an toàn */
+    .tours-slider-wrapper {
+        overflow: visible;
+    }
+
+    .tours-arrow-prev {
+        left: -12px;
+    }
+
+    .tours-arrow-next {
+        right: -12px;
     }
 
     .tours-arrow-prev {

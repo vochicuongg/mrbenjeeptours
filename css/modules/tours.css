@@ -57,14 +57,14 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* Arrow centers sit on the cards' photo corners:
+   52px wrapper gutter minus half the 44px button */
 .tours-arrow-prev {
-    left: -17px;
-
+    left: 30px;
 }
 
 .tours-arrow-next {
-    right: -17px;
-
+    right: 30px;
 }
 
 .tours-arrow:hover {
