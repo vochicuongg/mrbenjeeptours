@@ -1022,7 +1022,11 @@ button,
         overflow: hidden;
         border: 1px solid rgba(212, 175, 55, 0.15);
         background: var(--color-bg-alt);
-        min-height: 280px;
+        /* Fixed height: card height no longer follows each photo's
+           native aspect ratio (live cards measured 268–474px tall);
+           the photo crops via object-fit: cover instead. */
+        height: 360px;
+        min-height: 360px;
         transform: none !important;
         transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease),
             border-color 0.35s var(--ease);
@@ -1036,7 +1040,8 @@ button,
 
     /* Hero card (1st) — larger */
     .dest-stack .destination-card:nth-child(1) {
-        min-height: 400px;
+        height: 460px;
+        min-height: 460px;
         border-color: rgba(212, 175, 55, 0.3);
     }
 
@@ -1070,17 +1075,20 @@ button,
         transition: width 0.4s var(--ease), opacity 0.4s var(--ease);
     }
 
+    /* Fade sits at the SEAM with the text panel (was on the outer
+       edge, where it only darkened a third of every photo while the
+       seam itself stayed a hard line — measured on the live site). */
     .destination-card:nth-child(odd) .destination-img-wrap::after {
-        left: 0;
-        right: auto;
-        background: linear-gradient(to right,
+        right: 0;
+        left: auto;
+        background: linear-gradient(to left,
                 var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.6) 50%, transparent 100%);
     }
 
     .destination-card:nth-child(even) .destination-img-wrap::after {
-        right: 0;
-        left: auto;
-        background: linear-gradient(to left,
+        left: 0;
+        right: auto;
+        background: linear-gradient(to right,
                 var(--color-bg-alt) 0%, rgba(35, 23, 9, 0.6) 50%, transparent 100%);
     }
 
@@ -1196,11 +1204,13 @@ button,
     }
 
     .destination-card {
-        min-height: 240px !important;
+        height: 300px !important;
+        min-height: 300px !important;
     }
 
     .dest-stack .destination-card:nth-child(1) {
-        min-height: 320px !important;
+        height: 380px !important;
+        min-height: 380px !important;
     }
 
     .destination-img-wrap {
@@ -1226,6 +1236,37 @@ button,
 
     .dest-stack .destination-card:nth-child(1) .destination-info {
         padding: 32px 28px !important;
+    }
+}
+
+/* ── Destinations Split-Hero — large screens (≥1600px) ──
+   Cards get taller and type steps up so the section fills a big
+   monitor instead of sitting at laptop scale in the middle. */
+@media (min-width: 1600px) {
+    .destination-card {
+        height: 400px;
+        min-height: 400px;
+    }
+
+    .dest-stack .destination-card:nth-child(1) {
+        height: 520px;
+        min-height: 520px;
+    }
+
+    .destination-info {
+        padding: 48px 44px;
+    }
+
+    .destination-info h3 {
+        font-size: 1.85rem;
+    }
+
+    .destination-info p {
+        font-size: 1rem;
+    }
+
+    .dest-stack .destination-card:nth-child(1) .destination-info p {
+        font-size: 1.08rem;
     }
 }
 
