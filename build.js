@@ -12,6 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { execSync } = require('child_process');
 
 const CSS_MODULES = [
@@ -126,12 +127,33 @@ function buildJS() {
   console.log(`✓ JS Built:  script.js (${formatBytes(outSize)}) -> script.min.js (${formatBytes(minSize)})`);
 }
 
+// Cache-busting: stamp index.html with a content hash of each minified
+// bundle (css/style.min.css?v=<hash>). Without it, browsers keep serving
+// the previous CSS/JS from cache after a deploy and fixes look "not
+// applied" — the hash changes only when the bundle content changes.
+function stampAssetVersions() {
+  const indexFile = path.join(__dirname, 'index.html');
+  let html = fs.readFileSync(indexFile, 'utf8');
+  const assets = [
+    ['css/style.min.css', path.join(__dirname, 'css', 'style.min.css')],
+    ['js/script.min.js', path.join(__dirname, 'js', 'script.min.js')]
+  ];
+  for (const [href, file] of assets) {
+    const hash = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+    const pattern = new RegExp(href.replace(/\//g, '\\/').replace(/\./g, '\\.') + '(\\?v=[a-z0-9]+)?', 'g');
+    html = html.replace(pattern, `${href}?v=${hash}`);
+  }
+  fs.writeFileSync(indexFile, html, 'utf8');
+  console.log('✓ index.html asset versions stamped');
+}
+
 function buildAll() {
   const startTime = Date.now();
   console.log('\n--- Building MR. BEN Assets ---');
   try {
     buildCSS();
     buildJS();
+    stampAssetVersions();
     const duration = Date.now() - startTime;
     console.log(`✓ Build completed in ${duration}ms\n`);
   } catch (err) {

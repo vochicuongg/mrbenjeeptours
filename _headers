@@ -3,3 +3,11 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
+
+# Bundles are version-stamped (?v=hash) by build.js; still force
+# revalidation so an unstamped URL can never serve a stale bundle.
+/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/js/*
+  Cache-Control: public, max-age=0, must-revalidate
