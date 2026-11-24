@@ -112,12 +112,13 @@
     applyDesktop(false);
   }
 
-  /* ── Autoplay: advance every 2s (desktop only). Pauses while
-        hovered, while dragged, off-screen, or when the tab is
-        hidden; any manual navigation restarts the 2s countdown. ── */
+  /* ── Autoplay: advance every 2s (desktop only), wrapping from
+        the last position back to the first. The ONLY pauses are a
+        hidden tab and an active drag — hover / off-screen pauses
+        were removed: they silently froze the loop on the last card
+        whenever the pointer rested over the section (owner report
+        2026-11-24). Manual navigation restarts the 2s countdown. ── */
   var autoTimer = null;
-  var autoInView = true;
-  var autoHover = false;
 
   function stopAutoplay() {
     if (autoTimer) {
@@ -128,32 +129,13 @@
 
   function syncAutoplay() {
     stopAutoplay();
-    if (!isDesktop() || !autoInView || autoHover || document.hidden) return;
+    if (!isDesktop() || document.hidden) return;
     autoTimer = setInterval(function () {
       goNextDesktop();
     }, 2000);
   }
 
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      autoInView = entries[0].isIntersecting;
-      syncAutoplay();
-    }, { threshold: 0.25 }).observe(stack);
-  }
-
   document.addEventListener('visibilitychange', syncAutoplay);
-
-  var destWrap = stack.parentElement;
-  if (destWrap) {
-    destWrap.addEventListener('mouseenter', function () {
-      autoHover = true;
-      syncAutoplay();
-    });
-    destWrap.addEventListener('mouseleave', function () {
-      autoHover = false;
-      syncAutoplay();
-    });
-  }
 
   /* Navigate: top card flies out LEFT, cards behind promote up (next ►) */
   function goNext() {
